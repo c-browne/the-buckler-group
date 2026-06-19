@@ -1,31 +1,55 @@
-[README.md](https://github.com/user-attachments/files/29139417/README.md)
-# The Buckler Group Website
+# The Buckler Group
 
-Static HTML/CSS website package for deployment on Netlify through GitHub.
+The Buckler Group is a strategic advisory platform operating at the intersection of hospitality, development, capital alignment, and Caribbean opportunity.
 
-## Contents
+## Institutional Declaration
 
-- `index.html` — full website
-- `netlify.toml` — Netlify configuration
-- `assets/images/` — placeholder folder for future owned images
+2026: The Year of the Caribbean Renaissance™
 
-## Netlify Deployment
+## Strategic Focus
 
-1. Create a new GitHub repository.
-2. Upload all files in this folder to the repository root.
-3. In Netlify, select **Add new site** → **Import an existing project**.
-4. Connect GitHub and select the repository.
-5. Build command: leave blank.
-6. Publish directory: `.`
-7. Deploy.
+- Hospitality Strategy
+- Development Readiness
+- Capital Alignment
+- Jurisdiction Intelligence
 
-## Production Notes
+## Caribbean Entitlement & Hospitality Strategic Sessions
 
-- Replace placeholder links such as `https://example.com/strategic-sessions-reserve`.
-- Replace remote/stock images with licensed TBG-owned assets before launch.
-- Keep public pricing off the homepage. Route `Reserve Participation` to a private pricing and benefits page.
-- Maintain brand hierarchy:
-  - The Buckler Group — strategic advisory
-  - Caribbean Renaissance™ — institutional declaration
-  - EXODUS™ — platform initiatives
-  - Strategic Sessions — invite-only executive platform
+Powered by EXODUS™
+
+Moderated by The Buckler Group
+
+A curated executive platform examining hospitality, development readiness, entitlement pathways, and jurisdiction opportunity across the Caribbean.
+
+## EXODUS™
+
+EXODUS™ is a selective platform designed to facilitate participation in curated initiatives, executive programming, and strategic engagement opportunities across the Caribbean region.
+
+## Website Infrastructure
+
+This repository contains the public-facing website for The Buckler Group.
+
+### Core Files
+
+- index.html
+- netlify.toml
+- assets/images/
+- README.md
+
+## Deployment
+
+The website is deployed through Netlify and maintained through GitHub.
+
+## Production Standards
+
+- Replace placeholder links before public launch.
+- Use licensed or owned imagery only.
+- Route participation inquiries through approved application and reservation pathways.
+- Maintain institutional positioning across all future website updates.
+
+## Brand Hierarchy
+
+1. The Buckler Group
+2. Caribbean Renaissance™
+3. EXODUS™
+4. Caribbean Entitlement & Hospitality Strategic Sessions
