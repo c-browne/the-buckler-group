@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Buckler Group | V7.4 Institutional Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #07111f;
+      --midnight: #0d1a2b;
+      --ink: #101828;
+      --slate: #667085;
+      --bone: #f7f3ea;
+      --sand: #eee6d8;
+      --gold: #b7904b;
+      --white: #ffffff;
+      --panel: #111c2d;
+      --line: rgba(183, 144, 75, 0.35);
+      --soft-line: rgba(7, 17, 31, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bone);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      background: rgba(7, 17, 31, .96);
+      color: var(--white);
+      padding: 17px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .mark {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--gold);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 15px;
+      background: rgba(255,255,255,.03);
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,.82);
+      align-items: center;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 88vh;
+      background:
+        linear-gradient(90deg, rgba(7,17,31,.97) 0%, rgba(7,17,31,.88) 48%, rgba(7,17,31,.28) 100%),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      display: grid;
+      align-items: center;
+      padding: 7vw 5vw;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      line-height: 1.05;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    h1 {
+      max-width: 930px;
+      font-size: clamp(46px, 7vw, 96px);
+      letter-spacing: -0.045em;
+    }
+
+    .hero p {
+      max-width: 710px;
+      font-size: 20px;
+      color: rgba(255,255,255,.82);
+      margin: 28px 0 34px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border: 1px solid var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary { background: var(--gold); color: var(--navy); }
+    .btn.secondary { color: var(--white); }
+    .btn.dark { color: var(--navy); }
+    .btn.ghost { color: var(--navy); border-color: rgba(7,17,31,.22); }
+
+    section { padding: 92px 5vw; }
+
+    .section-head {
+      max-width: 980px;
+      margin-bottom: 40px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(34px, 4.5vw, 60px);
+      color: var(--navy);
+      letter-spacing: -0.035em;
+    }
+
+    .section-head p {
+      max-width: 790px;
+      color: var(--slate);
+      font-size: 18px;
+      margin-top: 18px;
+    }
+
+    .stats {
+      background: var(--navy);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stat {
+      padding: 38px 5vw;
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat span {
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .services, .cards, .spotlights, .roles {
+      display: grid;
+      gap: 22px;
+    }
+
+    .services { grid-template-columns: repeat(4, 1fr); }
+    .cards, .roles { grid-template-columns: repeat(3, 1fr); }
+    .spotlights { grid-template-columns: repeat(3, 1fr); }
+
+    .service, .card, .role-card {
+      background: var(--white);
+      border: 1px solid var(--soft-line);
+      padding: 30px;
+      min-height: 245px;
+      box-shadow: 0 22px 60px rgba(7,17,31,.05);
+    }
+
+    .service {
+      min-height: 305px;
+      border-top: 4px solid var(--gold);
+    }
+
+    .service h3, .card h3, .role-card h3 {
+      color: var(--navy);
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .service p, .card p, .role-card p {
+      color: var(--slate);
+      margin: 0 0 22px;
+    }
+
+    .service ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: var(--slate);
+      font-size: 14px;
+    }
+
+    .dark-section {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .dark-section .section-head h2 { color: var(--white); }
+    .dark-section .section-head p { color: rgba(255,255,255,.7); }
+
+    .role-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .role-card h3 { color: var(--white); }
+    .role-card p { color: rgba(255,255,255,.70); }
+
+    .program-panel {
+      background:
+        linear-gradient(90deg, rgba(7,17,31,.96), rgba(7,17,31,.78)),
+        url("https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1700&q=80");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 58px;
+      border: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: end;
+    }
+
+    .program-panel h2 {
+      color: var(--white);
+      font-size: clamp(36px, 5vw, 72px);
+      letter-spacing: -0.04em;
+    }
+
+    .program-details {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(183,144,75,.38);
+      padding: 28px;
+    }
+
+    .program-details div {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .program-details div:last-child { border-bottom: none; }
+    .program-details strong { color: var(--gold); display: block; margin-bottom: 4px; }
+    .program-details span { color: rgba(255,255,255,.78); }
+
+    .spotlight {
+      position: relative;
+      overflow: hidden;
+      min-height: 315px;
+      padding: 28px;
+      display: flex;
+      align-items: flex-end;
+      background-color: var(--midnight);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .spotlight:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,17,31,.10), rgba(7,17,31,.90));
+      z-index: 1;
+    }
+
+    .spotlight:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(183,144,75,.35);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .spotlight.guyana { background: url("https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&w=900&q=80") center/cover; }
+    .spotlight.barbados { background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80") center/cover; }
+    .spotlight.bahamas { background: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80") center/cover; }
+    .spotlight.grenada { background: url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80") center/cover; }
+    .spotlight.antigua { background: url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80") center/cover; }
+    .spotlight.tt { background: url("https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80") center/cover; }
+
+    .spotlight-content {
+      position: relative;
+      z-index: 3;
+      color: var(--white);
+    }
+
+    .tag {
+      color: var(--gold);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .spotlight h3 { color: var(--white); font-size: 25px; margin-bottom: 12px; }
+    .spotlight p { color: rgba(255,255,255,.80); margin: 0 0 22px; }
+
+    .founder {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .founder-visual {
+      background:
+        linear-gradient(180deg, rgba(7,17,31,.04), rgba(7,17,31,.70)),
+        url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=80");
+      background-size: cover;
+      background-position: center;
+      min-height: 500px;
+      border: 1px solid var(--soft-line);
+    }
+
+    .founder-copy {
+      background: var(--white);
+      padding: 48px;
+      border: 1px solid var(--soft-line);
+    }
+
+    .founder-copy h2 {
+      font-size: clamp(34px, 4vw, 58px);
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    .founder-copy p {
+      color: var(--slate);
+      font-size: 18px;
+      max-width: 780px;
+    }
+
+    .quote-line {
+      border-left: 4px solid var(--gold);
+      padding: 16px 0 16px 22px;
+      margin: 28px 0;
+      color: var(--navy);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .affiliations {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: rgba(183,144,75,.35);
+      border: 1px solid rgba(183,144,75,.35);
+    }
+
+    .affiliation {
+      background: var(--navy);
+      color: var(--white);
+      padding: 28px;
+      min-height: 170px;
+    }
+
+    .affiliation strong {
+      display: block;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .affiliation span {
+      color: rgba(255,255,255,.72);
+      font-size: 14px;
+    }
+
+    .insights-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 22px;
+    }
+
+    .insight {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .insight img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(.85) contrast(1.04);
+    }
+
+    .insight.large img { height: 334px; }
+
+    .insight-body { padding: 26px; }
+
+    .insight h3 {
+      color: var(--white);
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .insight p {
+      color: rgba(255,255,255,.68);
+      margin: 0;
+    }
+
+    .cta-band {
+      background: linear-gradient(90deg, var(--navy), #13243b);
+      color: var(--white);
+      padding: 66px 5vw;
+      display: flex;
+      justify-content: space-between;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .cta-band h2 {
+      color: var(--white);
+      font-size: clamp(30px, 4vw, 52px);
+    }
+
+    footer {
+      background: #050b14;
+      color: rgba(255,255,255,.7);
+      padding: 42px 5vw;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+
+    .declaration-panel {
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+      padding: 46px;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .declaration-panel h3 {
+      color: var(--white);
+      font-size: clamp(32px, 4vw, 56px);
+      letter-spacing: -0.035em;
+    }
+
+    .declaration-panel p {
+      color: rgba(255,255,255,.74);
+      font-size: 18px;
+      margin: 0;
+      max-width: 760px;
+    }
+
+    .program-panel {
+      box-shadow: 0 34px 90px rgba(7,17,31,.18);
+    }
+
+    .program-details {
+      backdrop-filter: blur(8px);
+    }
+
+
+    .declaration-hero-band {
+      background: #07111f;
+      color: var(--white);
+      padding: 96px 8vw;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .declaration-hero-band:before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(183,144,75,.18);
+      left: -140px;
+      top: -170px;
+      transform: rotate(38deg);
+    }
+
+    .declaration-hero-band:after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(183,144,75,.16);
+      right: -150px;
+      bottom: -180px;
+      transform: rotate(38deg);
+    }
+
+    .declaration-hero-band .declaration-label {
+      color: var(--gold);
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .declaration-hero-band .declaration-title {
+      color: var(--white);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(44px, 6vw, 92px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      margin: 0 auto 26px;
+      max-width: 1100px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .declaration-hero-band .declaration-copy {
+      color: rgba(255,255,255,.76);
+      max-width: 920px;
+      margin: 0 auto;
+      font-size: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .regional-demand {
+      background: #0b1524;
+      color: var(--white);
+      padding: 82px 5vw;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .regional-demand .section-head h2 {
+      color: var(--white);
+    }
+
+    .regional-demand .section-head p {
+      color: rgba(255,255,255,.70);
+    }
+
+    .demand-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .demand-stat {
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(183,144,75,.35);
+      padding: 30px;
+      min-height: 210px;
+    }
+
+    .demand-stat .figure {
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(38px, 4vw, 58px);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .demand-stat h3 {
+      color: var(--white);
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .demand-stat p {
+      color: rgba(255,255,255,.68);
+      margin: 0;
+      font-size: 15px;
+    }
+
+
+    .pricing-section {
+      background: var(--sand);
+      padding: 92px 5vw;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid var(--soft-line);
+      padding: 30px;
+      min-height: 320px;
+      box-shadow: 0 22px 60px rgba(7,17,31,.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pricing-card.featured {
+      border: 1px solid var(--gold);
+      background: #fffaf0;
+    }
+
+    .pricing-card .tier {
+      color: var(--gold-dark);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .pricing-card h3 {
+      color: var(--navy);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .pricing-card .price {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--navy);
+      font-size: 42px;
+      line-height: 1;
+      margin: 18px 0;
+    }
+
+    .pricing-card p {
+      color: var(--slate);
+      margin: 0 0 20px;
+      font-size: 15px;
+    }
+
+    .pricing-card ul {
+      color: var(--slate);
+      padding-left: 18px;
+      margin: 0 0 24px;
+      font-size: 14px;
+    }
+
+    .payment-note {
+      margin-top: 22px;
+      color: var(--slate);
+      font-size: 13px;
+      max-width: 860px;
+    }
+
+
+    .stakeholder-pricing {
+      background: var(--sand);
+      padding: 86px 5vw;
+      border-top: 1px solid rgba(7,17,31,.08);
+      border-bottom: 1px solid rgba(7,17,31,.08);
+    }
+
+    .stakeholder-pricing .section-head {
+      max-width: 900px;
+    }
+
+    .stakeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .stakeholder-card {
+      background: var(--white);
+      border: 1px solid var(--soft-line);
+      padding: 28px;
+      min-height: 300px;
+      box-shadow: 0 22px 60px rgba(7,17,31,.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stakeholder-card.selected {
+      border: 1px solid var(--gold);
+      background: #fffaf0;
+    }
+
+    .stakeholder-card .tier-label {
+      color: var(--gold-dark);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .stakeholder-card h3 {
+      color: var(--navy);
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .stakeholder-card .price {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--navy);
+      font-size: 40px;
+      line-height: 1;
+      margin: 16px 0;
+    }
+
+    .stakeholder-card p {
+      color: var(--slate);
+      margin: 0 0 20px;
+      font-size: 15px;
+    }
+
+    .pricing-discretion {
+      margin-top: 22px;
+      color: var(--slate);
+      font-size: 13px;
+      max-width: 900px;
+    }
+
+
+    .declaration-button {
+      justify-content: center;
+      margin-top: 34px;
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .founder-compact {
+      background: var(--bone);
+      border-top: 1px solid rgba(7,17,31,.08);
+      border-bottom: 1px solid rgba(7,17,31,.08);
+      display: grid;
+      grid-template-columns: .65fr 1.35fr;
+      gap: 34px;
+      align-items: center;
+      padding: 64px 5vw;
+    }
+
+    .founder-compact h2 {
+      color: var(--navy);
+      font-size: clamp(30px, 3.5vw, 48px);
+    }
+
+    .founder-compact p {
+      color: var(--slate);
+      font-size: 17px;
+      max-width: 860px;
+      margin: 0;
+    }
+
+
+    .hero-line {
+      display: block;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat strong {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .spotlight .tag {
+      display: inline-block;
+      background: rgba(7,17,31,.86);
+      color: var(--gold);
+      border: 1px solid rgba(183,144,75,.60);
+      padding: 7px 10px;
+      margin-bottom: 14px;
+      line-height: 1.2;
+      backdrop-filter: blur(4px);
+    }
+
+    .brand {
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .brand span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      font-size: 18px;
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .brand-crest {
+      height: 58px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .brand .wordmark {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .mark,
+    .buckler-mark {
+      display: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .brand-crest {
+        height: 48px;
+      }
+
+      .brand .wordmark {
+        font-size: 18px;
+      }
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .brand-crest {
+      height: 62px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .brand .wordmark {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      color: var(--white);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .mark,
+    .buckler-mark {
+      display: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .brand-crest {
+        height: 50px;
+      }
+      .brand .wordmark {
+        font-size: 18px;
+      }
+    }
+
+
+    .institutional-footer {
+      background: #050b14;
+      color: rgba(255,255,255,.72);
+      padding: 72px 5vw 34px;
+      border-top: 1px solid rgba(183,144,75,.35);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr .8fr;
+      gap: 42px;
+      margin-bottom: 54px;
+    }
+
+    .footer-brand {
+      max-width: 460px;
+    }
+
+    .footer-brand h3 {
+      color: var(--white);
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,.68);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .footer-column h4 {
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin: 0 0 18px;
+    }
+
+    .footer-column a,
+    .footer-column span {
+      display: block;
+      color: rgba(255,255,255,.68);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .footer-column a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: rgba(255,255,255,.50);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .services, .affiliations, .demand-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .services, .cards, .roles, .spotlights, .program-panel, .founder, .insights-grid, .affiliations, .stats, .declaration-panel, .demand-grid, .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero { min-height: auto; }
+      .cta-band { flex-direction: column; align-items: flex-start; }
+      .program-panel { padding: 32px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand"><img class="brand-crest" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUQkcgY3Jlc3QgbG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGQiIHgxPSIxMjAiIHkxPSIxMDAiIHgyPSI3ODAiIHkyPSI4MzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRjNEMzg2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4yOCIgc3RvcC1jb2xvcj0iI0M5OUE0NSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTgiIHN0b3AtY29sb3I9IiNGN0Q5OEUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjc4IiBzdG9wLWNvbG9yPSIjQTk3NjI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0U4QzQ2RSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZFNvZnQiIHgxPSIyMzAiIHkxPSIyMTAiIHgyPSI3MTAiIHkyPSI2OTAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFM0ExIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4zNSIgc3RvcC1jb2xvcj0iI0QyQTM0QiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNjUiIHN0b3AtY29sb3I9IiNGNEQ0ODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjQjI3RjJGIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic29mdFNoYWRvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSI4IiBzdGREZXZpYXRpb249IjEwIiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIgZmxvb2Qtb3BhY2l0eT0iMC4zNSIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8ZyBmaWx0ZXI9InVybCgjc29mdFNoYWRvdykiPgogICAgPHBhdGggZD0iTTQ1MCA1NAogICAgICAgICAgICAgQzU0MCAxMDUgNjU0IDE0MSA4MDUgMTQyCiAgICAgICAgICAgICBMODA1IDQxMwogICAgICAgICAgICAgQzgwNSA1ODMgNjc4IDczNSA0NTAgODQ2CiAgICAgICAgICAgICBDMjIyIDczNSA5NSA1ODMgOTUgNDEzCiAgICAgICAgICAgICBMOTUgMTQyCiAgICAgICAgICAgICBDMjQ2IDE0MSAzNjAgMTA1IDQ1MCA1NFoiCiAgICAgICAgICBmaWxsPSJub25lIgogICAgICAgICAgc3Ryb2tlPSJ1cmwoI2dvbGQpIgogICAgICAgICAgc3Ryb2tlLXdpZHRoPSIyNiIKICAgICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KCiAgICA8cGF0aCBkPSJNNDUwIDkyCiAgICAgICAgICAgICBDNTQwIDEzOSA2NTAgMTY5IDc3MCAxNzEKICAgICAgICAgICAgIEw3NzAgNDEzCiAgICAgICAgICAgICBDNzcwIDU2MyA2NTQgNjk3IDQ1MCA4MDIKICAgICAgICAgICAgIEMyNDYgNjk3IDEzMCA1NjMgMTMwIDQxMwogICAgICAgICAgICAgTDEzMCAxNzEKICAgICAgICAgICAgIEMyNTAgMTY5IDM2MCAxMzkgNDUwIDkyWiIKICAgICAgICAgIGZpbGw9InJnYmEoMCwwLDAsMC4wOCkiCiAgICAgICAgICBzdHJva2U9InJnYmEoMjQzLDIxMSwxMzQsMC4zNSkiCiAgICAgICAgICBzdHJva2Utd2lkdGg9IjUiCiAgICAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPC9nPgoKICA8dGV4dCB4PSI0NTAiIHk9IjU0NSIKICAgICAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIyODIiCiAgICAgICAgZm9udC13ZWlnaHQ9IjUwMCIKICAgICAgICBsZXR0ZXItc3BhY2luZz0iLTE4IgogICAgICAgIGZpbGw9InVybCgjZ29sZFNvZnQpIj5UQkc8L3RleHQ+Cjwvc3ZnPg==" alt="The Buckler Group crest"><span class="wordmark">The Buckler Group</span></div>
+    <nav>
+      <a href="#advisory">Advisory</a>
+      <a href="#renaissance">Caribbean Renaissance™</a>
+      <a href="#sessions">Strategic Sessions</a>
+      <a href="#exodus">EXODUS™</a>
+      <a href="#insights">Insights</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Strategic Advisory | Hospitality | Development | Caribbean Opportunity</div>
+        <h1><span class="hero-line">Building Order.</span><span class="hero-line">Advancing Opportunity.</span></h1>
+        <p>Strategic advisory across hospitality, development, capital alignment, and Caribbean opportunity.</p>
+        <div class="button-row">
+          <a class="btn primary" href="#contact">Request Strategic Advisory</a>
+          <a class="btn secondary" href="#renaissance">Explore Caribbean Renaissance™</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="declaration-hero-band">
+      <div class="declaration-label">Institutional Declaration</div>
+      <h2 class="declaration-title">2026: The Year of the Caribbean Renaissance™</h2>
+      <div class="button-row declaration-button">
+        <a class="btn primary" href="#renaissance">Learn More</a>
+      </div>
+    </section>
+
+    <section class="regional-demand">
+      <div class="section-head">
+        <div class="eyebrow">Regional Demand</div>
+        <h2>The Caribbean Opportunity</h2>
+        <p>Selected indicators illustrating the scale of demand, economic relevance, and development potential across the Caribbean region.</p>
+      </div>
+
+      <div class="demand-grid">
+        <article class="demand-stat">
+          <div class="figure">35M+</div>
+          <h3>Annual Visitors</h3>
+          <p>Sustained global demand reinforces the Caribbean’s position as one of the world’s most important hospitality regions.</p>
+        </article>
+
+        <article class="demand-stat">
+          <div class="figure">20%–80%+</div>
+          <h3>Tourism Contribution to GDP</h3>
+          <p>Tourism remains a core economic driver across regional markets, shaping investment, employment, and infrastructure priorities.</p>
+        </article>
+
+        <article class="demand-stat">
+          <div class="figure">10M+</div>
+          <h3>Global Caribbean Diaspora</h3>
+          <p>A globally distributed population creates enduring demand, influence, relationships, and capital connection to the region.</p>
+        </article>
+
+        <article class="demand-stat">
+          <div class="figure">$20B+</div>
+          <h3>Annual Remittance Flows</h3>
+          <p>Remittance activity reflects the depth of economic connection between the diaspora and Caribbean households, markets, and institutions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><strong>20+</strong><span>Caribbean jurisdictions engaged</span></div>
+      <div class="stat"><strong>6</strong><span>Priority Markets</span></div>
+      <div class="stat"><strong>4</strong><span>Advisory Practices</span></div>
+      <div class="stat"><strong>1</strong><span>Institutional Declaration</span></div>
+    </section>
+
+    <section id="advisory">
+      <div class="section-head">
+        <div class="eyebrow">The Buckler Group</div>
+        <h2>Strategic advisory for complex markets.</h2>
+        <p>TBG advises institutions, investors, developers, and public-sector stakeholders where capital, hospitality, development, and execution must align.</p>
+      </div>
+
+      <div class="services">
+        <article class="service"><h3>Strategic Advisory</h3><p>Market-entry, institutional positioning, stakeholder alignment, and execution strategy.</p><ul><li>Market-entry strategy</li><li>Strategic positioning</li><li>Execution planning</li></ul></article>
+        <article class="service"><h3>Hospitality Advisory</h3><p>Destination strategy, hospitality positioning, tourism development, and project narrative.</p><ul><li>Hospitality strategy</li><li>Destination readiness</li><li>Resort positioning</li></ul></article>
+        <article class="service"><h3>Development Readiness</h3><p>Early-stage project assessment across land use, approvals, incentives, and market viability.</p><ul><li>Pre-development review</li><li>Entitlement pathways</li><li>Public-private alignment</li></ul></article>
+        <article class="service"><h3>Capital Alignment</h3><p>Opportunity framing, investor readiness, partnership strategy, and strategic communication.</p><ul><li>Investment narrative</li><li>Partnership strategy</li><li>Investor readiness</li></ul></article>
+      </div>
+    </section>
+
+    
+
+
+
+    <section id="sessions">
+      <div class="program-panel">
+        <div>
+          <div class="eyebrow">Flagship Program</div>
+          <h2>Caribbean Entitlement & Hospitality Strategic Sessions</h2>
+          <p style="color:rgba(255,255,255,.78);font-size:18px;max-width:720px;">A curated executive platform examining hospitality, development readiness, entitlement pathways, and jurisdiction opportunity across the Caribbean.</p>
+          <div class="button-row">
+            <a class="btn primary" href="#participate">Request Invitation</a>
+            <a class="btn secondary" href="#jurisdictions">Priority Markets</a>
+          </div>
+        </div>
+
+        <div class="program-details">
+          <div><strong>Powered By</strong><span>EXODUS™</span></div>
+          <div><strong>Moderated By</strong><span>The Buckler Group</span></div>
+          <div><strong>Focus</strong><span>Hospitality strategy, development readiness, entitlement pathways, and jurisdiction intelligence.</span></div>
+          <div><strong>Format</strong><span>Invite-only executive session, closed strategic discussion, and Jurisdiction Opportunity Mission™.</span></div>
+        </div>
+      </div>
+    </section>
+<section id="jurisdictions">
+      <div class="section-head">
+        <div class="eyebrow">Jurisdiction Intelligence</div>
+        <h2>Priority Market Spotlights</h2>
+        <p>Selected jurisdictions demonstrating relevance to the evolving landscape of Caribbean hospitality, investment, development, and economic growth.</p>
+      </div>
+
+      <div class="spotlights">
+        <article class="spotlight guyana"><div class="spotlight-content"><div class="tag">Economic Expansion</div><h3>Guyana</h3><p>Strategic relevance driven by energy-led growth, infrastructure investment, and expanding hospitality demand.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+        <article class="spotlight barbados"><div class="spotlight-content"><div class="tag">Capital & Lifestyle</div><h3>Barbados</h3><p>Established luxury market supported by global capital, lifestyle demand, and sophisticated financial infrastructure.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+        <article class="spotlight bahamas"><div class="spotlight-content"><div class="tag">Hospitality Scale</div><h3>Bahamas</h3><p>Mature hospitality ecosystem supported by tourism infrastructure, resort investment, and international visitation.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+        <article class="spotlight grenada"><div class="spotlight-content"><div class="tag">Regenerative Tourism</div><h3>Grenada</h3><p>Emerging relevance through regenerative tourism, boutique hospitality, and environmentally aligned development.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+        <article class="spotlight antigua"><div class="spotlight-content"><div class="tag">Maritime & Lifestyle</div><h3>Antigua & Barbuda</h3><p>Maritime tourism and luxury hospitality create differentiated opportunities across resort and residential sectors.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+        <article class="spotlight tt"><div class="spotlight-content"><div class="tag">Market Differentiation</div><h3>Trinidad & Tobago</h3><p>Dual-market dynamics combine tourism opportunity with established commercial and institutional infrastructure.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+      </div>
+    </section>
+
+    <section id="exodus" class="dark-section">
+      <div class="section-head">
+        <div class="eyebrow">EXODUS™</div>
+        <h2>The Caribbean convening platform.</h2>
+        <p>EXODUS™ powers the Strategic Sessions and related executive programming focused on Caribbean opportunity, jurisdiction engagement, and market-facing dialogue.</p>
+      </div>
+
+      <div class="cards">
+        <article class="role-card"><div class="tag">Programs</div><h3>Strategic Sessions</h3><p>Executive conversations organized around hospitality, entitlement, development readiness, and jurisdiction opportunity.</p></article>
+        <article class="role-card"><div class="tag">Engagement</div><h3>Executive Sessions</h3><p>Curated forums for senior stakeholders across development, investment, hospitality, and public leadership.</p></article>
+        <article class="role-card"><div class="tag">Jurisdiction Opportunity Mission™</div><h3>Jurisdiction Engagement</h3><p>Invitation-only inward real estate missions for selected jurisdictions, priority projects, and qualified participants.</p></article>
+      </div>
+    </section>
+<section>
+      <div class="section-head">
+        <div class="eyebrow">Market-Making Discipline</div>
+        <h2>Order before opportunity.</h2>
+        <p>TBG works where markets require structure: clearer positioning, credible development narratives, disciplined stakeholder alignment, and investable pathways.</p>
+      </div>
+
+      <div class="affiliations">
+        <div class="affiliation"><strong>Position</strong><span>Define the market thesis and clarify the opportunity.</span></div>
+        <div class="affiliation"><strong>Structure</strong><span>Organize the pathway from interest to execution.</span></div>
+        <div class="affiliation"><strong>Align</strong><span>Bring public, private, and capital priorities into focus.</span></div>
+        <div class="affiliation"><strong>Signal</strong><span>Frame development readiness for serious stakeholders.</span></div>
+        <div class="affiliation"><strong>Advance</strong><span>Move from fragmented interest to disciplined action.</span></div>
+      </div>
+    </section>
+
+    <section id="insights" class="dark-section">
+      <div class="section-head">
+        <div class="eyebrow">Insights</div>
+        <h2>Strategic intelligence, not commentary.</h2>
+        <p>Selected perspectives on hospitality, development readiness, capital alignment, entitlement risk, and the Caribbean Renaissance™.</p>
+      </div>
+
+      <div class="insights-grid">
+        <article class="insight large"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80" alt="Executive advisory setting"><div class="insight-body"><div class="tag">Caribbean Renaissance™</div><h3>Why the Caribbean Renaissance™ Matters</h3><p>A strategic view of hospitality, development, capital, and regional competitiveness.</p></div></article>
+        <article class="insight"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" alt="Hospitality asset"><div class="insight-body"><div class="tag">Hospitality</div><h3>Hospitality as Economic Infrastructure</h3><p>Hotels, resorts, residences, and mixed-use assets as engines of destination value.</p></div></article>
+        <article class="insight"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Urban development"><div class="insight-body"><div class="tag">Development</div><h3>Entitlements and Development Readiness</h3><p>Approvals, incentives, land-use alignment, and institutional coordination before execution.</p></div></article>
+      </div>
+    </section>
+
+    
+    <section class="founder-compact">
+      <div>
+        <div class="eyebrow">Architect of Order</div>
+        <h2>Christopher A. Browne</h2>
+      </div>
+      <div>
+        <p>Christopher A. Browne founded The Buckler Group to advance strategic alignment across hospitality, development, capital, and Caribbean opportunity. His work focuses on organizing complex environments into durable pathways for growth and execution.</p>
+      </div>
+    </section>
+
+    <section class="pricing-section" id="waitlist">
+      <div class="section-head">
+        <div class="eyebrow">EXODUS™</div>
+        <h2>EXODUS™</h2>
+        <p>Applications are being accepted for future participation in selected EXODUS™ initiatives.</p>
+      </div>
+
+      <div style="max-width:900px;background:#fff;padding:40px;border:1px solid rgba(7,17,31,.12);">
+        <h3 style="margin-top:0;color:#07111f;">Charter Membership</h3>
+        <p style="color:#667085;">Participation is selective and structured for individuals and institutions aligned with long-term Caribbean opportunity.</p>
+        <a class="btn primary" href="https://example.com/exodus-charter-membership" target="_blank" rel="noopener">Apply for Charter Membership</a>
+      </div>
+    </section>
+
+    <div id="contact" class="cta-band">
+
+      <div>
+        <div class="eyebrow">Engage TBG</div>
+        <h2>Request strategic advisory.</h2>
+        <p style="color:rgba(255,255,255,.72);max-width:700px;">For advisory inquiries, invitation requests, EXODUS™ programming, or jurisdiction-related engagement.</p>
+      </div>
+      <div class="button-row">
+        <a class="btn primary" href="mailto:cbrowne@thebucklergroup.com">Request Advisory</a>
+        <a class="btn secondary" href="mailto:cbrowne@thebucklergroup.com">Contact</a>
+      </div>
+    </div>
+  </main>
+
+
+
+  <footer class="institutional-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>The Buckler Group</h3>
+        <p>Strategic advisory across hospitality, development, capital alignment, and Caribbean opportunity.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Advisory</h4>
+        <a href="#advisory">Strategic Advisory</a>
+        <a href="#advisory">Hospitality Advisory</a>
+        <a href="#advisory">Development Readiness</a>
+        <a href="#advisory">Capital Alignment</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Platforms</h4>
+        <a href="#sessions">Strategic Sessions</a>
+        <a href="#exodus">EXODUS™</a>
+        <a href="#jurisdictions">Jurisdiction Intelligence</a>
+        <a href="#insights">Insights</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Engage</h4>
+        <a href="#contact">Request Advisory</a>
+        <a href="https://example.com/strategic-sessions-reserve" target="_blank" rel="noopener">Reserve Participation</a>
+        <a href="#contact">Request Invitation</a>
+        <span>New York | Caribbean</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 The Buckler Group. All rights reserved.</div>
+      <div></div>
+    </div>
+  </footer>
+
+</body>
+</html>
