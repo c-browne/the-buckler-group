@@ -295,70 +295,118 @@
     .program-details strong { color: var(--gold); display: block; margin-bottom: 4px; }
     .program-details span { color: rgba(255,255,255,.78); }
 
-    .spotlight {
-      position: relative;
-      overflow: hidden;
-      min-height: 315px;
-      padding: 28px;
-      display: flex;
-      align-items: flex-end;
-      background-color: var(--midnight);
-      border: 1px solid rgba(255,255,255,.10);
-    }
-
-    .spotlight:before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(7,17,31,.10), rgba(7,17,31,.90));
-      z-index: 1;
-    }
-
-    .spotlight:after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(183,144,75,.35);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .spotlight.guyana { background: url("assets-images/guyana.webp") center/cover; }
-    .spotlight.barbados { background: url("assets-images/barbados.webp") center/cover; }
-    .spotlight.bahamas { background: url("assets-images/bahamas.webp") center/cover; }
-    .spotlight.grenada { background: url("assets-images/assets/images/grenada.webp") center/cover; }
-    .spotlight.antigua { background: url("assets-images/antigua.webp") center/cover; }
-    .spotlight.tt { background: url("assets-images/trinidad-tobago.webp") center/cover; }
-
-    .spotlight-content {
-      position: relative;
-      z-index: 3;
-      color: var(--white);
-    }
-
-    .tag {
-display: inline-block;
-
-background: rgba(7,17,31,.55);
-color: var(--gold);
-
-border: 1px solid rgba(183,144,75,.25);
-
-padding: 3px 7px;
-
-font-size: 8px;
-font-weight: 600;
-
-text-transform: uppercase;
-letter-spacing: 0.12em;
-
-border-radius: 2px;
-
-margin-bottom: 8px;
-
-line-height: 1;
+    .spotlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
 }
 
+.spotlight {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 360px;
+  aspect-ratio: 4 / 3;
+
+  padding: 18px;
+
+  display: flex;
+  align-items: flex-end;
+
+  background-color: var(--midnight);
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+
+  border: 1px solid rgba(183,144,75,.35);
+}
+
+.spotlight:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(7,17,31,.05) 0%,
+    rgba(7,17,31,.42) 50%,
+    rgba(7,17,31,.88) 100%
+  );
+
+  z-index: 1;
+}
+
+.spotlight:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(183,144,75,.35);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.spotlight.guyana {
+  background-image: url("assets/images/jurisdictions/guyana.webp");
+}
+
+.spotlight.barbados {
+  background-image: url("assets/images/jurisdictions/barbados.webp");
+}
+
+.spotlight.bahamas {
+  background-image: url("assets/images/jurisdictions/bahamas.webp");
+}
+
+.spotlight.grenada {
+  background-image: url("assets/images/jurisdictions/grenada.webp");
+}
+
+.spotlight.antigua {
+  background-image: url("assets/images/jurisdictions/antigua.webp");
+}
+
+.spotlight.tt {
+  background-image: url("assets/images/jurisdictions/trinidad-tobago.webp");
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 3;
+  color: var(--white);
+  width: 100%;
+}
+
+.tag {
+  display: inline-block;
+  background: rgba(7,17,31,.55);
+  color: var(--gold);
+  border: 1px solid rgba(183,144,75,.25);
+  padding: 3px 7px;
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.spotlight h3 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0,0,0,.75);
+}
+
+.spotlight p {
+  color: rgba(255,255,255,.84);
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.45;
+  text-shadow: 0 2px 8px rgba(0,0,0,.55);
+}
     .founder-visual {
       background:
         linear-gradient(180deg, rgba(7,17,31,.04), rgba(7,17,31,.70)),
