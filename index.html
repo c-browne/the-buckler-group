@@ -407,18 +407,20 @@
   line-height: 1.45;
   text-shadow: 0 2px 8px rgba(0,0,0,.55);
 }
-    .founder-image-panel {
-    background-image:
-        linear-gradient(
-            180deg,
-            rgba(7,17,31,.06),
-            rgba(7,17,31,.40)
-        ),
-        url("assets-images/assets/images/founder-perspective.webp");
-
-    background-size: cover;
-    background-position: center 12%;
-    background-repeat: no-repeat;
+   .founder-image-panel {
+  display: block;
+  min-height: 560px;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(7,17,31,.06),
+      rgba(7,17,31,.40)
+    ),
+    url("/assets/images/founder/founder-perspective.webp");
+  background-size: cover;
+  background-position: center 12%;
+  background-repeat: no-repeat;
+  filter: grayscale(100%) contrast(1.08);
 }
 
     .founder-copy {
