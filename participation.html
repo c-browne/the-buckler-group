@@ -2,37 +2,253 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reserve Participation | The Buckler Group</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reserve Participation | The Buckler Group</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#050608;
+    color:#ffffff;
+    font-family:Arial,sans-serif;
+}
+
+.registration-wrapper{
+    max-width:1200px;
+    margin:0 auto;
+    padding:100px 40px;
+}
+
+.kicker{
+    color:#c7a453;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:12px;
+}
+
+h1{
+    font-family:Georgia,serif;
+    font-size:64px;
+    font-weight:400;
+    line-height:1;
+    margin:20px 0;
+}
+
+.intro{
+    max-width:700px;
+    color:#cfcfcf;
+    line-height:1.7;
+    margin-bottom:60px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+.field.full{
+    grid-column:span 2;
+}
+
+label{
+    color:#c7a453;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:11px;
+    margin-bottom:10px;
+}
+
+input,
+select{
+    background:transparent;
+    border:none;
+    border-bottom:1px solid rgba(255,255,255,.3);
+    color:white;
+    font-size:18px;
+    padding:12px 0;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-bottom:1px solid #c7a453;
+}
+
+button{
+    margin-top:40px;
+    background:transparent;
+    color:#c7a453;
+    border:1px solid #c7a453;
+    padding:18px 30px;
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#c7a453;
+    color:#050608;
+}
+
+@media(max-width:768px){
+
+.form-grid{
+    grid-template-columns:1fr;
+}
+
+.field.full{
+    grid-column:span 1;
+}
+
+h1{
+    font-size:42px;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <h1>Reserve Participation</h1>
+<div class="registration-wrapper">
+
+<p class="kicker">The Buckler Group</p>
+
+<h1>Reserve Participation</h1>
+
+<p class="intro">
+Submit your participation request for the 2026 Caribbean Entitlement & Hospitality Strategic Sessions.
+</p>
 
 <form
-  name="strategic-session-registration"
-  method="POST"
-  action="/thank-you.html"
-  data-netlify="true"
-  netlify-honeypot="bot-field">
+name="strategic-session-registration"
+method="POST"
+action="/thank-you.html"
+data-netlify="true"
+netlify-honeypot="bot-field">
 
-      <input type="hidden"
-             name="form-name"
-             value="strategic-session-registration">
+<input type="hidden"
+name="form-name"
+value="strategic-session-registration">
 
-      <label>First Name</label>
-      <input type="text" name="first-name">
+<p hidden>
+<label>
+Don't fill this out:
+<input name="bot-field">
+</label>
+</p>
 
-      <label>Last Name</label>
-      <input type="text" name="last-name">
+<div class="form-grid">
 
-      <button type="submit">
-        Submit
-      </button>
+<div class="field">
+<label>First Name</label>
+<input type="text" name="first-name" required>
+</div>
 
-  </form>
+<div class="field">
+<label>Last Name</label>
+<input type="text" name="last-name" required>
+</div>
+
+<div class="field full">
+<label>Name of Institution</label>
+<input type="text" name="institution" required>
+</div>
+
+<div class="field full">
+<label>Title</label>
+<input type="text" name="title" required>
+</div>
+
+<div class="field">
+<label>Email</label>
+<input type="email" name="email" required>
+</div>
+
+<div class="field">
+<label>Phone Number</label>
+<input type="tel" name="phone" required>
+</div>
+
+<div class="field full">
+<label>LinkedIn Profile URL</label>
+<input type="url" name="linkedin-profile">
+</div>
+
+<div class="field full">
+<label>Jurisdiction of Interest</label>
+<select name="jurisdiction-interest" required>
+<option value="">Select Jurisdiction</option>
+<option>Guyana</option>
+<option>Barbados</option>
+<option>Bahamas</option>
+<option>Grenada</option>
+<option>Antigua & Barbuda</option>
+<option>Trinidad & Tobago</option>
+<option>Tobago</option>
+<option>Multiple Jurisdictions</option>
+</select>
+</div>
+
+<div class="field full">
+<label>Participant Type</label>
+<select name="participant-type" required>
+<option value="">Select Participant Type</option>
+<option>Investor</option>
+<option>Developer</option>
+<option>Hospitality Executive</option>
+<option>Government Official</option>
+<option>Service Provider</option>
+<option>Academic</option>
+<option>Student</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field full">
+<label>How Did You Hear About This Session?</label>
+<select name="referral-source">
+<option value="">Select One</option>
+<option>LinkedIn</option>
+<option>The Buckler Group Website</option>
+<option>EXODUS™</option>
+<option>CAIPA</option>
+<option>AAREPNY</option>
+<option>Cornell Hotel Society</option>
+<option>Government Partner</option>
+<option>Professional Referral</option>
+<option>Email Invitation</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field full">
+<label>Areas of Interest</label>
+<input type="text"
+name="areas-of-interest"
+placeholder="Hospitality, Real Estate, Infrastructure, Diaspora Capital">
+</div>
+
+</div>
+
+<button type="submit">
+Submit Reservation
+</button>
+
+</form>
+
+</div>
 
 </body>
 </html>
