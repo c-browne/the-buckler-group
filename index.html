@@ -2958,7 +2958,132 @@
 .map-label {
   z-index: 4 !important;
 }
+html {
+  scroll-behavior: smooth;
+}
 
+.bx-registration {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: 72px;
+  padding: 110px 6vw;
+  background: #050608;
+  color: #fff;
+  border-top: 1px solid rgba(199, 164, 83, .35);
+}
+
+.bx-reg-left {
+  border-left: 2px solid #c7a453;
+  padding-left: 28px;
+}
+
+.bx-kicker {
+  color: #c7a453;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 12px;
+  margin-bottom: 22px;
+}
+
+.bx-reg-left h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: .96;
+  font-weight: 400;
+  margin: 0 0 28px;
+}
+
+.bx-reg-left p {
+  color: #bfc3c7;
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+.bx-reg-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 34px 28px;
+  align-content: start;
+}
+
+.bx-field {
+  border-bottom: 1px solid rgba(255,255,255,.28);
+  padding-bottom: 10px;
+}
+
+.bx-field.full {
+  grid-column: span 2;
+}
+
+.bx-field label {
+  display: block;
+  color: #c7a453;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.bx-field input,
+.bx-field select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 0;
+  outline: none;
+}
+
+.bx-field select option {
+  color: #111;
+}
+
+.bx-field:focus-within {
+  border-bottom-color: #c7a453;
+}
+
+.bx-submit {
+  grid-column: span 2;
+  margin-top: 20px;
+  padding: 18px 26px;
+  background: transparent;
+  color: #c7a453;
+  border: 1px solid #c7a453;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.bx-submit:hover {
+  background: #c7a453;
+  color: #050608;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .bx-registration {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 80px 6vw;
+  }
+
+  .bx-reg-form {
+    grid-template-columns: 1fr;
+  }
+
+  .bx-field.full,
+  .bx-submit {
+    grid-column: span 1;
+  }
+}
+<link rel="stylesheet" href="assets/css/registration.css">
 </style>
 </head>
 
