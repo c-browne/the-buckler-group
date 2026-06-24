@@ -3109,7 +3109,9 @@
           <h2>Strategic Sessions</h2>
           <p style="color:rgba(255,255,255,.78);font-size:18px;max-width:720px;">Jurisdiction-led discussions on development, investment, entitlement, and execution.</p>
           <div class="button-row">
-            <a class="btn primary" href="#participate">Reserve Participation</a>
+          <a href="#strategic-session-registration" class="existing-button-class">
+  Reserve Participation
+</a>
             <a class="btn secondary" href="#jurisdictions">Priority Markets</a>
           </div>
         </div>
@@ -3401,6 +3403,81 @@ Strategic Sessions Powered by EXODUS™
 const marketData={guyana:{title:"Guyana",date:"17 July 2026",copy:"Energy-led expansion, infrastructure development, and rising hospitality demand define the opening Strategic Session.",themes:["Energy","Infrastructure","Hospitality"],considerations:"Market access, hotel demand, urban infrastructure, entitlement readiness, and institutional coordination."},barbados:{title:"Barbados",date:"21 August 2026",copy:"Lifestyle demand, global capital flows, and luxury hospitality positioning shape the Barbados review.",themes:["Luxury","Capital","Lifestyle"],considerations:"Branded residential demand, financial infrastructure, resort positioning, and planning coordination."},bahamas:{title:"Bahamas",date:"18 September 2026",copy:"Resort scale, maritime economy, and international visitation strength define the Bahamas review.",themes:["Resorts","Maritime","Tourism Scale"],considerations:"Large-scale resort infrastructure, island logistics, maritime assets, and investment precedent."},grenada:{title:"Grenada",date:"16 October 2026",copy:"Regenerative tourism, climate resilience, and destination development shape the Grenada review.",themes:["Regeneration","Climate","Destination"],considerations:"Climate-aligned development, boutique hospitality, education-linked opportunity, and destination positioning."},antigua:{title:"Antigua & Barbuda",date:"20 November 2026",copy:"Marina infrastructure, yachting economy, and luxury residential demand define the Antigua & Barbuda review.",themes:["Marina","Yachting","Residential"],considerations:"Maritime infrastructure, luxury residential demand, resort positioning, and high-value visitor markets."},tt:{title:"Trinidad & Tobago",date:"18 December 2026",copy:"Commercial depth, institutional capacity, and Tobago tourism repositioning shape the Trinidad & Tobago review.",themes:["Commercial","Institutional","Tourism"],considerations:"Commercial infrastructure, institutional depth, Tobago repositioning, and diversification potential."}};
 document.querySelectorAll(".map-pin").forEach(pin=>{pin.addEventListener("click",()=>{const data=marketData[pin.dataset.market];document.querySelectorAll(".map-pin").forEach(p=>p.classList.remove("active"));pin.classList.add("active");document.getElementById("map-title").textContent=data.title;document.getElementById("map-date").textContent=data.date;document.getElementById("map-copy").textContent=data.copy;document.getElementById("map-considerations").textContent=data.considerations;document.getElementById("map-themes").innerHTML=data.themes.map(t=>`<span>${t}</span>`).join("");});});
 </script>
+<section id="strategic-session-registration" class="bx-registration">
+  <div class="bx-reg-left">
+    <p class="bx-kicker">Reserve Participation</p>
+    <h2>2026 Caribbean Strategic Sessions</h2>
+    <p>
+      Submit participant details for review by The Buckler Group and EXODUS™.
+    </p>
+  </div>
 
+  <form name="strategic-session-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="bx-reg-form">
+    <input type="hidden" name="form-name" value="strategic-session-registration">
+    <p class="hidden"><label>Do not fill this out: <input name="bot-field"></label></p>
+
+    <div class="bx-field">
+      <label>First Name</label>
+      <input type="text" name="first-name" required>
+    </div>
+
+    <div class="bx-field">
+      <label>Last Name</label>
+      <input type="text" name="last-name" required>
+    </div>
+
+    <div class="bx-field full">
+      <label>Name of Institution</label>
+      <input type="text" name="institution" required>
+    </div>
+
+    <div class="bx-field full">
+      <label>Title</label>
+      <input type="text" name="title" required>
+    </div>
+
+    <div class="bx-field">
+      <label>Email</label>
+      <input type="email" name="email" required>
+    </div>
+
+    <div class="bx-field">
+      <label>Phone Number</label>
+      <input type="tel" name="phone" required>
+    </div>
+
+    <div class="bx-field full">
+      <label>Jurisdiction of Interest</label>
+      <select name="jurisdiction-interest" required>
+        <option value="">Select Jurisdiction</option>
+        <option>Guyana</option>
+        <option>Barbados</option>
+        <option>Bahamas</option>
+        <option>Grenada</option>
+        <option>Antigua & Barbuda</option>
+        <option>Trinidad & Tobago</option>
+        <option>Tobago</option>
+        <option>Multiple Jurisdictions</option>
+      </select>
+    </div>
+
+    <div class="bx-field full">
+      <label>Participant Type</label>
+      <select name="participant-type" required>
+        <option value="">Select Participant Type</option>
+        <option>Investor</option>
+        <option>Developer</option>
+        <option>Hospitality Executive</option>
+        <option>Government Official</option>
+        <option>Service Provider</option>
+        <option>Academic</option>
+        <option>Student</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <button type="submit" class="bx-submit">Submit Reservation</button>
+  </form>
+</section>
 </body>
 </html>
