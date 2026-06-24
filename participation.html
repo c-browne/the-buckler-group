@@ -8,10 +8,25 @@
 <title>Reserve Participation | The Buckler Group</title>
 
 <style>
+.portal-header{
+    margin-bottom:60px;
+}
 
+.portal-logo{
+    font-family:Georgia,serif;
+    font-size:52px;
+    color:#b89445;
+    letter-spacing:.04em;
+}
 body{
     margin:0;
-    background:#050608;
+    body{
+    background:
+      radial-gradient(circle at top left,
+      rgba(184,148,69,.08),
+      transparent 35%),
+      #08111a;
+}
     color:#ffffff;
     font-family:Arial,sans-serif;
 }
@@ -84,14 +99,16 @@ select:focus{
 }
 
 button{
-    margin-top:40px;
-    background:transparent;
-    color:#c7a453;
-    border:1px solid #c7a453;
-    padding:18px 30px;
-    text-transform:uppercase;
-    letter-spacing:.15em;
-    cursor:pointer;
+    background:#b89445;
+    border:none;
+    color:#08111a;
+    font-weight:600;
+    padding:18px 32px;
+    transition:.25s ease;
+}
+
+button:hover{
+    background:#d3ad5b;
 }
 
 button:hover{
@@ -124,7 +141,9 @@ h1{
 <div class="registration-wrapper">
 
 <p class="kicker">The Buckler Group</p>
-
+<div class="portal-header">
+  <div class="portal-logo">TBG</div>
+</div>
 <h1>Reserve Participation</h1>
 
 <p class="intro">
@@ -241,7 +260,22 @@ placeholder="Hospitality, Real Estate, Infrastructure, Diaspora Capital">
 </div>
 
 </div>
+<div class="field full">
+<label>Session of Interest</label>
 
+<select name="session-interest" required>
+<option value="">Select Session</option>
+<option>Guyana Strategic Session</option>
+<option>Barbados Strategic Session</option>
+<option>Bahamas Strategic Session</option>
+<option>Grenada Strategic Session</option>
+<option>Antigua & Barbuda Strategic Session</option>
+<option>Trinidad & Tobago Strategic Session</option>
+<option>Tobago Strategic Session</option>
+<option>Multiple Sessions</option>
+</select>
+
+</div>
 <button type="submit">
 Submit Reservation
 </button>
