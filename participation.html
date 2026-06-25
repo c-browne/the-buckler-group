@@ -83,13 +83,15 @@ label{
 }
 
 input,
-select{
-    background:transparent;
-    border:none;
-    border-bottom:1px solid rgba(255,255,255,.3);
-    color:white;
-    font-size:18px;
-    padding:12px 0;
+select {
+  background: #ffffff;
+  color: #06101a;
+  border: 1px solid #cfd6dd;
+}
+
+select option {
+  background: #ffffff;
+  color: #06101a;
 }
 
 input:focus,
@@ -118,8 +120,17 @@ button:hover{
 
 @media(max-width:768px){
 
-.form-grid{
-    grid-template-columns:1fr;
+.form-submit {
+  width: 100%;
+  margin-top: 34px;
+  padding: 18px 28px;
+  background: linear-gradient(135deg, #c9a24a 0%, #9b7429 100%);
+  color: #06101a;
+  border: 1px solid #c9a24a;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-weight: 800;
+  cursor: pointer;
 }
 
 .field.full{
@@ -151,11 +162,11 @@ Submit your participation request for the 2026 Caribbean Entitlement & Hospitali
 </p>
 
 <form
-name="strategic-session-registration"
-method="POST"
-action="/thank-you.html"
-data-netlify="true"
-netlify-honeypot="bot-field">
+  name="strategic-session-registration"
+  method="POST"
+  action="/thank-you.html"
+  data-netlify="true"
+  netlify-honeypot="bot-field">
 
 <input type="hidden"
 name="form-name"
@@ -275,9 +286,8 @@ placeholder="Hospitality, Real Estate, Infrastructure, Diaspora Capital">
 <option>Multiple Sessions</option>
 </select>
 
-</div>
-<button type="submit">
-Submit Reservation
+<button type="submit" class="form-submit">
+  Submit Participation Request
 </button>
 
 </form>
