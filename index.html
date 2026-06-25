@@ -94,6 +94,39 @@
     border-top: 1px solid rgba(201,162,74,.35);
   }
 }
+  .tbg-marker {
+  width: 18px;
+  height: 18px;
+  background: #c9a24a;
+  border: 2px solid #fff1c6;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 8px rgba(201,162,74,.20),
+    0 0 28px rgba(201,162,74,.75);
+  cursor: pointer;
+  position: relative;
+}
+
+.tbg-marker::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border: 1px solid rgba(201,162,74,.55);
+  border-radius: 50%;
+  animation: tbgPulse 2.2s infinite;
+}
+
+@keyframes tbgPulse {
+  0% {
+    transform: scale(.65);
+    opacity: .85;
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
   <style>
     .calendar-actions {
   display: flex;
@@ -3158,7 +3191,33 @@
 .map-label {
   z-index: 4 !important;
 }
+.market-button{
 
+display:inline-block;
+
+margin-top:28px;
+
+padding:16px 26px;
+
+background:#c9a24a;
+
+color:#07111b;
+
+text-decoration:none;
+
+text-transform:uppercase;
+
+letter-spacing:.14em;
+
+font-weight:700;
+
+}
+
+.market-button:hover{
+
+background:#ddb560;
+
+}
 </style>
 </head>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -3216,17 +3275,123 @@ const markets = [
 ];
 
 markets.forEach(market => {
-  L.marker(market.coords, { icon: goldIcon })
-    .addTo(map)
-    .on("click", () => {
-      document.getElementById("jurisdictionPanel").innerHTML = `
-        <p class="panel-kicker">Jurisdiction Intelligence</p>
-        <h3>${market.name}</h3>
-        <p>${market.focus}</p>
-      `;
-    });
+  const markerElement = document.createElement("div");
+  markerElement.className = "tbg-marker";
+  markerElement.title = market.name;
+
+  new mapboxgl.Marker({
+    element: markerElement,
+    anchor: "center"
+  })
+    .setLngLat(market.coords)
+    .addTo(map);
+
+  markerElement.addEventListener("click", () => {
+    document.getElementById("jurisdictionPanel").innerHTML = `
+      <p class="panel-kicker">Jurisdiction Intelligence</p>
+      <h3>${market.name}</h3>
+      <p><strong>${market.session}</strong></p>
+      <p>${market.focus}</p>
+      <a href="participation.html" class="market-button">
+        Reserve Participation
+      </a>
+    `;
+  });
 });
 </script>
+  const markets = [
+
+{
+    name: "The Bahamas",
+    coords: [-77.3963,25.0343],
+    session: "2026 Strategic Session",
+    focus: "Luxury Hospitality • Second Homes • Financial Services"
+},
+
+{
+    name: "Antigua & Barbuda",
+    coords: [-61.7964,17.0608],
+    session: "2026 Strategic Session",
+    focus: "Marinas • Hospitality • Citizenship Investment"
+},
+
+{
+    name: "Barbados",
+    coords: [-59.5432,13.1939],
+    session: "2026 Strategic Session",
+    focus: "Institutional Capital • Hospitality • Professional Services"
+},
+
+{
+    name: "Grenada",
+    coords: [-61.6790,12.1165],
+    session: "2026 Strategic Session",
+    focus: "Eco Tourism • Mixed Use • Coastal Development"
+},
+
+{
+    name: "Tobago",
+    coords: [-60.6670,11.2500],
+    session: "2026 Strategic Session",
+    focus: "Tourism • Waterfront • Infrastructure"
+},
+
+{
+    name: "Guyana",
+    coords: [-58.1551,6.8013],
+    session: "July 2026",
+    focus: "Energy • Infrastructure • Hospitality"
+
+}
+
+];
+  markets.forEach(market => {
+
+const marker=document.createElement("div");
+
+marker.className="tbg-marker";
+
+new mapboxgl.Marker(marker)
+
+.setLngLat(market.coords)
+
+.addTo(map)
+
+.getElement()
+
+.addEventListener("click",()=>{
+
+document.getElementById("jurisdictionPanel").innerHTML=`
+
+<p class="panel-kicker">
+
+Jurisdiction Intelligence
+
+</p>
+
+<h3>${market.name}</h3>
+
+<p>
+
+<strong>${market.session}</strong>
+
+</p>
+
+<p>${market.focus}</p>
+
+<a href="participation.html"
+
+class="market-button">
+
+Reserve Participation
+
+</a>
+
+`;
+
+});
+
+});
 <body>
   <header class="topbar">
     <div class="brand"><img class="brand-crest" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUQkcgY3Jlc3QgbG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGQiIHgxPSIxMjAiIHkxPSIxMDAiIHgyPSI3ODAiIHkyPSI4MzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRjNEMzg2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4yOCIgc3RvcC1jb2xvcj0iI0M5OUE0NSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTgiIHN0b3AtY29sb3I9IiNGN0Q5OEUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjc4IiBzdG9wLWNvbG9yPSIjQTk3NjI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0U4QzQ2RSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZFNvZnQiIHgxPSIyMzAiIHkxPSIyMTAiIHgyPSI3MTAiIHkyPSI2OTAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFM0ExIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4zNSIgc3RvcC1jb2xvcj0iI0QyQTM0QiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNjUiIHN0b3AtY29sb3I9IiNGNEQ0ODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjQjI3RjJGIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic29mdFNoYWRvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSI4IiBzdGREZXZpYXRpb249IjEwIiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIgZmxvb2Qtb3BhY2l0eT0iMC4zNSIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8ZyBmaWx0ZXI9InVybCgjc29mdFNoYWRvdykiPgogICAgPHBhdGggZD0iTTQ1MCA1NAogICAgICAgICAgICAgQzU0MCAxMDUgNjU0IDE0MSA4MDUgMTQyCiAgICAgICAgICAgICBMODA1IDQxMwogICAgICAgICAgICAgQzgwNSA1ODMgNjc4IDczNSA0NTAgODQ2CiAgICAgICAgICAgICBDMjIyIDczNSA5NSA1ODMgOTUgNDEzCiAgICAgICAgICAgICBMOTUgMTQyCiAgICAgICAgICAgICBDMjQ2IDE0MSAzNjAgMTA1IDQ1MCA1NFoiCiAgICAgICAgICBmaWxsPSJub25lIgogICAgICAgICAgc3Ryb2tlPSJ1cmwoI2dvbGQpIgogICAgICAgICAgc3Ryb2tlLXdpZHRoPSIyNiIKICAgICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KCiAgICA8cGF0aCBkPSJNNDUwIDkyCiAgICAgICAgICAgICBDNTQwIDEzOSA2NTAgMTY5IDc3MCAxNzEKICAgICAgICAgICAgIEw3NzAgNDEzCiAgICAgICAgICAgICBDNzcwIDU2MyA2NTQgNjk3IDQ1MCA4MDIKICAgICAgICAgICAgIEMyNDYgNjk3IDEzMCA1NjMgMTMwIDQxMwogICAgICAgICAgICAgTDEzMCAxNzEKICAgICAgICAgICAgIEMyNTAgMTY5IDM2MCAxMzkgNDUwIDkyWiIKICAgICAgICAgIGZpbGw9InJnYmEoMCwwLDAsMC4wOCkiCiAgICAgICAgICBzdHJva2U9InJnYmEoMjQzLDIxMSwxMzQsMC4zNSkiCiAgICAgICAgICBzdHJva2Utd2lkdGg9IjUiCiAgICAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPC9nPgoKICA8dGV4dCB4PSI0NTAiIHk9IjU0NSIKICAgICAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIyODIiCiAgICAgICAgZm9udC13ZWlnaHQ9IjUwMCIKICAgICAgICBsZXR0ZXItc3BhY2luZz0iLTE4IgogICAgICAgIGZpbGw9InVybCgjZ29sZFNvZnQpIj5UQkc8L3RleHQ+Cjwvc3ZnPg==" alt="The Buckler Group crest"><span class="wordmark">The Buckler Group</span></div>
@@ -3362,10 +3527,6 @@ markets.forEach(market => {
         <article class="service"><h3>Capital Alignment</h3><p>Capital, partnerships, and investor readiness.</p><ul><li>Investment narrative</li><li>Partnership strategy</li><li>Investor readiness</li></ul></article>
       </div>
     </section>
-
-    
-
-
 
     <section id="sessions">
       <div class="program-panel">
