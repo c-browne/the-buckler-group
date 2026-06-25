@@ -12,11 +12,25 @@
     margin-bottom:60px;
 }
 
-.portal-logo{
-    font-family:Georgia,serif;
-    font-size:52px;
-    color:#b89445;
-    letter-spacing:.04em;
+.portal-brand {
+  margin-bottom: 46px;
+}
+
+.portal-monogram {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 72px;
+  line-height: .9;
+  color: #c9a24a;
+  letter-spacing: .03em;
+}
+
+.portal-wordmark {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+
 }
 body{
     margin:0;
@@ -31,62 +45,51 @@ body{
     font-family:Arial,sans-serif;
 }
 
-.registration-wrapper{
-    max-width:1200px;
-    margin:0 auto;
-    padding:100px 40px;
+.registration-wrapper {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 64px 36px;
+  display: grid;
+  grid-template-columns: .85fr 1.25fr;
+  gap: 56px;
+  align-items: start;
 }
 
-.kicker{
-    color:#c7a453;
-    text-transform:uppercase;
-    letter-spacing:.18em;
-    font-size:12px;
+.form-card {
+  background: #ffffff;
+  color: #06101a;
+  border: 1px solid #c9a24a;
+  padding: 34px;
+  box-shadow: 0 28px 70px rgba(0,0,0,.35);
 }
 
-h1{
-    font-family:Georgia,serif;
-    font-size:64px;
-    font-weight:400;
-    line-height:1;
-    margin:20px 0;
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 24px;
 }
 
-.intro{
-    max-width:700px;
-    color:#cfcfcf;
-    line-height:1.7;
-    margin-bottom:60px;
+.field.full {
+  grid-column: span 2;
 }
 
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-}
-
-.field{
-    display:flex;
-    flex-direction:column;
-}
-
-.field.full{
-    grid-column:span 2;
-}
-
-label{
-    color:#c7a453;
-    text-transform:uppercase;
-    letter-spacing:.14em;
-    font-size:11px;
-    margin-bottom:10px;
+label {
+  color: #06101a;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .11em;
+  margin-bottom: 8px;
 }
 
 input,
 select {
+  width: 100%;
   background: #ffffff;
   color: #06101a;
   border: 1px solid #cfd6dd;
+  padding: 13px 14px;
+  font-size: 15px;
 }
 
 select option {
@@ -94,36 +97,10 @@ select option {
   color: #06101a;
 }
 
-input:focus,
-select:focus{
-    outline:none;
-    border-bottom:1px solid #c7a453;
-}
-
-button{
-    background:#b89445;
-    border:none;
-    color:#08111a;
-    font-weight:600;
-    padding:18px 32px;
-    transition:.25s ease;
-}
-
-button:hover{
-    background:#d3ad5b;
-}
-
-button:hover{
-    background:#c7a453;
-    color:#050608;
-}
-
-@media(max-width:768px){
-
 .form-submit {
   width: 100%;
-  margin-top: 34px;
-  padding: 18px 28px;
+  margin-top: 26px;
+  padding: 17px 28px;
   background: linear-gradient(135deg, #c9a24a 0%, #9b7429 100%);
   color: #06101a;
   border: 1px solid #c9a24a;
@@ -153,7 +130,9 @@ h1{
 
 <p class="kicker">The Buckler Group</p>
 <div class="portal-header">
-  <div class="portal-logo">TBG</div>
+<div class="portal-brand">
+  <div class="portal-monogram">TBG</div>
+  <div class="portal-wordmark">The Buckler Group</div>
 </div>
 <h1>Reserve Participation</h1>
 
