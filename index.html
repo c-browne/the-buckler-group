@@ -301,7 +301,77 @@
 
     .role-card h3 { color: var(--white); }
     .role-card p { color: rgba(255,255,255,.70); }
+.headline-actions{
 
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-top:38px;
+
+    margin-bottom:60px;
+
+}
+
+.headline-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:245px;
+
+    height:58px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.headline-btn-primary{
+
+    background:#b88a32;
+
+    color:#07111b;
+
+    border:1px solid #b88a32;
+
+}
+
+.headline-btn-primary:hover{
+
+    background:#c99b43;
+
+}
+
+.headline-btn-secondary{
+
+    background:transparent;
+
+    color:#b88a32;
+
+    border:1px solid #b88a32;
+
+}
+
+.headline-btn-secondary:hover{
+
+    background:rgba(184,138,50,.08);
+
+}
     .program-panel {
       background:
         linear-gradient(90deg, rgba(7,17,31,.96), rgba(7,17,31,.78)),
@@ -3151,15 +3221,19 @@
           <div class="eyebrow">2026 Caribbean Strategic Calendar</div>
           <h2>Strategic Sessions</h2>
           <p style="color:rgba(255,255,255,.78);font-size:18px;max-width:720px;">Jurisdiction-led discussions on development, investment, entitlement, and execution.</p>
+          
+<div class="headline-actions">
 
-            <div class="calendar-actions">
-  <a href="participation.html" class="calendar-btn calendar-btn-primary">
-    Reserve Participation
-  </a>
+    <a href="participation.html"
+       class="headline-btn headline-btn-primary">
+        Reserve Participation
+    </a>
 
-  <a href="#priority-markets" class="calendar-btn calendar-btn-secondary">
-    Priority Markets
-  </a>
+    <a href="#priority-markets"
+       class="headline-btn headline-btn-secondary">
+        Priority Markets
+    </a>
+
 </div>
           <div class="strategic-calendar" aria-label="2026 Caribbean Strategic Calendar">
             <div class="calendar-header">
