@@ -8,6 +8,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    .calendar-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.calendar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  padding: 15px 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all .25s ease;
+}
+
+.calendar-btn-primary {
+  background: linear-gradient(135deg, #c9a24a 0%, #9b7429 100%);
+  color: #06101a;
+  border: 1px solid #c9a24a;
+}
+
+.calendar-btn-primary:hover {
+  background: linear-gradient(135deg, #d7b55f 0%, #b38432 100%);
+  transform: translateY(-1px);
+}
+
+.calendar-btn-secondary {
+  background: transparent;
+  color: #c9a24a;
+  border: 1px solid rgba(201,162,74,.8);
+}
+
+.calendar-btn-secondary:hover {
+  background: rgba(201,162,74,.1);
+  border-color: #c9a24a;
+}
     :root {
       --navy: #07111f;
       --midnight: #0d1a2b;
@@ -3124,6 +3167,15 @@
               <div>Session Date</div>
               <div>Strategic Review Lens</div>
             </div>
+            <div class="calendar-actions">
+  <a href="participation.html" class="calendar-btn calendar-btn-primary">
+    Reserve Participation
+  </a>
+
+  <a href="#priority-markets" class="calendar-btn calendar-btn-secondary">
+    Priority Markets
+  </a>
+</div>
 
             <article class="calendar-row">
               <div class="calendar-market">Guyana</div>
