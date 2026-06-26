@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apply for Charter Membership | The Buckler Group</title>
+
+<style>
+:root{
+  --navy:#07111f;
+  --midnight:#0d1a2b;
+  --gold:#b7904b;
+  --bone:#f7f3ea;
+  --white:#ffffff;
+  --slate:#667085;
+  --ink:#101828;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:var(--bone);
+  color:var(--ink);
+}
+
+.membership-page{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+}
+
+.membership-left{
+  background:
+    linear-gradient(180deg,rgba(7,17,31,.96),rgba(7,17,31,.98));
+  color:var(--white);
+  padding:64px 56px;
+}
+
+.brand-lockup{
+  margin-bottom:70px;
+}
+
+.brand-mark{
+  font-family:Georgia,serif;
+  color:var(--gold);
+  font-size:64px;
+  line-height:.85;
+}
+
+.brand-name{
+  margin-top:12px;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size:13px;
+}
+
+.kicker{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+h1{
+  font-family:Georgia,serif;
+  font-size:clamp(44px,5vw,76px);
+  line-height:.95;
+  font-weight:400;
+  margin:0 0 28px;
+}
+
+.membership-left p{
+  color:rgba(255,255,255,.76);
+  line-height:1.7;
+  max-width:520px;
+}
+
+.membership-tiers{
+  margin-top:44px;
+  border-top:1px solid rgba(183,144,75,.35);
+}
+
+.tier-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:20px;
+  padding:20px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.tier-row strong{
+  color:var(--white);
+}
+
+.tier-row span{
+  color:var(--gold);
+  font-weight:700;
+}
+
+.membership-right{
+  padding:64px 56px;
+}
+
+.form-card{
+  background:var(--white);
+  border:1px solid rgba(7,17,31,.12);
+  box-shadow:0 32px 90px rgba(7,17,31,.08);
+  padding:42px;
+}
+
+.form-card h2{
+  font-family:Georgia,serif;
+  font-size:42px;
+  font-weight:400;
+  margin:0 0 14px;
+  color:var(--navy);
+}
+
+.form-card p{
+  color:var(--slate);
+  line-height:1.65;
+  margin-bottom:34px;
+}
+
+form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+}
+
+.field.full{
+  grid-column:span 2;
+}
+
+label{
+  color:var(--navy);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  background:#ffffff;
+  color:var(--navy);
+  border:1px solid #d6dce3;
+  padding:14px;
+  font-size:15px;
+}
+
+select option{
+  background:#ffffff;
+  color:#07111f;
+}
+
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+button{
+  grid-column:span 2;
+  margin-top:18px;
+  padding:18px 28px;
+  background:var(--navy);
+  color:var(--white);
+  border:1px solid var(--navy);
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-weight:800;
+  cursor:pointer;
+}
+
+button:hover{
+  background:var(--gold);
+  color:var(--navy);
+  border-color:var(--gold);
+}
+
+.disclaimer{
+  grid-column:span 2;
+  font-size:12px;
+  color:var(--slate);
+  line-height:1.5;
+}
+
+@media(max-width:900px){
+  .membership-page{
+    grid-template-columns:1fr;
+  }
+
+  .membership-left,
+  .membership-right{
+    padding:44px 24px;
+  }
+
+  form{
+    grid-template-columns:1fr;
+  }
+
+  .field.full,
+  button,
+  .disclaimer{
+    grid-column:span 1;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="membership-page">
+
+<section class="membership-left">
+  <div class="brand-lockup">
+    <div class="brand-mark">TBG</div>
+    <div class="brand-name">The Buckler Group</div>
+  </div>
+
+  <p class="kicker">Powered by EXODUS™</p>
+
+  <h1>Apply for Charter Membership</h1>
+
+  <p>
+    EXODUS is designed as a membership-driven platform for Caribbean real estate,
+    governance, diaspora finance, entitlement intelligence, policy access, and
+    co-investment pathways.
+  </p>
+
+  <div class="membership-tiers">
+    <div class="tier-row">
+      <strong>Investor Circle</strong>
+      <span>$5,000 / year</span>
+    </div>
+
+    <div class="tier-row">
+      <strong>Chairman’s Club</strong>
+      <span>$15,000 / year</span>
+    </div>
+
+    <div class="tier-row">
+      <strong>Founder’s Legacy Membership</strong>
+      <span>$50,000 one-time</span>
+    </div>
+
+    <div class="tier-row">
+      <strong>Government Partner</strong>
+      <span>$2,500–$15,000</span>
+    </div>
+
+    <div class="tier-row">
+      <strong>Academic Partner</strong>
+      <span>$1,000–$6,000</span>
+    </div>
+
+    <div class="tier-row">
+      <strong>Corporate Ally</strong>
+      <span>$3,500–$25,000</span>
+    </div>
+  </div>
+</section>
+
+<section class="membership-right">
+  <div class="form-card">
+    <h2>Membership Inquiry</h2>
+
+    <p>
+      Submit your membership interest for review. Charter access is reviewed
+      based on institutional fit, strategic alignment, and capacity to contribute
+      to Caribbean investment, development, and policy outcomes.
+    </p>
+
+    <form
+      name="charter-membership-application"
+      method="POST"
+      action="/thank-you.html"
+      data-netlify="true"
+      netlify-honeypot="bot-field">
+
+      <input type="hidden" name="form-name" value="charter-membership-application">
+
+      <p hidden>
+        <label>Do not fill this out: <input name="bot-field"></label>
+      </p>
+
+      <div class="field">
+        <label>First Name</label>
+        <input type="text" name="first-name" required>
+      </div>
+
+      <div class="field">
+        <label>Last Name</label>
+        <input type="text" name="last-name" required>
+      </div>
+
+      <div class="field full">
+        <label>Institution / Organization</label>
+        <input type="text" name="institution" required>
+      </div>
+
+      <div class="field">
+        <label>Title</label>
+        <input type="text" name="title" required>
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" required>
+      </div>
+
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" name="phone">
+      </div>
+
+      <div class="field">
+        <label>LinkedIn Profile</label>
+        <input type="url" name="linkedin-profile">
+      </div>
+
+      <div class="field full">
+        <label>Membership Tier of Interest</label>
+        <select name="membership-tier" required>
+          <option value="">Select Tier</option>
+          <option>Investor Circle — $5,000 annually</option>
+          <option>Chairman’s Club — $15,000 annually</option>
+          <option>Founder’s Legacy Membership — $50,000 one-time</option>
+          <option>Government Partner — $2,500–$15,000 annually</option>
+          <option>Academic Partner — $1,000–$6,000 annually</option>
+          <option>Corporate Ally — $3,500–$25,000 annually</option>
+          <option>Not Sure / Request Guidance</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label>Primary Interest</label>
+        <select name="primary-interest" required>
+          <option value="">Select Interest</option>
+          <option>Caribbean Real Estate Investment</option>
+          <option>Entitlement / Zoning Intelligence</option>
+          <option>Co-Investment Opportunities</option>
+          <option>Government / Policy Access</option>
+          <option>Hospitality Development</option>
+          <option>Research / Market Intelligence</option>
+          <option>Diaspora Capital Mobilization</option>
+          <option>Corporate Partnership</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label>Jurisdiction Focus</label>
+        <select name="jurisdiction-focus">
+          <option value="">Select Jurisdiction</option>
+          <option>Guyana</option>
+          <option>Barbados</option>
+          <option>Bahamas</option>
+          <option>Grenada</option>
+          <option>Antigua & Barbuda</option>
+          <option>Trinidad & Tobago</option>
+          <option>Tobago</option>
+          <option>Multiple Jurisdictions</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label>Briefly Describe Your Strategic Interest</label>
+        <textarea name="strategic-interest"></textarea>
+      </div>
+
+      <p class="disclaimer">
+        Submission of this form does not guarantee membership approval.
+        Membership access is reviewed by The Buckler Group and EXODUS™.
+      </p>
+
+      <button type="submit">Submit Membership Inquiry</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+</body>
+</html>
