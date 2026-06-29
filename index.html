@@ -1338,9 +1338,33 @@
   display: block;
 }
 
-.declaration-hero-band .declaration-copy,
+.declaration-hero-band .declaration-copy {
+  display: block !important;
+}
+
 .declaration-hero-band .declaration-button {
-  display: none !important;
+  display: flex !important;
+  justify-content: center;
+  margin-top: 34px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.declaration-framework-btn {
+  min-width: 245px;
+  height: 58px;
+  padding: 0 30px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--white);
+  letter-spacing: .16em;
+}
+
+.declaration-framework-btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-1px);
 }
 
 .regional-demand .section-head h2 {
@@ -3235,7 +3259,54 @@ background:#ddb560;
   }
 }
 
-</style>
+
+/* =========================================================
+   Institutional Declaration CTA — Caribbean Renaissance™ Framework
+   ========================================================= */
+.declaration-hero-band .declaration-copy {
+  display: block !important;
+  color: rgba(255,255,255,.76) !important;
+  max-width: 920px !important;
+  margin: 0 auto !important;
+  font-size: 20px !important;
+  line-height: 1.65 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.declaration-hero-band .declaration-button {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 34px !important;
+  margin-bottom: 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.declaration-hero-band .declaration-framework-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 245px !important;
+  height: 58px !important;
+  padding: 0 30px !important;
+  border: 1px solid var(--gold) !important;
+  background: transparent !important;
+  color: var(--white) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+}
+
+.declaration-hero-band .declaration-framework-btn:hover {
+  background: var(--gold) !important;
+  color: var(--navy) !important;
+  transform: translateY(-1px);
+}
+
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -3270,11 +3341,14 @@ background:#ddb560;
       <h2>Opportunity becomes durable value only when capital, land, institutions, and execution are aligned.</h2>
     </section>
 
-    <section class="declaration-hero-band">
+    <section class="declaration-hero-band" id="caribbean-renaissance-declaration">
       <div class="declaration-label">Institutional Declaration</div>
       <h2 class="declaration-title"><span>2026</span><span>The Year of the</span><span>Caribbean Renaissance™</span></h2>
+      <p class="declaration-copy">
+        A regional framework organizing investment, development, leadership, and opportunity across the Caribbean Basin.
+      </p>
       <div class="button-row declaration-button">
-        <a class="btn primary" href="#renaissance">Learn More</a>
+        <a class="btn declaration-framework-btn" href="/caribbean-renaissance" target="_blank" rel="noopener">Explore the Framework</a>
       </div>
     </section>
 
