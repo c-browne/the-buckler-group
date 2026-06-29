@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caribbean Renaissance™ Framework | The Buckler Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#07111f;
+      --midnight:#0d1a2b;
+      --ink:#101828;
+      --slate:#667085;
+      --bone:#f7f3ea;
+      --sand:#eee6d8;
+      --gold:#b7904b;
+      --gold-dark:#8a6a3f;
+      --white:#ffffff;
+      --panel:#111c2d;
+      --line:rgba(183,144,75,.35);
+      --soft-line:rgba(7,17,31,.12);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:"Inter", Arial, sans-serif;
+      color:var(--ink);
+      background:var(--bone);
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .topbar{
+      background:rgba(7,17,31,.96);
+      color:var(--white);
+      padding:17px 5vw;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(14px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      letter-spacing:0;
+      text-transform:none;
+    }
+
+    .brand .wordmark{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:22px;
+      font-weight:500;
+      letter-spacing:.01em;
+      color:var(--white);
+      line-height:1;
+      white-space:nowrap;
+    }
+
+    nav{
+      display:flex;
+      gap:24px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:rgba(255,255,255,.82);
+      align-items:center;
+    }
+
+    nav a:hover{color:var(--gold)}
+
+    .hero{
+      min-height:84vh;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(183,144,75,.18), transparent 34%),
+        linear-gradient(135deg, #07111f 0%, #0d1a2b 62%, #050b14 100%);
+      color:#fff;
+      display:grid;
+      align-items:center;
+      padding:8vw 5vw;
+      border-bottom:1px solid var(--line);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero:before{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      border:1px solid rgba(183,144,75,.16);
+      right:-170px;
+      bottom:-210px;
+      transform:rotate(38deg);
+    }
+
+    .hero-inner{
+      max-width:1320px;
+      position:relative;
+      z-index:2;
+    }
+
+    .eyebrow{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:22px;
+    }
+
+    h1,h2,h3{
+      font-family:Georgia, "Times New Roman", serif;
+      line-height:1;
+      margin:0;
+      font-weight:600;
+    }
+
+    h1{
+      max-width:1080px;
+      font-size:clamp(54px, 8vw, 118px);
+      letter-spacing:-.06em;
+      line-height:.88;
+    }
+
+    .hero-subtitle{
+      max-width:760px;
+      margin:34px 0 0;
+      color:rgba(255,255,255,.78);
+      font-size:21px;
+      line-height:1.7;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:38px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:220px;
+      padding:15px 24px;
+      border:1px solid var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-size:12px;
+      font-weight:800;
+      transition:.24s ease;
+    }
+
+    .btn.primary{
+      background:var(--gold);
+      color:var(--navy);
+    }
+
+    .btn.secondary{
+      color:#fff;
+      border-color:rgba(255,255,255,.38);
+    }
+
+    .btn.dark{
+      background:var(--navy);
+      color:#fff;
+      border-color:var(--navy);
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+
+    section{padding:104px 5vw}
+
+    .section-inner{
+      max-width:1320px;
+      margin:0 auto;
+    }
+
+    .section-head{
+      max-width:1120px;
+      margin-bottom:54px;
+    }
+
+    .section-head h2{
+      color:var(--navy);
+      font-size:clamp(46px,4.2vw,72px);
+      letter-spacing:-.045em;
+      line-height:1.02;
+    }
+
+    .section-head p{
+      max-width:760px;
+      color:#475569;
+      font-size:18px;
+      line-height:1.75;
+      margin:22px 0 0;
+    }
+
+    .mandate-section{
+      background:#fff;
+      border-bottom:1px solid var(--soft-line);
+    }
+
+    .mandate-grid{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:70px;
+      border-top:1px solid var(--soft-line);
+      padding-top:58px;
+    }
+
+    .label{
+      color:var(--gold-dark);
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:11px;
+      font-weight:800;
+    }
+
+    .mandate-statement{
+      color:var(--navy);
+      font-family:"Cormorant Garamond", Georgia, serif;
+      font-size:clamp(34px, 4vw, 62px);
+      line-height:1.06;
+      letter-spacing:-.045em;
+      margin:0;
+      max-width:980px;
+    }
+
+    .diaspora-section{
+      background:var(--navy);
+      color:#fff;
+      border-top:none;
+      border-bottom:none;
+    }
+
+    .diaspora-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:68px;
+      align-items:end;
+    }
+
+    .diaspora-grid h2{
+      color:#fff;
+      font-size:clamp(44px, 5.8vw, 88px);
+      line-height:.9;
+      letter-spacing:-.055em;
+    }
+
+    .diaspora-copy{
+      color:rgba(255,255,255,.76);
+      font-size:19px;
+      line-height:1.78;
+      margin:0;
+      max-width:760px;
+    }
+
+    .diaspora-line{
+      grid-column:1 / -1;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:none;
+      margin-top:56px;
+    }
+
+    .diaspora-line div{
+      min-height:126px;
+      padding:26px 24px 0 0;
+      border-right:none;
+    }
+
+    .diaspora-line div:last-child{border-right:none}
+
+    .diaspora-line strong{
+      display:block;
+      color:var(--gold);
+      font-family:"Cormorant Garamond", Georgia, serif;
+      font-size:36px;
+      line-height:1;
+      margin-bottom:12px;
+    }
+
+    .diaspora-line span{
+      color:rgba(255,255,255,.68);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:800;
+      line-height:1.45;
+    }
+
+    .framework-section{
+      background:var(--bone);
+      border-bottom:1px solid var(--soft-line);
+    }
+
+    .pillar-index{
+      border-top:1px solid var(--soft-line);
+    }
+
+    .pillar-row{
+      display:grid;
+      grid-template-columns:120px minmax(240px, 350px) 1fr;
+      gap:34px;
+      padding:28px 0;
+      border-bottom:1px solid var(--soft-line);
+      align-items:start;
+    }
+
+    .pillar-num{
+      color:var(--gold-dark);
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+
+    .pillar-row h3{
+      color:var(--navy);
+      font-size:clamp(30px,2.4vw,36px);
+      letter-spacing:-.035em;
+      line-height:1;
+    }
+
+    .pillar-row p{
+      color:#475569;
+      margin:0;
+      font-size:16px;
+      line-height:1.65;
+      max-width:700px;
+    }
+
+    .measurement-section{
+      background:#fff;
+      border-bottom:1px solid var(--soft-line);
+    }
+
+    .index-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      background:var(--soft-line);
+      border:1px solid var(--soft-line);
+    }
+
+    .index-card{
+      min-height:285px;
+      padding:34px;
+      background:#fff;
+    }
+
+    .index-card .tag{
+      color:var(--gold-dark);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:10px;
+      font-weight:800;
+      margin-bottom:24px;
+    }
+
+    .index-card h3{
+      color:var(--navy);
+      font-size:36px;
+      letter-spacing:-.03em;
+      margin-bottom:18px;
+    }
+
+    .index-card p{
+      color:#667085;
+      margin:0;
+      font-size:15px;
+      line-height:1.68;
+    }
+
+    .jurisdiction-section{
+      background:var(--bone);
+      border-bottom:1px solid var(--soft-line);
+    }
+
+    .jurisdiction-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--soft-line);
+      border-left:1px solid var(--soft-line);
+    }
+
+    .jurisdiction-card{
+      min-height:210px;
+      background:#fff;
+      padding:26px;
+      border-right:1px solid var(--soft-line);
+      border-bottom:1px solid var(--soft-line);
+    }
+
+    .jurisdiction-card span{
+      display:block;
+      color:var(--gold-dark);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:10px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .jurisdiction-card strong{
+      display:block;
+      color:var(--navy);
+      font-family:"Cormorant Garamond", Georgia, serif;
+      font-size:32px;
+      line-height:1;
+      letter-spacing:-.03em;
+      margin-bottom:14px;
+    }
+
+    .jurisdiction-card p{
+      color:#667085;
+      margin:0;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .architecture-section{
+      background:#fff;
+      border-bottom:1px solid var(--soft-line);
+    }
+
+    .architecture-stack{
+      border-top:1px solid var(--soft-line);
+    }
+
+    .architecture-row{
+      display:grid;
+      grid-template-columns:260px 1fr 1.1fr;
+      gap:34px;
+      padding:34px 0;
+      border-bottom:1px solid var(--soft-line);
+      align-items:start;
+    }
+
+    .architecture-row span{
+      color:var(--gold-dark);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:10px;
+      font-weight:800;
+    }
+
+    .architecture-row h3{
+      color:var(--navy);
+      font-size:40px;
+      letter-spacing:-.035em;
+    }
+
+    .architecture-row p{
+      color:#667085;
+      margin:0;
+      font-size:15px;
+      line-height:1.7;
+      max-width:700px;
+    }
+
+    .cta-band{
+      background:linear-gradient(90deg, var(--navy), #13243b);
+      color:#fff;
+      padding:72px 5vw;
+    }
+
+    .cta-inner{
+      max-width:1320px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      gap:36px;
+      align-items:center;
+    }
+
+    .cta-band h2{
+      color:#fff;
+      font-size:clamp(34px, 4vw, 58px);
+      letter-spacing:-.04em;
+      max-width:760px;
+    }
+
+    footer{
+      background:#050b14;
+      color:rgba(255,255,255,.68);
+      padding:42px 5vw;
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+      font-size:13px;
+    }
+
+    
+    /* Institutional refinements */
+    .section-head{
+      max-width:1180px;
+    }
+    .section-head h2{
+      word-break:normal;
+      overflow-wrap:normal;
+      max-width:980px;
+    }
+    .pillar-row{
+      grid-template-columns:110px 320px 1fr;
+    }
+    .diaspora-grid{
+      align-items:center;
+    }
+    .diaspora-copy{
+      font-size:20px;
+    }
+    .mandate-statement{
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:400;
+      letter-spacing:-.03em;
+    }
+    .architecture-row h3,
+    .index-card h3,
+    .jurisdiction-card strong,
+    .pillar-row h3{
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:400;
+    }
+
+    @media(max-width:1050px){
+      nav{display:none}
+      .mandate-grid,
+      .diaspora-grid,
+      .architecture-row,
+      .cta-inner{
+        grid-template-columns:1fr;
+        display:grid;
+      }
+      .index-grid,
+      .jurisdiction-grid{
+        grid-template-columns:1fr 1fr;
+      }
+      .pillar-row{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+      .diaspora-line{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media(max-width:700px){
+      .brand .wordmark{font-size:18px}
+      .hero{min-height:auto;padding:92px 5vw}
+      section{padding:76px 5vw}
+      .index-grid,
+      .jurisdiction-grid,
+      .diaspora-line{
+        grid-template-columns:1fr;
+      }
+      .diaspora-line div{
+        border-right:none;
+        border-bottom:none;
+      }
+      .diaspora-line div:last-child{border-bottom:none}
+      .hero-actions{display:grid}
+      .btn{width:100%}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="The Buckler Group home">
+      <span class="wordmark">The Buckler Group</span>
+    </a>
+    <nav>
+      <a href="index.html">Main Site</a>
+      <a href="#mandate">Mandate</a>
+      <a href="#diaspora">Diaspora Return</a>
+      <a href="#framework">Framework</a>
+      <a href="charter-membership.html">EXODUS™</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">The Caribbean Renaissance™ Framework</div>
+        <h1>Many Islands.<br>One Civilization.</h1>
+        <p class="hero-subtitle">
+          An institutional framework for organizing Caribbean capital, development,
+          leadership, culture, resilience, and diaspora participation.
+        </p>
+</div>
+    </section>
+
+    <section class="mandate-section" id="mandate">
+      <div class="section-inner">
+        <div class="mandate-grid">
+          <div class="label">Mandate</div>
+          <p class="mandate-statement">
+            The Caribbean Renaissance™ exists to organize the conditions under which
+            Caribbean opportunity can compound: clearer policy, stronger institutions,
+            disciplined entitlement pathways, investable projects, coordinated leadership,
+            and productive diaspora participation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="diaspora-section" id="diaspora">
+      <div class="section-inner">
+        <div class="diaspora-grid">
+          <div>
+            <div class="eyebrow">Diaspora Return</div>
+            <h2>From travel to participation.</h2>
+          </div>
+          <p class="diaspora-copy">
+            The diaspora is not merely a visitor segment. It is a long-horizon economic,
+            cultural, intellectual, and institutional asset. When coordinated, diaspora travel
+            can convert into investment, enterprise formation, real estate activity,
+            knowledge transfer, philanthropy, and national participation.
+          </p>
+
+          <div class="diaspora-line">
+            <div><strong>Travel</strong><span>Recurring destination engagement</span></div>
+            <div><strong>Capital</strong><span>Investment, enterprise, real estate, remittances</span></div>
+            <div><strong>Talent</strong><span>Knowledge transfer and leadership networks</span></div>
+            <div><strong>Legacy</strong><span>Institutional stewardship across generations</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="framework-section" id="framework">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="eyebrow">Framework Pillars</div>
+          <h2>Nine pillars for regional transformation.</h2>
+          <p>
+            The pillars provide a shared operating language for policy, capital,
+            convening, jurisdiction intelligence, and investment strategy.
+          </p>
+        </div>
+
+        <div class="pillar-index">
+          <div class="pillar-row"><div class="pillar-num">Pillar 01</div><h3>Capital & Investment</h3><p>Mobilize institutional, private, and diaspora capital into bankable regional opportunities.</p></div>
+          <div class="pillar-row"><div class="pillar-num">Pillar 02</div><h3>Real Estate & Infrastructure</h3><p>Build entitlement clarity, resilient districts, mixed-use development, housing, ports, airports, and civic infrastructure.</p></div>
+          <div class="pillar-row"><div class="pillar-num">Pillar 03</div><h3>Tourism & Hospitality</h3><p>Reposition tourism as a platform for enterprise formation, asset creation, and destination competitiveness.</p></div>
+          <div class="pillar-row"><div class="pillar-num">Pillar 04</div><h3>Food & Culinary</h3><p>Elevate cuisine, agriculture, food exports, culinary tourism, and cultural diplomacy as economic infrastructure.</p></div>
+          <div class="pillar-row"><div class="pillar-num">Pillar 05</div><h3>Sports & Human Performance</h3><p>Use sport to advance tourism, youth development, athlete pathways, health, and national brand value.</p></div>
+          <div class="pillar-row"><div class="pillar-num">Pillar 06</div><h3>Culture & Creative Economy</h3><p>Convert music, festivals, film, fashion, heritage, and creative industries into exportable global influence.</p></div>
+          <div class="pillar-row"><div class="pillar-num">Pillar 07</div><h3>Education & Leadership</h3><p>Build leadership capacity, applied research, workforce systems, and institutional competence.</p></div>
+          <div class="pillar-row"><div class="pillar-num">Pillar 08</div><h3>Technology & Innovation</h3><p>Accelerate productivity through AI, digital government, FinTech, PropTech, AgTech, and data systems.</p></div>
+          <div class="pillar-row"><div class="pillar-num">Pillar 09</div><h3>Sustainability & Climate Resilience</h3><p>Protect natural capital through blue economy strategy, renewable energy, coastal resilience, and climate adaptation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="measurement-section" id="indices">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="eyebrow">Measurement Architecture</div>
+          <h2>What gets measured can be organized.</h2>
+          <p>
+            The Framework is supported by three practical indices for evaluating regional readiness,
+            diaspora impact, and investable jurisdiction capacity.
+          </p>
+        </div>
+
+        <div class="index-grid">
+          <article class="index-card">
+            <div class="tag">Regional</div>
+            <h3>Caribbean Renaissance Index™</h3>
+            <p>A composite measure of regional progress across capital, infrastructure, governance, culture, leadership, and resilience.</p>
+          </article>
+          <article class="index-card">
+            <div class="tag">Diaspora</div>
+            <h3>Diaspora Return Index™</h3>
+            <p>A measure of value created through coordinated diaspora travel, investment, knowledge transfer, enterprise, and national participation.</p>
+          </article>
+          <article class="index-card">
+            <div class="tag">Investment</div>
+            <h3>Investment Readiness Index™</h3>
+            <p>A jurisdiction scorecard for entitlement clarity, investor access, infrastructure capacity, policy stability, and execution readiness.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="jurisdiction-section">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="eyebrow">Jurisdiction Intelligence</div>
+          <h2>Regional vision requires country-level discipline.</h2>
+          <p>
+            Each jurisdiction requires its own investment narrative, entitlement pathway,
+            stakeholder map, infrastructure priorities, and diaspora strategy.
+          </p>
+        </div>
+
+        <div class="jurisdiction-grid">
+          <article class="jurisdiction-card"><span>Market Readiness</span><strong>Policy</strong><p>Investment promotion, permitting, PPP rules, fiscal clarity, and regulatory confidence.</p></article>
+          <article class="jurisdiction-card"><span>Land & Entitlement</span><strong>Real Estate</strong><p>Zoning, title, site control, coastal setbacks, EIA requirements, and development approvals.</p></article>
+          <article class="jurisdiction-card"><span>Capital Formation</span><strong>Investment</strong><p>Project pipeline, sponsor credibility, incentives, development finance, and institutional capital access.</p></article>
+          <article class="jurisdiction-card"><span>Public Trust</span><strong>Execution</strong><p>Stakeholder coordination, transparency, local participation, and long-horizon governance.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="architecture-section">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="eyebrow">Platform Architecture</div>
+          <h2>The institutional hierarchy.</h2>
+          <p>
+            The Framework clarifies how The Buckler Group, EXODUS™, and the Caribbean Renaissance™
+            operate as one ecosystem with distinct roles.
+          </p>
+        </div>
+
+        <div class="architecture-stack">
+          <div class="architecture-row">
+            <span>Institutional Home</span>
+            <h3>The Buckler Group</h3>
+            <p>Strategic advisory, policy, investment positioning, entitlement intelligence, and implementation strategy.</p>
+          </div>
+          <div class="architecture-row">
+            <span>Participation Platform</span>
+            <h3>EXODUS™</h3>
+            <p>Executive convening, charter participation, investor dialogue, jurisdiction briefings, and strategic access.</p>
+          </div>
+          <div class="architecture-row">
+            <span>Regional Framework</span>
+            <h3>Caribbean Renaissance™</h3>
+            <p>The civilizational thesis organizing policy, capital, culture, leadership, resilience, and diaspora participation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="cta-inner">
+        <h2>Participate in the Caribbean Renaissance™ through EXODUS™.</h2>
+        <div class="hero-actions">
+          <a href="charter-membership.html" class="btn primary">Request Participation</a>
+          <a href="index.html" class="btn secondary">Return to TBG</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 The Buckler Group. All rights reserved.</div>
+    <div>Caribbean Renaissance™ Framework · Powered by EXODUS™</div>
+  </footer>
+</body>
+</html>
