@@ -1228,27 +1228,13 @@
       align-items: stretch;
     }
 
-  .office-founder-image{
-    width:100%;
-    min-height:600px;
-
-    background-image:
-        linear-gradient(
-            rgba(7,17,31,.06),
-            rgba(7,17,31,.20)
-        ),
-        url("assets-images/founder-perspective.webp");
-
-    background-size:cover;
-    background-position:center 5%;
-    background-repeat:no-repeat;
-
-    display:block;
-    position:relative;
-
-    border:none;
-    box-shadow:none;
-}
+    .office-founder-image {
+      min-height: 600px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(7,17,31,.12);
+      position: relative;
+    }
 
     .office-founder-image:after {
       content: "";
@@ -4613,6 +4599,116 @@
   }
 }
 
+
+/* =========================================================
+   FINAL FIX — Founder Perspective Image as Real IMG
+   ========================================================= */
+
+.office-founder{
+  background:var(--bone) !important;
+  padding:96px 5vw !important;
+  border-top:1px solid rgba(7,17,31,.08) !important;
+  border-bottom:1px solid rgba(7,17,31,.08) !important;
+}
+
+.office-founder-inner{
+  max-width:1420px !important;
+  margin:0 auto !important;
+  display:grid !important;
+  grid-template-columns:.82fr 1.18fr !important;
+  gap:54px !important;
+  align-items:stretch !important;
+}
+
+.office-founder-image{
+  display:block !important;
+  min-height:600px !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  background:#07111f !important;
+  border:none !important;
+  box-shadow:none !important;
+  position:relative !important;
+}
+
+.office-founder-image img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:600px !important;
+  object-fit:cover !important;
+  object-position:center 5% !important;
+  filter:grayscale(100%) contrast(1.05) !important;
+}
+
+.office-founder-image::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  background:linear-gradient(180deg,rgba(7,17,31,.06),rgba(7,17,31,.20)) !important;
+  z-index:2 !important;
+  pointer-events:none !important;
+}
+
+.office-founder-image::after{
+  display:none !important;
+  content:none !important;
+}
+
+.office-founder-copy{
+  background:var(--white) !important;
+  padding:58px !important;
+  border:none !important;
+  box-shadow:none !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+}
+
+.office-founder .founder-focus-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:42px !important;
+  margin-top:38px !important;
+  border:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
+.office-founder .founder-focus{
+  border:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+
+@media(max-width:1100px){
+  .office-founder-inner{
+    grid-template-columns:1fr !important;
+  }
+
+  .office-founder-image,
+  .office-founder-image img{
+    min-height:420px !important;
+  }
+
+  .office-founder .founder-focus-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+@media(max-width:700px){
+  .office-founder .founder-focus-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .office-founder-copy{
+    padding:36px !important;
+  }
+}
+
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 </head>
@@ -4991,10 +5087,17 @@ Strategic Sessions Powered by EXODUS™
     
     <!-- ===== Office of the Founder Section ===== -->
     
-<section class="office-founder">
+
+<section class="office-founder" id="founder-perspective">
   <div class="office-founder-inner">
 
-    <div class="office-founder-image" aria-label="Founder Perspective image"></div>
+    <figure class="office-founder-image">
+      <img
+        src="assets-images/assets/images/founder-perspective.webp"
+        alt="Christopher A. Browne, Founder and Chief Executive Officer of The Buckler Group"
+        loading="lazy"
+      />
+    </figure>
 
     <div class="office-founder-copy">
       <div class="founder-subtitle">Founder Perspective</div>
@@ -5011,7 +5114,6 @@ Strategic Sessions Powered by EXODUS™
         “Capital follows order. Development follows coordination. Opportunity follows institutions.”
       </blockquote>
 
-      
       <div class="founder-focus-grid">
         <div class="founder-focus">
           <strong>Strategic Advisory</strong>
@@ -5033,7 +5135,8 @@ Strategic Sessions Powered by EXODUS™
           <span>Investor readiness and partnerships.</span>
         </div>
       </div>
-<div class="office-founder-signature">
+
+      <div class="office-founder-signature">
         <strong>Christopher A. Browne</strong>
         <span>Founder &amp; Chief Executive Officer · The Buckler Group</span>
       </div>
@@ -5041,6 +5144,7 @@ Strategic Sessions Powered by EXODUS™
 
   </div>
 </section>
+
 
 
   
