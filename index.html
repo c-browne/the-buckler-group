@@ -3337,152 +3337,126 @@ background:#ddb560;
    CLICKABLE INSIGHTS CARD — Caribbean Renaissance™ Article
    Makes the full "Why the Caribbean Renaissance™ Matters" box clickable
    ========================================================= */
+.cr-insights-section{
+  background:#07111f;
+  color:#ffffff;
+  padding:112px 5vw;
+  border-top:1px solid rgba(183,144,75,.28);
+  border-bottom:1px solid rgba(183,144,75,.28);
+}
+
+.cr-insights-head{
+  max-width:940px;
+  margin-bottom:62px;
+}
+
+.cr-insights-label{
+  color:#b7904b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.cr-insights-head h2{
+  color:#ffffff;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(42px,5vw,76px);
+  line-height:.95;
+  letter-spacing:-.045em;
+  margin:0 0 22px;
+}
+
+.cr-insights-head p{
+  color:rgba(255,255,255,.68);
+  max-width:760px;
+  font-size:17px;
+  line-height:1.72;
+  margin:0;
+}
+
 .cr-publications-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,minmax(340px,1fr));
-
-gap:32px;
-
-align-items:stretch;
-
-margin-top:70px;
-
+  display:grid;
+  grid-template-columns:repeat(3,minmax(280px,1fr));
+  gap:26px;
 }
 
 .cr-publication-card{
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:space-between;
-
-background:#07111f;
-
-padding:42px;
-
-min-height:560px;
-
-border:1px solid rgba(212,175,55,.25);
-
-text-decoration:none;
-
-transition:.3s;
-
+  background:#111c2d;
+  color:#ffffff;
+  border:1px solid rgba(183,144,75,.32);
+  padding:38px;
+  min-height:520px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  text-decoration:none;
+  transition:.28s ease;
 }
 
 .cr-publication-card:hover{
-
-background:#0d1b2d;
-
-transform:translateY(-6px);
-
-box-shadow:0 22px 60px rgba(0,0,0,.22);
-
+  background:#16243a;
+  border-color:#b7904b;
+  transform:translateY(-4px);
+  box-shadow:0 24px 70px rgba(0,0,0,.24);
 }
 
 .cr-publication-label{
-
-font-size:10px;
-
-letter-spacing:.20em;
-
-text-transform:uppercase;
-
-font-weight:800;
-
-color:#b88a32;
-
-margin-bottom:20px;
-
-}
-
-.cr-issue{
-
-font-size:10px;
-
-letter-spacing:.20em;
-
-text-transform:uppercase;
-
-color:rgba(255,255,255,.55);
-
-margin-bottom:18px;
-
-font-weight:700;
-
+  color:#b7904b;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:24px;
 }
 
 .cr-publication-card h3{
-
-font-family:"Cormorant Garamond",serif;
-
-font-size:44px;
-
-line-height:.96;
-
-margin:0 0 18px;
-
-color:#fff;
-
+  color:#ffffff;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(34px,3.2vw,48px);
+  line-height:.98;
+  letter-spacing:-.035em;
+  margin:0 0 20px;
 }
 
 .cr-subtitle{
-
-font-size:20px;
-
-line-height:1.35;
-
-color:rgba(255,255,255,.88);
-
-margin-bottom:24px;
-
+  color:rgba(255,255,255,.88);
+  font-size:18px;
+  line-height:1.42;
+  margin:0 0 24px;
 }
 
 .cr-publication-card p:not(.cr-subtitle){
-
-font-size:15px;
-
-line-height:1.75;
-
-color:rgba(255,255,255,.66);
-
+  color:rgba(255,255,255,.64);
+  font-size:14.5px;
+  line-height:1.7;
+  margin:0;
 }
 
 .cr-publication-footer{
-
-margin-top:auto;
-
-padding-top:24px;
-
-border-top:1px solid rgba(255,255,255,.12);
-
-display:flex;
-
-justify-content:space-between;
-
-font-size:10px;
-
-letter-spacing:.14em;
-
-text-transform:uppercase;
-
-color:rgba(255,255,255,.60);
-
-font-weight:700;
-
+  margin-top:34px;
+  padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.12);
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  color:#b7904b;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
 }
 
-@media(max-width:1200px){
+@media(max-width:1100px){
+  .cr-publications-grid{
+    grid-template-columns:1fr;
+  }
 
-.cr-publications-grid{
-
-grid-template-columns:1fr;
-
+  .cr-publication-card{
+    min-height:auto;
+  }
 }
-
   </style>
 </head>
 <body>
