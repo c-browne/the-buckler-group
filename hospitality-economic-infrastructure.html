@@ -3,492 +3,641 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hospitality as Economic Infrastructure | Caribbean Renaissance™ Insights</title>
-  <meta name="description" content="Hotels, resorts, residences, and mixed-use assets as engines of destination value through the Caribbean Renaissance™ Framework." />
+
+  <title>Hospitality as Infrastructure™ | Caribbean Renaissance™ Insights</title>
+  <meta name="description" content="Research Paper No. 002 of Caribbean Renaissance™ Insights: Hospitality as Infrastructure™ and its role in organizing capital, development, and long-term Caribbean competitiveness." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --ink:#151515;
-      --muted:#5f605c;
-      --navy:#07111f;
-      --gold:#9b7429;
-      --rule:rgba(21,21,21,.16);
       --paper:#f6f1e8;
-      --panel:#fffaf0;
-      --white:#fff;
+      --ink:#111827;
+      --muted:#475569;
+      --navy:#07111f;
+      --gold:#8a6a3f;
+      --line:rgba(7,17,31,.16);
+      --soft-line:rgba(7,17,31,.10);
     }
+
     *{box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
+
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:42px;
+    }
+
     body{
       margin:0;
       background:var(--paper);
       color:var(--ink);
-      font-family:"Inter",Arial,sans-serif;
-      line-height:1.72;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-    a{color:inherit;text-decoration:none;}
-    .topbar{
-      background:#07111f;
-      color:#fff;
-      border-bottom:1px solid rgba(155,116,41,.34);
-      padding:14px 5vw;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      position:sticky;
-      top:0;
-      z-index:50;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
       font-family:Georgia,"Times New Roman",serif;
-      font-size:17px;
-      letter-spacing:.01em;
-      white-space:nowrap;
+      line-height:1.78;
     }
-    .brand-crest{
-      width:38px;
-      height:38px;
-      object-fit:contain;
-      display:block;
-      flex:0 0 auto;
-    }
-    .nav{
-      display:flex;
-      gap:22px;
-      font-size:10px;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-weight:800;
-      color:rgba(255,255,255,.72);
-    }
-    .nav a:hover{color:#d0aa5c;}
 
-    .masthead{
-      max-width:1120px;
+    a{color:inherit;}
+
+    .page-frame{
+      position:relative;
+      max-width:1240px;
       margin:0 auto;
-      padding:58px 32px 34px;
-      border-bottom:1px solid var(--rule);
-    }
-    .crumb{
-      display:inline-block;
-      color:var(--gold);
-      font-size:11px;
-      line-height:1;
-      font-weight:800;
-      letter-spacing:.17em;
-      text-transform:uppercase;
-      margin-bottom:34px;
-    }
-
-    .masthead-brand{
-      text-align:center;
-      margin-bottom:30px;
-    }
-    .masthead-crest{
-      width:74px;
-      height:auto;
-      display:block;
-      margin:0 auto 14px;
-    }
-    .masthead-wordmark{
-      font-family:Georgia,"Times New Roman",serif;
-      color:#111;
-      font-size:25px;
-      line-height:1;
-      letter-spacing:.01em;
-      margin-bottom:9px;
-    }
-    .masthead-publication{
-      color:var(--gold);
-      font-size:10px;
-      font-weight:800;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-    }
-    .masthead-rule{
-      width:118px;
-      height:1px;
-      background:var(--gold);
-      margin:22px auto 0;
-      opacity:.82;
-    }
-    .issue-line{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      color:#4b4b4b;
-      font-size:10px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      font-weight:800;
-      margin:0 0 16px;
-    }
-    .issue-line::before{
-      content:"";
-      width:38px;
-      height:1px;
-      background:var(--gold);
-    }
-
-    .headline{
-      max-width:770px;
-      margin:0;
-      font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-      font-weight:600;
-      font-size:clamp(38px,5.2vw,52px);
-      line-height:.98;
-      letter-spacing:-.035em;
-      color:#111;
-    }
-    .deck{
-      max-width:720px;
-      margin:22px 0 0;
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:21px;
-      line-height:1.35;
-      color:#343434;
-    }
-    .byline-grid{
-      max-width:1120px;
-      margin:0 auto;
-      padding:22px 32px 30px;
-      display:grid;
-      grid-template-columns:1.2fr 1fr;
-      gap:32px;
-      border-bottom:1px solid var(--rule);
-    }
-    .byline strong,
-    .article-meta strong{
-      display:block;
-      color:#111;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      font-weight:800;
-      margin-bottom:6px;
-    }
-    .byline span,
-    .article-meta span{
-      display:block;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.55;
-    }
-    .article-meta{
-      display:flex;
-      gap:30px;
-      justify-content:flex-end;
-      flex-wrap:wrap;
+      padding:0 28px;
     }
 
     .article-shell{
-      max-width:1120px;
+      max-width:780px;
       margin:0 auto;
-      padding:52px 32px 96px;
-      display:grid;
-      grid-template-columns:220px minmax(0,760px);
-      gap:58px;
-      align-items:start;
+      padding:54px 28px 110px;
     }
-    .toc{
-      position:sticky;
-      top:82px;
-      border-top:2px solid var(--ink);
-      padding-top:16px;
-      font-size:12px;
-      color:var(--muted);
+
+    .masthead{
+      text-align:center;
+      border-bottom:1px solid var(--line);
+      padding-bottom:34px;
+      margin-bottom:52px;
     }
-    .toc-title{
-      color:#111;
-      font-size:10px;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-weight:800;
-      margin-bottom:14px;
-    }
-    .toc a{
+
+    .article-logo{
+      width:72px;
+      height:auto;
+      margin:0 auto 18px;
       display:block;
-      padding:9px 0;
-      border-bottom:1px solid rgba(21,21,21,.09);
     }
-    .toc a:hover{color:var(--gold);}
-    .article-body{
-      max-width:760px;
-    }
-    .article-body p{
-      margin:0 0 24px;
+
+    .wordmark{
       font-family:Georgia,"Times New Roman",serif;
-      font-size:18.5px;
-      line-height:1.82;
-      color:#242424;
+      font-size:18px;
+      font-weight:600;
+      letter-spacing:.04em;
+      color:var(--navy);
+      margin-bottom:8px;
+      text-transform:uppercase;
     }
-    .article-body .lead{
-      font-size:20px;
-      line-height:1.72;
-      color:#191919;
+
+    .publication{
+      font-family:Inter,Arial,sans-serif;
+      text-transform:uppercase;
+      letter-spacing:.20em;
+      font-size:10px;
+      font-weight:800;
+      color:var(--gold);
     }
-    .article-body h2{
-      font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-      font-size:31px;
-      line-height:1.06;
-      letter-spacing:-.02em;
-      margin:58px 0 18px;
-      padding-top:22px;
-      border-top:1px solid var(--rule);
-      color:#111;
+
+    .series-note{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:14px;
+      color:var(--muted);
+      font-style:italic;
+      margin-top:8px;
     }
-    .article-body .short-line{
-      font-family:"Inter",Arial,sans-serif;
-      font-size:13px;
-      line-height:1.5;
+
+    .issue{
+      font-family:Inter,Arial,sans-serif;
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      font-size:10px;
+      font-weight:800;
+      color:var(--gold);
+      margin-bottom:22px;
+    }
+
+    h1{
+      font-size:clamp(42px,6vw,58px);
+      line-height:.96;
+      letter-spacing:-.035em;
+      font-weight:500;
+      margin:0 0 18px;
+      color:var(--navy);
+    }
+
+    .subtitle{
+      font-size:23px;
+      line-height:1.28;
+      color:#334155;
+      margin-bottom:30px;
+    }
+
+    .dek{
+      font-family:Inter,Arial,sans-serif;
+      font-size:12px;
+      line-height:1.65;
+      color:var(--gold);
       text-transform:uppercase;
       letter-spacing:.12em;
       font-weight:800;
-      color:#2f2f2f;
-      margin-bottom:12px;
+      margin:0 0 30px;
     }
+
+    .byline{
+      font-family:Inter,Arial,sans-serif;
+      font-size:12px;
+      line-height:1.7;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:18px 0;
+      margin:34px 0 46px;
+    }
+
+    .byline strong{
+      color:var(--navy);
+      font-weight:800;
+    }
+
+    h2{
+      font-size:26px;
+      line-height:1.15;
+      color:var(--navy);
+      margin:52px 0 18px;
+      font-weight:600;
+    }
+
+    p{
+      font-size:18px;
+      margin:0 0 23px;
+    }
+
+    .about-paper,
+    .executive-summary{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:28px 0 8px;
+      margin:44px 0;
+    }
+
     .pullquote{
       margin:44px 0;
-      padding:22px 0 22px 28px;
+      padding:18px 0 18px 26px;
       border-left:3px solid var(--gold);
-      font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-      font-size:34px;
-      line-height:1.1;
-      letter-spacing:-.02em;
-      color:#07111f;
-      background:linear-gradient(90deg,rgba(155,116,41,.06),transparent);
+      font-size:30px;
+      line-height:1.18;
+      color:var(--navy);
+      font-style:italic;
     }
-    .note-box{
-      margin:42px 0 48px;
-      padding:24px 26px;
-      background:var(--panel);
-      border:1px solid rgba(155,116,41,.34);
-      border-left:4px solid var(--gold);
-    }
-    .note-box strong{
-      display:block;
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      margin-bottom:10px;
-      color:var(--gold);
-    }
-    .note-box p{
-      font-family:"Inter",Arial,sans-serif;
-      font-size:14px;
-      line-height:1.7;
-      color:#3f3f3f;
-      margin:0;
-    }
-    .closing-rule{
-      height:1px;
-      background:var(--rule);
-      margin:54px 0 28px;
-    }
-    .related-title{
-      margin:44px 0 14px;
-      color:#111;
-      font-size:10px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      font-weight:800;
-    }
-    .article-footer{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin-top:0;
-    }
-    .footer-card{
-      border:1px solid var(--rule);
-      background:rgba(255,255,255,.28);
-      padding:20px;
-    }
-    .footer-card span{
-      display:block;
-      color:var(--gold);
-      font-size:10px;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-weight:800;
-      margin-bottom:8px;
-    }
-    .footer-card strong{
-      display:block;
-      font-family:"Cormorant Garamond",Georgia,serif;
+
+    .closing-line{
       font-size:24px;
-      line-height:1.05;
-      color:#111;
+      line-height:1.35;
+      color:var(--navy);
+      margin-top:34px;
+      font-style:italic;
     }
-    .site-footer{
-      background:#07111f;
-      color:rgba(255,255,255,.66);
-      padding:34px 5vw;
-      border-top:1px solid rgba(155,116,41,.34);
-      font-size:12px;
-      letter-spacing:.08em;
+
+    .footer{
+      margin-top:70px;
+      padding-top:28px;
+      border-top:1px solid var(--line);
+      font-family:Inter,Arial,sans-serif;
+      font-size:11px;
+      letter-spacing:.12em;
       text-transform:uppercase;
+      color:var(--gold);
       display:flex;
       justify-content:space-between;
-      gap:20px;
+      gap:22px;
       flex-wrap:wrap;
     }
-    .site-footer .motto{
-      color:#d0aa5c;
+
+    .back-link{
+      color:var(--gold);
+      text-decoration:none;
       font-weight:800;
     }
-    @media(max-width:900px){
-      .nav{display:none;}
-      .masthead{padding:46px 22px 28px;}
-      .byline-grid{grid-template-columns:1fr;padding:22px;}
-      .article-meta{justify-content:flex-start;}
-      .article-shell{display:block;padding:38px 22px 74px;}
-      .toc{position:relative;top:auto;margin-bottom:34px;}
-      .article-body p{font-size:18px;}
-      .article-body .lead{font-size:19px;}
-      .pullquote{font-size:29px;}
-      .article-footer{grid-template-columns:1fr;}
+
+    /* In this Paper — mirrors the Issue 001 institutional tracker pattern */
+    .paper-nav{
+      position:fixed;
+      top:168px;
+      left:max(28px, calc((100vw - 1240px) / 2 + 28px));
+      width:220px;
+      z-index:2;
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    .paper-nav-title{
+      color:var(--gold);
+      font-size:10px;
+      letter-spacing:.20em;
+      text-transform:uppercase;
+      font-weight:800;
+      margin-bottom:16px;
+      padding-bottom:14px;
+      border-bottom:1px solid var(--soft-line);
+    }
+
+    .paper-nav a{
+      display:block;
+      text-decoration:none;
+      color:#64748b;
+      border-bottom:1px solid rgba(7,17,31,.08);
+      padding:12px 0;
+      transition:.2s ease;
+    }
+
+    .paper-nav a span{
+      display:block;
+      color:var(--gold);
+      font-size:9px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:800;
+      margin-bottom:5px;
+    }
+
+    .paper-nav a div{
+      font-size:12px;
+      line-height:1.38;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+
+    .paper-nav a:hover,
+    .paper-nav a.active{
+      color:var(--navy);
+    }
+
+    .paper-nav a.active{
+      border-bottom-color:rgba(138,106,63,.42);
+    }
+
+    @media(max-width:1180px){
+      .paper-nav{
+        display:none;
+      }
+    }
+
+    @media(max-width:700px){
+      .page-frame{padding:0;}
+      .article-shell{padding:42px 22px 90px;}
+      p{font-size:17px;}
+      .subtitle{font-size:20px;}
+      .pullquote{font-size:25px;}
     }
   </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <a href="/" class="brand" aria-label="The Buckler Group Home"><img class="brand-crest" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest"><span>The Buckler Group</span></a>
-    <nav class="nav" aria-label="Article navigation"><a href="/">Home</a><a href="/caribbean-renaissance.html">Framework</a><a href="/caribbean-renaissance-insights.html">Insights</a><a href="/charter-membership.html">Membership</a></nav>
-  </header>
+  <div class="page-frame">
 
-  <section class="masthead">
-    <a class="crumb" href="/">← Back to The Buckler Group</a>
-    <div class="masthead-brand" aria-label="The Buckler Group publication masthead">
-      <img class="masthead-crest" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest">
-      <div class="masthead-wordmark">The Buckler Group</div>
-      <div class="masthead-publication">Caribbean Renaissance™ Insights</div>
-      <div class="masthead-rule" aria-hidden="true"></div>
-    </div>
-    <div class="issue-line">Issue No. 002 · Hospitality & Development</div>
-    <h1 class="headline">Hospitality as Economic Infrastructure</h1>
-    <p class="deck">Hotels, resorts, residences, and mixed-use assets as engines of destination value.</p>
-  </section>
+    <aside class="paper-nav" aria-label="In this paper">
+      <div class="paper-nav-title">In this Paper</div>
 
-  <section class="byline-grid">
-    <div class="byline">
-      <strong>Christopher A. Browne</strong>
-      <span>Founder & CEO, The Buckler Group<br>Architect of Order | Caribbean Renaissance™ Framework</span>
-    </div>
-    <div class="article-meta">
-      <div><strong>Published</strong><span>June 2026</span></div>
-      <div><strong>Issue</strong><span>No. 002</span></div>
-      <div><strong>Read</strong><span>8 minutes</span></div>
-    </div>
-  </section>
+      <a href="#misunderstanding" class="active">
+        <span>01</span>
+        <div>The Misunderstanding of Hospitality</div>
+      </a>
 
-  <main class="article-shell">
-    <aside class="toc" aria-label="Article sections">
-      <div class="toc-title">In this article</div>
-      <a href="#tourism">Beyond Tourism</a>
-      <a href="#infrastructure">Destination Infrastructure</a>
-      <a href="#anchors">Hotels as Anchors</a>
-      <a href="#mixed-use">Mixed-Use Hospitality</a>
-      <a href="#entitlement">Hospitality & Entitlement</a>
-      <a href="#resilience">Climate Resilience</a>
-      <a href="#competitiveness">Regional Competitiveness</a>
+      <a href="#organizes">
+        <span>02</span>
+        <div>Hospitality Organizes Economies</div>
+      </a>
+
+      <a href="#multiplier">
+        <span>03</span>
+        <div>The Destination Multiplier</div>
+      </a>
+
+      <a href="#capital">
+        <span>04</span>
+        <div>Hospitality & Capital Formation</div>
+      </a>
+
+      <a href="#readiness">
+        <span>05</span>
+        <div>Hospitality & Development Readiness</div>
+      </a>
+
+      <a href="#competitiveness">
+        <span>06</span>
+        <div>Hospitality & Regional Competitiveness</div>
+      </a>
+
+      <a href="#conclusion">
+        <span>07</span>
+        <div>Conclusion</div>
+      </a>
     </aside>
 
-    <article class="article-body">
-      <p class="lead">Hospitality has traditionally been measured by occupancy rates, visitor arrivals, average daily rates, and tourism receipts. While those metrics remain important, they no longer capture the strategic role hospitality plays in shaping modern economies.</p>
+    <main class="article-shell">
 
-      <p>Today, hospitality is infrastructure.</p>
+      <header class="masthead">
+        <img src="assets-images/tbg-crest.png" alt="The Buckler Group" class="article-logo">
+        <div class="wordmark">The Buckler Group</div>
+        <div class="publication">Caribbean Renaissance™ Insights</div>
+        <div class="series-note">An Institutional Research Series</div>
+      </header>
 
-      <p>Hotels, branded residences, mixed-use districts, convention centers, marinas, entertainment venues, airports, cruise terminals, and public spaces collectively influence investment patterns, labor markets, infrastructure investment, urban development, and national competitiveness.</p>
+      <div class="issue">Research Paper No. 002</div>
 
-      <p>For the Caribbean, this shift carries profound implications. The question is no longer how many visitors arrive each year. The more important question is what long-term economic systems those visitors support.</p>
+      <h1>Hospitality as Infrastructure™</h1>
 
-      <p>The Caribbean Renaissance™ Framework proposes a different way of thinking about hospitality—not as an industry that serves tourism, but as an economic platform that organizes investment, development, and opportunity across the region.</p>
-
-      <h2 id="tourism">Beyond Tourism</h2>
-      <p>Hospitality has long been categorized as part of the visitor economy. That classification understates its economic significance.</p>
-      <p>When thoughtfully planned, hospitality influences nearly every sector of national development. A successful destination requires transportation infrastructure, utilities, digital connectivity, healthcare capacity, environmental management, workforce development, housing, public safety, and cultural institutions.</p>
-      <p>In this context, a hotel is not merely a building. It is an anchor institution.</p>
-
-      <h2 id="infrastructure">Every Great Destination Is Built on Infrastructure</h2>
-      <p>The world’s most competitive hospitality markets did not emerge by accident. They were intentionally built through coordinated investment in transportation, public space, planning, culture, education, and governance.</p>
-      <p>Visitors may remember a resort. Investors remember the operating environment. Residents experience the supporting infrastructure every day.</p>
-      <p>The distinction matters because hospitality succeeds most consistently where destinations function efficiently beyond the visitor experience: roads, utilities, airports, public waterfronts, broadband, security, public policy, and land-use planning.</p>
-      <p>These systems determine whether hospitality assets appreciate in value over decades or struggle to remain competitive.</p>
-
-      <blockquote class="pullquote">Hospitality is not merely a sector that serves visitors. It is an enabling system through which transportation, housing, culture, education, infrastructure, capital, and community development intersect.</blockquote>
-
-      <h2 id="anchors">Hotels as Economic Anchors</h2>
-      <p>Every major hospitality investment produces economic activity beyond its property boundaries. Construction creates employment. Operations support local suppliers. Restaurants stimulate culinary entrepreneurship. Conference facilities attract business travel. Hotels strengthen airline demand. Retail districts expand. Professional services deepen. Universities establish partnerships. Property values increase.</p>
-      <p>The economic multiplier extends far beyond guest rooms. Hospitality assets become anchors around which entire districts evolve.</p>
-      <p>This explains why many of the world’s most successful mixed-use developments begin with a hospitality component rather than ending with one. Hospitality creates confidence. Confidence attracts capital. Capital accelerates development.</p>
-
-      <h2 id="mixed-use">The Rise of Mixed-Use Hospitality</h2>
-      <p>Increasingly, investors no longer separate hospitality from residential, retail, office, entertainment, and cultural uses. The future belongs to integrated districts.</p>
-      <p>Branded residences complement luxury hotels. Marinas support waterfront retail. Convention centers stimulate office demand. Public plazas strengthen surrounding real estate. Universities generate executive education programs. Healthcare facilities support wellness tourism.</p>
-      <p>Rather than isolated assets, successful destinations increasingly function as interconnected ecosystems. For Caribbean jurisdictions, this evolution creates opportunities to move beyond resort development toward complete destination-building.</p>
-
-      <h2 id="entitlement">Hospitality and Entitlement</h2>
-      <p>No hospitality investment begins with architecture. It begins with entitlement.</p>
-      <p>Before financing is secured or construction begins, developers must navigate zoning, land assembly, environmental approvals, infrastructure capacity, utility coordination, transportation planning, and regulatory compliance. These processes directly influence investment risk.</p>
-      <p>Institutional capital evaluates entitlement systems with the same scrutiny applied to financial projections. Predictability matters. Transparency matters. Execution matters.</p>
-      <p>Jurisdictions capable of reducing unnecessary regulatory friction while maintaining rigorous environmental and planning standards become substantially more competitive in attracting long-term investment.</p>
-
-      <h2 id="resilience">Climate Resilience Is Hospitality Strategy</h2>
-      <p>Climate resilience is often discussed as an environmental concern. It is equally an investment concern.</p>
-      <p>Resilient infrastructure protects destinations. It reduces insurance costs. It preserves operational continuity. It strengthens investor confidence. It protects employment. It safeguards national competitiveness.</p>
-      <p>Hospitality developments designed for resilience increasingly command greater institutional interest because they reduce long-term operational uncertainty. For island economies, resilience is not a sustainability initiative. It is an economic necessity.</p>
-
-      <h2>Lessons from the Caribbean</h2>
-      <p>Throughout the Caribbean Renaissance™ NYC Consular Listening Tour, conversations with Caribbean diplomatic leaders consistently returned to hospitality as a catalyst for broader economic development.</p>
-      <p>Although every jurisdiction possesses unique priorities, several common themes emerged. Hospitality remains one of the region’s strongest competitive advantages. Yet governments increasingly seek investment that creates enduring local value rather than isolated tourism assets.</p>
-      <p>There is growing interest in developments that strengthen local supply chains, expand workforce opportunities, encourage entrepreneurship, and stimulate mixed-use investment beyond resort boundaries.</p>
-      <p>Equally important, discussions reinforced that successful destinations depend upon institutional coordination. Investment promotion agencies, planning authorities, tourism organizations, universities, infrastructure providers, and the private sector all influence the quality of the hospitality investment environment.</p>
-      <p>Hospitality therefore becomes a test of institutional effectiveness. The strongest destinations are rarely those with the most natural beauty. They are those with the strongest institutions.</p>
-
-      <h2 id="competitiveness">Hospitality as a Platform for Regional Competitiveness</h2>
-      <p>The Caribbean competes with destinations across the Mediterranean, Southeast Asia, the Gulf, Central America, and Africa. Natural beauty alone is no longer sufficient.</p>
-      <p>Future competitiveness will increasingly depend upon destinations capable of integrating hospitality with infrastructure, education, technology, climate resilience, public policy, and investment strategy.</p>
-      <p>Hospitality should therefore be viewed as an organizing platform for national development. When coordinated effectively, it aligns ministries, investors, universities, utilities, developers, airlines, cultural institutions, and local businesses around shared economic objectives.</p>
-      <p>That coordination creates stronger destinations. Stronger destinations attract higher-quality investment. Higher-quality investment creates broader prosperity.</p>
-
-      <div class="note-box">
-        <strong>Strategic proposition</strong>
-        <p>Hospitality is not the outcome of development. It is one of its most powerful engines. Hotels, resorts, residences, and mixed-use assets become engines of destination value when they are connected to infrastructure, entitlement clarity, local enterprise, and institutional capacity.</p>
+      <div class="subtitle">
+        Hotels, Resorts, Residences, and Mixed-Use Assets as Engines of Destination Value
       </div>
 
-      <h2>From Projects to Places</h2>
-      <p>The next generation of Caribbean hospitality will not be defined by individual resorts. It will be defined by complete places.</p>
-      <p>Places where visitors choose to stay. Entrepreneurs choose to build. Families choose to live. Students choose to study. Investors choose to deploy capital. Communities choose to remain.</p>
-      <p>This requires moving beyond transactional development toward long-term place-making. The Caribbean possesses every ingredient necessary to achieve that transition. What remains is the discipline to organize those assets into coherent development systems.</p>
+      <div class="dek">
+        Why Hospitality Is One of the Caribbean's Most Powerful Systems for Organizing Capital, Development, and Long-Term Competitiveness
+      </div>
 
-      <h2>Conclusion</h2>
-      <p>Hospitality should no longer be viewed as a sector of the economy. It is an enabling system through which transportation, housing, culture, education, infrastructure, capital, and community development intersect.</p>
-      <p>For the Caribbean, this perspective represents more than a conceptual shift. It offers a strategic framework for building stronger destinations, attracting more sophisticated investment, and creating broader economic opportunity for future generations.</p>
-      <p>The Caribbean Renaissance™ Framework advances a simple proposition: hospitality is not the outcome of development. It is one of its most powerful engines.</p>
+      <div class="byline">
+        <strong>Christopher A. Browne</strong><br>
+        Founder & Chief Executive Officer, The Buckler Group<br>
+        June 2026 · Caribbean Renaissance™ Insights
+      </div>
 
-      <div class="closing-rule"></div>
+      <section class="about-paper">
+        <h2>About this Research Paper</h2>
 
-      <div class="related-title">Related Insights</div>
-      <section class="article-footer" aria-label="Related insights and article actions">
-        <a class="footer-card" href="/caribbean-renaissance-insights.html"><span>Previous Insight</span><strong>Why the Caribbean Renaissance™ Matters</strong></a>
-        <a class="footer-card" href="/"><span>Return</span><strong>The Buckler Group Homepage</strong></a>
+        <p>
+          Hospitality is commonly measured through visitor arrivals, occupancy rates, average daily rates, and tourism expenditure. While these indicators remain important, they do not fully explain hospitality's role in shaping national development.
+        </p>
+
+        <p>
+          This paper advances <strong>Hospitality as Infrastructure™</strong>, a strategic framework that positions hospitality not simply as a commercial industry, but as an enabling system that influences investment, transportation, utilities, workforce development, housing, entrepreneurship, education, environmental stewardship, and international competitiveness.
+        </p>
+
+        <p>
+          Drawing upon engagement with governments, hospitality operators, developers, investment promotion agencies, development corporations, public financial institutions, commercial banks, universities, diplomatic representatives, and institutional investors throughout the Caribbean, this publication examines how hospitality investments create value far beyond the physical assets themselves.
+        </p>
+
+        <p>
+          The paper argues that destinations become more competitive when hospitality is planned as economic infrastructure rather than managed solely as a tourism sector.
+        </p>
       </section>
-    </article>
-  </main>
 
-  <footer class="site-footer">
-    <span>© 2026 The Buckler Group. All rights reserved.</span>
-    <span class="motto">Many Islands. One Civilization.</span>
-    <span>Caribbean Renaissance™ Insights</span>
-  </footer>
+      <section class="executive-summary">
+        <h2>Executive Summary</h2>
+
+        <p>
+          Hospitality has traditionally been viewed as one sector among many within the Caribbean economy.
+        </p>
+
+        <p>
+          This paper argues that such a perspective understates its true significance.
+        </p>
+
+        <p>
+          Hotels, resorts, branded residences, marinas, mixed-use districts, conference centres, cruise facilities, and destination infrastructure influence far more than visitor accommodation. They shape transportation systems, public infrastructure, labour markets, capital formation, entrepreneurship, agriculture, higher education, environmental management, and international investment.
+        </p>
+
+        <p>
+          When hospitality is understood as infrastructure rather than simply tourism, governments make different planning decisions, investors evaluate projects differently, and institutions coordinate more effectively.
+        </p>
+
+        <p>
+          Hospitality as Infrastructure™ therefore proposes a shift from measuring tourism activity to designing hospitality ecosystems capable of strengthening national competitiveness and long-term prosperity.
+        </p>
+
+        <p>
+          The question is no longer how many visitors a destination receives.
+        </p>
+
+        <p>
+          The more important question is whether hospitality investments strengthen the wider economy long after guests return home.
+        </p>
+      </section>
+
+      <div class="pullquote">
+        Hospitality does not simply accommodate economic activity. Properly planned, it organizes it.
+      </div>
+
+      <section>
+        <h2 id="misunderstanding">The Misunderstanding of Hospitality</h2>
+
+        <p>
+          Hospitality is often discussed as though it were a narrow visitor-facing industry. In that framing, hotels provide rooms, restaurants provide meals, resorts provide leisure, and tourism boards promote destinations.
+        </p>
+
+        <p>
+          That description is accurate, but incomplete.
+        </p>
+
+        <p>
+          The true economic significance of hospitality is not limited to what happens inside a hotel, resort, marina, restaurant, or branded residence. Hospitality affects how destinations are financed, how infrastructure is extended, how workers are trained, how land is valued, how entrepreneurs enter markets, and how investors assess long-term confidence.
+        </p>
+
+        <p>
+          For the Caribbean, this distinction matters. If hospitality is treated only as tourism, governments will manage it primarily through promotion, arrivals, incentives, and occupancy metrics. If hospitality is understood as infrastructure, it becomes part of a wider national development system.
+        </p>
+
+        <p>
+          The Caribbean Renaissance™ Framework adopts the second view.
+        </p>
+
+        <p>
+          Hospitality is not merely a sector that serves visitors. It is one of the principal systems through which destinations organize investment, employment, land use, public infrastructure, culture, entrepreneurship, and global perception.
+        </p>
+
+        <h2 id="organizes">Hospitality Organizes Economies</h2>
+
+        <p>
+          A major hospitality asset does not exist in isolation. It activates a chain of economic relationships before construction begins and long after operations commence.
+        </p>
+
+        <p>
+          Land must be assembled. Entitlements must be secured. Environmental approvals must be evaluated. Financing must be structured. Utilities must be coordinated. Roads, ports, airports, digital systems, water infrastructure, and workforce pipelines must support the asset.
+        </p>
+
+        <p>
+          Once operational, the hospitality asset influences agriculture, food distribution, transportation, security, maintenance, professional services, creative industries, events, education, retail, wellness, and real estate.
+        </p>
+
+        <p>
+          The asset becomes an economic node.
+        </p>
+
+        <p>
+          Around that node, suppliers grow. Entrepreneurs emerge. Workers specialize. Financial institutions gain experience. Universities develop relevant programmes. Public agencies refine their execution capacity. Communities experience both the benefits and pressures of development.
+        </p>
+
+        <p>
+          This is why hospitality must be planned as infrastructure.
+        </p>
+
+        <p>
+          Infrastructure is valuable because it enables other activity. Airports enable movement. Ports enable trade. Utilities enable production. Universities enable talent formation. Hospitality, properly understood, enables place-based economic development.
+        </p>
+
+        <h2 id="multiplier">The Destination Multiplier</h2>
+
+        <p>
+          The value of hospitality is not fully captured by the revenue of a single hotel or resort.
+        </p>
+
+        <p>
+          The more important question is what the asset causes around it.
+        </p>
+
+        <p>
+          A well-positioned hotel can strengthen airline demand. A resort can support local agriculture. A marina can catalyze waterfront development. A branded residence can increase international confidence in a market. A mixed-use district can extend visitor activity into retail, culture, dining, entertainment, and public space.
+        </p>
+
+        <p>
+          The best hospitality assets therefore function as multipliers.
+        </p>
+
+        <p>
+          They multiply infrastructure demand. They multiply employment pathways. They multiply entrepreneurship. They multiply local procurement. They multiply investor interest. They multiply the value of surrounding real estate.
+        </p>
+
+        <p>
+          This multiplier effect is strongest when hospitality is integrated into wider development strategy rather than approved as an isolated project.
+        </p>
+
+        <p>
+          The Caribbean's most competitive destinations over the next generation will be those that understand this distinction and design hospitality ecosystems rather than simply permitting hospitality assets.
+        </p>
+
+        <h2 id="capital">Hospitality & Capital Formation</h2>
+
+        <p>
+          Hospitality also shapes the way capital enters and remains in a market.
+        </p>
+
+        <p>
+          Investors evaluate hotels, resorts, residences, and mixed-use districts not only as real estate assets, but as expressions of destination confidence. If a jurisdiction can support complex hospitality development, that sends a broader signal about its planning systems, infrastructure capacity, legal environment, workforce quality, and institutional coordination.
+        </p>
+
+        <p>
+          This is especially important for long-duration capital.
+        </p>
+
+        <p>
+          Institutional investors, family offices, private equity firms, infrastructure funds, and development finance institutions require more than attractive scenery or demand projections. They require confidence that the operating environment can support execution over time.
+        </p>
+
+        <p>
+          Hospitality therefore becomes a gateway asset class.
+        </p>
+
+        <p>
+          It allows capital to evaluate a jurisdiction's seriousness, execution discipline, regulatory consistency, infrastructure readiness, and capacity for public-private collaboration.
+        </p>
+
+        <p>
+          When hospitality succeeds at institutional scale, it often opens the door to other forms of investment: housing, healthcare, education, logistics, renewable energy, cultural districts, and destination infrastructure.
+        </p>
+
+        <h2 id="readiness">Hospitality & Development Readiness</h2>
+
+        <p>
+          No major hospitality investment begins with design.
+        </p>
+
+        <p>
+          It begins with readiness.
+        </p>
+
+        <p>
+          The site must be suitable. Land ownership must be clear. Zoning and land-use alignment must support the concept. Environmental review must be credible. Utilities must be available or financeable. Access must be reliable. Public agencies must coordinate. Incentives must be understood. Community expectations must be managed. Climate resilience must be embedded before execution.
+        </p>
+
+        <p>
+          These conditions determine whether hospitality development becomes a catalyst or a burden.
+        </p>
+
+        <p>
+          Poorly prepared projects become delayed, expensive, politically vulnerable, and difficult to finance. Well-prepared projects create confidence before capital is fully deployed.
+        </p>
+
+        <p>
+          This is where hospitality connects directly to development readiness.
+        </p>
+
+        <p>
+          A destination that wants better hospitality investment must strengthen the institutions that support hospitality investment. Planning departments, investment promotion agencies, development corporations, utilities, environmental regulators, tourism authorities, public bankers, private lenders, and local governments must operate with greater coordination.
+        </p>
+
+        <p>
+          The quality of hospitality development is ultimately a reflection of the quality of institutional coordination.
+        </p>
+
+        <h2 id="competitiveness">Hospitality & Regional Competitiveness</h2>
+
+        <p>
+          The Caribbean is not competing only with itself.
+        </p>
+
+        <p>
+          It competes with the Mediterranean, the Gulf, Central America, Southeast Asia, Latin America, and emerging African hospitality markets. These regions are not simply selling beauty. They are building infrastructure, modernizing airports, improving digital systems, strengthening public-private partnerships, expanding branded residential offerings, and aligning hospitality with broader economic strategy.
+        </p>
+
+        <p>
+          The Caribbean cannot rely on inherited advantages alone.
+        </p>
+
+        <p>
+          Natural beauty may attract visitors, but institutional excellence attracts durable capital.
+        </p>
+
+        <p>
+          The destinations that prevail will be those that connect hospitality to education, finance, climate resilience, land-use planning, workforce development, entrepreneurship, and infrastructure investment.
+        </p>
+
+        <p>
+          Hospitality as Infrastructure™ provides a framework for making that connection explicit.
+        </p>
+
+        <p>
+          It encourages governments, investors, developers, universities, public financial institutions, and communities to treat hospitality as one of the central organizing systems of national competitiveness.
+        </p>
+
+        <h2 id="conclusion">Conclusion</h2>
+
+        <p>
+          Hospitality has long been measured by occupancy rates, visitor arrivals, and tourism expenditure. Those indicators remain valuable, but they do not explain why some destinations consistently outperform others over generations.
+        </p>
+
+        <p>
+          The Caribbean Renaissance™ Framework proposes a different understanding.
+        </p>
+
+        <p>
+          Hospitality is not merely an industry serving visitors; it is one of the principal systems through which nations organize capital, infrastructure, entrepreneurship, employment, and place-making.
+        </p>
+
+        <p>
+          Destinations that recognize this relationship will compete differently. They will plan differently. They will attract capital differently. And they will create prosperity that extends well beyond the hospitality sector itself.
+        </p>
+
+        <p class="closing-line">
+          Hospitality, properly understood, is not the outcome of development. It is one of the systems through which development becomes possible.
+        </p>
+      </section>
+
+      <footer class="footer">
+        <a href="/" class="back-link">← Return to Homepage</a>
+        <span>Many Islands. One Civilization.</span>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    const paperNavLinks = Array.from(document.querySelectorAll('.paper-nav a'));
+    const trackedSections = paperNavLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActiveLink = () => {
+      let activeId = trackedSections[0]?.id;
+
+      trackedSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 150) {
+          activeId = section.id;
+        }
+      });
+
+      paperNavLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+      });
+    };
+
+    window.addEventListener('scroll', setActiveLink, { passive: true });
+    window.addEventListener('load', setActiveLink);
+  </script>
 </body>
 </html>
