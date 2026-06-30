@@ -40,16 +40,19 @@
     a{color:inherit;}
 
     .page-frame{
-      position:relative;
-      max-width:1240px;
+      max-width:1400px;
       margin:0 auto;
-      padding:0 28px;
+      display:grid;
+      grid-template-columns:240px minmax(0,780px);
+      column-gap:96px;
+      align-items:start;
+      padding:0 40px;
     }
 
     .article-shell{
+      width:100%;
       max-width:780px;
-      margin:0 auto;
-      padding:54px 28px 110px;
+      padding:54px 0 110px;
     }
 
     .masthead{
@@ -208,12 +211,13 @@
 
     /* In this Paper — mirrors the Issue 001 institutional tracker pattern */
     .paper-nav{
-      position:fixed;
-      top:168px;
-      left:max(28px, calc((100vw - 1240px) / 2 + 28px));
+      position:sticky;
+      top:140px;
+      align-self:start;
       width:220px;
       z-index:2;
       font-family:Inter,Arial,sans-serif;
+      padding-top:54px;
     }
 
     .paper-nav-title{
@@ -231,7 +235,7 @@
       display:block;
       text-decoration:none;
       color:#64748b;
-      border-bottom:1px solid rgba(7,17,31,.08);
+      border-bottom:1px solid rgba(7,17,31,.065);
       padding:12px 0;
       transition:.2s ease;
     }
@@ -259,17 +263,28 @@
     }
 
     .paper-nav a.active{
-      border-bottom-color:rgba(138,106,63,.42);
+      border-bottom-color:rgba(138,106,63,.34);
     }
 
-    @media(max-width:1180px){
+    @media(max-width:1200px){
+      .page-frame{
+        display:block;
+        max-width:860px;
+        padding:0;
+      }
+
       .paper-nav{
         display:none;
+      }
+
+      .article-shell{
+        max-width:780px;
+        margin:0 auto;
+        padding:54px 28px 110px;
       }
     }
 
     @media(max-width:700px){
-      .page-frame{padding:0;}
       .article-shell{padding:42px 22px 90px;}
       p{font-size:17px;}
       .subtitle{font-size:20px;}
@@ -323,7 +338,7 @@
     <main class="article-shell">
 
       <header class="masthead">
-        <img src="assets-images/tbg-logo-new.png" alt="The Buckler Group" class="article-logo">
+        <img src="assets-images/tbg-crest-new.png" alt="The Buckler Group" class="article-logo">
         <div class="wordmark">The Buckler Group</div>
         <div class="publication">Caribbean Renaissance™ Insights</div>
         <div class="series-note">An Institutional Research Series</div>
