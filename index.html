@@ -3337,158 +3337,152 @@ background:#ddb560;
    CLICKABLE INSIGHTS CARD — Caribbean Renaissance™ Article
    Makes the full "Why the Caribbean Renaissance™ Matters" box clickable
    ========================================================= */
+.cr-publications-grid{
 
-.insights-grid a.insight,
-.insights-grid a.insight:visited {
-  display: block;
-  color: inherit;
-  text-decoration: none;
+display:grid;
+
+grid-template-columns:repeat(3,minmax(340px,1fr));
+
+gap:32px;
+
+align-items:stretch;
+
+margin-top:70px;
+
 }
 
-.insight-link {
-  cursor: pointer;
-  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+.cr-publication-card{
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:space-between;
+
+background:#07111f;
+
+padding:42px;
+
+min-height:560px;
+
+border:1px solid rgba(212,175,55,.25);
+
+text-decoration:none;
+
+transition:.3s;
+
 }
 
-.insight-link:hover {
-  transform: translateY(-4px);
-  border-color: rgba(183,144,75,.85);
-  box-shadow: 0 28px 70px rgba(0,0,0,.22);
+.cr-publication-card:hover{
+
+background:#0d1b2d;
+
+transform:translateY(-6px);
+
+box-shadow:0 22px 60px rgba(0,0,0,.22);
+
 }
 
-.insight-link:hover h3 {
-  color: var(--gold);
+.cr-publication-label{
+
+font-size:10px;
+
+letter-spacing:.20em;
+
+text-transform:uppercase;
+
+font-weight:800;
+
+color:#b88a32;
+
+margin-bottom:20px;
+
 }
 
-.insight-link:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 4px;
-}
-.cr-insights-section {
-  background: #f7f3ea;
-  padding: 112px 5vw;
-  border-top: 1px solid rgba(7,17,31,.10);
-  border-bottom: 1px solid rgba(7,17,31,.10);
+.cr-issue{
+
+font-size:10px;
+
+letter-spacing:.20em;
+
+text-transform:uppercase;
+
+color:rgba(255,255,255,.55);
+
+margin-bottom:18px;
+
+font-weight:700;
+
 }
 
-.cr-insights-head {
-  max-width: 980px;
-  margin-bottom: 58px;
+.cr-publication-card h3{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:44px;
+
+line-height:.96;
+
+margin:0 0 18px;
+
+color:#fff;
+
 }
 
-.cr-insights-label,
-.cr-publication-label,
-.cr-issue {
-  color: #8a6a3f;
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: 11px;
-  font-weight: 800;
+.cr-subtitle{
+
+font-size:20px;
+
+line-height:1.35;
+
+color:rgba(255,255,255,.88);
+
+margin-bottom:24px;
+
 }
 
-.cr-insights-label {
-  margin-bottom: 18px;
+.cr-publication-card p:not(.cr-subtitle){
+
+font-size:15px;
+
+line-height:1.75;
+
+color:rgba(255,255,255,.66);
+
 }
 
-.cr-insights-head h2 {
-  color: #07111f;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(44px, 5.8vw, 82px);
-  line-height: .94;
-  letter-spacing: -.045em;
-  margin: 0 0 20px;
+.cr-publication-footer{
+
+margin-top:auto;
+
+padding-top:24px;
+
+border-top:1px solid rgba(255,255,255,.12);
+
+display:flex;
+
+justify-content:space-between;
+
+font-size:10px;
+
+letter-spacing:.14em;
+
+text-transform:uppercase;
+
+color:rgba(255,255,255,.60);
+
+font-weight:700;
+
 }
 
-.cr-insights-head p {
-  max-width: 720px;
-  color: #475569;
-  font-size: 17px;
-  line-height: 1.72;
-  margin: 0;
+@media(max-width:1200px){
+
+.cr-publications-grid{
+
+grid-template-columns:1fr;
+
 }
 
-.cr-publications-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
-  gap: 28px;
-  align-items: stretch;
-}
-
-.cr-publication-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: #07111f;
-  color: #ffffff;
-  padding: 42px;
-  min-height: 560px;
-  text-decoration: none;
-  border: 1px solid rgba(183,144,75,.34);
-  transition: all .3s ease;
-}
-
-.cr-publication-card:hover {
-  background: #0d1b2d;
-  transform: translateY(-5px);
-  box-shadow: 0 22px 60px rgba(7,17,31,.22);
-}
-
-.cr-publication-label {
-  color: #b7904b;
-  margin-bottom: 26px;
-}
-
-.cr-issue {
-  color: rgba(255,255,255,.52);
-  margin-bottom: 18px;
-}
-
-.cr-publication-card h3 {
-  color: #ffffff;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(34px, 3vw, 46px);
-  line-height: .98;
-  letter-spacing: -.035em;
-  margin: 0 0 22px;
-}
-
-.cr-subtitle {
-  color: rgba(255,255,255,.86);
-  font-size: 18px;
-  line-height: 1.45;
-  margin-bottom: 24px;
-}
-
-.cr-publication-card p:not(.cr-subtitle) {
-  color: rgba(255,255,255,.64);
-  font-size: 14.5px;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.cr-publication-footer {
-  margin-top: 42px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(255,255,255,.12);
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  color: rgba(255,255,255,.62);
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
-@media (max-width: 1100px) {
-  .cr-publications-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cr-publication-card {
-    min-height: auto;
-  }
-}
   </style>
 </head>
 <body>
