@@ -1228,21 +1228,29 @@
       align-items: stretch;
     }
 
-    .office-founder-image {
-      min-height: 600px;
-      background-size: cover;
-      background-position: center;
-      border: 1px solid rgba(7,17,31,.12);
-      position: relative;
-    }
+   .office-founder-image{
+    min-height:600px;
 
-    .office-founder-image:after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(183,144,75,.28);
-      pointer-events: none;
-    }
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7,17,31,.06),
+            rgba(7,17,31,.20)
+        ),
+        url("assets-images/founder.webp");
+
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center 5%;
+
+    border:none;
+    box-shadow:none;
+    position:relative;
+}
+
+    .office-founder-image:after{
+    display:none;
+}
 
     .office-founder-copy {
       background: var(--white);
