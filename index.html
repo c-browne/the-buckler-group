@@ -3960,70 +3960,121 @@
 }
 /* ==========================================================
    Caribbean Renaissance™ Insights
-   Match Insights Spotlight Color Palette
+   Institutional Typography System
    ========================================================== */
 
+/* Section background */
 #insights{
-    background:#f7f3ea !important;   /* Same institutional parchment tone */
-    padding:110px 5vw !important;
-    position:relative;
+    background:#f7f3ea !important;
 }
 
-#insights .section-label{
+/* Section heading */
+
+#insights h2,
+#insights .insights-title{
     color:#b7904b !important;
+    font-family:"Cormorant Garamond", Georgia, serif;
+    font-weight:600;
+    letter-spacing:-0.03em;
 }
 
-#insights h2{
-    color:#07111f !important;
+/* Section label */
+
+#insights .section-label,
+#insights .eyebrow{
+    color:#b7904b !important;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
 }
+
+/* Intro paragraph */
 
 #insights .section-intro,
 #insights .section-description{
     color:#667085 !important;
+    font-size:18px;
+    line-height:1.75;
+    max-width:760px;
 }
 
 /* Publication cards */
 
 #insights .publication-card{
     background:#ffffff !important;
-    border:1px solid rgba(7,17,31,.08) !important;
-    box-shadow:0 18px 50px rgba(7,17,31,.06);
+    border:none !important;
+    box-shadow:0 20px 60px rgba(7,17,31,.08);
 }
 
-#insights .publication-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 28px 70px rgba(7,17,31,.10);
+/* Publication titles */
+
+#insights .publication-card h3,
+#insights .publication-title{
+    color:#07111f !important;
+    font-family:"Cormorant Garamond", Georgia, serif;
+    font-size:32px;
+    line-height:1.05;
+    letter-spacing:-0.02em;
 }
 
-#insights .publication-card h3{
-    color:#07111f;
-}
+/* Issue number */
 
-#insights .publication-card p{
-    color:#667085;
-}
-
-/* Publication tags */
-
-#insights .publication-tag{
-    color:#b7904b;
-    letter-spacing:.16em;
+#insights .publication-tag,
+#insights .issue-label{
+    color:#b7904b !important;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.18em;
     text-transform:uppercase;
+}
+
+/* Card description */
+
+#insights .publication-card p,
+#insights .publication-description{
+    color:#667085 !important;
+    line-height:1.75;
+}
+
+/* "In this paper" accordion */
+
+#insights .paper-tracker-title{
+    color:#07111f !important;
     font-weight:700;
 }
 
-/* Buttons */
-
-#insights .btn,
-#insights .button{
-    background:#07111f;
-    color:#ffffff;
+#insights .paper-tracker-item{
+    color:#667085 !important;
 }
 
-#insights .btn:hover,
-#insights .button:hover{
-    background:#b7904b;
-    color:#07111f;
+#insights .paper-tracker-item.active{
+    color:#07111f !important;
+}
+
+#insights .paper-tracker-item::before{
+    background:#b7904b !important;
+}
+
+/* Read Paper button */
+
+#insights .read-paper,
+#insights .publication-link{
+    color:#07111f !important;
+    font-weight:700;
+    transition:.25s ease;
+}
+
+#insights .read-paper:hover,
+#insights .publication-link:hover{
+    color:#b7904b !important;
+}
+
+/* Hover */
+
+#insights .publication-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 30px 80px rgba(7,17,31,.12);
 }
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
