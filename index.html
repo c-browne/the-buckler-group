@@ -7,8 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
-  <style>
+<style>
     .cr-framework-btn{
   display:inline-flex;
   align-items:center;
@@ -2218,95 +2217,6 @@
   line-height: 1.75 !important;
 }
 
-/* Founder: institutional perspective, no portrait */
-.office-founder {
-  background: #ffffff !important;
-  padding: 92px 5vw !important;
-  border-top: 1px solid rgba(7,17,31,.10) !important;
-  border-bottom: 1px solid rgba(7,17,31,.10) !important;
-}
-
-.office-founder-inner {
-  max-width: 1180px !important;
-  margin: 0 auto !important;
-  display: block !important;
-}
-
-.office-founder-image {
-  display: none !important;
-}
-
-.office-founder-copy {
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  display: block !important;
-}
-
-.office-founder-copy .eyebrow {
-  color: #8a6a3f !important;
-  font-size: 10px !important;
-  text-transform: uppercase !important;
-  letter-spacing: .16em !important;
-  font-weight: 800 !important;
-  margin-bottom: 22px !important;
-}
-
-.office-founder-copy h2 {
-  color: var(--navy) !important;
-  font-family: "Cormorant Garamond", Georgia, serif !important;
-  font-size: clamp(42px, 5vw, 78px) !important;
-  line-height: .94 !important;
-  letter-spacing: -.045em !important;
-  max-width: 860px !important;
-  margin: 0 0 28px !important;
-}
-
-.office-founder-copy p {
-  color: #475569 !important;
-  max-width: 860px !important;
-  font-size: 17px !important;
-  line-height: 1.75 !important;
-  margin: 0 0 22px !important;
-}
-
-.office-founder-copy blockquote,
-.office-founder-copy .founder-subtitle,
-.office-founder-signature {
-  display: none !important;
-}
-
-.founder-focus-grid {
-  margin-top: 42px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid rgba(7,17,31,.10);
-  border-left: 1px solid rgba(7,17,31,.10);
-}
-
-.founder-focus {
-  min-height: 132px;
-  padding: 22px;
-  border-right: 1px solid rgba(7,17,31,.10);
-  border-bottom: 1px solid rgba(7,17,31,.10);
-}
-
-.founder-focus strong {
-  display: block;
-  color: var(--navy);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: .10em;
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-
-.founder-focus span {
-  color: #667085;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
 /* CTA hierarchy */
 .cta-band .button-row {
   gap: 12px !important;
@@ -3018,323 +2928,159 @@
 }
 
 
-/* =========================================================
-   FINAL ADVANCED REFINEMENTS: Calendar Footer, Founder, Map, EXODUS
-   ========================================================= */
-#sessions .strategic-calendar{display:block!important;width:100%!important;max-width:none!important;overflow:hidden!important}
-#sessions .calendar-footnote{display:block!important;width:100%!important;max-width:none!important;box-sizing:border-box!important;margin:0!important;padding:28px 34px!important;background:#fbfaf7!important;color:#334155!important;border-top:1px solid rgba(7,17,31,.10)!important;font-size:14px!important;line-height:1.75!important}
-
-.blackstone-founder{background:#fff!important;padding:118px 5vw!important;border:none!important}
-.founder-layout{display:grid;grid-template-columns:1.15fr .55fr;gap:82px;align-items:stretch}
-.founder-kicker{color:#8a6a3f;font-size:10px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;margin-bottom:28px}
-.founder-copy-block h2{color:var(--navy);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(48px,6vw,94px);line-height:.90;letter-spacing:-.055em;font-weight:600;margin:0 0 34px;max-width:860px}
-.founder-copy-block p{color:#475569;font-size:17px;line-height:1.75;max-width:760px;margin:0 0 20px}
-.founder-image-panel{
-    min-height:520px;
-    overflow:hidden;
-}
-.founder-image-panel img{
-    width:100%;
-    height:100%;
-    min-height:520px;
-    object-fit:cover;
-    object-position:center 12%;
-    display:block;
-    filter:grayscale(100%) contrast(1.05);
-}
-    
-.founder-index.borderless{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:36px;border:none!important}
-.founder-index.borderless div{border:none!important;padding:0!important;min-height:auto!important}
-.founder-index.borderless strong{display:block;color:var(--navy);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;margin-bottom:12px}
-.founder-index.borderless p{color:#667085;font-size:13px;line-height:1.55;margin:0}
-
-.jurisdiction-map-section{background:#f7f3ea;border-top:1px solid rgba(7,17,31,.10);border-bottom:1px solid rgba(7,17,31,.10)}
-.map-platform{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:stretch}
-.map-visual{position:relative;min-height:560px;background:radial-gradient(circle at 38% 36%,rgba(183,144,75,.20),transparent 24%),radial-gradient(circle at 64% 68%,rgba(7,17,31,.11),transparent 30%),linear-gradient(135deg,#fff 0%,#f1eee8 100%);border:1px solid rgba(7,17,31,.10);overflow:hidden}
-.map-visual:before{content:"";position:absolute;inset:8%;border:1px solid rgba(7,17,31,.08);transform:skew(-8deg)}
-.map-pin{position:absolute;width:15px;height:15px;border-radius:50%;border:2px solid #fff;background:#8a6a3f;box-shadow:0 0 0 8px rgba(138,106,63,.16);cursor:pointer;z-index:3}
-.map-pin.active,.map-pin:hover{background:var(--navy);box-shadow:0 0 0 10px rgba(7,17,31,.18)}
-.guyana-pin{left:58%;top:66%}.barbados-pin{left:52%;top:54%}.bahamas-pin{left:25%;top:24%}.grenada-pin{left:49%;top:61%}.antigua-pin{left:47%;top:45%}.tt-pin{left:52%;top:70%}
-.map-label{position:absolute;color:#334155;font-size:9px;letter-spacing:.10em;text-transform:uppercase;font-weight:800;z-index:2}
-.map-label-guyana{left:61%;top:65%}.map-label-barbados{left:55%;top:53%}.map-label-bahamas{left:28%;top:23%}.map-label-grenada{left:52%;top:60%}.map-label-antigua{left:50%;top:44%}.map-label-tt{left:55%;top:69%}
-.map-intelligence{background:#fff;border:1px solid rgba(7,17,31,.10);padding:36px;display:flex;flex-direction:column;justify-content:center}
-.map-intelligence h3{color:var(--navy);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(42px,5vw,76px);line-height:.90;letter-spacing:-.045em;margin-bottom:18px}
-.map-meta{color:#8a6a3f;font-size:10px;text-transform:uppercase;letter-spacing:.13em;font-weight:800;margin-bottom:24px}
-.map-intelligence p{color:#475569;font-size:15px;line-height:1.72;margin:0 0 26px}
-.map-themes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
-.map-themes span{border:1px solid rgba(7,17,31,.12);padding:8px 10px;color:#334155;font-size:9px;text-transform:uppercase;letter-spacing:.10em;font-weight:800}
-.map-considerations{border-top:1px solid rgba(7,17,31,.10);padding-top:24px}
-.map-considerations strong{display:block;color:var(--navy);font-size:10px;text-transform:uppercase;letter-spacing:.13em;font-weight:800;margin-bottom:12px}
-
-.exodus-integration{background:#07111f!important}
-.exodus-system{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.12);border-left:1px solid rgba(255,255,255,.12)}
-.exodus-system-card{min-height:260px;padding:28px;border-right:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025)}
-.exodus-system-card span{color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}
-.exodus-system-card h3{color:#fff;font-family:"Cormorant Garamond",Georgia,serif;font-size:32px;line-height:1;margin:68px 0 14px}
-.exodus-system-card p{color:rgba(255,255,255,.62);font-size:13px;line-height:1.58}
-.exodus-pathways{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px}
-.exodus-pathways a{border:1px solid rgba(255,255,255,.26);color:#fff;padding:14px 16px;font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
-.exodus-pathways a:first-child{background:var(--gold);color:var(--navy);border-color:var(--gold)}
-
-@media(max-width:1000px){.founder-layout,.map-platform{grid-template-columns:1fr}.founder-image-panel{min-height:360px}.founder-index.borderless,.exodus-system{grid-template-columns:repeat(2,1fr)}.map-visual{min-height:440px}}
-@media(max-width:640px){.founder-index.borderless,.exodus-system{grid-template-columns:1fr}.map-label{display:none}}
-
-
-/* =========================================================
-   MAP POSITION CORRECTION
-   Corrects relative Caribbean basin placement, especially Guyana.
-   ========================================================= */
-
-/* Approximate basin positions within the stylized map panel:
-   Bahamas = northwest; Antigua/Barbados/Grenada/TT = eastern Caribbean arc;
-   Guyana = northern South America, southeast of Trinidad & Tobago. */
-.bahamas-pin { left: 23% !important; top: 23% !important; }
-.antigua-pin { left: 56% !important; top: 44% !important; }
-.barbados-pin { left: 62% !important; top: 55% !important; }
-.grenada-pin { left: 57% !important; top: 63% !important; }
-.tt-pin { left: 55% !important; top: 72% !important; }
-.guyana-pin { left: 68% !important; top: 82% !important; }
-
-.map-label-bahamas { left: 26% !important; top: 22% !important; }
-.map-label-antigua { left: 59% !important; top: 43% !important; }
-.map-label-barbados { left: 65% !important; top: 54% !important; }
-.map-label-grenada { left: 60% !important; top: 62% !important; }
-.map-label-tt { left: 58% !important; top: 71% !important; }
-.map-label-guyana { left: 71% !important; top: 81% !important; }
-
-/* Add subtle South America base cue so Guyana's placement reads correctly */
-.map-visual::after {
-  content: "";
-  position: absolute;
-  left: 54%;
-  top: 76%;
-  width: 42%;
-  height: 28%;
-  background: rgba(7,17,31,.055);
-  border-top: 1px solid rgba(7,17,31,.10);
-  transform: skew(-18deg) rotate(-4deg);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.map-pin,
-.map-label {
-  z-index: 4 !important;
-}
-.market-button{
-
-display:inline-block;
-
-margin-top:28px;
-
-padding:16px 26px;
-
-background:#c9a24a;
-
-color:#07111b;
-
-text-decoration:none;
-
-text-transform:uppercase;
-
-letter-spacing:.14em;
-
-font-weight:700;
-
-}
-
-.market-button:hover{
-
-background:#ddb560;
-
-}
-
-
-//* Interactive Map — Jurisdiction Intelligence Brief */
-
-.tbg-jurisdiction-panel .map-session-meta{
-  margin:18px 0 16px;
-  padding:18px 0;
-  border-top:1px solid rgba(7,17,31,.12);
-  border-bottom:1px solid rgba(7,17,31,.12);
-}
-
-.tbg-jurisdiction-panel .map-session-meta span{
-  display:block;
-  color:#8a6a3f;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  margin-bottom:10px;
-}
-
-.tbg-jurisdiction-panel .map-session-meta strong{
-  display:block;
-  color:#07111f;
-  font-family:"Cormorant Garamond", Georgia, serif;
-  font-size:26px;
-  line-height:1.05;
-  font-weight:600;
-  margin-bottom:8px;
-}
-
-.tbg-jurisdiction-panel .map-session-meta em{
-  display:block;
-  color:#8a6a3f;
-  font-style:normal;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-}
-
-.tbg-jurisdiction-panel .map-format{
-  display:inline-block;
-  margin-bottom:22px;
-  padding:8px 10px;
-  background:#07111f;
-  color:#ffffff;
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-.tbg-jurisdiction-panel .map-brief-block{
-  margin-top:22px;
-}
-
-.tbg-jurisdiction-panel .map-brief-block h4{
-  margin:0 0 8px;
-  color:#8a6a3f;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
-
-.tbg-jurisdiction-panel .map-brief-block p{
-  margin:0;
-  color:#475569;
-  font-size:14px;
-  line-height:1.62;
-}
-
-.tbg-jurisdiction-panel .map-brief-block ul{
-  margin:0;
-  padding-left:18px;
-  color:#475569;
-  font-size:13px;
-  line-height:1.7;
-}
-
-.tbg-jurisdiction-panel .map-brief-block li{
-  margin-bottom:5px;
-}
-@keyframes tbgPulse {
-  0% { transform: scale(.65); opacity: .85; }
-  100% { transform: scale(1.8); opacity: 0; }
-}
-
-.market-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 28px;
-  min-width: 235px;
-  min-height: 54px;
-  padding: 0 26px;
-  background: var(--gold);
-  color: var(--navy);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  font-size: 12px;
-  font-weight: 800;
-  border: 1px solid var(--gold);
-  transition: all .25s ease;
-}
-
-.market-button:hover {
-  background: #d8ae5a;
-  border-color: #d8ae5a;
-  transform: translateY(-1px);
-}
-
-.mapboxgl-ctrl-logo,
-.mapboxgl-ctrl-attrib {
-  opacity: .55;
-}
-
-@media (max-width: 900px) {
-  .tbg-map-platform {
-    grid-template-columns: 1fr;
-  }
-
-  #tbgMap {
-    min-height: 520px;
-  }
-
-  .tbg-jurisdiction-panel {
-    border-left: none;
-    border-top: 1px solid rgba(183,144,75,.38);
-  }
-}
-
-
-/* =========================================================
-   Institutional Declaration CTA — Caribbean Renaissance™ Framework
-   ========================================================= */
-.declaration-hero-band .declaration-copy {
-  display: block !important;
-  color: rgba(255,255,255,.76) !important;
-  max-width: 920px !important;
-  margin: 0 auto !important;
-  font-size: 20px !important;
-  line-height: 1.65 !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-.declaration-hero-band .declaration-button {
-  display: flex !important;
-  justify-content: center !important;
-  margin-top: 34px !important;
-  margin-bottom: 0 !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-.declaration-hero-band .declaration-framework-btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-width: 245px !important;
-  height: 58px !important;
-  padding: 0 30px !important;
-  border: 1px solid var(--gold) !important;
-  background: transparent !important;
-  color: var(--white) !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  letter-spacing: .16em !important;
-  text-transform: uppercase !important;
-  text-decoration: none !important;
-}
-
-.declaration-hero-band .declaration-framework-btn:hover {
-  background: var(--gold) !important;
-  color: var(--navy) !important;
-  transform: translateY(-1px);
-}
 
   
 
+
+
+
+
+
 /* =========================================================
-   CLICKABLE INSIGHTS CARD — Caribbean Renaissance™ Article
-   Makes the full "Why the Caribbean Renaissance™ Matters" box clickable
+   TBG HOMEPAGE — CLEAN INSTITUTIONAL REDESIGN
+   Caribbean Intelligence + Research Library
    ========================================================= */
+
+/* Remove golden divider from first section */
+.hero{
+  background-position:center 18% !important;
+  border:0 !important;
+  border-bottom:0 !important;
+  box-shadow:none !important;
+  margin-bottom:0 !important;
+}
+
+.hero::before,
+.hero::after{
+  content:none !important;
+  display:none !important;
+}
+
+.hero + section,
+.hero + .institutional-premise,
+.institutional-premise{
+  border-top:0 !important;
+  margin-top:0 !important;
+}
+
+/* Remove any orphaned EXODUS section */
+
+
+/* Caribbean Intelligence — Priority Market Spotlight */
+.caribbean-intelligence{
+  background:#ffffff;
+  color:var(--ink);
+  padding:112px 5vw;
+  border-top:1px solid rgba(7,17,31,.10);
+  border-bottom:1px solid rgba(7,17,31,.10);
+}
+
+.caribbean-intelligence .section-head{
+  max-width:980px;
+  margin-bottom:54px;
+}
+
+.caribbean-intelligence .section-head h2{
+  color:var(--navy);
+  font-size:clamp(44px,5.5vw,82px);
+  line-height:.92;
+  letter-spacing:-.045em;
+}
+
+.caribbean-intelligence .section-head p{
+  color:#475569;
+  max-width:780px;
+  font-size:17px;
+  line-height:1.72;
+}
+
+.priority-market-spotlight{
+  margin-top:0;
+}
+
+.priority-spotlight-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;
+}
+
+.priority-card{
+  position:relative;
+  min-height:350px;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  background:#07111f;
+  background-size:cover;
+  background-position:center;
+  border:none !important;
+  box-shadow:none !important;
+  transition:.28s ease;
+}
+
+.priority-card:hover{
+  transform:translateY(-5px);
+}
+
+.priority-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(7,17,31,.04) 0%,
+    rgba(7,17,31,.34) 48%,
+    rgba(7,17,31,.92) 100%
+  );
+  z-index:1;
+}
+
+.priority-card-content{
+  position:relative;
+  z-index:2;
+  padding:26px;
+  color:#fff;
+}
+
+.priority-tag{
+  display:inline-block;
+  color:#b7904b;
+  background:rgba(7,17,31,.76);
+  border:1px solid rgba(183,144,75,.38);
+  padding:7px 9px;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.priority-card h3{
+  color:#fff;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:34px;
+  line-height:.95;
+  letter-spacing:-.035em;
+  margin:0 0 10px;
+  text-shadow:0 2px 12px rgba(0,0,0,.65);
+}
+
+.priority-card p{
+  color:rgba(255,255,255,.82);
+  font-size:13.5px;
+  line-height:1.55;
+  margin:0;
+  text-shadow:0 2px 10px rgba(0,0,0,.55);
+}
+
+.priority-card.guyana{background-image:url("assets-images/guyana.webp");}
+.priority-card.barbados{background-image:url("assets-images/barbados.webp");}
+.priority-card.bahamas{background-image:url("assets-images/bahamas.webp");}
+.priority-card.grenada{background-image:url("assets-images/grenada.webp");}
+.priority-card.tobago{background-image:url("assets-images/tobago.webp"), url("assets-images/trinidad-tobago.webp");}
+.priority-card.antigua{background-image:url("assets-images/antigua.webp");}
+
+/* Caribbean Renaissance™ Insights — institutional publication library */
 .cr-insights-section{
   background:#07111f;
   color:#ffffff;
@@ -3344,7 +3090,7 @@ background:#ddb560;
 }
 
 .cr-insights-head{
-  max-width:940px;
+  max-width:980px;
   margin-bottom:62px;
 }
 
@@ -3359,9 +3105,9 @@ background:#ddb560;
 
 .cr-insights-head h2{
   color:#ffffff;
-  font-family:"Cormorant Garamond", Georgia, serif;
-  font-size:clamp(42px,5vw,76px);
-  line-height:.95;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(44px,5.5vw,82px);
+  line-height:.92;
   letter-spacing:-.045em;
   margin:0 0 22px;
 }
@@ -3374,414 +3120,291 @@ background:#ddb560;
   margin:0;
 }
 
-/*====================================================
-CARIBBEAN RENAISSANCE INSIGHTS
-====================================================*/
-
 .cr-publications-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
-    margin-top:48px;
-
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:30px;
 }
 
 .cr-publication-card{
-
-    display:flex;
-
-    flex-direction:column;
-
-    overflow:hidden;
-
-    text-decoration:none;
-
-    background:#07111f;
-
-    border:1px solid rgba(183,144,75,.30);
-
-    transition:.35s;
-
-    box-shadow:
-        0 16px 42px rgba(0,0,0,.20);
-
+  display:flex;
+  flex-direction:column;
+  min-height:640px;
+  overflow:hidden;
+  background:#0d1a2b;
+  color:#ffffff;
+  border:1px solid rgba(183,144,75,.30);
+  text-decoration:none;
+  transition:.32s ease;
 }
 
 .cr-publication-card:hover{
-
-    transform:translateY(-8px);
-
-    border-color:#b7904b;
-
-    box-shadow:
-        0 28px 70px rgba(0,0,0,.28);
-
+  transform:translateY(-8px);
+  border-color:#b7904b;
+  box-shadow:0 32px 90px rgba(0,0,0,.28);
 }
 
-/*====================================================
-IMAGE
-====================================================*/
-
 .cr-publication-image{
-
-    height:360px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:22px;
-
-    background:#07111f;
-
+  height:420px;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#07111f;
+  border-bottom:1px solid rgba(183,144,75,.30);
 }
 
 .cr-publication-image img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:contain;
-
-    object-position:center;
-
-    display:block;
-
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  display:block;
 }
 
-/*====================================================
-BOTTOM PANEL
-====================================================*/
-
 .cr-publication-content{
-
-    padding:30px;
-
-    background:
-
-        linear-gradient(
-
-            180deg,
-
-            rgba(10,24,40,.96),
-
-            rgba(7,17,31,1)
-
-        );
-
-    border-top:
-
-        1px solid rgba(183,144,75,.30);
-
+  padding:30px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:linear-gradient(180deg, rgba(13,26,43,.98), rgba(7,17,31,1));
 }
 
 .cr-publication-label{
-
-    color:#b7904b;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    letter-spacing:.20em;
-
-    text-transform:uppercase;
-
-    margin-bottom:16px;
-
+  color:#b7904b;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:16px;
 }
 
 .cr-publication-card h3{
-
-    margin:0;
-
-    font-family:
-
-        "Cormorant Garamond",
-
-        Georgia,
-
-        serif;
-
-    font-size:40px;
-
-    line-height:.95;
-
-    color:white;
-
+  color:#ffffff;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(30px,3vw,42px);
+  line-height:.98;
+  letter-spacing:-.035em;
+  margin:0 0 16px;
 }
 
 .cr-subtitle{
-
-    margin:18px 0;
-
-    color:white;
-
-    font-size:17px;
-
-    line-height:1.45;
-
+  color:#ffffff;
+  font-size:16px;
+  line-height:1.42;
+  margin:0 0 16px;
 }
 
-.cr-publication-content p{
-
-    color:
-
-        rgba(255,255,255,.72);
-
-    line-height:1.7;
-
+.cr-publication-content p:not(.cr-subtitle){
+  color:rgba(255,255,255,.68);
+  font-size:14px;
+  line-height:1.65;
+  margin:0;
 }
 
 .cr-publication-footer{
-
-    margin-top:26px;
-
-    padding-top:18px;
-
-    border-top:
-
-        1px solid rgba(255,255,255,.12);
-
-    display:flex;
-
-    justify-content:space-between;
-
-    color:#b7904b;
-
-    font-size:10px;
-
-    letter-spacing:.16em;
-
-    text-transform:uppercase;
-
-    font-weight:800;
-
-}
-
-/*====================================================
-TABLET
-====================================================*/
-
-@media (max-width:1100px){
-
-    .cr-publications-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
-  .cr-publication-card{
-    min-height:auto;
-  }
-}
-    .cr-publication-card{
-  position:relative;
-  overflow:hidden;
-  isolation:isolate;
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-}
-
-.cr-publication-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(7,17,31,.72) 0%,
-      rgba(7,17,31,.86) 48%,
-      rgba(7,17,31,.96) 100%
-    );
-  z-index:-1;
-}
-
-.cr-publication-card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border:1px solid rgba(183,144,75,.34);
-  pointer-events:none;
-  z-index:2;
-}
-
-.cr-publication-card:hover::before{
-  background:
-    linear-gradient(
-      180deg,
-      rgba(7,17,31,.62) 0%,
-      rgba(7,17,31,.80) 48%,
-      rgba(7,17,31,.94) 100%
-    );
-}
-
-.cr-card-foundation{
-  background-image:url("assets-images/caribbean-renaissance-insights.webp.webp");
-}
-
-.cr-card-hospitality{
-  background-image:url("assets-images/hospitality-infrastructure.webp.webp");
-}
-
-.cr-card-readiness{
-  background-image:url("assets-images/development-readiness.webp.webp");
-}/* Jurisdiction Intelligence Map Panel */
-
-.tbg-jurisdiction-panel .map-session-meta{
-  margin:18px 0 16px;
-  padding:18px 0;
-  border-top:1px solid rgba(7,17,31,.12);
-  border-bottom:1px solid rgba(7,17,31,.12);
-}
-
-.tbg-jurisdiction-panel .map-session-meta span{
-  display:block;
-  color:#8a6a3f;
+  margin-top:26px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.12);
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  color:#b7904b;
   font-size:10px;
-  font-weight:800;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  margin-bottom:10px;
-}
-
-.tbg-jurisdiction-panel .map-session-meta strong{
-  display:block;
-  color:#07111f;
-  font-family:"Cormorant Garamond", Georgia, serif;
-  font-size:26px;
-  line-height:1.05;
-  font-weight:600;
-  margin-bottom:8px;
-}
-
-.tbg-jurisdiction-panel .map-session-meta em{
-  display:block;
-  color:#8a6a3f;
-  font-style:normal;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-}
-
-.tbg-jurisdiction-panel .map-format{
-  display:inline-block;
-  margin-bottom:22px;
-  padding:8px 10px;
-  background:#07111f;
-  color:#ffffff;
-  font-size:9px;
   font-weight:800;
   letter-spacing:.14em;
   text-transform:uppercase;
 }
 
-.tbg-jurisdiction-panel .map-brief-block{
-  margin-top:22px;
-}
-
-.tbg-jurisdiction-panel .map-brief-block h4{
-  margin:0 0 8px;
-  color:#8a6a3f;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
-
-.tbg-jurisdiction-panel .map-brief-block p{
-  margin:0;
-  color:#475569;
-  font-size:14px;
-  line-height:1.62;
-}
-
-.tbg-jurisdiction-panel .map-brief-block ul{
-  margin:0;
-  padding-left:18px;
-  color:#475569;
-  font-size:13px;
-  line-height:1.7;
-}
-
-.tbg-jurisdiction-panel .map-brief-block li{
-  margin-bottom:5px;
-}
-  
 /* =========================================================
-   TBG MAPBOX FIX — Interactive Jurisdiction Intelligence Map
-   Ensures the map has a real layout/height and panel styling.
+   FINAL UPDATE — EXODUS™ Integration + Founder Perspective
    ========================================================= */
 
-.tbg-mapbox-section{
-  background:#f7f3ea;
-  color:var(--ink);
-  padding:112px 5vw;
-  border-top:1px solid rgba(7,17,31,.10);
-  border-bottom:1px solid rgba(7,17,31,.10);
+/* EXODUS™ Integration Layer */
+.exodus-integration-layer{
+  background:#07111f !important;
+  color:#ffffff !important;
+  padding:96px 5vw !important;
+  border-top:1px solid rgba(183,144,75,.28);
+  border-bottom:1px solid rgba(183,144,75,.28);
 }
 
-.tbg-mapbox-section .section-head{
-  max-width:980px;
-  margin-bottom:44px;
-}
-
-.tbg-map-platform{
+.exodus-inner{
+  max-width:1320px;
+  margin:0 auto;
   display:grid;
-  grid-template-columns:minmax(0,1.35fr) minmax(340px,.65fr);
-  gap:0;
-  align-items:stretch;
-  width:100%;
-  min-height:560px;
-  background:#07111f;
-  border:1px solid rgba(183,144,75,.35);
-  box-shadow:0 28px 80px rgba(7,17,31,.12);
-  overflow:hidden;
+  grid-template-columns:1.25fr .85fr;
+  gap:56px;
+  align-items:center;
 }
 
-#tbgMap{
-  width:100%;
-  height:560px;
-  min-height:560px;
-  background:#07111f;
+.exodus-label,
+.exodus-pathway-label{
+  color:#b7904b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:18px;
 }
 
-.tbg-jurisdiction-panel{
-  background:#ffffff;
+.exodus-copy h2{
+  color:#ffffff;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(44px,5vw,78px);
+  line-height:.92;
+  letter-spacing:-.045em;
+  margin:0 0 24px;
+}
+
+.exodus-copy p{
+  color:rgba(255,255,255,.70);
+  max-width:760px;
+  font-size:17px;
+  line-height:1.72;
+  margin:0;
+}
+
+.exodus-pathway{
+  background:rgba(255,255,255,.045);
+  border:none !important;
+  box-shadow:none !important;
+  padding:36px;
+}
+
+.exodus-pathway h3{
+  color:#ffffff;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(30px,3vw,44px);
+  line-height:.98;
+  letter-spacing:-.035em;
+  margin:0 0 18px;
+}
+
+.exodus-pathway p{
+  color:rgba(255,255,255,.68);
+  font-size:14px;
+  line-height:1.72;
+  margin:0 0 28px;
+}
+
+.exodus-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:0 24px;
+  background:#b7904b;
   color:#07111f;
-  padding:38px;
-  border-left:1px solid rgba(183,144,75,.35);
-  min-height:560px;
-  overflow:auto;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  transition:.25s ease;
 }
 
-.tbg-jurisdiction-panel .panel-kicker{
+.exodus-button:hover{
+  transform:translateY(-2px);
+  background:#c9a75d;
+}
+
+/* Corrected Guyana Strategic Session display support */
+.priority-card.guyana .priority-tag{
+  color:#b7904b;
+}
+
+@media(max-width:900px){
+  .exodus-inner{
+    grid-template-columns:1fr;
+  }
+
+  .exodus-pathway{
+    padding:30px 0 0;
+    background:transparent;
+  }
+}
+
+
+/* =========================================================
+   UPDATE — Interactive Jurisdiction Map + Founder Perspective
+   ========================================================= */
+
+/* Interactive Jurisdiction Map */
+.interactive-jurisdiction-map{
+  margin-top:68px;
+}
+
+.interactive-map-head{
+  max-width:860px;
+  margin-bottom:30px;
+}
+
+.interactive-map-label{
   color:#8a6a3f;
   font-size:10px;
   font-weight:800;
   letter-spacing:.18em;
   text-transform:uppercase;
-  margin:0 0 18px;
+  margin-bottom:14px;
 }
 
-.tbg-jurisdiction-panel h3{
+.interactive-map-head h3{
   color:#07111f;
   font-family:"Cormorant Garamond", Georgia, serif;
-  font-size:clamp(38px,4vw,62px);
-  line-height:.92;
-  letter-spacing:-.045em;
-  margin:0 0 10px;
+  font-size:clamp(34px,4vw,58px);
+  line-height:.94;
+  letter-spacing:-.04em;
+  margin:0 0 16px;
+}
+
+.interactive-map-head p{
+  color:#475569;
+  max-width:720px;
+  font-size:15px;
+  line-height:1.7;
+  margin:0;
+}
+
+.tbg-map-layout{
+  display:grid;
+  grid-template-columns:minmax(0,2.65fr) minmax(300px,.75fr);
+  gap:0;
+  align-items:stretch;
+  min-height:640px;
+  background:#07111f;
+  border:1px solid rgba(7,17,31,.10);
+  box-shadow:0 34px 90px rgba(7,17,31,.08);
+  overflow:hidden;
+}
+
+.tbg-map-frame{
+  min-height:640px;
+  overflow:hidden;
+  background:#07111f;
+}
+
+#tbgMap{
+  width:100% !important;
+  height:640px !important;
+  min-height:640px !important;
+  display:block !important;
+  position:relative !important;
+  overflow:hidden !important;
+  background:#07111f !important;
+}
+
+#tbgMap .mapboxgl-canvas-container,
+#tbgMap .mapboxgl-canvas,
+#tbgMap canvas{
+  width:100% !important;
+  height:640px !important;
+  min-height:640px !important;
+}
+
+.mapboxgl-canvas{
+  position:absolute !important;
+  inset:0 !important;
 }
 
 .tbg-marker{
@@ -3790,26 +3413,49 @@ TABLET
   border-radius:50%;
   background:#b7904b;
   border:2px solid #ffffff;
-  box-shadow:0 0 0 8px rgba(183,144,75,.22);
+  box-shadow:0 0 0 9px rgba(183,144,75,.23);
   cursor:pointer;
-  transition:transform .2s ease, box-shadow .2s ease;
 }
 
-.tbg-marker:hover{
-  transform:scale(1.18);
-  box-shadow:0 0 0 10px rgba(183,144,75,.28);
+.tbg-jurisdiction-panel{
+  background:#07111f;
+  color:#ffffff;
+  min-height:640px;
+  padding:42px 34px;
+  border-left:1px solid rgba(183,144,75,.30);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.tbg-jurisdiction-panel .panel-kicker{
+  color:#b7904b;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin:0 0 18px;
+}
+
+.tbg-jurisdiction-panel h3{
+  color:#ffffff;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(40px,4vw,58px);
+  line-height:.92;
+  letter-spacing:-.04em;
+  margin:0 0 22px;
 }
 
 .tbg-jurisdiction-panel .map-session-meta{
-  margin:18px 0 16px;
-  padding:18px 0;
-  border-top:1px solid rgba(7,17,31,.12);
-  border-bottom:1px solid rgba(7,17,31,.12);
+  padding:20px 0;
+  border-top:1px solid rgba(255,255,255,.12);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  margin-bottom:24px;
 }
 
 .tbg-jurisdiction-panel .map-session-meta span{
   display:block;
-  color:#8a6a3f;
+  color:#b7904b;
   font-size:10px;
   font-weight:800;
   letter-spacing:.16em;
@@ -3819,9 +3465,9 @@ TABLET
 
 .tbg-jurisdiction-panel .map-session-meta strong{
   display:block;
-  color:#07111f;
+  color:#ffffff;
   font-family:"Cormorant Garamond", Georgia, serif;
-  font-size:26px;
+  font-size:28px;
   line-height:1.05;
   font-weight:600;
   margin-bottom:8px;
@@ -3829,20 +3475,21 @@ TABLET
 
 .tbg-jurisdiction-panel .map-session-meta em{
   display:block;
-  color:#8a6a3f;
+  color:rgba(255,255,255,.72);
   font-style:normal;
-  font-size:12px;
+  font-size:11px;
   font-weight:800;
-  letter-spacing:.10em;
+  letter-spacing:.12em;
   text-transform:uppercase;
 }
 
 .tbg-jurisdiction-panel .map-format{
   display:inline-block;
+  width:max-content;
   margin-bottom:22px;
   padding:8px 10px;
-  background:#07111f;
-  color:#ffffff;
+  background:#b7904b;
+  color:#07111f;
   font-size:9px;
   font-weight:800;
   letter-spacing:.14em;
@@ -3850,89 +3497,263 @@ TABLET
 }
 
 .tbg-jurisdiction-panel .map-brief-block{
-  margin-top:22px;
+  margin-bottom:24px;
 }
 
 .tbg-jurisdiction-panel .map-brief-block h4{
-  margin:0 0 8px;
-  color:#8a6a3f;
+  color:#b7904b;
   font-size:10px;
   font-weight:800;
   letter-spacing:.16em;
   text-transform:uppercase;
+  margin:0 0 9px;
 }
 
 .tbg-jurisdiction-panel .map-brief-block p{
-  margin:0;
-  color:#475569;
+  color:rgba(255,255,255,.72);
   font-size:14px;
-  line-height:1.62;
-}
-
-.tbg-jurisdiction-panel .map-brief-block ul{
+  line-height:1.65;
   margin:0;
-  padding-left:18px;
-  color:#475569;
-  font-size:13px;
-  line-height:1.7;
 }
 
-.tbg-jurisdiction-panel .map-brief-block li{
-  margin-bottom:5px;
-}
-
-.tbg-jurisdiction-panel .market-button{
-  display:inline-flex;
+.market-button{
+  display:flex;
   align-items:center;
   justify-content:center;
-  margin-top:28px;
-  min-width:235px;
-  min-height:54px;
-  padding:0 26px;
+  min-height:48px;
+  margin-top:8px;
   background:#b7904b;
   color:#07111f;
-  text-decoration:none;
-  text-transform:uppercase;
-  letter-spacing:.14em;
-  font-size:12px;
+  font-size:10px;
   font-weight:800;
-  border:1px solid #b7904b;
-  transition:all .25s ease;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  transition:.25s ease;
 }
 
-.tbg-jurisdiction-panel .market-button:hover{
-  background:#d8ae5a;
-  border-color:#d8ae5a;
-  transform:translateY(-1px);
+/* =========================================================
+   Interactive Jurisdiction Map after Strategic Calendar
+   + Founder Perspective clean service treatment
+   ========================================================= */
+
+#sessions .interactive-jurisdiction-map{
+  margin-top:72px;
+  padding-top:48px;
+  border-top:1px solid rgba(7,17,31,.10);
 }
 
-.mapboxgl-ctrl-logo,
-.mapboxgl-ctrl-attrib{
-  opacity:.55;
+#sessions .interactive-map-head{
+  max-width:860px;
+  margin-bottom:30px;
 }
 
-@media(max-width:900px){
-  .tbg-mapbox-section{
-    padding:86px 5vw;
-  }
+#sessions .interactive-map-label{
+  color:#8a6a3f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
 
-  .tbg-map-platform{
-    grid-template-columns:1fr;
-  }
+#sessions .interactive-map-head h3{
+  color:#07111f;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(34px,4vw,58px);
+  line-height:.94;
+  letter-spacing:-.04em;
+  margin:0 0 16px;
+}
 
-  #tbgMap{
-    height:520px;
-    min-height:520px;
-  }
+#sessions .interactive-map-head p{
+  color:#475569;
+  max-width:720px;
+  font-size:15px;
+  line-height:1.7;
+  margin:0;
+}
 
-  .tbg-jurisdiction-panel{
-    min-height:auto;
-    border-left:none;
-    border-top:1px solid rgba(183,144,75,.35);
-  }
+.tbg-map-layout{
+  display:grid;
+  grid-template-columns:minmax(0,2.65fr) minmax(300px,.75fr);
+  gap:0;
+  align-items:stretch;
+  min-height:640px;
+  background:#07111f;
+  border:1px solid rgba(7,17,31,.10);
+  box-shadow:0 34px 90px rgba(7,17,31,.08);
+  overflow:hidden;
+}
+
+.tbg-map-frame{
+  min-height:640px;
+  overflow:hidden;
+  background:#07111f;
+}
+
+#tbgMap{
+  width:100% !important;
+  height:640px !important;
+  min-height:640px !important;
+  display:block !important;
+  position:relative !important;
+  overflow:hidden !important;
+  background:#07111f !important;
+}
+
+#tbgMap .mapboxgl-canvas-container,
+#tbgMap .mapboxgl-canvas,
+#tbgMap canvas{
+  width:100% !important;
+  height:640px !important;
+  min-height:640px !important;
+}
+
+.mapboxgl-canvas{
+  position:absolute !important;
+  inset:0 !important;
+}
+
+.tbg-marker{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#b7904b;
+  border:2px solid #ffffff;
+  box-shadow:0 0 0 9px rgba(183,144,75,.23);
+  cursor:pointer;
+}
+
+.tbg-jurisdiction-panel{
+  background:#07111f;
+  color:#ffffff;
+  min-height:640px;
+  padding:42px 34px;
+  border-left:1px solid rgba(183,144,75,.30);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.tbg-jurisdiction-panel .panel-kicker{
+  color:#b7904b;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin:0 0 18px;
+}
+
+.tbg-jurisdiction-panel h3{
+  color:#ffffff;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(40px,4vw,58px);
+  line-height:.92;
+  letter-spacing:-.04em;
+  margin:0 0 22px;
+}
+
+.tbg-jurisdiction-panel .map-session-meta{
+  padding:20px 0;
+  border-top:1px solid rgba(255,255,255,.12);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  margin-bottom:24px;
+}
+
+.tbg-jurisdiction-panel .map-session-meta span{
+  display:block;
+  color:#b7904b;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.tbg-jurisdiction-panel .map-session-meta strong{
+  display:block;
+  color:#ffffff;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:28px;
+  line-height:1.05;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.tbg-jurisdiction-panel .map-session-meta em{
+  display:block;
+  color:rgba(255,255,255,.72);
+  font-style:normal;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.tbg-jurisdiction-panel .map-format{
+  display:inline-block;
+  width:max-content;
+  margin-bottom:22px;
+  padding:8px 10px;
+  background:#b7904b;
+  color:#07111f;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.tbg-jurisdiction-panel .map-brief-block{
+  margin-bottom:24px;
+}
+
+.tbg-jurisdiction-panel .map-brief-block h4{
+  color:#b7904b;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin:0 0 9px;
+}
+
+.tbg-jurisdiction-panel .map-brief-block p{
+  color:rgba(255,255,255,.72);
+  font-size:14px;
+  line-height:1.65;
+  margin:0;
+}
+
+.market-button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  margin-top:8px;
+  background:#b7904b;
+  color:#07111f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  transition:.25s ease;
+}
+
+
+/* =========================================================
+   MERGE NOTE — Founder Perspective restored from uploaded text
+   ========================================================= */
+
+/* Preserve the uploaded Founder Perspective section exactly.
+   The rest of the homepage uses the latest updated homepage HTML. */
+
+/* Keep Strategic Session date correction visible where present */
+.priority-card.guyana .priority-tag,
+#jurisdictionPanel .map-session-meta strong{
+  text-rendering:optimizeLegibility;
 }
 
 </style>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 </head>
 <body>
   <header class="topbar">
@@ -3958,9 +3779,7 @@ TABLET
         <div class="button-row">
           <a class="btn primary" href="#advisory">Explore the Framework</a>
           <a class="btn secondary" href="#sessions">Strategic Sessions 2026</a>
-        </div>
-      </div>
-    </section>
+        </div></section>
 
     <section class="institutional-premise" id="premise">
       <div class="premise-label">Institutional Premise</div>
@@ -4177,65 +3996,121 @@ Strategic Sessions Powered by EXODUS™
           <div><strong>Format</strong><span>Invite-only executive session, closed strategic discussion, and Jurisdiction Opportunity Mission™.</span></div>
         </div>
       </div>
-    </section>
-<section id="jurisdictions">
-      <div class="section-head">
-        <div class="eyebrow">Jurisdiction Intelligence</div>
-        <h2>Priority Market Spotlights</h2>
-        <p>Selected jurisdictions demonstrating relevance to the evolving landscape of Caribbean hospitality, investment, development, and economic growth.</p>
-      </div>
-
-      <div class="spotlights">
-        <article class="spotlight guyana"><div class="spotlight-content"><div class="tag">Economic Expansion</div><h3>Guyana</h3><p>Strategic relevance driven by energy-led growth, infrastructure investment, and expanding hospitality demand.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
-        <article class="spotlight barbados"><div class="spotlight-content"><div class="tag">Capital & Lifestyle</div><h3>Barbados</h3><p>Established luxury market supported by global capital, lifestyle demand, and sophisticated financial infrastructure.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
-        <article class="spotlight bahamas"><div class="spotlight-content"><div class="tag">Hospitality Scale</div><h3>Bahamas</h3><p>Mature hospitality ecosystem supported by tourism infrastructure, resort investment, and international visitation.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
-        <article class="spotlight grenada"><div class="spotlight-content"><div class="tag">Regenerative Tourism</div><h3>Grenada</h3><p>Emerging relevance through regenerative tourism, boutique hospitality, and environmentally aligned development.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
-        <article class="spotlight antigua"><div class="spotlight-content"><div class="tag">Maritime & Lifestyle</div><h3>Antigua & Barbuda</h3><p>Maritime tourism and luxury hospitality create differentiated opportunities across resort and residential sectors.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
-        <article class="spotlight tt"><div class="spotlight-content"><div class="tag">Market Differentiation</div><h3>Trinidad & Tobago</h3><p>Dual-market dynamics combine tourism opportunity with established commercial and institutional infrastructure.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
-      </div>
-    </section>
-
     
-    <section class="tbg-mapbox-section" id="jurisdiction-map">
-      <div class="section-head">
-        <div class="eyebrow">Interactive Jurisdiction Map</div>
-        <h2>Caribbean markets in strategic sequence.</h2>
-        <p>Select a jurisdiction to view its session date, investment themes, and development considerations.</p>
+    <div class="interactive-jurisdiction-map">
+      <div class="interactive-map-head">
+        <div class="interactive-map-label">Interactive Jurisdiction Map</div>
+        <h3>Caribbean markets in strategic sequence.</h3>
+        <p>
+          Select a jurisdiction to view its session date, investment themes,
+          and development considerations.
+        </p>
       </div>
 
-      <div class="tbg-map-platform">
-        <div id="tbgMap" aria-label="Interactive Caribbean jurisdiction map"></div>
+      <div class="tbg-map-layout">
+        <div class="tbg-map-frame">
+          <div id="tbgMap" aria-label="Interactive Caribbean jurisdiction map"></div>
+        </div>
 
-        <aside class="tbg-jurisdiction-panel" id="jurisdictionPanel">
-          <p class="panel-kicker">Jurisdiction Intelligence</p>
-          <h3>Caribbean Basin</h3>
-          <p>Select a market marker to review TBG’s strategic lens.</p>
+        <aside id="jurisdictionPanel" class="tbg-jurisdiction-panel">
+          <p class="panel-kicker">Caribbean Intelligence</p>
+          <h3>Guyana</h3>
+
+          <div class="map-session-meta">
+            <span>Session I</span>
+            <strong>Friday, July 17, 2026</strong>
+            <em>12:30 PM – 1:15 PM EST</em>
+          </div>
+
+          <div class="map-format">Virtual Executive Session</div>
+
+          <div class="map-brief-block">
+            <h4>Theme</h4>
+            <p>Energy Wealth, Infrastructure & Frontier Urbanization</p>
+          </div>
+
+          <div class="map-brief-block">
+            <h4>Strategic Focus</h4>
+            <p>
+              Positioning Guyana as a rapidly emerging infrastructure and urbanization
+              market within the Caribbean Basin.
+            </p>
+          </div>
+
+          <a href="/charter-membership.html" class="market-button">
+            Reserve Participation
+          </a>
         </aside>
       </div>
-    </section>
+    </div>
 
-    <section id="exodus" class="dark-section exodus-integration">
-      <div class="section-head">
-        <div class="eyebrow">EXODUS™ Integration Layer</div>
-        <h2>From interest to qualified participation.</h2>
-        <p>EXODUS™ serves as the private intelligence, membership, and convening layer supporting Strategic Sessions, jurisdiction engagement, and qualified stakeholder access.</p>
-      </div>
+  </section>
 
-      <div class="exodus-system">
-        <article class="exodus-system-card"><span>01</span><h3>Intelligence</h3><p>Jurisdiction briefings, market themes, development readiness, and strategic context.</p></article>
-        <article class="exodus-system-card"><span>02</span><h3>Access</h3><p>Curated pathways into Strategic Sessions, private reviews, and stakeholder dialogue.</p></article>
-        <article class="exodus-system-card"><span>03</span><h3>Membership</h3><p>Charter participation for aligned executives, investors, practitioners, and institutions.</p></article>
-        <article class="exodus-system-card"><span>04</span><h3>Execution</h3><p>Opportunity Missions™ and jurisdiction-facing engagement for qualified participants.</p></article>
-      </div>
+  <section id="jurisdictions" class="caribbean-intelligence">
+    <div class="section-head">
+      <div class="eyebrow">Caribbean Intelligence</div>
+      <h2>Priority Market Spotlight</h2>
+      <p>
+        A curated intelligence view of strategic Caribbean markets across hospitality,
+        development readiness, infrastructure alignment, capital formation, and long-term destination value.
+      </p>
+    </div>
 
-      <div class="exodus-pathways">
-      <a href="charter-membership.html" class="btn primary">
-  Request Charter Membership Consideration
-</a>
-        <a href="participation.html">Access Strategic Sessions</a>
-        <a href="mailto:cbrowne@thebucklergroup.com?subject=EXODUS%20Strategic%20Inquiry">Request Private Inquiry</a>
+    <div class="priority-market-spotlight">
+      <div class="priority-spotlight-grid">
+
+        <article class="priority-card guyana">
+          <div class="priority-card-content">
+            <div class="priority-tag">Session I · July 17, 2026</div>
+            <h3>Guyana</h3>
+            <p>Energy wealth, infrastructure, frontier urbanization, logistics corridors, and Georgetown mixed-use development.</p>
+          </div>
+        </article>
+
+        <article class="priority-card barbados">
+          <div class="priority-card-content">
+            <div class="priority-tag">Session II · August 21, 2026</div>
+            <h3>Barbados</h3>
+            <p>Luxury tourism, wealth migration, diaspora capital, branded residences, marina districts, and coastal mixed-use assets.</p>
+          </div>
+        </article>
+
+        <article class="priority-card bahamas">
+          <div class="priority-card-content">
+            <div class="priority-tag">Session III · September 18, 2026</div>
+            <h3>The Bahamas</h3>
+            <p>Ultra-luxury hospitality, global capital attraction, private islands, branded residences, and aviation-linked hospitality.</p>
+          </div>
+        </article>
+
+        <article class="priority-card grenada">
+          <div class="priority-card-content">
+            <div class="priority-tag">Session IV · October 16, 2026</div>
+            <h3>Grenada</h3>
+            <p>Climate-resilient hospitality, boutique development, marina infrastructure, wellness, agro-tourism, and blue economy assets.</p>
+          </div>
+        </article>
+
+        <article class="priority-card tobago">
+          <div class="priority-card-content">
+            <div class="priority-tag">Session V · November 20, 2026</div>
+            <h3>Tobago</h3>
+            <p>Eco-tourism, maritime economies, cultural infrastructure, waterfront redevelopment, and differentiated destination strategy.</p>
+          </div>
+        </article>
+
+        <article class="priority-card antigua">
+          <div class="priority-card-content">
+            <div class="priority-tag">Session VI · December 18, 2026</div>
+            <h3>Antigua & Barbuda</h3>
+            <p>Citizenship-by-investment, resort urbanism, marina infrastructure, luxury mixed-use districts, and waterfront development.</p>
+          </div>
+        </article>
+
       </div>
-    </section>
+    </div>
+  </section>
+
 <section>
       <div class="section-head">
         <div class="eyebrow">TBG Ecosystem</div>
@@ -4276,209 +4151,138 @@ Strategic Sessions Powered by EXODUS™
   <img src="assets-images/assets/images/founder-perspective.webp" alt="Christopher A. Browne, Founder of The Buckler Group">
 </div>
     </section>
-<section class="cr-insights-section" id="insights">
-  <div class="cr-insights-head">
-    <div class="cr-insights-label">Caribbean Renaissance™ Insights</div>
 
-    <h2>Institutional Research Library</h2>
-
-    <p>
-      A curated publication series from The Buckler Group examining the systems
-      that shape Caribbean competitiveness: institutions, capital formation,
-      hospitality, development readiness, leadership, and regional coordination.
-    </p>
-  </div>
-
-  <section class="cr-publications-grid">
-
-    <!-- ========================================================= -->
-    <!-- FOUNDING PAPER -->
-    <!-- ========================================================= -->
-
-    <a href="/caribbean-renaissance-insights.html"
-       class="cr-publication-card">
-
-        <div class="cr-publication-image">
-
-            <img
-                src="assets-images/caribbean-renaissance-insights.webp.webp"
-                alt="The Caribbean Renaissance™">
-
-        </div>
-
-        <div class="cr-publication-content">
-
-            <div class="cr-publication-label">
-
-                FOUNDING PAPER
-
-            </div>
-
-            <h3>
-
-                The Caribbean Renaissance™
-
-            </h3>
-
-            <p class="cr-subtitle">
-
-                Why the Caribbean Renaissance™ Matters
-
-            </p>
-
-            <p>
-
-                A strategic view of hospitality, development,
-                capital, institutional coordination,
-                and regional competitiveness.
-
-            </p>
-
-            <div class="cr-publication-footer">
-
-                <span>Foundational Paper</span>
-
-                <span>Read Publication →</span>
-
-            </div>
-
-        </div>
-
-    </a>
-
-
-    <!-- ========================================================= -->
-    <!-- ISSUE 002 -->
-    <!-- ========================================================= -->
-
-    <a href="/hospitality-economic-infrastructure.html"
-       class="cr-publication-card">
-
-        <div class="cr-publication-image">
-
-            <img
-                src="assets-images/hospitality-infrastructure.webp.webp"
-                alt="Hospitality as Infrastructure™">
-
-        </div>
-
-        <div class="cr-publication-content">
-
-            <div class="cr-publication-label">
-
-                RESEARCH PAPER NO. 002
-
-            </div>
-
-            <h3>
-
-                Hospitality as Infrastructure™
-
-            </h3>
-
-            <p class="cr-subtitle">
-
-                Hotels, resorts, residences,
-                and mixed-use assets
-                as engines of destination value.
-
-            </p>
-
-            <p>
-
-                Examining hospitality as economic
-                infrastructure that organizes
-                investment, employment,
-                and long-term competitiveness.
-
-            </p>
-
-            <div class="cr-publication-footer">
-
-                <span>Research Paper</span>
-
-                <span>Read Publication →</span>
-
-            </div>
-
-        </div>
-
-    </a>
-
-
-    <!-- ========================================================= -->
-    <!-- ISSUE 003 -->
-    <!-- ========================================================= -->
-
-    <a href="/development-entitlements-and-development-readiness.html"
-       class="cr-publication-card">
-
-        <div class="cr-publication-image">
-
-            <img
-                src="assets-images/development-readiness.webp.webp"
-                alt="Development Readiness">
-
-        </div>
-
-        <div class="cr-publication-content">
-
-            <div class="cr-publication-label">
-
-                RESEARCH PAPER NO. 003
-
-            </div>
-
-            <h3>
-
-                Development Readiness
-
-            </h3>
-
-            <p class="cr-subtitle">
-
-                Why Institutions
-                Determine Investment
-
-            </p>
-
-            <p>
-
-                Approvals, incentives,
-                land-use alignment,
-                and institutional coordination
-                before execution.
-
-            </p>
-
-            <div class="cr-publication-footer">
-
-                <span>Research Paper</span>
-
-                <span>Read Publication →</span>
-
-            </div>
-
-        </div>
-
-    </a>
-
-</section>
-<section class="pricing-section" id="waitlist">
-      <div class="section-head">
-        <div class="eyebrow">EXODUS™</div>
-        <h2>EXODUS™</h2>
-        <p>Intelligence, access, and engagement for qualified participants.</p>
+  
+  <section id="exodus" class="exodus-integration-layer">
+    <div class="exodus-inner">
+      <div class="exodus-copy">
+        <div class="exodus-label">EXODUS™ Integration Layer</div>
+
+        <h2>From interest to qualified participation.</h2>
+
+        <p>
+          EXODUS™ serves as the engagement layer connecting qualified participants
+          to Caribbean Renaissance™ intelligence, Strategic Sessions, jurisdictional
+          briefings, and curated pathways for long-term regional opportunity.
+        </p>
       </div>
 
-      <div style="max-width:900px;background:#fff;padding:40px;border:1px solid rgba(7,17,31,.12);">
-        <h3 style="margin-top:0;color:#07111f;">Charter Membership</h3>
-        <p style="color:#667085;">Selective participation for long-term Caribbean opportunity.</p>
-        <a class="btn primary" href="https://example.com/exodus-charter-membership" target="_blank" rel="noopener">Apply for Charter Membership</a>
-      </div>
-    </section>
+      <div class="exodus-pathway">
+        <div class="exodus-pathway-label">Charter Membership</div>
 
-    <div id="contact" class="cta-band">
+        <h3>Selective participation for long-term Caribbean opportunity.</h3>
+
+        <p>
+          Designed for investors, operators, advisors, founders, family offices,
+          diaspora leaders, and institutional participants seeking structured access
+          to Caribbean market intelligence and strategic engagement.
+        </p>
+
+        <a href="/charter-membership.html" class="exodus-button">
+          Apply for Charter Membership
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="insights" class="cr-insights-section">
+    <div class="cr-insights-head">
+      <div class="cr-insights-label">Caribbean Renaissance™ Insights</div>
+
+      <h2>Institutional Research Library</h2>
+
+      <p>
+        Original research advancing the Caribbean Renaissance™ Framework through
+        disciplined perspectives on institutions, hospitality, development readiness,
+        capital formation, and regional competitiveness.
+      </p>
+    </div>
+
+    <div class="cr-publications-grid">
+
+      <a href="/caribbean-renaissance-insights.html" class="cr-publication-card">
+        <div class="cr-publication-image">
+          <img src="assets-images/caribbean-renaissance-insights.webp" alt="The Caribbean Renaissance™ publication cover">
+        </div>
+
+        <div class="cr-publication-content">
+          <div class="cr-publication-label">Issue 001 · Founding Paper</div>
+
+          <h3>The Caribbean Renaissance™</h3>
+
+          <p class="cr-subtitle">
+            Why the Caribbean Renaissance™ Matters
+          </p>
+
+          <p>
+            Why institutions, capital, and regional coordination will define
+            the next era of Caribbean competitiveness.
+          </p>
+
+          <div class="cr-publication-footer">
+            <span>8 Min Read</span>
+            <span>Read Publication →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/hospitality-economic-infrastructure.html" class="cr-publication-card">
+        <div class="cr-publication-image">
+          <img src="assets-images/hospitality-infrastructure.webp" alt="Hospitality as Infrastructure™ publication cover">
+        </div>
+
+        <div class="cr-publication-content">
+          <div class="cr-publication-label">Issue 002 · Research Paper</div>
+
+          <h3>Hospitality as Infrastructure™</h3>
+
+          <p class="cr-subtitle">
+            Hotels, resorts, residences, and mixed-use assets as engines of destination value.
+          </p>
+
+          <p>
+            Examining hospitality as economic infrastructure that organizes
+            investment, employment, infrastructure, and destination value.
+          </p>
+
+          <div class="cr-publication-footer">
+            <span>9 Min Read</span>
+            <span>Read Publication →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/development-entitlements-and-development-readiness.html" class="cr-publication-card">
+        <div class="cr-publication-image">
+          <img src="assets-images/development-readiness.webp" alt="Development Readiness publication cover">
+        </div>
+
+        <div class="cr-publication-content">
+          <div class="cr-publication-label">Issue 003 · Research Paper</div>
+
+          <h3>Development Readiness</h3>
+
+          <p class="cr-subtitle">
+            Why Institutions Determine Investment
+          </p>
+
+          <p>
+            Approvals, incentives, land-use alignment, and institutional
+            coordination before execution.
+          </p>
+
+          <div class="cr-publication-footer">
+            <span>10 Min Read</span>
+            <span>Read Publication →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+<div id="contact" class="cta-band">
 
       <div>
         <div class="eyebrow">Engage TBG</div>
@@ -4533,11 +4337,6 @@ Strategic Sessions Powered by EXODUS™
     </div>
   </footer>
 
-
-
-
-
-
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
 
 <script>
@@ -4545,125 +4344,70 @@ Strategic Sessions Powered by EXODUS™
   const mapEl = document.getElementById("tbgMap");
   const panel = document.getElementById("jurisdictionPanel");
 
-  if (!mapEl || !panel || typeof mapboxgl === "undefined") {
-    console.warn("TBG Map not initialized: missing #tbgMap, #jurisdictionPanel, or Mapbox GL JS.");
-    return;
-  }
+  if (!mapEl || !panel || typeof mapboxgl === "undefined") return;
 
-  mapboxgl.accessToken = "pk.eyJ1IjoiY2hyaXN0b3BoZXJicm93bmUiLCJhIjoiY21xdGtpaXAwMGx0bjJzcHRnb25wMGF0bSJ9.PIG8N6_yzJQLZGW-5jiz1w";
+  mapboxgl.accessToken = "YOUR_MAPBOX_PUBLIC_TOKEN_HERE";
 
   const sessions = [
     {
       name: "Guyana",
       coords: [-58.1551, 6.8013],
       session: "Session I",
-      date: "Friday, June 19, 2026",
+      date: "Friday, July 17, 2026",
       time: "12:30 PM – 1:15 PM EST",
       theme: "Energy Wealth, Infrastructure & Frontier Urbanization",
-      focus: "Positioning Guyana as a rapidly emerging infrastructure and urbanization market within the Caribbean Basin.",
-      opportunities: [
-        "Georgetown mixed-use development",
-        "Business hotels and executive housing",
-        "Port and logistics infrastructure",
-        "Industrial real estate",
-        "Airport corridor expansion",
-        "Waterfront redevelopment"
-      ]
+      focus: "Positioning Guyana as a rapidly emerging infrastructure and urbanization market within the Caribbean Basin."
     },
     {
       name: "Barbados",
       coords: [-59.5432, 13.1939],
       session: "Session II",
-      date: "Friday, July 17, 2026",
+      date: "Friday, August 21, 2026",
       time: "12:30 PM – 1:15 PM EST",
       theme: "Luxury Tourism, Wealth Migration & Diaspora Capital",
-      focus: "Positioning Barbados as a premium governance and luxury migration market capable of attracting high-value global and diaspora capital.",
-      opportunities: [
-        "Branded residences",
-        "Luxury villas",
-        "Wellness resorts",
-        "Marina districts",
-        "Remote-work residential communities",
-        "Coastal mixed-use projects"
-      ]
+      focus: "Positioning Barbados as a premium governance and luxury migration market capable of attracting high-value global and diaspora capital."
     },
     {
       name: "The Bahamas",
       coords: [-77.3963, 25.0343],
       session: "Session III",
-      date: "Friday, August 21, 2026",
+      date: "Friday, September 18, 2026",
       time: "12:30 PM – 1:15 PM EST",
       theme: "Ultra-Luxury Hospitality & Global Capital Attraction",
-      focus: "Positioning The Bahamas as a global wealth and ultra-luxury infrastructure ecosystem.",
-      opportunities: [
-        "Ultra-luxury resorts",
-        "Marina infrastructure",
-        "Branded residences",
-        "Private island developments",
-        "Aviation-linked hospitality",
-        "Family office real estate platforms"
-      ]
+      focus: "Positioning The Bahamas as a global wealth and ultra-luxury infrastructure ecosystem."
     },
     {
       name: "Grenada",
       coords: [-61.6790, 12.1165],
       session: "Session IV",
-      date: "Friday, September 18, 2026",
+      date: "Friday, October 16, 2026",
       time: "12:30 PM – 1:15 PM EST",
       theme: "Climate-Resilient Hospitality & Boutique Development",
-      focus: "Positioning Grenada as a climate-resilient boutique hospitality market aligned with long-term sustainability and premium experiential tourism demand.",
-      opportunities: [
-        "Boutique eco-resorts",
-        "Marina and yachting infrastructure",
-        "Wellness hospitality",
-        "Agro-tourism estates",
-        "Sustainable mixed-use communities",
-        "Blue economy infrastructure"
-      ]
+      focus: "Positioning Grenada as a climate-resilient boutique hospitality market aligned with long-term sustainability and premium experiential tourism demand."
     },
     {
       name: "Tobago",
       coords: [-60.6670, 11.2500],
       session: "Session V",
-      date: "Friday, October 16, 2026",
+      date: "Friday, November 20, 2026",
       time: "12:30 PM – 1:15 PM EST",
       theme: "Eco-Tourism, Maritime Economies & Cultural Infrastructure",
-      focus: "Positioning Tobago as an undercapitalized but highly differentiated eco-tourism and maritime development market.",
-      opportunities: [
-        "Eco-resorts",
-        "Maritime and blue economy infrastructure",
-        "Waterfront redevelopment",
-        "Boutique hospitality redevelopment",
-        "Cultural districts",
-        "Sports and nature tourism assets"
-      ]
+      focus: "Positioning Tobago as an undercapitalized but highly differentiated eco-tourism and maritime development market."
     },
     {
       name: "Antigua & Barbuda",
       coords: [-61.7964, 17.0608],
       session: "Session VI",
-      date: "Friday, November 20, 2026",
+      date: "Friday, December 18, 2026",
       time: "12:30 PM – 1:15 PM EST",
       theme: "Citizenship-by-Investment & Resort Urbanism",
-      focus: "Positioning Antigua & Barbuda at the intersection of investment migration, hospitality infrastructure, and luxury development.",
-      opportunities: [
-        "Resort urbanism",
-        "Marina infrastructure",
-        "Luxury mixed-use districts",
-        "Branded residences",
-        "Waterfront development",
-        "Integrated tourism communities"
-      ]
+      focus: "Positioning Antigua & Barbuda at the intersection of investment migration, hospitality infrastructure, and luxury development."
     }
   ];
 
   function renderPanel(item) {
-    const opportunities = item.opportunities.map(function (opportunity) {
-      return "<li>" + opportunity + "</li>";
-    }).join("");
-
     panel.innerHTML = `
-      <p class="panel-kicker">Jurisdiction Intelligence</p>
+      <p class="panel-kicker">Caribbean Intelligence</p>
       <h3>${item.name}</h3>
 
       <div class="map-session-meta">
@@ -4684,61 +4428,67 @@ Strategic Sessions Powered by EXODUS™
         <p>${item.focus}</p>
       </div>
 
-      <div class="map-brief-block">
-        <h4>Priority Opportunity Areas</h4>
-        <ul>${opportunities}</ul>
-      </div>
-
       <a href="/charter-membership.html" class="market-button">
         Reserve Participation
       </a>
     `;
   }
 
-  const map = new mapboxgl.Map({
+  const map = window.tbgMapInstance = new mapboxgl.Map({
     container: "tbgMap",
     style: "mapbox://styles/mapbox/satellite-streets-v12",
-    center: [-66.0, 16.2],
-    zoom: 4.1,
+    center: [-65.8, 16.0],
+    zoom: 4.25,
     pitch: 0,
-    bearing: 0,
-    attributionControl: true
+    bearing: 0
   });
 
   map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), "top-left");
   map.scrollZoom.disable();
 
   map.on("load", function () {
-    sessions.forEach(function (item) {
-      const marker = document.createElement("button");
-      marker.className = "tbg-marker";
-      marker.type = "button";
-      marker.title = item.name;
-      marker.setAttribute("aria-label", "View " + item.name + " jurisdiction intelligence");
+    if (typeof map.resize === "function") map.resize();
 
-      new mapboxgl.Marker({ element: marker, anchor: "center" })
+    sessions.forEach(function (item) {
+      const marker = document.createElement("div");
+      marker.className = "tbg-marker";
+      marker.title = item.name;
+
+      new mapboxgl.Marker({ element: marker })
         .setLngLat(item.coords)
         .addTo(map);
 
       marker.addEventListener("click", function () {
         renderPanel(item);
+
         map.flyTo({
           center: item.coords,
           zoom: 5.25,
           speed: 0.75,
           curve: 1.35
         });
+
+        setTimeout(function(){
+          if (typeof map.resize === "function") map.resize();
+        }, 250);
       });
     });
 
     renderPanel(sessions[0]);
-    setTimeout(function () {
-      map.resize();
-    }, 250);
   });
 
-  window.addEventListener("resize", function () {
-    map.resize();
+  window.addEventListener("load", function(){
+    setTimeout(function(){
+      if (window.tbgMapInstance && typeof window.tbgMapInstance.resize === "function") {
+        window.tbgMapInstance.resize();
+      }
+    }, 500);
+  });
+
+  window.addEventListener("resize", function(){
+    if (window.tbgMapInstance && typeof window.tbgMapInstance.resize === "function") {
+      window.tbgMapInstance.resize();
+    }
   });
 })();
 </script>
