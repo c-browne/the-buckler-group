@@ -3150,90 +3150,88 @@ background:#ddb560;
 }
 
 
-/* =========================================================
-   MAPBOX INTERACTIVE JURISDICTION MAP — CLEAN PRODUCTION
-   ========================================================= */
-.tbg-mapbox-section {
-  background: #06101a;
-  color: #fff;
-  padding: 96px 5vw;
-  border-top: 1px solid rgba(183,144,75,.28);
-  border-bottom: 1px solid rgba(183,144,75,.28);
+//* Interactive Map — Jurisdiction Intelligence Brief */
+
+.tbg-jurisdiction-panel .map-session-meta{
+  margin:18px 0 16px;
+  padding:18px 0;
+  border-top:1px solid rgba(7,17,31,.12);
+  border-bottom:1px solid rgba(7,17,31,.12);
 }
 
-.tbg-mapbox-section .section-head h2 {
-  color: #fff;
+.tbg-jurisdiction-panel .map-session-meta span{
+  display:block;
+  color:#8a6a3f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:10px;
 }
 
-.tbg-mapbox-section .section-head p {
-  color: rgba(255,255,255,.70);
+.tbg-jurisdiction-panel .map-session-meta strong{
+  display:block;
+  color:#07111f;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:26px;
+  line-height:1.05;
+  font-weight:600;
+  margin-bottom:8px;
 }
 
-.tbg-map-platform {
-  display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(320px, .75fr);
-  min-height: 660px;
-  border: 1px solid rgba(183,144,75,.38);
-  background: #02060a;
-  box-shadow: 0 34px 90px rgba(0,0,0,.22);
-  overflow: hidden;
+.tbg-jurisdiction-panel .map-session-meta em{
+  display:block;
+  color:#8a6a3f;
+  font-style:normal;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.10em;
+  text-transform:uppercase;
 }
 
-#tbgMap {
-  min-height: 660px;
-  width: 100%;
+.tbg-jurisdiction-panel .map-format{
+  display:inline-block;
+  margin-bottom:22px;
+  padding:8px 10px;
+  background:#07111f;
+  color:#ffffff;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
 }
 
-.tbg-jurisdiction-panel {
-  padding: 38px;
-  background: linear-gradient(180deg, #08111a 0%, #050b12 100%);
-  border-left: 1px solid rgba(183,144,75,.38);
+.tbg-jurisdiction-panel .map-brief-block{
+  margin-top:22px;
 }
 
-.tbg-jurisdiction-panel h3 {
-  color: #fff;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(34px, 3.2vw, 54px);
-  font-weight: 600;
-  line-height: 1;
-  margin: 12px 0 18px;
+.tbg-jurisdiction-panel .map-brief-block h4{
+  margin:0 0 8px;
+  color:#8a6a3f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
 }
 
-.tbg-jurisdiction-panel p {
-  color: rgba(255,255,255,.72);
-  line-height: 1.65;
+.tbg-jurisdiction-panel .map-brief-block p{
+  margin:0;
+  color:#475569;
+  font-size:14px;
+  line-height:1.62;
 }
 
-.panel-kicker {
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: 11px;
-  font-weight: 800;
+.tbg-jurisdiction-panel .map-brief-block ul{
+  margin:0;
+  padding-left:18px;
+  color:#475569;
+  font-size:13px;
+  line-height:1.7;
 }
 
-.tbg-marker {
-  width: 18px;
-  height: 18px;
-  background: #c9a24a;
-  border: 2px solid #fff1c6;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 8px rgba(201,162,74,.20),
-    0 0 28px rgba(201,162,74,.75);
-  cursor: pointer;
-  position: relative;
+.tbg-jurisdiction-panel .map-brief-block li{
+  margin-bottom:5px;
 }
-
-.tbg-marker::after {
-  content: "";
-  position: absolute;
-  inset: -10px;
-  border: 1px solid rgba(201,162,74,.55);
-  border-radius: 50%;
-  animation: tbgPulse 2.2s infinite;
-}
-
 @keyframes tbgPulse {
   0% { transform: scale(.65); opacity: .85; }
   100% { transform: scale(1.8); opacity: 0; }
@@ -4245,6 +4243,7 @@ Strategic Sessions Powered by EXODUS™
 
 
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+
 <script>
 (function () {
   const mapEl = document.getElementById("tbgMap");
@@ -4269,42 +4268,155 @@ Strategic Sessions Powered by EXODUS™
 
   const markets = [
     {
-      name: "The Bahamas",
-      coords: [-77.3963, 25.0343],
-      session: "2026 Strategic Session",
-      focus: "Luxury Hospitality • Second Homes • Financial Services"
-    },
-    {
-      name: "Antigua & Barbuda",
-      coords: [-61.7964, 17.0608],
-      session: "2026 Strategic Session",
-      focus: "Marinas • Hospitality • Citizenship Investment"
+      name: "Guyana",
+      coords: [-58.1551, 6.8013],
+      session: "Session I",
+      date: "Friday, June 19, 2026",
+      time: "12:30 PM – 1:15 PM EST",
+      format: "Virtual Executive Session",
+      theme: "Energy Wealth, Infrastructure & Frontier Urbanization",
+      focus: "Positioning Guyana as a rapidly emerging infrastructure and urbanization market within the Caribbean Basin.",
+      opportunities: [
+        "Georgetown mixed-use development",
+        "Business hotels and executive housing",
+        "Port and logistics infrastructure",
+        "Industrial real estate",
+        "Airport corridor expansion",
+        "Waterfront redevelopment"
+      ]
     },
     {
       name: "Barbados",
       coords: [-59.5432, 13.1939],
-      session: "2026 Strategic Session",
-      focus: "Institutional Capital • Hospitality • Professional Services"
+      session: "Session II",
+      date: "Friday, July 17, 2026",
+      time: "12:30 PM – 1:15 PM EST",
+      format: "Virtual Executive Session",
+      theme: "Luxury Tourism, Wealth Migration & Diaspora Capital",
+      focus: "Positioning Barbados as a premium governance and luxury migration market capable of attracting high-value global and diaspora capital.",
+      opportunities: [
+        "Branded residences",
+        "Luxury villas",
+        "Wellness resorts",
+        "Marina districts",
+        "Remote-work residential communities",
+        "Coastal mixed-use projects"
+      ]
+    },
+    {
+      name: "The Bahamas",
+      coords: [-77.3963, 25.0343],
+      session: "Session III",
+      date: "Friday, August 21, 2026",
+      time: "12:30 PM – 1:15 PM EST",
+      format: "Virtual Executive Session",
+      theme: "Ultra-Luxury Hospitality & Global Capital Attraction",
+      focus: "Positioning The Bahamas as a global wealth and ultra-luxury infrastructure ecosystem.",
+      opportunities: [
+        "Ultra-luxury resorts",
+        "Marina infrastructure",
+        "Branded residences",
+        "Private island developments",
+        "Aviation-linked hospitality",
+        "Family office real estate platforms"
+      ]
     },
     {
       name: "Grenada",
       coords: [-61.6790, 12.1165],
-      session: "2026 Strategic Session",
-      focus: "Eco Tourism • Mixed Use • Coastal Development"
+      session: "Session IV",
+      date: "Friday, September 18, 2026",
+      time: "12:30 PM – 1:15 PM EST",
+      format: "Virtual Executive Session",
+      theme: "Climate-Resilient Hospitality & Boutique Development",
+      focus: "Positioning Grenada as a climate-resilient boutique hospitality market aligned with long-term sustainability and premium experiential tourism demand.",
+      opportunities: [
+        "Boutique eco-resorts",
+        "Marina and yachting infrastructure",
+        "Wellness hospitality",
+        "Agro-tourism estates",
+        "Sustainable mixed-use communities",
+        "Blue economy infrastructure"
+      ]
     },
     {
       name: "Tobago",
       coords: [-60.6670, 11.2500],
-      session: "2026 Strategic Session",
-      focus: "Tourism • Waterfront • Infrastructure"
+      session: "Session V",
+      date: "Friday, October 16, 2026",
+      time: "12:30 PM – 1:15 PM EST",
+      format: "Virtual Executive Session",
+      theme: "Eco-Tourism, Maritime Economies & Cultural Infrastructure",
+      focus: "Positioning Tobago as an undercapitalized but highly differentiated eco-tourism and maritime development market.",
+      opportunities: [
+        "Eco-resorts",
+        "Maritime and blue economy infrastructure",
+        "Waterfront redevelopment",
+        "Boutique hospitality redevelopment",
+        "Cultural districts",
+        "Sports and nature tourism assets"
+      ]
     },
     {
-      name: "Guyana",
-      coords: [-58.1551, 6.8013],
-      session: "July 2026",
-      focus: "Energy • Infrastructure • Hospitality"
+      name: "Antigua & Barbuda",
+      coords: [-61.7964, 17.0608],
+      session: "Session VI",
+      date: "Friday, November 20, 2026",
+      time: "12:30 PM – 1:15 PM EST",
+      format: "Virtual Executive Session",
+      theme: "Citizenship-by-Investment & Resort Urbanism",
+      focus: "Positioning Antigua & Barbuda at the intersection of investment migration, hospitality infrastructure, and luxury development.",
+      opportunities: [
+        "Resort urbanism",
+        "Marina infrastructure",
+        "Luxury mixed-use districts",
+        "Branded residences",
+        "Waterfront development",
+        "Integrated tourism communities"
+      ]
     }
   ];
+
+  function renderPanel(market) {
+    const opportunityList = market.opportunities
+      .map(item => `<li>${item}</li>`)
+      .join("");
+
+    panel.innerHTML = `
+      <p class="panel-kicker">Jurisdiction Intelligence</p>
+
+      <h3>${market.name}</h3>
+
+      <div class="map-session-meta">
+        <span>${market.session}</span>
+        <strong>${market.date}</strong>
+        <em>${market.time}</em>
+      </div>
+
+      <div class="map-format">
+        ${market.format}
+      </div>
+
+      <div class="map-brief-block">
+        <h4>Theme</h4>
+        <p>${market.theme}</p>
+      </div>
+
+      <div class="map-brief-block">
+        <h4>Strategic Focus</h4>
+        <p>${market.focus}</p>
+      </div>
+
+      <div class="map-brief-block">
+        <h4>Priority Opportunity Areas</h4>
+        <ul>${opportunityList}</ul>
+      </div>
+
+      <a href="participation.html" class="market-button">
+        Reserve Participation
+      </a>
+    `;
+  }
 
   map.on("load", () => {
     markets.forEach((market) => {
@@ -4317,15 +4429,13 @@ Strategic Sessions Powered by EXODUS™
         .addTo(map);
 
       marker.addEventListener("click", () => {
-        panel.innerHTML = `
-          <p class="panel-kicker">Jurisdiction Intelligence</p>
-          <h3>${market.name}</h3>
-          <p><strong>${market.session}</strong></p>
-          <p>${market.focus}</p>
-          <a href="participation.html" class="market-button">Reserve Participation</a>
-        `;
-
-        map.flyTo({ center: market.coords, zoom: Math.max(map.getZoom(), 5.2), speed: .75, curve: 1.35 });
+        renderPanel(market);
+        map.flyTo({
+          center: market.coords,
+          zoom: Math.max(map.getZoom(), 5.2),
+          speed: .75,
+          curve: 1.35
+        });
       });
     });
   });
