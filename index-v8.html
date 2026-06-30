@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Buckler Group | Caribbean Renaissance™ Framework</title>
+  <meta name="description" content="The Buckler Group organizes capital, development, and opportunity across the Caribbean through the Caribbean Renaissance™ Framework, EXODUS™, and Strategic Sessions." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       THE BUCKLER GROUP | V8 INSTITUTIONAL REFACTOR
+       Principle: every section is scoped with tbg-v8-* classes.
+       No generic .card, .section-head, .insight, or #sessions overrides.
+       ========================================================= */
+
+    :root{
+      --tbg-navy:#07111f;
+      --tbg-midnight:#0d1a2b;
+      --tbg-panel:#111c2d;
+      --tbg-ink:#101828;
+      --tbg-slate:#667085;
+      --tbg-bone:#f7f3ea;
+      --tbg-sand:#eee6d8;
+      --tbg-white:#ffffff;
+      --tbg-gold:#b7904b;
+      --tbg-gold-deep:#8a6a3f;
+      --tbg-line:rgba(183,144,75,.35);
+      --tbg-soft-line:rgba(7,17,31,.12);
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:"Inter",Arial,sans-serif;
+      color:var(--tbg-ink);
+      background:var(--tbg-bone);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+
+    .tbg-v8-container{
+      width:min(1180px,90vw);
+      margin:0 auto;
+    }
+
+    .tbg-v8-eyebrow{
+      color:var(--tbg-gold);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:11px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .tbg-v8-title{
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:clamp(40px,5.5vw,82px);
+      line-height:.94;
+      letter-spacing:-.045em;
+      font-weight:600;
+      margin:0;
+    }
+
+    .tbg-v8-copy{
+      color:var(--tbg-slate);
+      font-size:17px;
+      line-height:1.72;
+      max-width:760px;
+    }
+
+    .tbg-v8-btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
+    .tbg-v8-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 22px;
+      border:1px solid var(--tbg-gold);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:800;
+      transition:.22s ease;
+    }
+    .tbg-v8-btn:hover{transform:translateY(-1px);}
+    .tbg-v8-btn-primary{background:var(--tbg-gold);color:var(--tbg-navy);}
+    .tbg-v8-btn-secondary{background:transparent;color:var(--tbg-white);border-color:rgba(255,255,255,.38);}
+    .tbg-v8-btn-dark{background:var(--tbg-navy);color:var(--tbg-white);border-color:var(--tbg-navy);}
+    .tbg-v8-btn-light{background:transparent;color:var(--tbg-navy);border-color:rgba(7,17,31,.25);}
+
+    /* Header */
+    .tbg-v8-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(7,17,31,.96);
+      color:var(--tbg-white);
+      border-bottom:1px solid var(--tbg-line);
+      backdrop-filter:blur(14px);
+    }
+    .tbg-v8-header-inner{
+      width:min(1280px,90vw);
+      margin:0 auto;
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+    }
+    .tbg-v8-brand{display:flex;align-items:center;gap:14px;}
+    .tbg-v8-brand img{height:58px;width:auto;object-fit:contain;}
+    .tbg-v8-wordmark{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:22px;
+      font-weight:500;
+      line-height:1;
+      white-space:nowrap;
+    }
+    .tbg-v8-nav{display:flex;align-items:center;gap:22px;}
+    .tbg-v8-nav a{
+      color:rgba(255,255,255,.78);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      font-weight:700;
+    }
+    .tbg-v8-nav a:hover{color:var(--tbg-gold);}
+
+    /* Hero */
+    .tbg-v8-hero{
+      min-height:88vh;
+      color:var(--tbg-white);
+      display:grid;
+      align-items:center;
+      padding:8vw 5vw;
+      background:
+        linear-gradient(90deg,rgba(7,17,31,.98) 0%,rgba(7,17,31,.88) 48%,rgba(7,17,31,.30) 100%),
+        url("assets-images/hero.webp");
+      background-size:cover;
+      background-position:center;
+    }
+    .tbg-v8-hero-inner{max-width:960px;}
+    .tbg-v8-hero h1{
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:clamp(50px,7.4vw,102px);
+      line-height:.92;
+      letter-spacing:-.055em;
+      font-weight:600;
+      margin:0;
+      max-width:960px;
+    }
+    .tbg-v8-hero h1 span{display:block;}
+    .tbg-v8-hero-subline{
+      color:var(--tbg-gold);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+      font-weight:800;
+      margin-top:24px;
+    }
+    .tbg-v8-hero p{
+      max-width:720px;
+      color:rgba(255,255,255,.80);
+      font-size:20px;
+      line-height:1.65;
+      margin:28px 0 0;
+    }
+
+    /* Stats */
+    .tbg-v8-stats{
+      background:var(--tbg-navy);
+      color:var(--tbg-white);
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--tbg-line);
+      border-bottom:1px solid var(--tbg-line);
+    }
+    .tbg-v8-stat{
+      padding:38px 5vw;
+      text-align:center;
+      border-right:1px solid rgba(255,255,255,.08);
+    }
+    .tbg-v8-stat:last-child{border-right:none;}
+    .tbg-v8-stat strong{
+      display:block;
+      color:var(--tbg-gold);
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:42px;
+      line-height:1;
+      margin-bottom:10px;
+    }
+    .tbg-v8-stat span{
+      color:rgba(255,255,255,.70);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:700;
+    }
+
+    /* Institutional Premise */
+    .tbg-v8-premise{
+      background:var(--tbg-white);
+      text-align:center;
+      padding:112px 5vw;
+      border-bottom:1px solid var(--tbg-soft-line);
+    }
+    .tbg-v8-premise h2{
+      max-width:1000px;
+      margin:0 auto;
+      color:var(--tbg-navy);
+    }
+
+    /* Framework Declaration */
+    .tbg-v8-declaration{
+      position:relative;
+      overflow:hidden;
+      background:var(--tbg-navy);
+      color:var(--tbg-white);
+      text-align:center;
+      padding:104px 5vw;
+      border-top:1px solid var(--tbg-line);
+      border-bottom:1px solid var(--tbg-line);
+    }
+    .tbg-v8-declaration:before,
+    .tbg-v8-declaration:after{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      border:1px solid rgba(183,144,75,.16);
+      transform:rotate(38deg);
+    }
+    .tbg-v8-declaration:before{left:-150px;top:-170px;}
+    .tbg-v8-declaration:after{right:-150px;bottom:-180px;}
+    .tbg-v8-declaration-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;}
+    .tbg-v8-declaration h2{color:var(--tbg-white);}
+    .tbg-v8-declaration h2 span{display:block;}
+    .tbg-v8-declaration p{
+      color:rgba(255,255,255,.74);
+      font-size:19px;
+      line-height:1.7;
+      max-width:860px;
+      margin:26px auto 0;
+    }
+
+    /* Platform Architecture */
+    .tbg-v8-architecture{
+      background:var(--tbg-bone);
+      padding:102px 5vw;
+    }
+    .tbg-v8-architecture-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1px;
+      margin-top:56px;
+      background:rgba(7,17,31,.10);
+      border-top:1px solid rgba(7,17,31,.10);
+      border-left:1px solid rgba(7,17,31,.10);
+    }
+    .tbg-v8-architecture-card{
+      background:var(--tbg-white);
+      min-height:225px;
+      padding:26px 24px;
+      border-right:1px solid rgba(7,17,31,.10);
+      border-bottom:1px solid rgba(7,17,31,.10);
+    }
+    .tbg-v8-architecture-card h3{
+      color:var(--tbg-navy);
+      font-family:"Inter",Arial,sans-serif;
+      font-size:16px;
+      line-height:1.08;
+      letter-spacing:-.02em;
+      text-transform:uppercase;
+      font-weight:800;
+      margin:0 0 16px;
+    }
+    .tbg-v8-architecture-card p{
+      color:#475569;
+      font-size:13.5px;
+      line-height:1.62;
+      margin:0;
+    }
+
+    /* Caribbean Opportunity */
+    .tbg-v8-opportunity{
+      background:var(--tbg-white);
+      padding:104px 5vw;
+    }
+    .tbg-v8-opportunity-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:44px;
+      margin-top:58px;
+    }
+    .tbg-v8-opportunity-card strong{
+      display:block;
+      color:var(--tbg-navy);
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:clamp(44px,5vw,72px);
+      line-height:.88;
+      letter-spacing:-.055em;
+      margin-bottom:18px;
+    }
+    .tbg-v8-opportunity-card h3{
+      color:var(--tbg-navy);
+      font-family:"Inter",Arial,sans-serif;
+      font-size:10px;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+      font-weight:800;
+      margin:0 0 14px;
+    }
+    .tbg-v8-opportunity-card p{
+      color:var(--tbg-slate);
+      font-size:13px;
+      line-height:1.62;
+      margin:0;
+      max-width:260px;
+    }
+
+    /* Jurisdiction Intelligence */
+    .tbg-v8-jurisdictions{
+      background:var(--tbg-navy);
+      color:var(--tbg-white);
+      padding:104px 5vw;
+    }
+    .tbg-v8-jurisdictions .tbg-v8-title{color:var(--tbg-white);}
+    .tbg-v8-jurisdictions .tbg-v8-copy{color:rgba(255,255,255,.70);}
+    .tbg-v8-jurisdiction-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+      margin-top:58px;
+    }
+    .tbg-v8-market-card{
+      position:relative;
+      height:300px;
+      overflow:hidden;
+      display:flex;
+      align-items:flex-end;
+      background-size:cover;
+      background-position:center;
+    }
+    .tbg-v8-market-card:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,rgba(7,17,31,0) 0%,rgba(7,17,31,.26) 50%,rgba(7,17,31,.86) 100%);
+      z-index:1;
+    }
+    .tbg-v8-market-card:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border:1px solid rgba(183,144,75,.30);
+      z-index:3;
+      pointer-events:none;
+    }
+    .tbg-v8-market-content{position:relative;z-index:2;padding:22px;color:var(--tbg-white);}
+    .tbg-v8-market-content span{
+      display:inline-block;
+      background:rgba(7,17,31,.72);
+      color:var(--tbg-gold);
+      border:1px solid rgba(183,144,75,.40);
+      padding:6px 8px;
+      font-size:8px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+    .tbg-v8-market-content h3{
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:25px;
+      line-height:1.05;
+      margin:0 0 8px;
+      color:var(--tbg-white);
+      text-shadow:0 2px 12px rgba(0,0,0,.65);
+    }
+    .tbg-v8-market-content p{
+      color:rgba(255,255,255,.86);
+      margin:0;
+      font-size:14px;
+      line-height:1.45;
+      text-shadow:0 2px 10px rgba(0,0,0,.55);
+    }
+    .market-guyana{background-image:url("assets-images/guyana.webp");}
+    .market-barbados{background-image:url("assets-images/barbados.webp");}
+    .market-bahamas{background-image:url("assets-images/bahamas.webp");}
+    .market-grenada{background-image:url("assets-images/grenada.webp");}
+    .market-antigua{background-image:url("assets-images/antigua.webp");}
+    .market-tt{background-image:url("assets-images/trinidad-tobago.webp");}
+
+    /* Strategic Sessions */
+    .tbg-v8-sessions{
+      background:var(--tbg-bone);
+      color:var(--tbg-ink);
+      padding:108px 5vw;
+      border-top:1px solid rgba(7,17,31,.10);
+      border-bottom:1px solid rgba(7,17,31,.10);
+    }
+    .tbg-v8-calendar{
+      margin-top:68px;
+      background:var(--tbg-white);
+      border:1px solid rgba(7,17,31,.10);
+      box-shadow:0 28px 80px rgba(7,17,31,.06);
+      overflow:hidden;
+    }
+    .tbg-v8-calendar-header,
+    .tbg-v8-calendar-row{
+      display:grid;
+      grid-template-columns:1.1fr .7fr 1.2fr;
+      gap:28px;
+      align-items:center;
+    }
+    .tbg-v8-calendar-header{
+      padding:20px 28px;
+      border-bottom:1px solid rgba(7,17,31,.10);
+      background:#fbfaf7;
+      color:var(--tbg-slate);
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+    .tbg-v8-calendar-row{
+      padding:30px 28px;
+      border-bottom:1px solid rgba(7,17,31,.09);
+      background:var(--tbg-white);
+    }
+    .tbg-v8-calendar-market{
+      color:var(--tbg-navy);
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:clamp(32px,3.8vw,56px);
+      line-height:.94;
+      letter-spacing:-.04em;
+    }
+    .tbg-v8-calendar-date{
+      color:var(--tbg-gold-deep);
+      font-size:11px;
+      line-height:1.45;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-weight:800;
+    }
+    .tbg-v8-calendar-themes{
+      color:#475569;
+      font-size:14px;
+      line-height:1.6;
+    }
+    .tbg-v8-calendar-themes strong{
+      display:block;
+      color:var(--tbg-navy);
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:10px;
+    }
+    .tbg-v8-calendar-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+    .tbg-v8-calendar-tags em{
+      font-style:normal;
+      border:1px solid rgba(7,17,31,.12);
+      color:#334155;
+      background:#fafafa;
+      padding:7px 9px;
+      font-size:9px;
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      font-weight:800;
+    }
+    .tbg-v8-calendar-footnote{
+      padding:28px 34px;
+      background:#fbfaf7;
+      color:#334155;
+      font-size:13.5px;
+      line-height:1.75;
+    }
+    .tbg-v8-calendar-powered{
+      text-align:center;
+      padding:22px 28px 28px;
+      background:#fbfaf7;
+      color:var(--tbg-gold-deep);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .tbg-v8-calendar-powered:before{
+      content:"";
+      display:block;
+      width:60px;
+      height:1px;
+      background:rgba(138,106,63,.35);
+      margin:0 auto 14px;
+    }
+
+    /* EXODUS: intentionally dark, borderless, not affected by Insights */
+    .tbg-v8-exodus{
+      background:var(--tbg-navy);
+      color:var(--tbg-white);
+      padding:118px 5vw;
+      border:none;
+    }
+    .tbg-v8-exodus .tbg-v8-title{color:var(--tbg-white);}
+    .tbg-v8-exodus .tbg-v8-copy{color:rgba(255,255,255,.72);}
+    .tbg-v8-exodus-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      margin-top:58px;
+      background:rgba(183,144,75,.22);
+    }
+    .tbg-v8-exodus-card{
+      background:transparent;
+      padding:34px;
+      min-height:260px;
+      color:var(--tbg-white);
+    }
+    .tbg-v8-exodus-card h3{
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:32px;
+      line-height:1;
+      margin:0 0 18px;
+      color:var(--tbg-white);
+    }
+    .tbg-v8-exodus-card p{
+      color:rgba(255,255,255,.68);
+      font-size:15px;
+      line-height:1.7;
+      margin:0;
+    }
+
+    /* Insights: dark homepage cards, isolated from article FT palette */
+    .tbg-v8-insights{
+      background:var(--tbg-navy);
+      color:var(--tbg-white);
+      padding:110px 5vw;
+      border-top:1px solid rgba(183,144,75,.20);
+      border-bottom:1px solid rgba(183,144,75,.20);
+    }
+    .tbg-v8-insights .tbg-v8-title{color:var(--tbg-white);}
+    .tbg-v8-insights .tbg-v8-copy{color:rgba(255,255,255,.70);}
+    .tbg-v8-publications-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      margin-top:62px;
+      align-items:stretch;
+    }
+    .tbg-v8-publication-card{
+      background:var(--tbg-panel);
+      border:1px solid rgba(183,144,75,.30);
+      color:var(--tbg-white);
+      padding:34px;
+      min-height:510px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      transition:.28s ease;
+    }
+    .tbg-v8-publication-card:hover{
+      transform:translateY(-4px);
+      border-color:var(--tbg-gold);
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
+    }
+    .tbg-v8-publication-label{
+      color:var(--tbg-gold);
+      font-size:10px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:800;
+      margin-bottom:12px;
+    }
+    .tbg-v8-publication-type{
+      color:rgba(255,255,255,.55);
+      font-size:10px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:700;
+      margin-bottom:22px;
+    }
+    .tbg-v8-publication-card h3{
+      font-family:"Cormorant Garamond",Georgia,serif;
+      color:var(--tbg-white);
+      font-size:clamp(34px,3vw,43px);
+      line-height:.98;
+      letter-spacing:-.03em;
+      margin:0 0 14px;
+    }
+    .tbg-v8-publication-subtitle{
+      color:var(--tbg-white);
+      font-size:18px;
+      line-height:1.35;
+      margin:0 0 18px;
+    }
+    .tbg-v8-publication-desc{
+      color:rgba(255,255,255,.72);
+      line-height:1.72;
+      font-size:14.5px;
+      margin:0;
+    }
+    .tbg-v8-publication-footer{
+      margin-top:30px;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.10);
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--tbg-gold);
+      font-weight:800;
+    }
+
+    /* Founder */
+    .tbg-v8-founder{
+      background:var(--tbg-white);
+      padding:96px 5vw;
+      border-top:1px solid rgba(7,17,31,.10);
+      border-bottom:1px solid rgba(7,17,31,.10);
+    }
+    .tbg-v8-founder p{color:#475569;font-size:17px;line-height:1.75;max-width:880px;}
+    .tbg-v8-founder-grid{
+      margin-top:42px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(7,17,31,.10);
+      border-left:1px solid rgba(7,17,31,.10);
+    }
+    .tbg-v8-founder-focus{
+      min-height:132px;
+      padding:22px;
+      border-right:1px solid rgba(7,17,31,.10);
+      border-bottom:1px solid rgba(7,17,31,.10);
+    }
+    .tbg-v8-founder-focus strong{
+      display:block;
+      color:var(--tbg-navy);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      font-weight:800;
+      margin-bottom:16px;
+    }
+    .tbg-v8-founder-focus span{color:var(--tbg-slate);font-size:13px;line-height:1.5;}
+
+    /* CTA + Footer */
+    .tbg-v8-cta{
+      background:linear-gradient(90deg,var(--tbg-navy),#13243b);
+      color:var(--tbg-white);
+      padding:68px 5vw;
+    }
+    .tbg-v8-cta-inner{
+      width:min(1180px,90vw);
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:28px;
+      flex-wrap:wrap;
+    }
+    .tbg-v8-cta h2{
+      color:var(--tbg-white);
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:clamp(32px,4vw,54px);
+      line-height:1;
+      margin:0;
+    }
+    .tbg-v8-footer{
+      background:#050b14;
+      color:rgba(255,255,255,.72);
+      padding:72px 5vw 34px;
+      border-top:1px solid rgba(183,144,75,.35);
+    }
+    .tbg-v8-footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr .8fr;
+      gap:42px;
+      margin-bottom:54px;
+    }
+    .tbg-v8-footer h3{
+      color:var(--tbg-white);
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:30px;
+      margin:0 0 16px;
+    }
+    .tbg-v8-footer p{color:rgba(255,255,255,.66);font-size:15px;line-height:1.7;margin:0;max-width:460px;}
+    .tbg-v8-footer h4{
+      color:var(--tbg-gold);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      margin:0 0 18px;
+    }
+    .tbg-v8-footer a,.tbg-v8-footer span{display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;}
+    .tbg-v8-footer a:hover{color:var(--tbg-gold);}
+    .tbg-v8-footer-bottom{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:24px;
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+      font-size:12px;
+      color:rgba(255,255,255,.50);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    @media(max-width:1180px){
+      .tbg-v8-nav{display:none;}
+      .tbg-v8-architecture-grid,
+      .tbg-v8-opportunity-grid,
+      .tbg-v8-jurisdiction-grid,
+      .tbg-v8-exodus-grid,
+      .tbg-v8-publications-grid,
+      .tbg-v8-founder-grid,
+      .tbg-v8-footer-grid{grid-template-columns:1fr 1fr;}
+      .tbg-v8-calendar-header,.tbg-v8-calendar-row{grid-template-columns:1fr;gap:12px;}
+      .tbg-v8-calendar-header{display:none;}
+    }
+    @media(max-width:720px){
+      .tbg-v8-header-inner{min-height:72px;}
+      .tbg-v8-brand img{height:48px;}
+      .tbg-v8-wordmark{font-size:18px;}
+      .tbg-v8-stats,
+      .tbg-v8-architecture-grid,
+      .tbg-v8-opportunity-grid,
+      .tbg-v8-jurisdiction-grid,
+      .tbg-v8-exodus-grid,
+      .tbg-v8-publications-grid,
+      .tbg-v8-founder-grid,
+      .tbg-v8-footer-grid{grid-template-columns:1fr;}
+      .tbg-v8-stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);}
+      .tbg-v8-hero{min-height:auto;padding:96px 5vw;}
+      .tbg-v8-publication-card{min-height:auto;}
+      .tbg-v8-publication-footer{flex-direction:column;}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="tbg-v8-header">
+    <div class="tbg-v8-header-inner">
+      <a href="#top" class="tbg-v8-brand" aria-label="The Buckler Group homepage">
+        <img src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest" />
+        <span class="tbg-v8-wordmark">The Buckler Group</span>
+      </a>
+      <nav class="tbg-v8-nav" aria-label="Primary navigation">
+        <a href="#framework">Framework</a>
+        <a href="#jurisdictions">Jurisdictions</a>
+        <a href="#sessions">Strategic Sessions</a>
+        <a href="#exodus">EXODUS™</a>
+        <a href="#insights">Insights</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="tbg-v8-hero">
+      <div class="tbg-v8-hero-inner">
+        <div class="tbg-v8-eyebrow">The Buckler Group</div>
+        <h1><span>Building Order.</span><span>Advancing Opportunity.</span></h1>
+        <div class="tbg-v8-hero-subline">Caribbean Renaissance™</div>
+        <p>
+          Organizing capital, development, and opportunity across the Caribbean through institutional strategy, hospitality-led development, and disciplined regional intelligence.
+        </p>
+        <div class="tbg-v8-btn-row">
+          <a href="#sessions" class="tbg-v8-btn tbg-v8-btn-primary">Reserve Participation</a>
+          <a href="#insights" class="tbg-v8-btn tbg-v8-btn-secondary">Explore Insights</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tbg-v8-stats" aria-label="Platform statistics">
+      <div class="tbg-v8-stat"><strong>20+</strong><span>Caribbean jurisdictions engaged</span></div>
+      <div class="tbg-v8-stat"><strong>2026</strong><span>Strategic Sessions calendar</span></div>
+      <div class="tbg-v8-stat"><strong>3</strong><span>Platform pillars</span></div>
+      <div class="tbg-v8-stat"><strong>1</strong><span>Regional thesis</span></div>
+    </section>
+
+    <section class="tbg-v8-premise">
+      <div class="tbg-v8-eyebrow">Institutional Premise</div>
+      <h2 class="tbg-v8-title">The Caribbean is not merely a destination. It is an investable regional platform.</h2>
+    </section>
+
+    <section class="tbg-v8-declaration" id="framework">
+      <div class="tbg-v8-declaration-inner">
+        <div class="tbg-v8-eyebrow">The Caribbean Renaissance™ Framework</div>
+        <h2 class="tbg-v8-title"><span>Many Islands.</span><span>One Civilization.</span></h2>
+        <p>
+          A strategic architecture for aligning hospitality, development, capital, governance, and diaspora participation across the Caribbean Basin.
+        </p>
+        <div class="tbg-v8-btn-row" style="justify-content:center;">
+          <a href="/caribbean-renaissance.html" class="tbg-v8-btn tbg-v8-btn-secondary">Learn About the Framework</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tbg-v8-architecture" id="advisory">
+      <div class="tbg-v8-container">
+        <div class="tbg-v8-eyebrow">Platform Architecture</div>
+        <h2 class="tbg-v8-title">TBG advises. EXODUS™ convenes. Caribbean Renaissance™ frames the thesis.</h2>
+        <p class="tbg-v8-copy">
+          The platform is designed to move from intelligence to strategy, from strategy to convening, and from convening to executable capital and development pathways.
+        </p>
+        <div class="tbg-v8-architecture-grid">
+          <div class="tbg-v8-architecture-card"><h3>Real Estate Strategy</h3><p>Entitlement intelligence, land-use alignment, acquisitions thinking, and mixed-use development strategy across priority Caribbean markets.</p></div>
+          <div class="tbg-v8-architecture-card"><h3>Hospitality-Led Development</h3><p>Hotels, resorts, branded residences, marinas, and place-making as engines of destination value and institutional investment.</p></div>
+          <div class="tbg-v8-architecture-card"><h3>Diaspora Capital</h3><p>Structured engagement with Caribbean professionals, investors, universities, and civic leaders positioned to support long-term regional development.</p></div>
+          <div class="tbg-v8-architecture-card"><h3>Institutional Coordination</h3><p>Public-private alignment among governments, investment promotion agencies, development corporations, universities, and financial institutions.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tbg-v8-opportunity">
+      <div class="tbg-v8-container">
+        <div class="tbg-v8-eyebrow">Regional Opportunity</div>
+        <h2 class="tbg-v8-title">A disciplined market thesis for Caribbean competitiveness.</h2>
+        <p class="tbg-v8-copy">The next era of Caribbean development will depend on jurisdictions that can demonstrate planning certainty, infrastructure readiness, institutional coordination, and credible capital pathways.</p>
+        <div class="tbg-v8-opportunity-grid">
+          <div class="tbg-v8-opportunity-card"><strong>FDI</strong><h3>Investment Readiness</h3><p>Capital follows confidence, predictability, and execution capability.</p></div>
+          <div class="tbg-v8-opportunity-card"><strong>PPP</strong><h3>Public-Private Alignment</h3><p>Institutional coordination determines whether development moves from concept to delivery.</p></div>
+          <div class="tbg-v8-opportunity-card"><strong>HOSP</strong><h3>Hospitality as Infrastructure™</h3><p>Hospitality assets organize transportation, labor, utilities, cultural industries, and local enterprise.</p></div>
+          <div class="tbg-v8-opportunity-card"><strong>DIASP</strong><h3>Diaspora Capital</h3><p>Global Caribbean networks represent capital, expertise, governance experience, and market credibility.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tbg-v8-jurisdictions" id="jurisdictions">
+      <div class="tbg-v8-container">
+        <div class="tbg-v8-eyebrow">Jurisdiction Intelligence</div>
+        <h2 class="tbg-v8-title">Priority Market Spotlight</h2>
+        <p class="tbg-v8-copy">A regional view across investment promotion, hospitality development, entitlement readiness, and destination competitiveness.</p>
+        <div class="tbg-v8-jurisdiction-grid">
+          <article class="tbg-v8-market-card market-guyana"><div class="tbg-v8-market-content"><span>Energy + Hospitality</span><h3>Guyana</h3><p>Rapid growth, infrastructure expansion, and institutional investment demand.</p></div></article>
+          <article class="tbg-v8-market-card market-barbados"><div class="tbg-v8-market-content"><span>Luxury + Governance</span><h3>Barbados</h3><p>High-trust destination strategy, global brand equity, and investment sophistication.</p></div></article>
+          <article class="tbg-v8-market-card market-bahamas"><div class="tbg-v8-market-content"><span>Resort + Capital</span><h3>Bahamas</h3><p>Large-scale hospitality, branded residences, and destination finance.</p></div></article>
+          <article class="tbg-v8-market-card market-grenada"><div class="tbg-v8-market-content"><span>Eco + Education</span><h3>Grenada</h3><p>Climate resilience, higher education, hospitality, and sustainable development.</p></div></article>
+          <article class="tbg-v8-market-card market-antigua"><div class="tbg-v8-market-content"><span>Marina + Lifestyle</span><h3>Antigua & Barbuda</h3><p>Yachting, ultra-high-net-worth lifestyle, and waterfront place-making.</p></div></article>
+          <article class="tbg-v8-market-card market-tt"><div class="tbg-v8-market-content"><span>Commerce + Culture</span><h3>Trinidad & Tobago</h3><p>Energy, logistics, cultural industries, and regional business services.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tbg-v8-sessions" id="sessions">
+      <div class="tbg-v8-container">
+        <div class="tbg-v8-eyebrow">Caribbean Entitlement & Hospitality Strategic Sessions 2026</div>
+        <h2 class="tbg-v8-title">A jurisdiction-by-jurisdiction platform for investment readiness and hospitality-led development.</h2>
+        <p class="tbg-v8-copy">Strategic Sessions convene public officials, investors, developers, hospitality leaders, universities, and diaspora professionals around the practical issues that determine development execution.</p>
+        <div class="tbg-v8-btn-row">
+          <a href="#contact" class="tbg-v8-btn tbg-v8-btn-dark">Reserve Participation</a>
+          <a href="#exodus" class="tbg-v8-btn tbg-v8-btn-light">Apply for Charter Membership</a>
+        </div>
+
+        <div class="tbg-v8-calendar">
+          <div class="tbg-v8-calendar-header"><div>Market</div><div>Date</div><div>Strategic Themes</div></div>
+          <div class="tbg-v8-calendar-row"><div class="tbg-v8-calendar-market">Guyana</div><div class="tbg-v8-calendar-date">July 19, 2026</div><div class="tbg-v8-calendar-themes"><strong>Gateway Session</strong>Energy-led growth, hospitality demand, infrastructure, and institutional readiness.<div class="tbg-v8-calendar-tags"><em>FDI</em><em>Hotels</em><em>Infrastructure</em></div></div></div>
+          <div class="tbg-v8-calendar-row"><div class="tbg-v8-calendar-market">Barbados</div><div class="tbg-v8-calendar-date">August 2026</div><div class="tbg-v8-calendar-themes"><strong>Destination Sophistication</strong>Luxury hospitality, governance, capital markets, and mixed-use development.<div class="tbg-v8-calendar-tags"><em>Luxury</em><em>Governance</em><em>Residences</em></div></div></div>
+          <div class="tbg-v8-calendar-row"><div class="tbg-v8-calendar-market">Bahamas</div><div class="tbg-v8-calendar-date">September 2026</div><div class="tbg-v8-calendar-themes"><strong>Resort Capital</strong>Large-scale resort economics, branded residences, and infrastructure finance.<div class="tbg-v8-calendar-tags"><em>Resorts</em><em>Capital</em><em>Scale</em></div></div></div>
+          <div class="tbg-v8-calendar-row"><div class="tbg-v8-calendar-market">Grenada</div><div class="tbg-v8-calendar-date">October 2026</div><div class="tbg-v8-calendar-themes"><strong>Climate + Education</strong>Hospitality, education infrastructure, eco-tourism, and development readiness.<div class="tbg-v8-calendar-tags"><em>Climate</em><em>Education</em><em>Eco</em></div></div></div>
+          <div class="tbg-v8-calendar-footnote">Each session is designed as a jurisdiction-learning forum, moving from open intelligence to closed executive dialogue and future inward-mission opportunities.</div>
+          <div class="tbg-v8-calendar-powered">Powered by EXODUS™</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tbg-v8-exodus" id="exodus">
+      <div class="tbg-v8-container">
+        <div class="tbg-v8-eyebrow">EXODUS™</div>
+        <h2 class="tbg-v8-title">The institutional convening platform for Caribbean capital, intelligence, and execution.</h2>
+        <p class="tbg-v8-copy">EXODUS™ is designed for serious participants seeking structured access to regional intelligence, strategic sessions, member briefings, and future investment pathways.</p>
+        <div class="tbg-v8-exodus-grid">
+          <div class="tbg-v8-exodus-card"><h3>Charter Membership</h3><p>Founding access for professionals, investors, operators, and diaspora leaders aligned with the Caribbean Renaissance™ Framework.</p></div>
+          <div class="tbg-v8-exodus-card"><h3>Investor Circle</h3><p>Private intelligence, curated opportunities, and strategy briefings for capital allocators and institutional participants.</p></div>
+          <div class="tbg-v8-exodus-card"><h3>Chairman’s Club</h3><p>Senior-level convening for principals, executives, UHNW participants, and regional stakeholders shaping long-term execution.</p></div>
+        </div>
+        <div class="tbg-v8-btn-row"><a href="#contact" class="tbg-v8-btn tbg-v8-btn-primary">Apply for Charter Membership</a></div>
+      </div>
+    </section>
+
+    <section class="tbg-v8-insights" id="insights">
+      <div class="tbg-v8-container">
+        <div class="tbg-v8-eyebrow">Caribbean Renaissance™ Insights</div>
+        <h2 class="tbg-v8-title">The Caribbean Renaissance™ Library</h2>
+        <p class="tbg-v8-copy">Institutional research publications advancing the Caribbean Renaissance™ Framework through original perspectives on competitiveness, hospitality, capital formation, development, and institutional excellence.</p>
+
+        <div class="tbg-v8-publications-grid">
+          <a href="/caribbean-renaissance-insights.html" class="tbg-v8-publication-card">
+            <div>
+              <div class="tbg-v8-publication-label">Caribbean Renaissance™ Insights</div>
+              <div class="tbg-v8-publication-type">Founding Paper</div>
+              <h3>The Caribbean Renaissance™</h3>
+              <p class="tbg-v8-publication-subtitle">Why the Caribbean Renaissance™ Matters</p>
+              <p class="tbg-v8-publication-desc">The inaugural institutional research publication establishing why institutions, capital, and regional coordination will define the next era of Caribbean competitiveness.</p>
+            </div>
+            <div class="tbg-v8-publication-footer"><span>8 min read</span><span>Read Paper →</span></div>
+          </a>
+
+          <a href="/hospitality-economic-infrastructure.html" class="tbg-v8-publication-card">
+            <div>
+              <div class="tbg-v8-publication-label">Caribbean Renaissance™ Insights</div>
+              <div class="tbg-v8-publication-type">Research Paper No. 002</div>
+              <h3>Hospitality as Infrastructure™</h3>
+              <p class="tbg-v8-publication-subtitle">Hotels, resorts, residences, and mixed-use assets as engines of destination value.</p>
+              <p class="tbg-v8-publication-desc">Examining hospitality as economic infrastructure and its role in organizing investment, employment, infrastructure, and regional competitiveness.</p>
+            </div>
+            <div class="tbg-v8-publication-footer"><span>9 min read</span><span>Read Paper →</span></div>
+          </a>
+
+          <a href="/development-entitlements-and-development-readiness.html" class="tbg-v8-publication-card">
+            <div>
+              <div class="tbg-v8-publication-label">Caribbean Renaissance™ Insights</div>
+              <div class="tbg-v8-publication-type">Research Paper No. 003</div>
+              <h3>Development Readiness</h3>
+              <p class="tbg-v8-publication-subtitle">Why Institutions Determine Investment</p>
+              <p class="tbg-v8-publication-desc">A strategic examination of entitlement systems, planning certainty, regulatory coordination, and institutional readiness as the foundation of investment competitiveness.</p>
+            </div>
+            <div class="tbg-v8-publication-footer"><span>10 min read</span><span>Read Paper →</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tbg-v8-founder">
+      <div class="tbg-v8-container">
+        <div class="tbg-v8-eyebrow">Office of the Founder</div>
+        <h2 class="tbg-v8-title">An institutional perspective on Caribbean development, capital, and order.</h2>
+        <p>The Buckler Group operates from a simple premise: durable development is not produced by isolated transactions. It is produced by institutions, disciplined capital allocation, development readiness, and leadership systems capable of moving from intelligence to execution.</p>
+        <div class="tbg-v8-founder-grid">
+          <div class="tbg-v8-founder-focus"><strong>Entitlement</strong><span>Land-use, approvals, incentives, and jurisdiction readiness.</span></div>
+          <div class="tbg-v8-founder-focus"><strong>Hospitality</strong><span>Hotels, resorts, residences, and mixed-use destination value.</span></div>
+          <div class="tbg-v8-founder-focus"><strong>Capital</strong><span>Diaspora, institutional, public, and private capital pathways.</span></div>
+          <div class="tbg-v8-founder-focus"><strong>Order</strong><span>Coordination across institutions before execution.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tbg-v8-cta" id="contact">
+      <div class="tbg-v8-cta-inner">
+        <h2>Participate in the Caribbean Renaissance™.</h2>
+        <div class="tbg-v8-btn-row" style="margin-top:0;">
+          <a href="mailto:management@thebucklergroup.com" class="tbg-v8-btn tbg-v8-btn-primary">Contact TBG</a>
+          <a href="#sessions" class="tbg-v8-btn tbg-v8-btn-secondary">View Sessions</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="tbg-v8-footer">
+    <div class="tbg-v8-footer-grid">
+      <div>
+        <h3>The Buckler Group</h3>
+        <p>Organizing capital, development, and opportunity across the Caribbean through strategy, convening, and institutional research.</p>
+      </div>
+      <div><h4>Platform</h4><a href="#framework">Framework</a><a href="#exodus">EXODUS™</a><a href="#insights">Insights</a></div>
+      <div><h4>Development</h4><a href="#jurisdictions">Jurisdictions</a><a href="#sessions">Strategic Sessions</a><a href="#advisory">Architecture</a></div>
+      <div><h4>Contact</h4><span>management@thebucklergroup.com</span><span>Brooklyn · Caribbean Basin</span></div>
+    </div>
+    <div class="tbg-v8-footer-bottom">
+      <span>© 2026 The Buckler Group. All rights reserved.</span>
+      <span>Many Islands. One Civilization.</span>
+    </div>
+  </footer>
+</body>
+</html>
