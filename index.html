@@ -4076,6 +4076,84 @@
     transform:translateY(-4px);
     box-shadow:0 30px 80px rgba(7,17,31,.12);
 }
+  /* ==========================================================
+   Caribbean Renaissance™ Insights
+   Institutional Overlay Typography
+   ========================================================== */
+
+/* Darken image overlay slightly for readability */
+
+.insight-card::before,
+.cr-insight-card::before,
+.publication-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        180deg,
+        rgba(7,17,31,.18) 0%,
+        rgba(7,17,31,.48) 45%,
+        rgba(7,17,31,.82) 100%
+    );
+    z-index:1;
+}
+
+/* Keep all content above overlay */
+
+.insight-card>*,
+.cr-insight-card>*,
+.publication-card>*{
+    position:relative;
+    z-index:2;
+}
+
+/* Publication Title */
+
+.insight-card h3,
+.cr-insight-card h3,
+.publication-card h3{
+    color:#B7904B !important;
+    font-family:"Cormorant Garamond", Georgia, serif;
+    font-size:34px;
+    line-height:1.05;
+    letter-spacing:-0.02em;
+}
+
+/* Issue Number */
+
+.insight-card .issue,
+.cr-insight-card .issue,
+.publication-tag{
+    color:#D5B574 !important;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    font-weight:700;
+}
+
+/* Description */
+
+.insight-card p,
+.cr-insight-card p,
+.publication-card p{
+    color:#F8F5EF !important;
+    line-height:1.7;
+}
+
+/* Read Paper */
+
+.insight-card a,
+.cr-insight-card a,
+.publication-card a{
+    color:#F8F5EF !important;
+    font-weight:700;
+}
+
+.insight-card a:hover,
+.cr-insight-card a:hover,
+.publication-card a:hover{
+    color:#B7904B !important;
+}
+  
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 </head>
