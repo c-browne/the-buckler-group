@@ -1228,14 +1228,26 @@
       align-items: stretch;
     }
 
-    .office-founder-image {
-      min-height: 600px;
-      background-size: cover;
-      background-position: center;
-      border: 1px solid rgba(7,17,31,.12);
-      position: relative;
-    }
+   .office-founder-image{
+    min-height:600px;
 
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7,17,31,.06),
+            rgba(7,17,31,.20)
+        ),
+        url("
+assets-images/assets/images/founder-perspective.webp");
+
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center 5%;
+
+    border:none;
+    box-shadow:none;
+    position:relative;
+}
     .office-founder-image:after {
       content: "";
       position: absolute;
