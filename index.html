@@ -3669,7 +3669,3894 @@ Strategic Sessions Powered by EXODUS™
             <div><strong>Hospitality & Tourism</strong><p>Destination strategy.</p></div>
             <div><strong>Capital Alignment</strong><p>Investor readiness and partnerships.</p></div>
           </div>
+        </div><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Buckler Group | Caribbean Renaissance™ Framework</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+  <style>
+    .cr-framework-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:46px;
+  padding:18px 42px;
+  background:transparent;
+  border:1px solid rgba(184,138,66,.65);
+  color:#fff;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:.3s ease;
+}
+
+.cr-framework-btn:hover{
+  background:#b88a42;
+  border-color:#b88a42;
+  color:#07111f;
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(0,0,0,.28);
+}
+    .calendar-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.calendar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  padding: 15px 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all .25s ease;
+}
+
+.calendar-btn-primary {
+  background: linear-gradient(135deg, #c9a24a 0%, #9b7429 100%);
+  color: #06101a;
+  border: 1px solid #c9a24a;
+}
+
+.calendar-btn-primary:hover {
+  background: linear-gradient(135deg, #d7b55f 0%, #b38432 100%);
+  transform: translateY(-1px);
+}
+
+.calendar-btn-secondary {
+  background: transparent;
+  color: #c9a24a;
+  border: 1px solid rgba(201,162,74,.8);
+}
+
+.calendar-btn-secondary:hover {
+  background: rgba(201,162,74,.1);
+  border-color: #c9a24a;
+}
+    :root {
+      --navy: #07111f;
+      --midnight: #0d1a2b;
+      --ink: #101828;
+      --slate: #667085;
+      --bone: #f7f3ea;
+      --sand: #eee6d8;
+      --gold: #b7904b;
+      --white: #ffffff;
+      --panel: #111c2d;
+      --line: rgba(183, 144, 75, 0.35);
+      --soft-line: rgba(7, 17, 31, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bone);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      background: rgba(7, 17, 31, .96);
+      color: var(--white);
+      padding: 17px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .mark {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--gold);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 15px;
+      background: rgba(255,255,255,.03);
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,.82);
+      align-items: center;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 88vh;
+      background:
+        linear-gradient(90deg, rgba(7,17,31,.97) 0%, rgba(7,17,31,.88) 48%, rgba(7,17,31,.28) 100%),
+        url("assets-images/hero.webp");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      display: grid;
+      align-items: center;
+      padding: 7vw 5vw;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      line-height: 1.05;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    h1 {
+      max-width: 930px;
+      font-size: clamp(46px, 7vw, 96px);
+      letter-spacing: -0.045em;
+    }
+
+    .hero p {
+      max-width: 710px;
+      font-size: 20px;
+      color: rgba(255,255,255,.82);
+      margin: 28px 0 34px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border: 1px solid var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary { background: var(--gold); color: var(--navy); }
+    .btn.secondary { color: var(--white); }
+    .btn.dark { color: var(--navy); }
+    .btn.ghost { color: var(--navy); border-color: rgba(7,17,31,.22); }
+
+    section { padding: 92px 5vw; }
+
+    .section-head {
+      max-width: 980px;
+      margin-bottom: 40px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(34px, 4.5vw, 60px);
+      color: var(--navy);
+      letter-spacing: -0.035em;
+    }
+
+    .section-head p {
+      max-width: 790px;
+      color: var(--slate);
+      font-size: 18px;
+      margin-top: 18px;
+    }
+
+    .stats {
+      background: var(--navy);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stat {
+      padding: 38px 5vw;
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat span {
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .services, .cards, .spotlights, .roles {
+      display: grid;
+      gap: 22px;
+    }
+
+    .services { grid-template-columns: repeat(4, 1fr); }
+    .cards, .roles { grid-template-columns: repeat(3, 1fr); }
+    .spotlights { grid-template-columns: repeat(3, 1fr); }
+
+    .service, .card, .role-card {
+      background: var(--white);
+      border: 1px solid var(--soft-line);
+      padding: 30px;
+      min-height: 245px;
+      box-shadow: 0 22px 60px rgba(7,17,31,.05);
+    }
+
+    .service {
+      min-height: 305px;
+      border-top: 4px solid var(--gold);
+    }
+
+    .service h3, .card h3, .role-card h3 {
+      color: var(--navy);
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .service p, .card p, .role-card p {
+      color: var(--slate);
+      margin: 0 0 22px;
+    }
+
+    .service ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: var(--slate);
+      font-size: 14px;
+    }
+
+    .dark-section {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .dark-section .section-head h2 { color: var(--white); }
+    .dark-section .section-head p { color: rgba(255,255,255,.7); }
+
+    .role-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .role-card h3 { color: var(--white); }
+    .role-card p { color: rgba(255,255,255,.70); }
+.headline-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-top:38px;
+
+    margin-bottom:60px;
+
+}
+
+.headline-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:245px;
+
+    height:58px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.headline-btn-primary{
+
+    background:#b88a32;
+
+    color:#07111b;
+
+    border:1px solid #b88a32;
+
+}
+
+.headline-btn-primary:hover{
+
+    background:#c99b43;
+
+}
+
+.headline-btn-secondary{
+
+    background:transparent;
+
+    color:#b88a32;
+
+    border:1px solid #b88a32;
+
+}
+
+.headline-btn-secondary:hover{
+
+    background:rgba(184,138,50,.08);
+
+}
+    .program-panel {
+      background:
+        linear-gradient(90deg, rgba(7,17,31,.96), rgba(7,17,31,.78)),
+        url("https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1700&q=80");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 58px;
+      border: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: end;
+    }
+
+    .program-panel h2 {
+      color: var(--white);
+      font-size: clamp(36px, 5vw, 72px);
+      letter-spacing: -0.04em;
+    }
+
+    .program-details {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(183,144,75,.38);
+      padding: 28px;
+    }
+
+    .program-details div {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .program-details div:last-child { border-bottom: none; }
+    .program-details strong { color: var(--gold); display: block; margin-bottom: 4px; }
+    .program-details span { color: rgba(255,255,255,.78); }
+
+    .spotlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.spotlight {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 360px;
+  aspect-ratio: 4 / 3;
+
+  padding: 18px;
+
+  display: flex;
+  align-items: flex-end;
+
+  background-color: var(--midnight);
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+
+  border: 1px solid rgba(183,144,75,.35);
+}
+
+.spotlight:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(7,17,31,.05) 0%,
+    rgba(7,17,31,.42) 50%,
+    rgba(7,17,31,.88) 100%
+  );
+
+  z-index: 1;
+}
+
+.spotlight:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(183,144,75,.35);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.spotlight.guyana {
+  background-image: url("assets-images/guyana.webp");
+}
+
+.spotlight.barbados {
+  background-image: url("assets-images/barbados.webp");
+}
+
+.spotlight.bahamas {
+  background-image: url("assets-images/bahamas.webp");
+}
+
+.spotlight.grenada {
+  background-image: url("assets-images/grenada.webp");
+}
+
+.spotlight.antigua {
+  background-image: url("assets-images/antigua.webp");
+}
+
+.spotlight.tt {
+  background-image: url("assets-images/trinidad-tobago.webp");
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 3;
+  color: var(--white);
+  width: 100%;
+}
+
+.tag {
+  display: inline-block;
+  background: rgba(7,17,31,.55);
+  color: var(--gold);
+  border: 1px solid rgba(183,144,75,.25);
+  padding: 3px 7px;
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.spotlight h3 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0,0,0,.75);
+}
+
+.spotlight p {
+  color: rgba(255,255,255,.84);
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.45;
+  text-shadow: 0 2px 8px rgba(0,0,0,.55);
+}
+    .founder-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.55fr;
+  gap: 82px;
+  align-items: stretch;
+    }  
+    
+  .founder-image-panel {
+  display: block;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.founder-image-panel img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  object-position: center 12%;
+  display: block;
+  filter: grayscale(100%) contrast(1.05);
+}
+
+    .founder-copy {
+      background: var(--white);
+      padding: 48px;
+      border: 1px solid var(--soft-line);
+    }
+
+    .founder-copy h2 {
+      font-size: clamp(34px, 4vw, 58px);
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    .founder-copy p {
+      color: var(--slate);
+      font-size: 18px;
+      max-width: 780px;
+    }
+
+    .quote-line {
+      border-left: 4px solid var(--gold);
+      padding: 16px 0 16px 22px;
+      margin: 28px 0;
+      color: var(--navy);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .affiliations {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: rgba(183,144,75,.35);
+      border: 1px solid rgba(183,144,75,.35);
+    }
+
+    .affiliation {
+      background: var(--navy);
+      color: var(--white);
+      padding: 28px;
+      min-height: 170px;
+    }
+
+    .affiliation strong {
+      display: block;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .affiliation span {
+      color: rgba(255,255,255,.72);
+      font-size: 14px;
+    }
+
+    .insights-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 22px;
+    }
+
+    .insight {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .insight img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(.85) contrast(1.04);
+    }
+
+    .insight.large img { height: 334px; }
+
+    .insight-body { padding: 26px; }
+
+    .insight h3 {
+      color: var(--white);
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .insight p {
+      color: rgba(255,255,255,.68);
+      margin: 0;
+    }
+
+    .cta-band {
+      background: linear-gradient(90deg, var(--navy), #13243b);
+      color: var(--white);
+      padding: 66px 5vw;
+      display: flex;
+      justify-content: space-between;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .cta-band h2 {
+      color: var(--white);
+      font-size: clamp(30px, 4vw, 52px);
+    }
+
+    footer {
+      background: #050b14;
+      color: rgba(255,255,255,.7);
+      padding: 42px 5vw;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+
+    .declaration-panel {
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+      padding: 46px;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .declaration-panel h3 {
+      color: var(--white);
+      font-size: clamp(32px, 4vw, 56px);
+      letter-spacing: -0.035em;
+    }
+
+    .declaration-panel p {
+      color: rgba(255,255,255,.74);
+      font-size: 18px;
+      margin: 0;
+      max-width: 760px;
+    }
+
+    .program-panel {
+      box-shadow: 0 34px 90px rgba(7,17,31,.18);
+    }
+
+    .program-details {
+      backdrop-filter: blur(8px);
+    }
+
+
+    .declaration-hero-band {
+      background: #07111f;
+      color: var(--white);
+      padding: 96px 8vw;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .declaration-hero-band:before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(183,144,75,.18);
+      left: -140px;
+      top: -170px;
+      transform: rotate(38deg);
+    }
+
+    .declaration-hero-band:after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(183,144,75,.16);
+      right: -150px;
+      bottom: -180px;
+      transform: rotate(38deg);
+    }
+
+    .declaration-hero-band .declaration-label {
+      color: var(--gold);
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .declaration-hero-band .declaration-title {
+      color: var(--white);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(44px, 6vw, 92px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      margin: 0 auto 26px;
+      max-width: 1100px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .declaration-hero-band .declaration-copy {
+      color: rgba(255,255,255,.76);
+      max-width: 920px;
+      margin: 0 auto;
+      font-size: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .regional-demand {
+      background: #0b1524;
+      color: var(--white);
+      padding: 82px 5vw;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .regional-demand .section-head h2 {
+      color: var(--white);
+    }
+
+    .regional-demand .section-head p {
+      color: rgba(255,255,255,.70);
+    }
+
+    .demand-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .demand-stat {
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(183,144,75,.35);
+      padding: 30px;
+      min-height: 210px;
+    }
+
+    .demand-stat .figure {
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(38px, 4vw, 58px);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .demand-stat h3 {
+      color: var(--white);
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .demand-stat p {
+      color: rgba(255,255,255,.68);
+      margin: 0;
+      font-size: 15px;
+    }
+
+
+    .pricing-section {
+      background: var(--sand);
+      padding: 92px 5vw;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid var(--soft-line);
+      padding: 30px;
+      min-height: 320px;
+      box-shadow: 0 22px 60px rgba(7,17,31,.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pricing-card.featured {
+      border: 1px solid var(--gold);
+      background: #fffaf0;
+    }
+
+    .pricing-card .tier {
+      color: var(--gold-dark);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .pricing-card h3 {
+      color: var(--navy);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .pricing-card .price {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--navy);
+      font-size: 42px;
+      line-height: 1;
+      margin: 18px 0;
+    }
+
+    .pricing-card p {
+      color: var(--slate);
+      margin: 0 0 20px;
+      font-size: 15px;
+    }
+
+    .pricing-card ul {
+      color: var(--slate);
+      padding-left: 18px;
+      margin: 0 0 24px;
+      font-size: 14px;
+    }
+
+    .payment-note {
+      margin-top: 22px;
+      color: var(--slate);
+      font-size: 13px;
+      max-width: 860px;
+    }
+
+
+    .stakeholder-pricing {
+      background: var(--sand);
+      padding: 86px 5vw;
+      border-top: 1px solid rgba(7,17,31,.08);
+      border-bottom: 1px solid rgba(7,17,31,.08);
+    }
+
+    .stakeholder-pricing .section-head {
+      max-width: 900px;
+    }
+
+    .stakeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .stakeholder-card {
+      background: var(--white);
+      border: 1px solid var(--soft-line);
+      padding: 28px;
+      min-height: 300px;
+      box-shadow: 0 22px 60px rgba(7,17,31,.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stakeholder-card.selected {
+      border: 1px solid var(--gold);
+      background: #fffaf0;
+    }
+
+    .stakeholder-card .tier-label {
+      color: var(--gold-dark);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .stakeholder-card h3 {
+      color: var(--navy);
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .stakeholder-card .price {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--navy);
+      font-size: 40px;
+      line-height: 1;
+      margin: 16px 0;
+    }
+
+    .stakeholder-card p {
+      color: var(--slate);
+      margin: 0 0 20px;
+      font-size: 15px;
+    }
+
+    .pricing-discretion {
+      margin-top: 22px;
+      color: var(--slate);
+      font-size: 13px;
+      max-width: 900px;
+    }
+
+
+    .declaration-button {
+      justify-content: center;
+      margin-top: 34px;
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .founder-compact {
+      background: var(--bone);
+      border-top: 1px solid rgba(7,17,31,.08);
+      border-bottom: 1px solid rgba(7,17,31,.08);
+      display: grid;
+      grid-template-columns: .65fr 1.35fr;
+      gap: 34px;
+      align-items: center;
+      padding: 64px 5vw;
+    }
+
+    .founder-compact h2 {
+      color: var(--navy);
+      font-size: clamp(30px, 3.5vw, 48px);
+    }
+
+    .founder-compact p {
+      color: var(--slate);
+      font-size: 17px;
+      max-width: 860px;
+      margin: 0;
+    }
+
+
+    .hero-line {
+      display: block;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat strong {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .spotlight .tag {
+      display: inline-block;
+      background: rgba(7,17,31,.86);
+      color: var(--gold);
+      border: 1px solid rgba(183,144,75,.60);
+      padding: 7px 10px;
+      margin-bottom: 14px;
+      line-height: 1.2;
+      backdrop-filter: blur(4px);
+    }
+
+    .brand {
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .brand span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      font-size: 18px;
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .brand-crest {
+      height: 58px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .brand .wordmark {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .mark,
+    .buckler-mark {
+      display: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .brand-crest {
+        height: 48px;
+      }
+
+      .brand .wordmark {
+        font-size: 18px;
+      }
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .brand-crest {
+      height: 62px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .brand .wordmark {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      color: var(--white);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .mark,
+    .buckler-mark {
+      display: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .brand-crest {
+        height: 50px;
+      }
+      .brand .wordmark {
+        font-size: 18px;
+      }
+    }
+
+
+    .institutional-footer {
+      background: #050b14;
+      color: rgba(255,255,255,.72);
+      padding: 72px 5vw 34px;
+      border-top: 1px solid rgba(183,144,75,.35);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr .8fr;
+      gap: 42px;
+      margin-bottom: 54px;
+    }
+
+    .footer-brand {
+      max-width: 460px;
+    }
+
+    .footer-brand h3 {
+      color: var(--white);
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,.68);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .footer-column h4 {
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin: 0 0 18px;
+    }
+
+    .footer-column a,
+    .footer-column span {
+      display: block;
+      color: rgba(255,255,255,.68);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .footer-column a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: rgba(255,255,255,.50);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .services, .affiliations, .demand-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .services, .cards, .roles, .spotlights, .program-panel, .founder, .insights-grid, .affiliations, .stats, .declaration-panel, .demand-grid, .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero { min-height: auto; }
+      .cta-band { flex-direction: column; align-items: flex-start; }
+      .program-panel { padding: 32px; }
+    }
+  
+    /* ===== Office of the Founder | Institutional Section ===== */
+    .office-founder {
+      background: var(--bone);
+      padding: 96px 5vw;
+      border-top: 1px solid rgba(7,17,31,.08);
+      border-bottom: 1px solid rgba(7,17,31,.08);
+    }
+
+    .office-founder-inner {
+      max-width: 1420px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 54px;
+      align-items: stretch;
+    }
+
+    .office-founder-image {
+      min-height: 600px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(7,17,31,.12);
+      position: relative;
+    }
+
+    .office-founder-image:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(183,144,75,.28);
+      pointer-events: none;
+    }
+
+    .office-founder-copy {
+      background: var(--white);
+      border: 1px solid rgba(7,17,31,.12);
+      padding: 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .office-founder-copy h2 {
+      color: var(--navy);
+      font-size: clamp(40px, 4.8vw, 68px);
+      line-height: .98;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .office-founder-copy p {
+      color: var(--slate);
+      font-size: 18px;
+      line-height: 1.66;
+      max-width: 850px;
+      margin: 0 0 20px;
+    }
+
+    .office-founder-copy blockquote {
+      margin: 34px 0;
+      padding: 22px 0 22px 26px;
+      border-left: 4px solid var(--gold);
+      color: var(--navy);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    .office-founder-signature {
+      margin-top: 18px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(7,17,31,.10);
+    }
+
+    .office-founder-signature strong {
+      display: block;
+      color: var(--navy);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .office-founder-signature span {
+      display: block;
+      color: var(--slate);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .office-founder-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .office-founder-image {
+        min-height: 380px;
+      }
+
+      .office-founder-copy {
+        padding: 36px;
+      }
+    }
+
+  
+/* =========================================================
+   SURGICAL REFINEMENTS — TBG CURRENT SITE
+   ========================================================= */
+
+.hero-subline {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 24px;
+}
+
+.institutional-premise {
+  background: var(--white);
+  text-align: center;
+  padding: 112px 8vw;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.institutional-premise .premise-label,
+.strategic-calendar .calendar-label {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.institutional-premise h2 {
+  max-width: 980px;
+  margin: 0 auto;
+  color: var(--navy);
+  font-size: clamp(40px, 5.4vw, 82px);
+  line-height: .94;
+  letter-spacing: -.045em;
+}
+
+.declaration-hero-band .declaration-title span {
+  display: block;
+}
+
+.declaration-hero-band .declaration-copy {
+  display: block !important;
+}
+
+.declaration-hero-band .declaration-button {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 34px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.declaration-framework-btn {
+  min-width: 245px;
+  height: 58px;
+  padding: 0 30px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--white);
+  letter-spacing: .16em;
+}
+
+.declaration-framework-btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-1px);
+}
+
+.regional-demand .section-head h2 {
+  color: var(--white);
+}
+
+.demand-stat {
+  border: none !important;
+}
+
+.demand-stat p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.strategic-calendar {
+  margin-top: 44px;
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(183,144,75,.35);
+}
+
+.calendar-row {
+  display: grid;
+  grid-template-columns: 1.2fr .7fr 1.1fr;
+  gap: 24px;
+  padding: 22px 26px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  align-items: center;
+}
+
+.calendar-row:last-child {
+  border-bottom: none;
+}
+
+.calendar-market {
+  color: var(--white);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.calendar-date {
+  color: var(--gold);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 700;
+}
+
+.calendar-themes {
+  color: rgba(255,255,255,.72);
+  font-size: 14px;
+}
+.calendar-powered{
+    margin-top:24px;
+    text-align:center;
+    color:#8a6a3f;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+.calendar-powered::before{
+    content:"";
+    display:block;
+    width:60px;
+    height:1px;
+    background:rgba(138,106,63,.35);
+    margin:0 auto 14px auto;
+}
+
+.founder-subtitle {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.office-founder {
+  padding-top: 72px !important;
+  padding-bottom: 72px !important;
+}
+
+.office-founder-copy h2 {
+  font-size: clamp(32px, 3.8vw, 54px) !important;
+}
+
+.office-founder-copy p:nth-of-type(n+2),
+.office-founder-copy blockquote {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .calendar-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .institutional-premise {
+    padding: 82px 5vw;
+  }
+}
+
+  
+/* =========================================================
+   TOP-TIER INSTITUTIONAL STRATEGIC CALENDAR REDESIGN
+   ========================================================= */
+
+#sessions {
+  background: #07111f;
+  color: var(--white);
+  padding: 118px 5vw;
+}
+
+#sessions .program-panel {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: block !important;
+  padding: 0 !important;
+  color: var(--white);
+}
+
+#sessions .program-panel > div:first-child {
+  max-width: 1040px;
+}
+
+#sessions .program-panel h2 {
+  color: var(--white);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(46px, 6vw, 96px);
+  line-height: .92;
+  letter-spacing: -.05em;
+  max-width: 980px;
+}
+
+#sessions .program-panel p {
+  color: rgba(255,255,255,.70) !important;
+  font-size: 18px !important;
+  line-height: 1.65;
+  max-width: 760px !important;
+  margin-top: 24px;
+}
+
+#sessions .button-row {
+  margin-top: 34px;
+}
+
+#sessions .btn.primary {
+  background: var(--gold) !important;
+  border-color: var(--gold) !important;
+  color: var(--navy) !important;
+}
+
+#sessions .btn.secondary {
+  color: var(--white) !important;
+  border-color: rgba(255,255,255,.35) !important;
+}
+
+.strategic-calendar {
+  margin-top: 72px !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: 1.1fr .7fr 1.2fr;
+  gap: 28px;
+  padding: 0 0 18px;
+  border-bottom: 1px solid rgba(255,255,255,.22);
+  color: rgba(255,255,255,.48);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.calendar-row {
+  display: grid !important;
+  grid-template-columns: 1.1fr .7fr 1.2fr !important;
+  gap: 28px !important;
+  padding: 34px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,.12) !important;
+  align-items: center !important;
+  position: relative;
+}
+
+.calendar-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width .25s ease;
+}
+
+.calendar-row:hover::before {
+  width: 100%;
+}
+
+.calendar-market {
+  color: var(--white) !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(34px, 4.2vw, 64px) !important;
+  line-height: .92 !important;
+  letter-spacing: -.045em !important;
+}
+
+.calendar-date {
+  color: var(--gold) !important;
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .14em !important;
+  font-weight: 800 !important;
+}
+
+.calendar-date span {
+  display: block;
+  color: rgba(255,255,255,.50);
+  margin-top: 8px;
+}
+
+.calendar-themes {
+  color: rgba(255,255,255,.72) !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+
+.calendar-themes strong {
+  display: block;
+  color: var(--white);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  margin-bottom: 12px;
+}
+
+.calendar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.calendar-tags em {
+  font-style: normal;
+  border: 1px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.68);
+  padding: 7px 9px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  font-weight: 800;
+}
+
+.calendar-footnote {
+  margin-top: 32px;
+  max-width: 760px;
+  color: rgba(255,255,255,.52);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.program-details {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  #sessions {
+    padding: 86px 5vw;
+  }
+
+  .calendar-header {
+    display: none;
+  }
+
+  .calendar-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 30px 0 !important;
+  }
+
+  .calendar-market {
+    font-size: clamp(34px, 10vw, 52px) !important;
+  }
+}
+
+
+/* =========================================================
+   REFINEMENT: Jurisdiction Image Frames + Strategic Sessions Design
+   ========================================================= */
+
+/* Jurisdiction Intelligence: contain borders strictly within images */
+#jurisdictions .spotlights {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  align-items: stretch !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+#jurisdictions .spotlight {
+  position: relative !important;
+  overflow: hidden !important;
+  height: 300px !important;
+  min-height: 300px !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#jurisdictions .spotlight::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    180deg,
+    rgba(7,17,31,0) 0%,
+    rgba(7,17,31,.24) 50%,
+    rgba(7,17,31,.84) 100%
+  ) !important;
+  z-index: 1 !important;
+}
+
+#jurisdictions .spotlight::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border: 1px solid rgba(183,144,75,.30) !important;
+  pointer-events: none !important;
+  z-index: 4 !important;
+  display: block !important;
+}
+
+#jurisdictions .spotlight-content {
+  position: relative !important;
+  z-index: 3 !important;
+  width: 100% !important;
+  padding: 20px !important;
+  color: var(--white) !important;
+}
+
+#jurisdictions .spotlight h3 {
+  color: #fff !important;
+  font-size: 24px !important;
+  line-height: 1.05 !important;
+  margin-bottom: 8px !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,.65) !important;
+}
+
+#jurisdictions .spotlight p {
+  color: rgba(255,255,255,.86) !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+  margin-bottom: 14px !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,.55) !important;
+}
+
+#jurisdictions .spotlight .tag {
+  display: inline-block !important;
+  background: rgba(7,17,31,.72) !important;
+  color: var(--gold) !important;
+  border: 1px solid rgba(183,144,75,.40) !important;
+  padding: 6px 8px !important;
+  font-size: 8px !important;
+  line-height: 1 !important;
+  letter-spacing: .12em !important;
+  border-radius: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+#jurisdictions .spotlight .btn {
+  min-height: 34px !important;
+  padding: 0 12px !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,.35) !important;
+  background: rgba(7,17,31,.20) !important;
+}
+
+/* Strategic Sessions: replace prior dark block with a coordinated institutional section */
+#sessions {
+  background: #f7f3ea !important;
+  color: var(--ink) !important;
+  padding: 112px 5vw !important;
+  border-top: 1px solid rgba(7,17,31,.10);
+  border-bottom: 1px solid rgba(7,17,31,.10);
+}
+
+#sessions .program-panel {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: block !important;
+  color: var(--ink) !important;
+}
+
+#sessions .program-panel > div:first-child {
+  max-width: 980px !important;
+}
+
+#sessions .eyebrow {
+  color: #8a6a3f !important;
+}
+
+#sessions .program-panel h2 {
+  color: var(--navy) !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(44px, 5.8vw, 88px) !important;
+  line-height: .94 !important;
+  letter-spacing: -.045em !important;
+  max-width: 980px !important;
+  margin-bottom: 20px !important;
+}
+
+#sessions .program-panel p {
+  color: #475569 !important;
+  font-size: 17px !important;
+  line-height: 1.72 !important;
+  max-width: 720px !important;
+}
+
+#sessions .button-row {
+  margin-top: 32px !important;
+}
+
+#sessions .btn.primary {
+  background: var(--navy) !important;
+  color: #fff !important;
+  border-color: var(--navy) !important;
+}
+
+#sessions .btn.secondary {
+  color: var(--navy) !important;
+  border-color: rgba(7,17,31,.28) !important;
+}
+
+#sessions .strategic-calendar {
+  margin-top: 70px !important;
+  background: #fff !important;
+  border: 1px solid rgba(7,17,31,.10) !important;
+  box-shadow: 0 28px 80px rgba(7,17,31,.06) !important;
+}
+
+#sessions .calendar-header {
+  display: grid !important;
+  grid-template-columns: 1.1fr .7fr 1.2fr !important;
+  gap: 28px !important;
+  padding: 20px 28px !important;
+  border-bottom: 1px solid rgba(7,17,31,.10) !important;
+  background: #fbfaf7 !important;
+  color: #667085 !important;
+  font-size: 10px !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+}
+
+#sessions .calendar-row {
+  display: grid !important;
+  grid-template-columns: 1.1fr .7fr 1.2fr !important;
+  gap: 28px !important;
+  padding: 30px 28px !important;
+  border-bottom: 1px solid rgba(7,17,31,.09) !important;
+  align-items: center !important;
+  background: #fff !important;
+}
+
+#sessions .calendar-row:last-of-type {
+  border-bottom: 1px solid rgba(7,17,31,.09) !important;
+}
+
+#sessions .calendar-row::before {
+  display: none !important;
+}
+
+#sessions .calendar-market {
+  color: var(--navy) !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(32px, 3.8vw, 56px) !important;
+  line-height: .94 !important;
+  letter-spacing: -.04em !important;
+}
+
+#sessions .calendar-date {
+  color: #8a6a3f !important;
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .13em !important;
+  font-weight: 800 !important;
+}
+
+#sessions .calendar-date span {
+  display: block !important;
+  color: #667085 !important;
+  margin-top: 8px !important;
+}
+
+#sessions .calendar-themes {
+  color: #475569 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+#sessions .calendar-themes strong {
+  display: block !important;
+  color: var(--navy) !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: .12em !important;
+  margin-bottom: 10px !important;
+}
+
+#sessions .calendar-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-top: 14px !important;
+}
+
+#sessions .calendar-tags em {
+  font-style: normal !important;
+  border: 1px solid rgba(7,17,31,.12) !important;
+  color: #334155 !important;
+  background: #fafafa !important;
+  padding: 7px 9px !important;
+  font-size: 9px !important;
+  text-transform: uppercase !important;
+  letter-spacing: .10em !important;
+  font-weight: 800 !important;
+}
+
+#sessions .calendar-footnote {
+  margin: 0 !important;
+  padding: 22px 28px 26px !important;
+  max-width: none !important;
+  color: #667085 !important;
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+  background: #fbfaf7 !important;
+}
+
+@media (max-width: 900px) {
+  #jurisdictions .spotlights {
+    grid-template-columns: 1fr !important;
+  }
+
+  #sessions .calendar-header {
+    display: none !important;
+  }
+
+  #sessions .calendar-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 26px 22px !important;
+  }
+}
+
+
+/* =========================================================
+   INSTITUTIONAL PRESENCE UPGRADE PACK
+   Platform architecture, participation, ecosystem, founder, CTA
+   ========================================================= */
+
+/* Caribbean Opportunity: more institutional, no visual clutter */
+.regional-demand {
+  background: #ffffff !important;
+  color: var(--ink) !important;
+  padding: 112px 5vw !important;
+  border-bottom: 1px solid rgba(7,17,31,.10) !important;
+}
+
+.regional-demand .section-head h2 {
+  color: var(--navy) !important;
+}
+
+.regional-demand .section-head p {
+  color: #475569 !important;
+  max-width: 620px !important;
+}
+
+.demand-grid {
+  gap: 44px !important;
+}
+
+.demand-stat {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-height: auto !important;
+}
+
+.demand-stat .figure {
+  color: var(--navy) !important;
+  font-size: clamp(46px, 5.2vw, 78px) !important;
+  line-height: .88 !important;
+  letter-spacing: -.06em !important;
+  margin-bottom: 18px !important;
+}
+
+.demand-stat h3 {
+  color: var(--navy) !important;
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: 10px !important;
+  letter-spacing: .13em !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  margin-bottom: 14px !important;
+}
+
+.demand-stat p {
+  color: #667085 !important;
+  font-size: 13px !important;
+  line-height: 1.62 !important;
+  max-width: 260px !important;
+}
+
+/* Platform Architecture replaces service feel */
+#advisory {
+  background: #f7f3ea !important;
+}
+
+#advisory .section-head .eyebrow::after {
+  content: "";
+}
+
+#advisory .services {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1px !important;
+  background: rgba(7,17,31,.10) !important;
+  border-top: 1px solid rgba(7,17,31,.10) !important;
+  border-left: 1px solid rgba(7,17,31,.10) !important;
+}
+
+#advisory .service {
+  background: #ffffff !important;
+  border: none !important;
+  border-right: 1px solid rgba(7,17,31,.10) !important;
+  border-bottom: 1px solid rgba(7,17,31,.10) !important;
+  box-shadow: none !important;
+  padding: 30px !important;
+  min-height: 310px !important;
+}
+
+#advisory .service h3 {
+  color: var(--navy) !important;
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: 20px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.04em !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  margin-bottom: 18px !important;
+}
+
+#advisory .service p {
+  color: #475569 !important;
+  font-size: 14px !important;
+  line-height: 1.62 !important;
+}
+
+#advisory .service ul {
+  display: none !important;
+}
+
+/* Regional Participation */
+.regional-participation {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(7,17,31,.10);
+}
+
+.participation-grid {
+  display: grid;
+  grid-template-columns: 1.25fr repeat(6, 1fr);
+  border-top: 1px solid rgba(7,17,31,.10);
+  border-left: 1px solid rgba(7,17,31,.10);
+}
+
+.participation-lead,
+.participation-card {
+  min-height: 185px;
+  background: #ffffff;
+  padding: 26px;
+  border-right: 1px solid rgba(7,17,31,.10);
+  border-bottom: 1px solid rgba(7,17,31,.10);
+}
+
+.participation-lead strong {
+  display: block;
+  color: var(--navy);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(52px, 6vw, 92px);
+  line-height: .85;
+  letter-spacing: -.06em;
+  margin-bottom: 18px;
+}
+
+.participation-lead span,
+.participation-card span {
+  display: block;
+  color: #667085;
+  font-size: 10px;
+  line-height: 1.45;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 800;
+}
+
+.participation-card {
+  display: flex;
+  align-items: flex-end;
+}
+
+.participation-card strong {
+  display: block;
+  color: var(--navy);
+  font-size: 17px;
+  line-height: 1.05;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+/* Ecosystem diagram */
+.ecosystem-architecture {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(7,17,31,.10);
+}
+
+.ecosystem-diagram {
+  max-width: 1120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ecosystem-node {
+  background: #ffffff;
+  border: 1px solid rgba(7,17,31,.12);
+  padding: 26px;
+  color: var(--navy);
+}
+
+.ecosystem-node.primary {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.ecosystem-node.gold {
+  background: #fffaf0;
+  border-color: rgba(183,144,75,.45);
+}
+
+.ecosystem-node strong {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+
+.ecosystem-node span {
+  display: block;
+  margin-top: 10px;
+  color: inherit;
+  opacity: .68;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.ecosystem-arrow {
+  color: #8a6a3f;
+  font-size: 28px;
+  line-height: 1;
+  margin: 18px 0;
+}
+
+.ecosystem-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 18px 0;
+}
+
+.ecosystem-outcome {
+  max-width: 760px;
+  margin: 18px auto 0;
+}
+
+/* Calendar: full width note and more institutional labels */
+#sessions .calendar-date span {
+  display: none !important;
+}
+
+#sessions .calendar-footnote {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 28px 34px 32px !important;
+  background: #fbfaf7 !important;
+  color: #334155 !important;
+  border-top: 1px solid rgba(7,17,31,.10) !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+}
+
+/* Founder: institutional perspective, no portrait */
+.office-founder {
+  background: #ffffff !important;
+  padding: 92px 5vw !important;
+  border-top: 1px solid rgba(7,17,31,.10) !important;
+  border-bottom: 1px solid rgba(7,17,31,.10) !important;
+}
+
+.office-founder-inner {
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+.office-founder-image {
+  display: none !important;
+}
+
+.office-founder-copy {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+.office-founder-copy .eyebrow {
+  color: #8a6a3f !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: .16em !important;
+  font-weight: 800 !important;
+  margin-bottom: 22px !important;
+}
+
+.office-founder-copy h2 {
+  color: var(--navy) !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(42px, 5vw, 78px) !important;
+  line-height: .94 !important;
+  letter-spacing: -.045em !important;
+  max-width: 860px !important;
+  margin: 0 0 28px !important;
+}
+
+.office-founder-copy p {
+  color: #475569 !important;
+  max-width: 860px !important;
+  font-size: 17px !important;
+  line-height: 1.75 !important;
+  margin: 0 0 22px !important;
+}
+
+.office-founder-copy blockquote,
+.office-founder-copy .founder-subtitle,
+.office-founder-signature {
+  display: none !important;
+}
+
+.founder-focus-grid {
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(7,17,31,.10);
+  border-left: 1px solid rgba(7,17,31,.10);
+}
+
+.founder-focus {
+  min-height: 132px;
+  padding: 22px;
+  border-right: 1px solid rgba(7,17,31,.10);
+  border-bottom: 1px solid rgba(7,17,31,.10);
+}
+
+.founder-focus strong {
+  display: block;
+  color: var(--navy);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.founder-focus span {
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* CTA hierarchy */
+.cta-band .button-row {
+  gap: 12px !important;
+}
+
+.cta-band .btn:nth-child(2)::after {
+  content: "";
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  #advisory .services,
+  .participation-grid,
+  .ecosystem-row,
+  .founder-focus-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .participation-lead {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 700px) {
+  #advisory .services,
+  .participation-grid,
+  .ecosystem-row,
+  .founder-focus-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .participation-lead {
+    grid-column: span 1;
+  }
+}
+
+
+/* =========================================================
+   TIGHTENING PASS: participation, architecture, calendar footer
+   ========================================================= */
+
+/* Regional Participation: institutional scale and typography */
+.regional-participation {
+  padding-top: 96px !important;
+  padding-bottom: 96px !important;
+}
+
+.regional-participation .section-head {
+  margin-bottom: 56px !important;
+}
+
+.regional-participation .section-head h2 {
+  font-size: clamp(34px, 4.2vw, 58px) !important;
+  line-height: .98 !important;
+}
+
+.participation-grid {
+  grid-template-columns: 1.05fr repeat(6, 1fr) !important;
+}
+
+.participation-lead,
+.participation-card {
+  min-height: 142px !important;
+  padding: 22px !important;
+}
+
+.participation-lead strong {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: clamp(34px, 3.6vw, 54px) !important;
+  line-height: .90 !important;
+  letter-spacing: -.065em !important;
+  font-weight: 800 !important;
+  margin-bottom: 14px !important;
+}
+
+.participation-lead span,
+.participation-card span {
+  color: #667085 !important;
+  font-size: 9px !important;
+  line-height: 1.45 !important;
+  letter-spacing: .12em !important;
+  font-weight: 800 !important;
+}
+
+.participation-card strong {
+  font-size: 13px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.02em !important;
+  font-weight: 800 !important;
+  margin-bottom: 10px !important;
+}
+
+/* Platform Architecture: shrink oversized quadrants */
+#advisory {
+  padding-top: 96px !important;
+  padding-bottom: 96px !important;
+}
+
+#advisory .section-head {
+  margin-bottom: 56px !important;
+}
+
+#advisory .services {
+  gap: 0 !important;
+}
+
+#advisory .service {
+  min-height: 210px !important;
+  padding: 24px 22px !important;
+}
+
+#advisory .service h3 {
+  font-size: 16px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.025em !important;
+  margin-bottom: 14px !important;
+}
+
+#advisory .service p {
+  font-size: 12.5px !important;
+  line-height: 1.55 !important;
+  max-width: 240px !important;
+}
+
+/* Strategic Calendar: make footer span entire table from left to right */
+#sessions .strategic-calendar {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  width: 100% !important;
+  max-width: none !important;
+  overflow: hidden !important;
+}
+
+#sessions .calendar-header,
+#sessions .calendar-row,
+#sessions .calendar-footnote {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#sessions .calendar-footnote {
+  grid-column: 1 / -1 !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 28px 34px !important;
+  background: #fbfaf7 !important;
+  color: #334155 !important;
+  border-top: 1px solid rgba(7,17,31,.10) !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  font-size: 13.5px !important;
+  line-height: 1.75 !important;
+}
+
+/* Tighten overall section rhythm */
+.ecosystem-architecture {
+  padding-top: 96px !important;
+  padding-bottom: 96px !important;
+}
+
+.ecosystem-node {
+  padding: 22px !important;
+}
+
+.ecosystem-node strong {
+  font-size: clamp(23px, 2.4vw, 34px) !important;
+}
+
+.ecosystem-node span {
+  font-size: 9px !important;
+}
+
+.ecosystem-row {
+  gap: 14px !important;
+}
+
+.ecosystem-arrow {
+  margin: 14px 0 !important;
+  font-size: 22px !important;
+}
+
+/* Responsive consistency */
+@media (max-width: 1100px) {
+  .participation-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .participation-lead {
+    grid-column: span 2;
+  }
+
+  #advisory .services {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .participation-grid,
+  #advisory .services {
+    grid-template-columns: 1fr !important;
+  }
+
+  .participation-lead {
+    grid-column: span 1;
+  }
+
+  #sessions .calendar-footnote {
+    padding: 24px 22px !important;
+  }
+}
+
+
+/* =========================================================
+   RECREATE: Platform Architecture + Regional Participation
+   Remove box-heavy design; replace with institutional index layout
+   ========================================================= */
+
+/* Platform Architecture: institutional index, no boxes */
+#advisory {
+  background: #ffffff !important;
+  padding-top: 112px !important;
+  padding-bottom: 112px !important;
+  border-bottom: 1px solid rgba(7,17,31,.10) !important;
+}
+
+#advisory .section-head {
+  margin-bottom: 72px !important;
+}
+
+#advisory .services {
+  display: block !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+#advisory .service {
+  min-height: auto !important;
+  padding: 28px 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: grid !important;
+  grid-template-columns: 180px minmax(260px, 340px) minmax(420px, 1fr) !important;
+  gap: 36px !important;
+  align-items: start !important;
+  border-top: 1px solid rgba(7,17,31,.12) !important;
+}
+
+#advisory .service:last-child {
+  border-bottom: 1px solid rgba(7,17,31,.12) !important;
+}
+
+#advisory .service::before {
+  color: #8a6a3f;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+#advisory .service:nth-child(1)::before { content: "01 / Intelligence"; }
+#advisory .service:nth-child(2)::before { content: "02 / Convening"; }
+#advisory .service:nth-child(3)::before { content: "03 / Advisory"; }
+#advisory .service:nth-child(4)::before { content: "04 / Capital"; }
+
+#advisory .service h3 {
+  color: var(--navy) !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(26px, 2.8vw, 38px) !important;
+  line-height: .98 !important;
+  letter-spacing: -.035em !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+
+#advisory .service p {
+  color: #475569 !important;
+  font-size: 15px !important;
+  line-height: 1.72 !important;
+  max-width: 620px !important;
+  margin: 0 !important;
+}
+
+#advisory .service ul {
+  display: none !important;
+}
+
+/* Regional Participation: institutional participation ledger, no boxes */
+.regional-participation {
+  background: #f7f3ea !important;
+  padding-top: 112px !important;
+  padding-bottom: 112px !important;
+  border-bottom: 1px solid rgba(7,17,31,.10) !important;
+}
+
+.regional-participation .section-head {
+  margin-bottom: 72px !important;
+}
+
+.participation-grid {
+  display: block !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.participation-lead {
+  min-height: auto !important;
+  padding: 0 0 42px !important;
+  background: transparent !important;
+  border: none !important;
+  display: grid !important;
+  grid-template-columns: 180px 1fr !important;
+  gap: 36px !important;
+  align-items: end !important;
+  border-bottom: 1px solid rgba(7,17,31,.14) !important;
+}
+
+.participation-lead strong {
+  color: var(--navy) !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(62px, 7vw, 112px) !important;
+  line-height: .82 !important;
+  letter-spacing: -.06em !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+
+.participation-lead span {
+  color: #475569 !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  letter-spacing: .10em !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  max-width: 340px !important;
+}
+
+.participation-card {
+  min-height: auto !important;
+  padding: 24px 0 !important;
+  background: transparent !important;
+  border: none !important;
+  display: grid !important;
+  grid-template-columns: 180px 1fr !important;
+  gap: 36px !important;
+  align-items: start !important;
+  border-bottom: 1px solid rgba(7,17,31,.10) !important;
+}
+
+.participation-card strong {
+  color: var(--navy) !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(24px, 2.3vw, 34px) !important;
+  line-height: 1 !important;
+  letter-spacing: -.025em !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+
+.participation-card span {
+  color: #667085 !important;
+  font-size: 13px !important;
+  line-height: 1.58 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  max-width: 520px !important;
+}
+
+/* Slight global tightening around adjacent sections */
+.regional-demand,
+.ecosystem-architecture {
+  border-bottom: 1px solid rgba(7,17,31,.10) !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #advisory .service,
+  .participation-lead,
+  .participation-card {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  #advisory .service::before {
+    margin-bottom: 4px;
+  }
+
+  .participation-lead {
+    align-items: start !important;
+  }
+}
+
+
+/* =========================================================
+   ACCORDION PARTICIPATION + BLACKSTONE-STYLE FOUNDER
+   ========================================================= */
+
+/* Regional Participation Accordion */
+.regional-participation {
+  background: #f7f3ea !important;
+  padding: 112px 5vw !important;
+  border-bottom: 1px solid rgba(7,17,31,.10) !important;
+}
+
+.regional-participation .section-head {
+  max-width: 980px !important;
+  margin-bottom: 64px !important;
+}
+
+.regional-participation .section-head h2 {
+  max-width: 920px !important;
+  color: var(--navy) !important;
+  font-size: clamp(40px, 5vw, 78px) !important;
+  line-height: .94 !important;
+  letter-spacing: -.045em !important;
+}
+
+.regional-participation .section-head p {
+  display: none !important;
+}
+
+.participation-grid,
+.participation-lead,
+.participation-card {
+  display: none !important;
+}
+
+.participation-accordion {
+  max-width: 1120px;
+  border-top: 1px solid rgba(7,17,31,.14);
+}
+
+.participation-accordion details {
+  border-bottom: 1px solid rgba(7,17,31,.12);
+}
+
+.participation-accordion summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 26px 0;
+  color: var(--navy);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1;
+  letter-spacing: -.035em;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+}
+
+.participation-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.participation-accordion summary::after {
+  content: "+";
+  font-family: "Inter", Arial, sans-serif;
+  color: #8a6a3f;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.participation-accordion details[open] summary::after {
+  content: "–";
+}
+
+.participation-accordion p {
+  max-width: 640px;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.72;
+  margin: -8px 0 26px;
+}
+
+/* Blackstone-style Founder */
+.blackstone-founder {
+  background: #ffffff !important;
+  padding: 124px 5vw !important;
+  border-top: 1px solid rgba(7,17,31,.10) !important;
+  border-bottom: 1px solid rgba(7,17,31,.10) !important;
+}
+
+.blackstone-founder .founder-kicker {
+  color: #8a6a3f;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+
+.blackstone-founder .founder-statement {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 72px;
+  align-items: start;
+  border-top: 1px solid rgba(7,17,31,.14);
+  padding-top: 42px;
+}
+
+.blackstone-founder h2 {
+  color: var(--navy);
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(48px, 6vw, 96px);
+  line-height: .90;
+  letter-spacing: -.055em;
+  font-weight: 600;
+  margin: 0;
+  max-width: 860px;
+}
+
+.blackstone-founder .founder-statement p {
+  color: #475569;
+  font-size: 17px;
+  line-height: 1.75;
+  margin: 6px 0 0;
+  max-width: 620px;
+}
+
+.founder-index {
+  margin-top: 82px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(7,17,31,.12);
+}
+
+.founder-index div {
+  padding: 28px 24px 0 0;
+  border-right: 1px solid rgba(7,17,31,.10);
+  min-height: 150px;
+}
+
+.founder-index div:last-child {
+  border-right: none;
+}
+
+.founder-index span {
+  display: block;
+  color: #8a6a3f;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.founder-index strong {
+  display: block;
+  color: var(--navy);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  line-height: 1.35;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.founder-index p {
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 220px;
+}
+
+.office-founder-inner,
+.office-founder-copy,
+.office-founder-image,
+.founder-focus-grid {
+  display: none !important;
+}
+
+@media (max-width: 1000px) {
+  .blackstone-founder .founder-statement {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .founder-index {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .founder-index div {
+    border-right: none;
+    border-bottom: 1px solid rgba(7,17,31,.10);
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .founder-index {
+    grid-template-columns: 1fr;
+  }
+
+  .participation-accordion summary {
+    font-size: clamp(27px, 9vw, 38px);
+  }
+}
+
+
+/* =========================================================
+   ALIGNMENT PASS: Quote hierarchy, Founder border removal,
+   calendar footer desktop/mobile alignment
+   ========================================================= */
+
+/* Keep the capital/land/institutions/execution quote only in the Institutional Premise. */
+.blackstone-founder .founder-statement p {
+  max-width: 620px !important;
+}
+
+/* Founder: remove border-heavy treatment; Blackstone-style open field */
+.blackstone-founder {
+  background: #ffffff !important;
+  padding: 124px 5vw !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.blackstone-founder .founder-statement {
+  border-top: none !important;
+  padding-top: 0 !important;
+}
+
+.founder-index {
+  border-top: 1px solid rgba(7,17,31,.10) !important;
+}
+
+.founder-index div {
+  border-right: none !important;
+  padding-right: 34px !important;
+}
+
+.founder-index div + div {
+  border-left: 1px solid rgba(7,17,31,.08) !important;
+  padding-left: 24px !important;
+}
+
+/* Calendar container and footer: force true full-table span */
+#sessions .strategic-calendar {
+  width: 100% !important;
+  max-width: none !important;
+  display: block !important;
+  overflow: hidden !important;
+}
+
+#sessions .calendar-header,
+#sessions .calendar-row {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#sessions .calendar-footnote {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 26px 28px !important;
+  background: #fbfaf7 !important;
+  border-top: 1px solid rgba(7,17,31,.10) !important;
+  border-right: 0 !important;
+  border-left: 0 !important;
+  border-bottom: 0 !important;
+  color: #334155 !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+  text-align: left !important;
+}
+
+/* Desktop rhythm alignment */
+#sessions .calendar-header {
+  padding-left: 28px !important;
+  padding-right: 28px !important;
+}
+
+#sessions .calendar-row {
+  padding-left: 28px !important;
+  padding-right: 28px !important;
+}
+
+/* Mobile alignment */
+@media (max-width: 900px) {
+  #sessions .strategic-calendar {
+    width: 100% !important;
+  }
+
+  #sessions .calendar-row {
+    padding: 24px 22px !important;
+  }
+
+  #sessions .calendar-footnote {
+    padding: 24px 22px !important;
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+  }
+
+  .founder-index div + div {
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL ADVANCED REFINEMENTS: Calendar Footer, Founder, Map, EXODUS
+   ========================================================= */
+#sessions .strategic-calendar{display:block!important;width:100%!important;max-width:none!important;overflow:hidden!important}
+#sessions .calendar-footnote{display:block!important;width:100%!important;max-width:none!important;box-sizing:border-box!important;margin:0!important;padding:28px 34px!important;background:#fbfaf7!important;color:#334155!important;border-top:1px solid rgba(7,17,31,.10)!important;font-size:14px!important;line-height:1.75!important}
+
+.blackstone-founder{background:#fff!important;padding:118px 5vw!important;border:none!important}
+.founder-layout{display:grid;grid-template-columns:1.15fr .55fr;gap:82px;align-items:stretch}
+.founder-kicker{color:#8a6a3f;font-size:10px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;margin-bottom:28px}
+.founder-copy-block h2{color:var(--navy);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(48px,6vw,94px);line-height:.90;letter-spacing:-.055em;font-weight:600;margin:0 0 34px;max-width:860px}
+.founder-copy-block p{color:#475569;font-size:17px;line-height:1.75;max-width:760px;margin:0 0 20px}
+.founder-image-panel{
+    min-height:520px;
+    overflow:hidden;
+}
+.founder-image-panel img{
+    width:100%;
+    height:100%;
+    min-height:520px;
+    object-fit:cover;
+    object-position:center 12%;
+    display:block;
+    filter:grayscale(100%) contrast(1.05);
+}
+    
+.founder-index.borderless{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:36px;border:none!important}
+.founder-index.borderless div{border:none!important;padding:0!important;min-height:auto!important}
+.founder-index.borderless strong{display:block;color:var(--navy);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;margin-bottom:12px}
+.founder-index.borderless p{color:#667085;font-size:13px;line-height:1.55;margin:0}
+
+.jurisdiction-map-section{background:#f7f3ea;border-top:1px solid rgba(7,17,31,.10);border-bottom:1px solid rgba(7,17,31,.10)}
+.map-platform{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:stretch}
+.map-visual{position:relative;min-height:560px;background:radial-gradient(circle at 38% 36%,rgba(183,144,75,.20),transparent 24%),radial-gradient(circle at 64% 68%,rgba(7,17,31,.11),transparent 30%),linear-gradient(135deg,#fff 0%,#f1eee8 100%);border:1px solid rgba(7,17,31,.10);overflow:hidden}
+.map-visual:before{content:"";position:absolute;inset:8%;border:1px solid rgba(7,17,31,.08);transform:skew(-8deg)}
+.map-pin{position:absolute;width:15px;height:15px;border-radius:50%;border:2px solid #fff;background:#8a6a3f;box-shadow:0 0 0 8px rgba(138,106,63,.16);cursor:pointer;z-index:3}
+.map-pin.active,.map-pin:hover{background:var(--navy);box-shadow:0 0 0 10px rgba(7,17,31,.18)}
+.guyana-pin{left:58%;top:66%}.barbados-pin{left:52%;top:54%}.bahamas-pin{left:25%;top:24%}.grenada-pin{left:49%;top:61%}.antigua-pin{left:47%;top:45%}.tt-pin{left:52%;top:70%}
+.map-label{position:absolute;color:#334155;font-size:9px;letter-spacing:.10em;text-transform:uppercase;font-weight:800;z-index:2}
+.map-label-guyana{left:61%;top:65%}.map-label-barbados{left:55%;top:53%}.map-label-bahamas{left:28%;top:23%}.map-label-grenada{left:52%;top:60%}.map-label-antigua{left:50%;top:44%}.map-label-tt{left:55%;top:69%}
+.map-intelligence{background:#fff;border:1px solid rgba(7,17,31,.10);padding:36px;display:flex;flex-direction:column;justify-content:center}
+.map-intelligence h3{color:var(--navy);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(42px,5vw,76px);line-height:.90;letter-spacing:-.045em;margin-bottom:18px}
+.map-meta{color:#8a6a3f;font-size:10px;text-transform:uppercase;letter-spacing:.13em;font-weight:800;margin-bottom:24px}
+.map-intelligence p{color:#475569;font-size:15px;line-height:1.72;margin:0 0 26px}
+.map-themes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.map-themes span{border:1px solid rgba(7,17,31,.12);padding:8px 10px;color:#334155;font-size:9px;text-transform:uppercase;letter-spacing:.10em;font-weight:800}
+.map-considerations{border-top:1px solid rgba(7,17,31,.10);padding-top:24px}
+.map-considerations strong{display:block;color:var(--navy);font-size:10px;text-transform:uppercase;letter-spacing:.13em;font-weight:800;margin-bottom:12px}
+
+.exodus-integration{background:#07111f!important}
+.exodus-system{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.12);border-left:1px solid rgba(255,255,255,.12)}
+.exodus-system-card{min-height:260px;padding:28px;border-right:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025)}
+.exodus-system-card span{color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+.exodus-system-card h3{color:#fff;font-family:"Cormorant Garamond",Georgia,serif;font-size:32px;line-height:1;margin:68px 0 14px}
+.exodus-system-card p{color:rgba(255,255,255,.62);font-size:13px;line-height:1.58}
+.exodus-pathways{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px}
+.exodus-pathways a{border:1px solid rgba(255,255,255,.26);color:#fff;padding:14px 16px;font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.exodus-pathways a:first-child{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+
+@media(max-width:1000px){.founder-layout,.map-platform{grid-template-columns:1fr}.founder-image-panel{min-height:360px}.founder-index.borderless,.exodus-system{grid-template-columns:repeat(2,1fr)}.map-visual{min-height:440px}}
+@media(max-width:640px){.founder-index.borderless,.exodus-system{grid-template-columns:1fr}.map-label{display:none}}
+
+
+/* =========================================================
+   MAP POSITION CORRECTION
+   Corrects relative Caribbean basin placement, especially Guyana.
+   ========================================================= */
+
+/* Approximate basin positions within the stylized map panel:
+   Bahamas = northwest; Antigua/Barbados/Grenada/TT = eastern Caribbean arc;
+   Guyana = northern South America, southeast of Trinidad & Tobago. */
+.bahamas-pin { left: 23% !important; top: 23% !important; }
+.antigua-pin { left: 56% !important; top: 44% !important; }
+.barbados-pin { left: 62% !important; top: 55% !important; }
+.grenada-pin { left: 57% !important; top: 63% !important; }
+.tt-pin { left: 55% !important; top: 72% !important; }
+.guyana-pin { left: 68% !important; top: 82% !important; }
+
+.map-label-bahamas { left: 26% !important; top: 22% !important; }
+.map-label-antigua { left: 59% !important; top: 43% !important; }
+.map-label-barbados { left: 65% !important; top: 54% !important; }
+.map-label-grenada { left: 60% !important; top: 62% !important; }
+.map-label-tt { left: 58% !important; top: 71% !important; }
+.map-label-guyana { left: 71% !important; top: 81% !important; }
+
+/* Add subtle South America base cue so Guyana's placement reads correctly */
+.map-visual::after {
+  content: "";
+  position: absolute;
+  left: 54%;
+  top: 76%;
+  width: 42%;
+  height: 28%;
+  background: rgba(7,17,31,.055);
+  border-top: 1px solid rgba(7,17,31,.10);
+  transform: skew(-18deg) rotate(-4deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.map-pin,
+.map-label {
+  z-index: 4 !important;
+}
+.market-button{
+
+display:inline-block;
+
+margin-top:28px;
+
+padding:16px 26px;
+
+background:#c9a24a;
+
+color:#07111b;
+
+text-decoration:none;
+
+text-transform:uppercase;
+
+letter-spacing:.14em;
+
+font-weight:700;
+
+}
+
+.market-button:hover{
+
+background:#ddb560;
+
+}
+
+
+/* =========================================================
+   MAPBOX INTERACTIVE JURISDICTION MAP — CLEAN PRODUCTION
+   ========================================================= */
+.tbg-mapbox-section {
+  background: #06101a;
+  color: #fff;
+  padding: 96px 5vw;
+  border-top: 1px solid rgba(183,144,75,.28);
+  border-bottom: 1px solid rgba(183,144,75,.28);
+}
+
+.tbg-mapbox-section .section-head h2 {
+  color: #fff;
+}
+
+.tbg-mapbox-section .section-head p {
+  color: rgba(255,255,255,.70);
+}
+
+.tbg-map-platform {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(320px, .75fr);
+  min-height: 660px;
+  border: 1px solid rgba(183,144,75,.38);
+  background: #02060a;
+  box-shadow: 0 34px 90px rgba(0,0,0,.22);
+  overflow: hidden;
+}
+
+#tbgMap {
+  min-height: 660px;
+  width: 100%;
+}
+
+.tbg-jurisdiction-panel {
+  padding: 38px;
+  background: linear-gradient(180deg, #08111a 0%, #050b12 100%);
+  border-left: 1px solid rgba(183,144,75,.38);
+}
+
+.tbg-jurisdiction-panel h3 {
+  color: #fff;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(34px, 3.2vw, 54px);
+  font-weight: 600;
+  line-height: 1;
+  margin: 12px 0 18px;
+}
+
+.tbg-jurisdiction-panel p {
+  color: rgba(255,255,255,.72);
+  line-height: 1.65;
+}
+
+.panel-kicker {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.tbg-marker {
+  width: 18px;
+  height: 18px;
+  background: #c9a24a;
+  border: 2px solid #fff1c6;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 8px rgba(201,162,74,.20),
+    0 0 28px rgba(201,162,74,.75);
+  cursor: pointer;
+  position: relative;
+}
+
+.tbg-marker::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border: 1px solid rgba(201,162,74,.55);
+  border-radius: 50%;
+  animation: tbgPulse 2.2s infinite;
+}
+
+@keyframes tbgPulse {
+  0% { transform: scale(.65); opacity: .85; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.market-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  min-width: 235px;
+  min-height: 54px;
+  padding: 0 26px;
+  background: var(--gold);
+  color: var(--navy);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid var(--gold);
+  transition: all .25s ease;
+}
+
+.market-button:hover {
+  background: #d8ae5a;
+  border-color: #d8ae5a;
+  transform: translateY(-1px);
+}
+
+.mapboxgl-ctrl-logo,
+.mapboxgl-ctrl-attrib {
+  opacity: .55;
+}
+
+@media (max-width: 900px) {
+  .tbg-map-platform {
+    grid-template-columns: 1fr;
+  }
+
+  #tbgMap {
+    min-height: 520px;
+  }
+
+  .tbg-jurisdiction-panel {
+    border-left: none;
+    border-top: 1px solid rgba(183,144,75,.38);
+  }
+}
+
+
+/* =========================================================
+   Institutional Declaration CTA — Caribbean Renaissance™ Framework
+   ========================================================= */
+.declaration-hero-band .declaration-copy {
+  display: block !important;
+  color: rgba(255,255,255,.76) !important;
+  max-width: 920px !important;
+  margin: 0 auto !important;
+  font-size: 20px !important;
+  line-height: 1.65 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.declaration-hero-band .declaration-button {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 34px !important;
+  margin-bottom: 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.declaration-hero-band .declaration-framework-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 245px !important;
+  height: 58px !important;
+  padding: 0 30px !important;
+  border: 1px solid var(--gold) !important;
+  background: transparent !important;
+  color: var(--white) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+}
+
+.declaration-hero-band .declaration-framework-btn:hover {
+  background: var(--gold) !important;
+  color: var(--navy) !important;
+  transform: translateY(-1px);
+}
+
+  
+
+/* =========================================================
+   CLICKABLE INSIGHTS CARD — Caribbean Renaissance™ Article
+   Makes the full "Why the Caribbean Renaissance™ Matters" box clickable
+   ========================================================= */
+
+.insights-grid a.insight,
+.insights-grid a.insight:visited {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.insight-link {
+  cursor: pointer;
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+
+.insight-link:hover {
+  transform: translateY(-4px);
+  border-color: rgba(183,144,75,.85);
+  box-shadow: 0 28px 70px rgba(0,0,0,.22);
+}
+
+.insight-link:hover h3 {
+  color: var(--gold);
+}
+
+.insight-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img class="brand-crest" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUQkcgY3Jlc3QgbG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGQiIHgxPSIxMjAiIHkxPSIxMDAiIHgyPSI3ODAiIHkyPSI4MzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRjNEMzg2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4yOCIgc3RvcC1jb2xvcj0iI0M5OUE0NSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTgiIHN0b3AtY29sb3I9IiNGN0Q5OEUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjc4IiBzdG9wLWNvbG9yPSIjQTk3NjI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0U4QzQ2RSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZFNvZnQiIHgxPSIyMzAiIHkxPSIyMTAiIHgyPSI3MTAiIHkyPSI2OTAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFM0ExIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4zNSIgc3RvcC1jb2xvcj0iI0QyQTM0QiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNjUiIHN0b3AtY29sb3I9IiNGNEQ0ODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjQjI3RjJGIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic29mdFNoYWRvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSI4IiBzdGREZXZpYXRpb249IjEwIiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIgZmxvb2Qtb3BhY2l0eT0iMC4zNSIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8ZyBmaWx0ZXI9InVybCgjc29mdFNoYWRvdykiPgogICAgPHBhdGggZD0iTTQ1MCA1NAogICAgICAgICAgICAgQzU0MCAxMDUgNjU0IDE0MSA4MDUgMTQyCiAgICAgICAgICAgICBMODA1IDQxMwogICAgICAgICAgICAgQzgwNSA1ODMgNjc4IDczNSA0NTAgODQ2CiAgICAgICAgICAgICBDMjIyIDczNSA5NSA1ODMgOTUgNDEzCiAgICAgICAgICAgICBMOTUgMTQyCiAgICAgICAgICAgICBDMjQ2IDE0MSAzNjAgMTA1IDQ1MCA1NFoiCiAgICAgICAgICBmaWxsPSJub25lIgogICAgICAgICAgc3Ryb2tlPSJ1cmwoI2dvbGQpIgogICAgICAgICAgc3Ryb2tlLXdpZHRoPSIyNiIKICAgICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KCiAgICA8cGF0aCBkPSJNNDUwIDkyCiAgICAgICAgICAgICBDNTQwIDEzOSA2NTAgMTY5IDc3MCAxNzEKICAgICAgICAgICAgIEw3NzAgNDEzCiAgICAgICAgICAgICBDNzcwIDU2MyA2NTQgNjk3IDQ1MCA4MDIKICAgICAgICAgICAgIEMyNDYgNjk3IDEzMCA1NjMgMTMwIDQxMwogICAgICAgICAgICAgTDEzMCAxNzEKICAgICAgICAgICAgIEMyNTAgMTY5IDM2MCAxMzkgNDUwIDkyWiIKICAgICAgICAgIGZpbGw9InJnYmEoMCwwLDAsMC4wOCkiCiAgICAgICAgICBzdHJva2U9InJnYmEoMjQzLDIxMSwxMzQsMC4zNSkiCiAgICAgICAgICBzdHJva2Utd2lkdGg9IjUiCiAgICAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPC9nPgoKICA8dGV4dCB4PSI0NTAiIHk9IjU0NSIKICAgICAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIyODIiCiAgICAgICAgZm9udC13ZWlnaHQ9IjUwMCIKICAgICAgICBsZXR0ZXItc3BhY2luZz0iLTE4IgogICAgICAgIGZpbGw9InVybCgjZ29sZFNvZnQpIj5UQkc8L3RleHQ+Cjwvc3ZnPg==" alt="The Buckler Group crest"><span class="wordmark">The Buckler Group</span></div>
+    <nav>
+      <a href="#advisory">Advisory</a>
+      <a href="#renaissance">Caribbean Renaissance™</a>
+      <a href="#sessions">Strategic Sessions</a>
+      <a href="#exodus">EXODUS™</a>
+      <a href="#insights">Insights</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Strategic Advisory | Hospitality | Development | Caribbean Opportunity</div>
+        <h1><span class="hero-line">Building Order.</span><span class="hero-line">Advancing Opportunity.</span></h1>
+        <div class="hero-subline">Caribbean Renaissance™</div>
+        <p>Organizing capital, development, and opportunity across the Caribbean.</p>
+        <div class="button-row">
+          <a class="btn primary" href="#advisory">Explore the Framework</a>
+          <a class="btn secondary" href="#sessions">Strategic Sessions 2026</a>
         </div>
+      </div>
+    </section>
+
+    <section class="institutional-premise" id="premise">
+      <div class="premise-label">Institutional Premise</div>
+      <h2>Opportunity becomes durable value only when capital, land, institutions, and execution are aligned.</h2>
+    </section>
+
+    <section class="declaration-hero-band" id="caribbean-renaissance-declaration">
+      <div class="declaration-label">Institutional Declaration</div>
+      <h2 class="declaration-title"><span>2026</span><span>The Year of the</span><span>Caribbean Renaissance™</span></h2>
+      <p class="declaration-copy">
+        A regional framework organizing investment, development, leadership, and opportunity across the Caribbean Basin.
+      </p>
+      <div class="button-row declaration-button">
+       <a href="/caribbean-renaissance/" class="cr-framework-btn">
+  Explore the Caribbean Renaissance™ Framework
+</a>
+      </div>
+    </section>
+
+    <section class="regional-demand">
+      <div class="section-head">
+        <div class="eyebrow">Caribbean Opportunity</div>
+        <h2>Caribbean Opportunity</h2>
+        <p>Signals informing regional opportunity.</p>
+      </div>
+
+      <div class="demand-grid">
+        <article class="demand-stat">
+          <div class="figure">35M+</div>
+          <h3>Annual Visitors</h3>
+          <p>Global demand continues to support hospitality growth.</p>
+        </article>
+
+        <article class="demand-stat">
+          <div class="figure">20%–80%+</div>
+          <h3>Tourism GDP Exposure</h3>
+          <p>Tourism remains a principal economic driver across the region.</p>
+        </article>
+
+        <article class="demand-stat">
+          <div class="figure">10M+</div>
+          <h3>Global Caribbean Diaspora</h3>
+          <p>A global network of capital, influence, and relationships.</p>
+        </article>
+
+        <article class="demand-stat">
+          <div class="figure">$20B+</div>
+          <h3>Annual Remittance Flows</h3>
+          <p>Reflecting sustained economic ties to the region.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="regional-participation" id="participation">
+      <div class="section-head">
+        <div class="eyebrow">Regional Participation</div>
+        <h2>20+ Jurisdictions engaged across the Caribbean opportunity landscape.</h2>
+      </div>
+
+      <div class="participation-accordion" aria-label="Regional Participation Categories">
+        <details>
+          <summary>Government</summary>
+          <p>Public-sector leadership, agencies, and investment-promotion stakeholders.</p>
+        </details>
+
+        <details>
+          <summary>Investment</summary>
+          <p>Capital partners, sponsors, lenders, and long-term allocators.</p>
+        </details>
+
+        <details>
+          <summary>Hospitality</summary>
+          <p>Operators, brands, tourism leaders, and destination strategists.</p>
+        </details>
+
+        <details>
+          <summary>Development</summary>
+          <p>Developers, landowners, practitioners, and project sponsors.</p>
+        </details>
+
+        <details>
+          <summary>Diaspora</summary>
+          <p>Executives, investors, professionals, and institutional connectors.</p>
+        </details>
+
+        <details>
+          <summary>Academic</summary>
+          <p>Research, hospitality education, urbanism, and leadership networks.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><strong>20+</strong><span>Caribbean jurisdictions engaged</span></div>
+      <div class="stat"><strong>6</strong><span>Priority Markets</span></div>
+      <div class="stat"><strong>4</strong><span>Advisory Practices</span></div>
+      <div class="stat"><strong>1</strong><span>Institutional Declaration</span></div>
+    </section>
+
+    <section id="advisory">
+      <div class="section-head">
+        <div class="eyebrow">Platform Architecture</div>
+        <h2>Strategic advisory for complex Caribbean markets.</h2>
+        <p>TBG advises where capital, hospitality, development, and execution must align.</p>
+      </div>
+
+      <div class="services">
+        <article class="service"><h3>Strategic Advisory</h3><p>Market-entry, positioning, and execution strategy.</p><ul><li>Market-entry strategy</li><li>Strategic positioning</li><li>Execution planning</li></ul></article>
+        <article class="service"><h3>Hospitality Advisory</h3><p>Hospitality demand and destination positioning.</p><ul><li>Hospitality strategy</li><li>Destination readiness</li><li>Resort positioning</li></ul></article>
+        <article class="service"><h3>Development Readiness</h3><p>Land use, approvals, incentives, and entitlement pathways.</p><ul><li>Pre-development review</li><li>Entitlement pathways</li><li>Public-private alignment</li></ul></article>
+        <article class="service"><h3>Capital Alignment</h3><p>Capital, partnerships, and investor readiness.</p><ul><li>Investment narrative</li><li>Partnership strategy</li><li>Investor readiness</li></ul></article>
+      </div>
+    </section>
+
+    <section id="sessions">
+      <div class="program-panel">
+        <div>
+          <div class="eyebrow">2026 Caribbean Strategic Calendar</div>
+          <h2>Strategic Sessions</h2>
+          <p style="color:rgba(255,255,255,.78);font-size:18px;max-width:720px;">Jurisdiction-led discussions on development, investment, entitlement, and execution.</p>
+          
+<div class="headline-actions">
+
+    <a href="participation.html"
+       class="headline-btn headline-btn-primary">
+        Reserve Participation
+    </a>
+
+    <a href="#priority-markets"
+       class="headline-btn headline-btn-secondary">
+        Priority Markets
+    </a>
+
+</div>
+          <div class="strategic-calendar" aria-label="2026 Caribbean Strategic Calendar">
+            <div class="calendar-header">
+              <div>Jurisdiction</div>
+              <div>Session Date</div>
+              <div>Strategic Review Lens</div>
+            </div>
+          
+
+            <article class="calendar-row">
+              <div class="calendar-market">Guyana</div>
+              <div class="calendar-date">17 July 2026</div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Energy-led expansion, infrastructure growth, and rising hospitality demand.
+                <div class="calendar-tags"><em>Energy</em><em>Infrastructure</em><em>Hospitality</em></div>
+              </div>
+            </article>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Barbados</div>
+              <div class="calendar-date">21 August 2026</div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Lifestyle demand, global capital flows, and luxury hospitality positioning.
+                <div class="calendar-tags"><em>Luxury</em><em>Capital</em><em>Lifestyle</em></div>
+              </div>
+            </article>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Bahamas</div>
+              <div class="calendar-date">18 September 2026</div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Resort scale, maritime economy, and international visitation strength.
+                <div class="calendar-tags"><em>Resorts</em><em>Maritime</em><em>Tourism Scale</em></div>
+              </div>
+            </article>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Grenada</div>
+              <div class="calendar-date">16 October 2026</div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Regenerative tourism, climate resilience, and destination development.
+                <div class="calendar-tags"><em>Regeneration</em><em>Climate</em><em>Destination</em></div>
+              </div>
+            </article>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Antigua & Barbuda</div>
+              <div class="calendar-date">20 November 2026</div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Marina infrastructure, yachting economy, and luxury residential demand.
+                <div class="calendar-tags"><em>Marina</em><em>Yachting</em><em>Residential</em></div>
+              </div>
+            </article>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Trinidad & Tobago</div>
+              <div class="calendar-date">18 December 2026</div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Commercial depth, institutional capacity, and Tobago tourism repositioning.
+                <div class="calendar-tags"><em>Commercial</em><em>Institutional</em><em>Tourism</em></div>
+              </div>
+            </article>
+
+            <p class="calendar-footnote">The Strategic Sessions are organized as jurisdiction-led reviews designed to provide stakeholders with a deeper understanding of the investment, development, hospitality, and policy dynamics shaping individual Caribbean markets. Each session highlights the unique opportunities, competitive advantages, and strategic considerations influencing long-term growth and development within the featured jurisdiction.</p>
+          </div>
+
+<div class="calendar-powered">
+Strategic Sessions Powered by EXODUS™
+</div>
+
+        <div class="program-details">
+          <div><strong>Powered By</strong><span>EXODUS™</span></div>
+          <div><strong>Moderated By</strong><span>The Buckler Group</span></div>
+          <div><strong>Focus</strong><span>Hospitality strategy, development readiness, entitlement pathways, and jurisdiction intelligence.</span></div>
+          <div><strong>Format</strong><span>Invite-only executive session, closed strategic discussion, and Jurisdiction Opportunity Mission™.</span></div>
+        </div>
+      </div>
+    </section>
+<section id="jurisdictions">
+      <div class="section-head">
+        <div class="eyebrow">Jurisdiction Intelligence</div>
+        <h2>Priority Market Spotlights</h2>
+        <p>Selected jurisdictions demonstrating relevance to the evolving landscape of Caribbean hospitality, investment, development, and economic growth.</p>
+      </div>
+
+      <div class="spotlights">
+        <article class="spotlight guyana"><div class="spotlight-content"><div class="tag">Economic Expansion</div><h3>Guyana</h3><p>Strategic relevance driven by energy-led growth, infrastructure investment, and expanding hospitality demand.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+        <article class="spotlight barbados"><div class="spotlight-content"><div class="tag">Capital & Lifestyle</div><h3>Barbados</h3><p>Established luxury market supported by global capital, lifestyle demand, and sophisticated financial infrastructure.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+        <article class="spotlight bahamas"><div class="spotlight-content"><div class="tag">Hospitality Scale</div><h3>Bahamas</h3><p>Mature hospitality ecosystem supported by tourism infrastructure, resort investment, and international visitation.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+        <article class="spotlight grenada"><div class="spotlight-content"><div class="tag">Regenerative Tourism</div><h3>Grenada</h3><p>Emerging relevance through regenerative tourism, boutique hospitality, and environmentally aligned development.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+        <article class="spotlight antigua"><div class="spotlight-content"><div class="tag">Maritime & Lifestyle</div><h3>Antigua & Barbuda</h3><p>Maritime tourism and luxury hospitality create differentiated opportunities across resort and residential sectors.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+        <article class="spotlight tt"><div class="spotlight-content"><div class="tag">Market Differentiation</div><h3>Trinidad & Tobago</h3><p>Dual-market dynamics combine tourism opportunity with established commercial and institutional infrastructure.</p><a class="btn secondary" href="#contact">Explore</a></div></article>
+      </div>
+    </section>
+
+    
+    <section class="tbg-mapbox-section" id="jurisdiction-map">
+      <div class="section-head">
+        <div class="eyebrow">Interactive Jurisdiction Map</div>
+        <h2>Caribbean markets in strategic sequence.</h2>
+        <p>Select a jurisdiction to view its session date, investment themes, and development considerations.</p>
+      </div>
+
+      <div class="tbg-map-platform">
+        <div id="tbgMap" aria-label="Interactive Caribbean jurisdiction map"></div>
+
+        <aside class="tbg-jurisdiction-panel" id="jurisdictionPanel">
+          <p class="panel-kicker">Jurisdiction Intelligence</p>
+          <h3>Caribbean Basin</h3>
+          <p>Select a market marker to review TBG’s strategic lens.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="exodus" class="dark-section exodus-integration">
+      <div class="section-head">
+        <div class="eyebrow">EXODUS™ Integration Layer</div>
+        <h2>From interest to qualified participation.</h2>
+        <p>EXODUS™ serves as the private intelligence, membership, and convening layer supporting Strategic Sessions, jurisdiction engagement, and qualified stakeholder access.</p>
+      </div>
+
+      <div class="exodus-system">
+        <article class="exodus-system-card"><span>01</span><h3>Intelligence</h3><p>Jurisdiction briefings, market themes, development readiness, and strategic context.</p></article>
+        <article class="exodus-system-card"><span>02</span><h3>Access</h3><p>Curated pathways into Strategic Sessions, private reviews, and stakeholder dialogue.</p></article>
+        <article class="exodus-system-card"><span>03</span><h3>Membership</h3><p>Charter participation for aligned executives, investors, practitioners, and institutions.</p></article>
+        <article class="exodus-system-card"><span>04</span><h3>Execution</h3><p>Opportunity Missions™ and jurisdiction-facing engagement for qualified participants.</p></article>
+      </div>
+
+      <div class="exodus-pathways">
+      <a href="charter-membership.html" class="btn primary">
+  Request Charter Membership Consideration
+</a>
+        <a href="participation.html">Access Strategic Sessions</a>
+        <a href="mailto:cbrowne@thebucklergroup.com?subject=EXODUS%20Strategic%20Inquiry">Request Private Inquiry</a>
+      </div>
+    </section>
+<section>
+      <div class="section-head">
+        <div class="eyebrow">TBG Ecosystem</div>
+        <h2>Order before opportunity.</h2>
+        <p>Translating thesis into execution.</p>
+      </div>
+
+      <div class="affiliations">
+        <div class="affiliation"><strong>Position</strong><span>The organizing thesis.</span></div>
+        <div class="affiliation"><strong>Structure</strong><span>Strategic advisory and execution architecture.</span></div>
+        <div class="affiliation"><strong>Align</strong><span>Intelligence, access, and convening.</span></div>
+        <div class="affiliation"><strong>Signal</strong><span>Structured jurisdiction dialogue.</span></div>
+        <div class="affiliation"><strong>Advance</strong><span>From discussion to execution.</span></div>
+      </div>
+    </section>
+
+    
+    <!-- ===== Office of the Founder Section ===== -->
+    <section class="office-founder blackstone-founder" id="founder">
+      <div class="founder-layout">
+        
+        <div class="founder-copy-block">
+          <div class="founder-kicker">Founder Perspective</div>
+          
+          <h2>Institutional leadership. Regional execution.</h2>
+          <p>The Caribbean Renaissance™ Framework was developed around a simple observation: markets create durable value when capital, institutions, land, and execution are aligned.</p>
+          <p>The Buckler Group operates at the intersection of development readiness, hospitality strategy, stakeholder alignment, and regional execution — helping transform opportunity into investable outcomes across the Caribbean.</p>
+
+          <div class="founder-index borderless">
+            <div><strong>Strategic Advisory</strong><p>Market positioning and execution.</p></div>
+            <div><strong>Development Readiness</strong><p>Land, entitlement, and approvals.</p></div>
+            <div><strong>Hospitality & Tourism</strong><p>Destination strategy.</p></div>
+            <div><strong>Capital Alignment</strong><p>Investor readiness and partnerships.</p></div>
+          </div>
+        </div>
+
+       <div class="founder-image-panel">
+  <img src="assets-images/assets/images/founder-perspective.webp" alt="Christopher A. Browne, Founder of The Buckler Group">
+</div>
+    </section>
+
+    <section id="insights" class="dark-section">
+      <div class="section-head">
+        <div class="eyebrow">Insights</div>
+        <h2>Strategic intelligence, not commentary.</h2>
+        <p>Selected perspectives on hospitality, development readiness, capital alignment, entitlement risk, and the Caribbean Renaissance™.</p>
+      </div>
+
+      <div class="insights-grid">
+        <a class="insight large insight-link" href="caribbean-renaissance-insights.html" aria-label="Read Why the Caribbean Renaissance Matters"><img src="assets-images/strategic-session.webp" alt="Executive advisory setting"><div class="insight-body"><div class="tag">Caribbean Renaissance™</div><h3>Why the Caribbean Renaissance™ Matters</h3><p>A strategic view of hospitality, development, capital, and regional competitiveness.</p></div></a>
+        <article class="insight"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" alt="Hospitality asset"><div class="insight-body"><div class="tag">Hospitality</div><h3>Hospitality as Economic Infrastructure</h3><p>Hotels, resorts, residences, and mixed-use assets as engines of destination value.</p></div></article>
+        <article class="insight"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Urban development"><div class="insight-body"><div class="tag">Development</div><h3>Entitlements and Development Readiness</h3><p>Approvals, incentives, land-use alignment, and institutional coordination before execution.</p></div></article>
+      </div>
+    </section>
+<section class="pricing-section" id="waitlist">
+      <div class="section-head">
+        <div class="eyebrow">EXODUS™</div>
+        <h2>EXODUS™</h2>
+        <p>Intelligence, access, and engagement for qualified participants.</p>
+      </div>
+
+      <div style="max-width:900px;background:#fff;padding:40px;border:1px solid rgba(7,17,31,.12);">
+        <h3 style="margin-top:0;color:#07111f;">Charter Membership</h3>
+        <p style="color:#667085;">Selective participation for long-term Caribbean opportunity.</p>
+        <a class="btn primary" href="https://example.com/exodus-charter-membership" target="_blank" rel="noopener">Apply for Charter Membership</a>
+      </div>
+    </section>
+
+    <div id="contact" class="cta-band">
+
+      <div>
+        <div class="eyebrow">Engage TBG</div>
+        <h2>Request strategic advisory.</h2>
+        <p style="color:rgba(255,255,255,.72);max-width:700px;">For advisory, Strategic Sessions, EXODUS™, or jurisdiction-related engagement.</p>
+      </div>
+      <div class="button-row">
+        <a class="btn primary" href="mailto:cbrowne@thebucklergroup.com?subject=Strategic%20Advisory%20Inquiry">Engage TBG</a>
+        <a class="btn secondary" href="participation.html">Strategic Sessions</a>
+        <a class="btn secondary" href="https://example.com/exodus-charter-membership" target="_blank" rel="noopener">EXODUS™</a>
+      </div>
+    </div>
+  </main>
+
+
+
+  <footer class="institutional-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>The Buckler Group</h3>
+        <p>Strategic advisory through The Caribbean Renaissance™ Framework.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Advisory</h4>
+        <a href="#advisory">Strategic Advisory</a>
+        <a href="#advisory">Hospitality Advisory</a>
+        <a href="#advisory">Development Readiness</a>
+        <a href="#advisory">Capital Alignment</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Platforms</h4>
+        <a href="#sessions">Strategic Sessions</a>
+        <a href="#exodus">EXODUS™</a>
+        <a href="#jurisdictions">Jurisdiction Intelligence</a>
+        <a href="#insights">Insights</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Engage</h4>
+        <a href="#contact">Request Advisory</a>
+        <a href="participation.html">Reserve Participation</a>
+        <a href="participation.html">Request Invitation</a>
+        <span>New York | Caribbean</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 The Buckler Group. All rights reserved.</div>
+      <div></div>
+    </div>
+  </footer>
+
+
+
+
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+<script>
+(function () {
+  const mapEl = document.getElementById("tbgMap");
+  const panel = document.getElementById("jurisdictionPanel");
+
+  if (!mapEl || !panel || typeof mapboxgl === "undefined") return;
+
+  mapboxgl.accessToken = "pk.eyJ1IjoiY2hyaXN0b3BoZXJicm93bmUiLCJhIjoiY21xdGtpaXAwMGx0bjJzcHRnb25wMGF0bSJ9.PIG8N6_yzJQLZGW-5jiz1w";
+
+  const map = new mapboxgl.Map({
+    container: "tbgMap",
+    style: "mapbox://styles/mapbox/satellite-streets-v12",
+    center: [-65.8, 16.0],
+    zoom: 4.25,
+    pitch: 0,
+    bearing: 0,
+    antialias: true
+  });
+
+  map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), "top-left");
+  map.scrollZoom.disable();
+
+  const markets = [
+    {
+      name: "The Bahamas",
+      coords: [-77.3963, 25.0343],
+      session: "2026 Strategic Session",
+      focus: "Luxury Hospitality • Second Homes • Financial Services"
+    },
+    {
+      name: "Antigua & Barbuda",
+      coords: [-61.7964, 17.0608],
+      session: "2026 Strategic Session",
+      focus: "Marinas • Hospitality • Citizenship Investment"
+    },
+    {
+      name: "Barbados",
+      coords: [-59.5432, 13.1939],
+      session: "2026 Strategic Session",
+      focus: "Institutional Capital • Hospitality • Professional Services"
+    },
+    {
+      name: "Grenada",
+      coords: [-61.6790, 12.1165],
+      session: "2026 Strategic Session",
+      focus: "Eco Tourism • Mixed Use • Coastal Development"
+    },
+    {
+      name: "Tobago",
+      coords: [-60.6670, 11.2500],
+      session: "2026 Strategic Session",
+      focus: "Tourism • Waterfront • Infrastructure"
+    },
+    {
+      name: "Guyana",
+      coords: [-58.1551, 6.8013],
+      session: "July 2026",
+      focus: "Energy • Infrastructure • Hospitality"
+    }
+  ];
+
+  map.on("load", () => {
+    markets.forEach((market) => {
+      const marker = document.createElement("div");
+      marker.className = "tbg-marker";
+      marker.title = market.name;
+
+      new mapboxgl.Marker({ element: marker, anchor: "center" })
+        .setLngLat(market.coords)
+        .addTo(map);
+
+      marker.addEventListener("click", () => {
+        panel.innerHTML = `
+          <p class="panel-kicker">Jurisdiction Intelligence</p>
+          <h3>${market.name}</h3>
+          <p><strong>${market.session}</strong></p>
+          <p>${market.focus}</p>
+          <a href="participation.html" class="market-button">Reserve Participation</a>
+        `;
+
+        map.flyTo({ center: market.coords, zoom: Math.max(map.getZoom(), 5.2), speed: .75, curve: 1.35 });
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
 
        <div class="founder-image-panel">
   <img src="assets-images/assets/images/founder-perspective.webp" alt="Christopher A. Browne, Founder of The Buckler Group">
