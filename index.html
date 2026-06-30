@@ -3752,6 +3752,213 @@
   text-rendering:optimizeLegibility;
 }
 
+
+/* =========================================================
+   FINAL RESTORED FOUNDER PERSPECTIVE
+   Original format + horizontal four services + no divider borders
+   ========================================================= */
+
+.office-founder{
+  background:var(--bone) !important;
+  padding:96px 5vw !important;
+  border-top:1px solid rgba(7,17,31,.08) !important;
+  border-bottom:1px solid rgba(7,17,31,.08) !important;
+}
+
+.office-founder-inner{
+  max-width:1420px !important;
+  margin:0 auto !important;
+  display:grid !important;
+  grid-template-columns:.82fr 1.18fr !important;
+  gap:54px !important;
+  align-items:stretch !important;
+}
+
+.office-founder-image{
+  display:block !important;
+  min-height:600px !important;
+  background:
+    linear-gradient(180deg, rgba(7,17,31,.05), rgba(7,17,31,.20)),
+    url("assets-images/founder.webp") !important;
+  background-size:cover !important;
+  background-position:center 12% !important;
+  position:relative !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+
+.office-founder-copy{
+  background:var(--white) !important;
+  padding:58px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+
+.office-founder-copy .founder-subtitle{
+  display:block !important;
+  color:var(--gold) !important;
+  text-transform:uppercase !important;
+  letter-spacing:.16em !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+  margin-bottom:14px !important;
+}
+
+.office-founder-copy h2{
+  display:block !important;
+  color:var(--navy) !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:clamp(40px,4.8vw,68px) !important;
+  line-height:.98 !important;
+  letter-spacing:-.04em !important;
+  margin:0 0 18px !important;
+  max-width:none !important;
+}
+
+.office-founder-copy p{
+  display:block !important;
+  color:var(--slate) !important;
+  font-size:18px !important;
+  line-height:1.66 !important;
+  max-width:850px !important;
+  margin:0 0 20px !important;
+}
+
+.office-founder-copy p:nth-of-type(n+2){
+  display:block !important;
+}
+
+.office-founder-copy blockquote{
+  display:block !important;
+  margin:34px 0 !important;
+  padding:22px 0 22px 26px !important;
+  border-left:4px solid var(--gold) !important;
+  color:var(--navy) !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:clamp(28px,3vw,42px) !important;
+  line-height:1.1 !important;
+  letter-spacing:-.025em !important;
+}
+
+.office-founder .founder-focus-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:42px !important;
+  margin-top:38px !important;
+  border:none !important;
+  border-top:none !important;
+  border-left:none !important;
+  border-right:none !important;
+  border-bottom:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  align-items:start !important;
+}
+
+.office-founder .founder-focus{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  min-height:120px !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:none !important;
+  border-top:none !important;
+  border-left:none !important;
+  border-right:none !important;
+  border-bottom:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  outline:none !important;
+}
+
+.office-founder .founder-focus strong{
+  display:block !important;
+  margin:0 0 10px !important;
+  color:var(--navy) !important;
+  font-size:13px !important;
+  font-weight:800 !important;
+  text-transform:uppercase !important;
+  letter-spacing:.12em !important;
+  line-height:1.35 !important;
+}
+
+.office-founder .founder-focus span{
+  display:block !important;
+  color:#667085 !important;
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+
+.office-founder .founder-focus::before,
+.office-founder .founder-focus::after,
+.office-founder .founder-focus-grid::before,
+.office-founder .founder-focus-grid::after{
+  display:none !important;
+  content:none !important;
+  border:none !important;
+  background:none !important;
+  box-shadow:none !important;
+}
+
+.office-founder-signature{
+  display:block !important;
+  margin-top:34px !important;
+  padding-top:22px !important;
+  border-top:1px solid rgba(7,17,31,.10) !important;
+}
+
+.office-founder-signature strong{
+  display:block !important;
+  color:var(--navy) !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:30px !important;
+  font-weight:600 !important;
+  line-height:1 !important;
+}
+
+.office-founder-signature span{
+  display:block !important;
+  color:var(--slate) !important;
+  font-size:12px !important;
+  text-transform:uppercase !important;
+  letter-spacing:.14em !important;
+  margin-top:8px !important;
+}
+
+@media(max-width:1100px){
+  .office-founder-inner{
+    grid-template-columns:1fr !important;
+  }
+
+  .office-founder-image{
+    min-height:420px !important;
+  }
+
+  .office-founder .founder-focus-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:32px !important;
+  }
+}
+
+@media(max-width:700px){
+  .office-founder{
+    padding:72px 5vw !important;
+  }
+
+  .office-founder-copy{
+    padding:36px !important;
+  }
+
+  .office-founder .founder-focus-grid{
+    grid-template-columns:1fr !important;
+    gap:24px !important;
+  }
+}
+
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 </head>
@@ -4129,28 +4336,58 @@ Strategic Sessions Powered by EXODUS™
 
     
     <!-- ===== Office of the Founder Section ===== -->
-    <section class="office-founder blackstone-founder" id="founder">
-      <div class="founder-layout">
-        
-        <div class="founder-copy-block">
-          <div class="founder-kicker">Founder Perspective</div>
-          
-          <h2>Institutional leadership. Regional execution.</h2>
-          <p>The Caribbean Renaissance™ Framework was developed around a simple observation: markets create durable value when capital, institutions, land, and execution are aligned.</p>
-          <p>The Buckler Group operates at the intersection of development readiness, hospitality strategy, stakeholder alignment, and regional execution — helping transform opportunity into investable outcomes across the Caribbean.</p>
+    
+<section class="office-founder">
+  <div class="office-founder-inner">
 
-          <div class="founder-index borderless">
-            <div><strong>Strategic Advisory</strong><p>Market positioning and execution.</p></div>
-            <div><strong>Development Readiness</strong><p>Land, entitlement, and approvals.</p></div>
-            <div><strong>Hospitality & Tourism</strong><p>Destination strategy.</p></div>
-            <div><strong>Capital Alignment</strong><p>Investor readiness and partnerships.</p></div>
-          </div>
+    <div class="office-founder-image" aria-label="Founder Perspective image"></div>
+
+    <div class="office-founder-copy">
+      <div class="founder-subtitle">Founder Perspective</div>
+
+      <h2>Architecture of Order</h2>
+
+      <p>
+        The Buckler Group exists to bring structure to opportunity. Across the Caribbean,
+        the question is not whether opportunity exists, but whether it can be organized,
+        governed, capitalized, and executed with institutional discipline.
+      </p>
+
+      <blockquote>
+        “Capital follows order. Development follows coordination. Opportunity follows institutions.”
+      </blockquote>
+
+      <div class="founder-focus-grid">
+        <div class="founder-focus">
+          <strong>Strategic Advisory</strong>
+          <span>Market positioning and execution.</span>
         </div>
 
-       <div class="founder-image-panel">
-  <img src="assets-images/assets/images/founder-perspective.webp" alt="Christopher A. Browne, Founder of The Buckler Group">
-</div>
-    </section>
+        <div class="founder-focus">
+          <strong>Development Readiness</strong>
+          <span>Land, entitlement, and approvals.</span>
+        </div>
+
+        <div class="founder-focus">
+          <strong>Hospitality &amp; Tourism</strong>
+          <span>Destination strategy.</span>
+        </div>
+
+        <div class="founder-focus">
+          <strong>Capital Alignment</strong>
+          <span>Investor readiness and partnerships.</span>
+        </div>
+      </div>
+
+      <div class="office-founder-signature">
+        <strong>Christopher A. Browne</strong>
+        <span>Founder &amp; Chief Executive Officer · The Buckler Group</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
   
   <section id="exodus" class="exodus-integration-layer">
