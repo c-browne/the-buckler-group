@@ -1,83 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Reserve Participation | The Buckler Group</title>
-<style>
-:root{
-  --navy:#07111d;
-  --navy-2:#0b1724;
-  --ink:#0c1320;
-  --gold:#b8923b;
-  --gold-2:#d2ad56;
-  --line:#d8dde3;
-  --muted:#5c6673;
-  --paper:#ffffff;
-  --paper-2:#f7f5ef;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--navy);color:#fff;font-family:Inter,Arial,sans-serif}
-.portal{
-  min-height:100vh;
-  display:grid;
-  grid-template-columns:.82fr 1.18fr;
-  background:
-    linear-gradient(90deg, rgba(7,17,29,.98) 0 40%, rgba(7,17,29,.74) 55%, rgba(7,17,29,.45) 100%),
-    radial-gradient(circle at 15% 20%, rgba(184,146,59,.15), transparent 30%),
-    var(--navy);
-}
-.brand-panel{padding:52px 46px 46px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(184,146,59,.25)}
-.brand-lockup{margin-bottom:64px}.monogram{font-family:Georgia,serif;font-size:76px;line-height:.85;color:var(--gold-2);letter-spacing:.02em}.wordmark{margin-top:13px;text-transform:uppercase;letter-spacing:.22em;font-size:14px;color:#fff}.rule{width:110px;height:1px;background:var(--gold);margin-top:18px}.kicker{color:var(--gold-2);text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:700}.brand-panel h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(46px,6vw,76px);line-height:.96;margin:22px 0}.brand-copy{max-width:470px;color:#d9dee4;font-size:17px;line-height:1.7}.approval-box{margin-top:38px;max-width:430px;border:1px solid rgba(184,146,59,.55);padding:20px 22px;background:rgba(255,255,255,.035)}.approval-box strong{display:block;color:var(--gold-2);text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:8px}.approval-box p{margin:0;color:#ccd3da;font-size:14px;line-height:1.55}.fine-print{color:#87919d;font-size:12px;line-height:1.6;max-width:420px}.form-panel{display:flex;align-items:center;justify-content:center;padding:44px}.form-card{width:min(760px,100%);background:var(--paper);color:var(--ink);border:1px solid rgba(184,146,59,.75);box-shadow:0 34px 90px rgba(0,0,0,.42)}
-.form-head{padding:30px 34px 22px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--paper-2))}.form-head .section-label{margin:0 0 9px;color:var(--gold);text-transform:uppercase;letter-spacing:.15em;font-size:11px;font-weight:800}.form-head h2{font-family:Georgia,serif;font-size:32px;font-weight:400;line-height:1.1;margin:0;color:var(--ink)}.form-head p{margin:11px 0 0;color:var(--muted);line-height:1.55;font-size:14px}.form-body{padding:28px 34px 32px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:span 2}label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.105em;color:#172132}.required{color:#a46c16}input,select{width:100%;height:46px;background:#fff;color:#0a3568;border:1px solid #cfd6df;padding:0 13px;font-size:15px;border-radius:2px;appearance:auto}input::placeholder{color:#8a94a3}select{color:#0a3568;background:#fff}select option{background:#fff;color:#0a3568}input:focus,select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,146,59,.15)}.submit-row{margin-top:24px}.form-submit{width:100%;min-height:50px;border:1px solid #9b7429;background:linear-gradient(135deg,#d1ad57 0%,#b98f34 55%,#9b7429 100%);color:#07111d;text-transform:uppercase;letter-spacing:.15em;font-size:12px;font-weight:900;cursor:pointer;transition:.22s ease}.form-submit:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(155,116,41,.28)}.secure-note{text-align:center;margin:16px 0 0;color:#6f7884;font-size:12px}.hidden{display:none}.home-link{display:inline-block;margin-top:18px;color:var(--gold);text-decoration:none;text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:800}
-@media(max-width:920px){.portal{grid-template-columns:1fr}.brand-panel{border-right:0;border-bottom:1px solid rgba(184,146,59,.25);padding:38px 28px}.form-panel{padding:28px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:span 1}.monogram{font-size:58px}.brand-panel h1{font-size:44px}.form-head,.form-body{padding-left:24px;padding-right:24px}}
-</style>
-</head>
-<body>
-<main class="portal">
-  <aside class="brand-panel">
-    <div>
-      <div class="brand-lockup">
-        <div class="monogram">TBG</div>
-        <div class="wordmark">The Buckler Group</div>
-        <div class="rule"></div>
-      </div>
-      <p class="kicker">2026 Caribbean Strategic Sessions</p>
-      <h1>Reserve Participation</h1>
-      <p class="brand-copy">Submit a participation request for the Caribbean Entitlement & Hospitality Strategic Sessions. Participation is reviewed to preserve the quality of the room and the relevance of each closed discussion.</p>
-      <div class="approval-box"><strong>Approval-Gated Access</strong><p>Approved participants will receive the private Zoom access link by email after review.</p></div>
-      <a class="home-link" href="index.html">← Return to TBG</a>
-    </div>
-    <p class="fine-print">Information submitted through this portal is used solely for session coordination, participant review, and strategic follow-up.</p>
-  </aside>
-  <section class="form-panel">
-    <div class="form-card">
-      <div class="form-head">
-        <p class="section-label">Participant Intake</p>
-        <h2>Strategic Session Registration</h2>
-        <p>Please complete all required fields. A member of The Buckler Group will follow up regarding participation status and next steps.</p>
-      </div>
-      <form class="form-body" name="strategic-session-registration" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="strategic-session-registration">
-        <p class="hidden"><label>Do not fill this out: <input name="bot-field"></label></p>
-        <div class="form-grid">
-          <div class="field"><label>First Name <span class="required">*</span></label><input type="text" name="first-name" required placeholder="Enter first name"></div>
-          <div class="field"><label>Last Name <span class="required">*</span></label><input type="text" name="last-name" required placeholder="Enter last name"></div>
-          <div class="field full"><label>Name of Institution <span class="required">*</span></label><input type="text" name="institution" required placeholder="Institution or organization"></div>
-          <div class="field full"><label>Title <span class="required">*</span></label><input type="text" name="title" required placeholder="Title or position"></div>
-          <div class="field"><label>Email <span class="required">*</span></label><input type="email" name="email" required placeholder="name@institution.com"></div>
-          <div class="field"><label>Phone Number <span class="required">*</span></label><input type="tel" name="phone" required placeholder="(123) 456-7890"></div>
-          <div class="field full"><label>LinkedIn Profile URL</label><input type="url" name="linkedin-profile" placeholder="https://www.linkedin.com/in/your-profile"></div>
-          <div class="field"><label>Session of Interest <span class="required">*</span></label><select name="session-interest" required><option value="">Select Session</option><option>Guyana Strategic Session</option><option>Barbados Strategic Session</option><option>Bahamas Strategic Session</option><option>Grenada Strategic Session</option><option>Antigua & Barbuda Strategic Session</option><option>Trinidad & Tobago Strategic Session</option><option>Tobago Strategic Session</option><option>Multiple Sessions</option></select></div>
-          <div class="field"><label>Participant Type <span class="required">*</span></label><select name="participant-type" required><option value="">Select Type</option><option>Investor</option><option>Developer</option><option>Hospitality Executive</option><option>Government Official</option><option>Service Provider</option><option>Academic / Researcher</option><option>Student</option><option>Other</option></select></div>
-          <div class="field full"><label>Jurisdiction of Interest <span class="required">*</span></label><select name="jurisdiction-interest" required><option value="">Select Jurisdiction</option><option>Guyana</option><option>Barbados</option><option>Bahamas</option><option>Grenada</option><option>Antigua & Barbuda</option><option>Trinidad & Tobago</option><option>Tobago</option><option>Multiple Jurisdictions</option></select></div>
-          <div class="field full"><label>How Did You Hear About This Session?</label><select name="referral-source"><option value="">Select Option</option><option>LinkedIn</option><option>The Buckler Group Website</option><option>EXODUS™</option><option>CAIPA</option><option>AAREPNY</option><option>Cornell Hotel Society</option><option>Government Partner</option><option>Professional Referral</option><option>Email Invitation</option><option>Other</option></select></div>
-          <div class="field full"><label>Areas of Interest</label><input type="text" name="areas-of-interest" placeholder="Hospitality, real estate, infrastructure, diaspora capital, PPPs"></div>
-        </div>
-        <div class="submit-row"><button type="submit" class="form-submit">Submit Participation Request</button><p class="secure-note">Reviewed access. Private Zoom link issued only upon approval.</p></div>
-      </form>
-    </div>
-  </section>
-</main>
-</body>
-</html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Participation Interest | The Buckler Group</title>
+  <style>
+    :root{
+      --navy:#061526;
+      --navy2:#0a2035;
+      --gold:#c9a24a;
+      --cream:#f6f1e8;
+      --muted:#9aa8b6;
+      --white:#ffffff;
+      --teal:#2f9f91;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:var(--navy);
+      color:var(--white);
+    }
+
+    .page{
+      min-height:100vh;
+      background:
+        linear-gradient(135deg, rgba(6,21,38,.96), rgba(6,21,38,.86)),
+        radial-gradient(circle at 75% 15%, rgba(201,162,74,.18), transparent 32%);
+      padding:48px 6vw;
+    }
+
+    .brand{
+      max-width:1180px;
+      margin:0 auto 52px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+      border-bottom:1px solid rgba(201,162,74,.35);
+      padding-bottom:28px;
+    }
+
+    .brand h1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:.16em;
+      font-weight:400;
+      text-transform:uppercase;
+    }
+
+    .brand p{
+      margin:8px 0 0;
+      color:var(--gold);
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:12px;
+      font-family:Arial, sans-serif;
+    }
+
+    .nav a{
+      color:var(--cream);
+      text-decoration:none;
+      font-family:Arial, sans-serif;
+      font-size:13px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .hero{
+      max-width:1180px;
+      margin:0 auto 44px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:52px;
+      align-items:start;
+    }
+
+    .eyebrow{
+      color:var(--teal);
+      font-family:Arial, sans-serif;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:13px;
+      margin-bottom:18px;
+    }
+
+    .hero h2{
+      font-size:54px;
+      line-height:1.04;
+      margin:0 0 22px;
+      font-weight:400;
+      letter-spacing:.02em;
+    }
+
+    .hero .lead{
+      font-family:Arial, sans-serif;
+      color:#dbe3
