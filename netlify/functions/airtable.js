@@ -111,11 +111,13 @@ exports.handler = async function (event) {
       });
     }
 
-    return response(200, {
-      success: true,
-      message: "Submission transferred to Airtable",
-      recordId: result.records?.[0]?.id,
-    });
+  return {
+  statusCode: 302,
+  headers: {
+    Location: "/thank-you/"
+  },
+  body: ""
+};
   } catch (error) {
     console.error("Function error:", error);
 
