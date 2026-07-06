@@ -1,10 +1,10 @@
 // netlify/functions/airtable.js
+// The Buckler Group — Airtable Integration v4.1 Safe Baseline
 
 const AIRTABLE_API_URL = "https://api.airtable.com/v0";
 
-const TABLES = {
-  applications: process.env.AIRTABLE_APPLICATIONS_TABLE || "Executive Applications",
-};
+const APPLICATIONS_TABLE =
+  process.env.AIRTABLE_APPLICATIONS_TABLE || "Executive Applications";
 
 function jsonResponse(statusCode, body) {
   return {
@@ -14,10 +14,10 @@ function jsonResponse(statusCode, body) {
   };
 }
 
-function redirect(location = "/thank-you/") {
+function redirectToThankYou() {
   return {
     statusCode: 302,
-    headers: { Location: location },
+    headers: { Location: "/thank-you/" },
     body: "",
   };
 }
@@ -26,6 +26,19 @@ function clean(value) {
   if (value === undefined || value === null) return "";
   if (Array.isArray(value)) return value.filter(Boolean).join(", ");
   return String(value).trim();
+}
+
+function normalizeMultiSelect(value) {
+  if (!value) return [];
+
+  if (Array.isArray(value)) {
+    return value.map(clean).filter(Boolean);
+  }
+
+  return String(value)
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
 }
 
 function parseFormBody(event) {
@@ -40,16 +53,14 @@ function parseFormBody(event) {
     const params = new URLSearchParams(event.body);
     const data = {};
 
-    for (const [key, value] of params.entries()) {
-      const normalizedKey = key.endsWith("[]") ? key.replace("[]", "") : key;
+    for (const [rawKey, value] of params.entries()) {
+      const key = rawKey.endsWith("[]") ? rawKey.replace("[]", "") : rawKey;
 
-      if (data[normalizedKey]) {
-        if (!Array.isArray(data[normalizedKey])) {
-          data[normalizedKey] = [data[normalizedKey]];
-        }
-        data[normalizedKey].push(value);
+      if (data[key]) {
+        if (!Array.isArray(data[key])) data[key] = [data[key]];
+        data[key].push(value);
       } else {
-        data[normalizedKey] = value;
+        data[key] = value;
       }
     }
 
@@ -64,15 +75,6 @@ function parseFormBody(event) {
   }
 }
 
-function normalizeMultiSelect(value) {
-  if (!value) return [];
-  if (Array.isArray(value)) return value.map(clean).filter(Boolean);
-  return String(value)
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
-
 function scoreApplication(data) {
   let score = 0;
 
@@ -80,20 +82,26 @@ function scoreApplication(data) {
   const capacity = clean(data.investment_capacity).toLowerCase();
   const country = clean(data.country_jurisdiction).toLowerCase();
   const area = clean(data.primary_area_of_interest).toLowerCase();
+  const organization = clean(data.organization_company);
+  const linkedin = clean(data.linkedin_profile);
+  const note = clean(data.interest_note);
 
-  if (stakeholder.includes("government")) score += 18;
   if (stakeholder.includes("institutional investor")) score += 20;
   if (stakeholder.includes("family office")) score += 20;
+  if (stakeholder.includes("government")) score += 18;
+  if (stakeholder.includes("investment promotion")) score += 16;
   if (stakeholder.includes("developer")) score += 16;
   if (stakeholder.includes("hospitality")) score += 14;
-  if (stakeholder.includes("investment promotion")) score += 16;
   if (stakeholder.includes("regional")) score += 14;
+  if (stakeholder.includes("finance")) score += 12;
+  if (stakeholder.includes("academic")) score += 8;
 
   if (capacity.includes("institutional investor")) score += 18;
   if (capacity.includes("family office")) score += 18;
   if (capacity.includes("developer")) score += 15;
   if (capacity.includes("government")) score += 14;
   if (capacity.includes("advisor")) score += 8;
+  if (capacity.includes("academic")) score += 6;
 
   const priorityJurisdictions = [
     "guyana",
@@ -111,10 +119,12 @@ function scoreApplication(data) {
   if (area.includes("real estate")) score += 10;
   if (area.includes("infrastructure")) score += 10;
   if (area.includes("capital")) score += 10;
+  if (area.includes("sustainable")) score += 8;
+  if (area.includes("cultural")) score += 6;
 
-  if (clean(data.organization_company)) score += 5;
-  if (clean(data.linkedin_profile)) score += 5;
-  if (clean(data.interest_note).length >= 120) score += 7;
+  if (organization) score += 5;
+  if (linkedin) score += 5;
+  if (note.length >= 120) score += 7;
 
   return Math.min(score, 100);
 }
@@ -148,13 +158,16 @@ function buildApplicationFields(data) {
     "Participation Interest": normalizeMultiSelect(data.interest),
     "Investment Capacity": clean(data.investment_capacity),
     "Notes": clean(data.interest_note),
+
     "Executive Engagement Score": score,
     "Review Status": reviewStatusFromScore(score),
     "Strategic Priority": priority,
+    "Priority": priority,
+
     "Submission Source": clean(data.source_page || "participation"),
     "Campaign": clean(data.campaign || "strategic-sessions-2026"),
     "Platform": clean(data.platform || "thebucklergroup.com"),
-    "Form Version": clean(data.form_version || "v4.0"),
+    "Form Version": clean(data.form_version || "v4.1"),
     "Date Submitted": new Date().toISOString(),
     "Next Action": score >= 85 ? "Review for invitation approval" : "Review application",
   };
@@ -169,16 +182,19 @@ function buildApplicationFields(data) {
 
 exports.handler = async function handler(event) {
   if (event.httpMethod !== "POST") {
-    return jsonResponse(405, { error: "Method not allowed" });
+    return jsonResponse(405, {
+      error: "Method not allowed. Submit the participation form to use this endpoint.",
+    });
   }
 
   const token = process.env.AIRTABLE_TOKEN;
   const baseId = process.env.AIRTABLE_BASE_ID;
-  const tableName = TABLES.applications;
+  const tableName = APPLICATIONS_TABLE;
 
   if (!token || !baseId) {
     return jsonResponse(500, {
-      error: "Missing Airtable environment variables.",
+      error: "Missing required Airtable environment variables.",
+      required: ["AIRTABLE_TOKEN", "AIRTABLE_BASE_ID"],
     });
   }
 
@@ -187,13 +203,14 @@ exports.handler = async function handler(event) {
   if (!clean(data.full_name) || !clean(data.email_address)) {
     return jsonResponse(400, {
       error: "Missing required form fields.",
+      required: ["full_name", "email_address"],
     });
   }
 
-  const url = `${AIRTABLE_API_URL}/${baseId}/${encodeURIComponent(tableName)}`;
+  const airtableUrl = `${AIRTABLE_API_URL}/${baseId}/${encodeURIComponent(tableName)}`;
 
   try {
-    const airtableResponse = await fetch(url, {
+    const airtableResponse = await fetch(airtableUrl, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -209,9 +226,15 @@ exports.handler = async function handler(event) {
       }),
     });
 
-    const result = await airtableResponse.json();
+    const result = await airtableResponse.json().catch(() => ({}));
 
     if (!airtableResponse.ok) {
+      console.error("Airtable write failed:", {
+        status: airtableResponse.status,
+        tableName,
+        details: result,
+      });
+
       return jsonResponse(airtableResponse.status, {
         error: "Airtable integration failed.",
         tableName,
@@ -219,8 +242,10 @@ exports.handler = async function handler(event) {
       });
     }
 
-    return redirect("/thank-you/");
+    return redirectToThankYou();
   } catch (error) {
+    console.error("Airtable function error:", error);
+
     return jsonResponse(500, {
       error: "Airtable integration failed.",
       message: error.message,
