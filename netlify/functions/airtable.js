@@ -1,6 +1,4 @@
-// netlify/functions/airtable.js
-// TBG Airtable CRM Integration v4.0
-
+const AIRTABLE_API_URL = "https://api.airtable.com/v0";
 const TABLES = {
   applications:
     process.env.AIRTABLE_APPLICATIONS_TABLE ||
