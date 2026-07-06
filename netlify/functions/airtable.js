@@ -306,72 +306,16 @@ exports.handler = async function handler(event) {
     });
   }
 
-  try {
-    const email = clean(data.email_address);
-    const linkedIn = clean(data.linkedin_profile);
-    const organizationName = clean(data.organization_company);
+try {
+  await createRecord({
+    token,
+    baseId,
+    tableName: TABLES.applications,
+    fields: buildApplicationFields(data, null, null),
+  });
 
-    let contactRecord = null;
-    let organizationRecord = null;
-
-    if (email) {
-      contactRecord = await findRecordByFormula({
-        token,
-        baseId,
-        tableName: TABLES.contacts,
-        formula: `{Email} = '${airtableEscape(email)}'`,
-      });
-    }
-
-    if (!contactRecord && linkedIn) {
-      contactRecord = await findRecordByFormula({
-        token,
-        baseId,
-        tableName: TABLES.contacts,
-        formula: `{LinkedIn} = '${airtableEscape(linkedIn)}'`,
-      });
-    }
-
-    if (!contactRecord) {
-      contactRecord = await createRecord({
-        token,
-        baseId,
-        tableName: TABLES.contacts,
-        fields: buildContactFields(data),
-      });
-    }
-
-    if (organizationName) {
-      organizationRecord = await findRecordByFormula({
-        token,
-        baseId,
-        tableName: TABLES.organizations,
-        formula: `{Organization Name} = '${airtableEscape(organizationName)}'`,
-      });
-
-      if (!organizationRecord) {
-        organizationRecord = await createRecord({
-          token,
-          baseId,
-          tableName: TABLES.organizations,
-          fields: buildOrganizationFields(data),
-        });
-      }
-    }
-
-    await createRecord({
-      token,
-      baseId,
-      tableName: TABLES.applications,
-      fields: buildApplicationFields(
-        data,
-        contactRecord?.id || null,
-        organizationRecord?.id || null
-      ),
-    });
-
-    return redirect("/thank-you/");
-  } catch (error) {
+  return redirect("/thank-you/");
+} catch (error) {
     console.error("TBG Airtable integration error:", {
       message: error.message,
       status: error.status,
