@@ -315,16 +315,19 @@ try {
 
   return redirect("/thank-you/");
 } catch (error) {
-    console.error("TBG Airtable integration error:", {
-      message: error.message,
-      status: error.status,
-      details: error.details,
-    });
+  console.error("TBG Airtable integration error:", {
+    baseId,
+    applicationsTable: TABLES.applications,
+    message: error.message,
+    status: error.status,
+    details: error.details,
+  });
 
-    return jsonResponse(error.status || 500, {
-      error: "Airtable integration failed.",
-      message: error.message,
-      details: error.details || null,
-    });
-  }
-};
+  return jsonResponse(error.status || 500, {
+    error: "Airtable integration failed.",
+    baseId,
+    applicationsTable: TABLES.applications,
+    message: error.message,
+    details: error.details || null,
+  });
+}
