@@ -1,9 +1,9 @@
+// netlify/functions/airtable.js
+
 const AIRTABLE_API_URL = "https://api.airtable.com/v0";
 
 const TABLES = {
-  applications:
-    process.env.AIRTABLE_APPLICATIONS_TABLE ||
-    "Executive Applications",
+  applications: process.env.AIRTABLE_APPLICATIONS_TABLE || "Executive Applications",
 };
 
 function jsonResponse(statusCode, body) {
@@ -28,15 +28,6 @@ function clean(value) {
   return String(value).trim();
 }
 
-function normalizeMultiSelect(value) {
-  if (!value) return [];
-  if (Array.isArray(value)) return value.map(clean).filter(Boolean);
-  return String(value)
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
-
 function parseFormBody(event) {
   if (!event.body) return {};
 
@@ -50,15 +41,15 @@ function parseFormBody(event) {
     const data = {};
 
     for (const [key, value] of params.entries()) {
-      if (key.endsWith("[]")) {
-        const normalizedKey = key.replace("[]", "");
-        if (!Array.isArray(data[normalizedKey])) data[normalizedKey] = [];
+      const normalizedKey = key.endsWith("[]") ? key.replace("[]", "") : key;
+
+      if (data[normalizedKey]) {
+        if (!Array.isArray(data[normalizedKey])) {
+          data[normalizedKey] = [data[normalizedKey]];
+        }
         data[normalizedKey].push(value);
-      } else if (data[key]) {
-        if (!Array.isArray(data[key])) data[key] = [data[key]];
-        data[key].push(value);
       } else {
-        data[key] = value;
+        data[normalizedKey] = value;
       }
     }
 
@@ -67,88 +58,19 @@ function parseFormBody(event) {
 
   try {
     const parsed = JSON.parse(event.body);
-    if (parsed?.payload?.data) return parsed.payload.data;
-    if (parsed?.data) return parsed.data;
-    return parsed;
+    return parsed?.payload?.data || parsed?.data || parsed || {};
   } catch {
     return {};
   }
 }
 
-function airtableUrl(baseId, tableName) {
-  return `${AIRTABLE_API_URL}/${baseId}/${encodeURIComponent(tableName)}`;
-}
-
-async function airtableRequest({ token, baseId, tableName, method = "GET", body }) {
-  const response = await fetch(airtableUrl(baseId, tableName), {
-    method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: body ? JSON.stringify(body) : undefined,
-  });
-
-  const result = await response.json().catch(() => ({}));
-
-  if (!response.ok) {
-    const error = new Error("Airtable request failed");
-    error.status = response.status;
-    error.details = result;
-    throw error;
-  }
-
-  return result;
-}
-
-function airtableEscape(value) {
-  return String(value || "").replace(/'/g, "\\'");
-}
-
-async function findRecordByFormula({ token, baseId, tableName, formula }) {
-  const url = `${airtableUrl(baseId, tableName)}?maxRecords=1&filterByFormula=${encodeURIComponent(formula)}`;
-
-  const response = await fetch(url, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-  });
-
-  const result = await response.json().catch(() => ({}));
-
-  if (!response.ok) {
-    console.error(`Airtable lookup failed for ${tableName}:`, result);
-    return null;
-  }
-
-  return result.records?.[0] || null;
-}
-
-async function createRecord({ token, baseId, tableName, fields }) {
-  const cleanedFields = { ...fields };
-
-  Object.keys(cleanedFields).forEach((key) => {
-    if (cleanedFields[key] === "") delete cleanedFields[key];
-
-    if (Array.isArray(cleanedFields[key]) && cleanedFields[key].length === 0) {
-      delete cleanedFields[key];
-    }
-  });
-
-  const result = await airtableRequest({
-    token,
-    baseId,
-    tableName,
-    method: "POST",
-    body: {
-      records: [{ fields: cleanedFields }],
-      typecast: true,
-    },
-  });
-
-  return result.records?.[0] || null;
+function normalizeMultiSelect(value) {
+  if (!value) return [];
+  if (Array.isArray(value)) return value.map(clean).filter(Boolean);
+  return String(value)
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
 }
 
 function scoreApplication(data) {
@@ -158,9 +80,6 @@ function scoreApplication(data) {
   const capacity = clean(data.investment_capacity).toLowerCase();
   const country = clean(data.country_jurisdiction).toLowerCase();
   const area = clean(data.primary_area_of_interest).toLowerCase();
-  const organization = clean(data.organization_company);
-  const linkedin = clean(data.linkedin_profile);
-  const note = clean(data.interest_note);
 
   if (stakeholder.includes("government")) score += 18;
   if (stakeholder.includes("institutional investor")) score += 20;
@@ -192,12 +111,10 @@ function scoreApplication(data) {
   if (area.includes("real estate")) score += 10;
   if (area.includes("infrastructure")) score += 10;
   if (area.includes("capital")) score += 10;
-  if (area.includes("sustainable")) score += 8;
-  if (area.includes("cultural")) score += 6;
 
-  if (organization) score += 5;
-  if (linkedin) score += 5;
-  if (note.length >= 120) score += 7;
+  if (clean(data.organization_company)) score += 5;
+  if (clean(data.linkedin_profile)) score += 5;
+  if (clean(data.interest_note).length >= 120) score += 7;
 
   return Math.min(score, 100);
 }
@@ -210,45 +127,10 @@ function priorityFromScore(score) {
 }
 
 function reviewStatusFromScore(score) {
-  if (score >= 85) return "Under Review";
-  return "New";
+  return score >= 85 ? "Under Review" : "New";
 }
 
-function buildContactFields(data) {
-  const score = scoreApplication(data);
-
-  return {
-    "Full Name": clean(data.full_name),
-    "Email": clean(data.email_address),
-    "Phone": clean(data.phone_number),
-    "Title": clean(data.title_position),
-    "Organization": clean(data.organization_company),
-    "LinkedIn": clean(data.linkedin_profile),
-    "Country": clean(data.country_jurisdiction),
-    "Stakeholder Category": clean(data.stakeholder_category),
-    "Relationship Strength": "Prospect",
-    "Strategic Priority": priorityFromScore(score),
-    "Contact Status": "New",
-    "Notes": clean(data.interest_note),
-  };
-}
-
-function buildOrganizationFields(data) {
-  const score = scoreApplication(data);
-
-  return {
-    "Organization Name": clean(data.organization_company),
-    "Organization Type": clean(data.stakeholder_category),
-    "Country": clean(data.country_jurisdiction),
-    "Website": clean(data.organization_website),
-    "Industry": clean(data.primary_area_of_interest),
-    "Priority Rating": priorityFromScore(score),
-    "Existing Relationship": "New",
-    "Notes": `Created from Executive Participation Application submitted by ${clean(data.full_name)}.`,
-  };
-}
-
-function buildApplicationFields(data, linkedContactId, linkedOrganizationId) {
+function buildApplicationFields(data) {
   const score = scoreApplication(data);
   const priority = priorityFromScore(score);
 
@@ -266,12 +148,9 @@ function buildApplicationFields(data, linkedContactId, linkedOrganizationId) {
     "Participation Interest": normalizeMultiSelect(data.interest),
     "Investment Capacity": clean(data.investment_capacity),
     "Notes": clean(data.interest_note),
-
     "Executive Engagement Score": score,
     "Review Status": reviewStatusFromScore(score),
     "Strategic Priority": priority,
-    "Priority": priority,
-
     "Submission Source": clean(data.source_page || "participation"),
     "Campaign": clean(data.campaign || "strategic-sessions-2026"),
     "Platform": clean(data.platform || "thebucklergroup.com"),
@@ -279,6 +158,11 @@ function buildApplicationFields(data, linkedContactId, linkedOrganizationId) {
     "Date Submitted": new Date().toISOString(),
     "Next Action": score >= 85 ? "Review for invitation approval" : "Review application",
   };
+
+  Object.keys(fields).forEach((key) => {
+    if (fields[key] === "") delete fields[key];
+    if (Array.isArray(fields[key]) && fields[key].length === 0) delete fields[key];
+  });
 
   return fields;
 }
@@ -290,6 +174,7 @@ exports.handler = async function handler(event) {
 
   const token = process.env.AIRTABLE_TOKEN;
   const baseId = process.env.AIRTABLE_BASE_ID;
+  const tableName = TABLES.applications;
 
   if (!token || !baseId) {
     return jsonResponse(500, {
@@ -301,33 +186,44 @@ exports.handler = async function handler(event) {
 
   if (!clean(data.full_name) || !clean(data.email_address)) {
     return jsonResponse(400, {
-      error: "Missing required form fields: full_name and email_address.",
+      error: "Missing required form fields.",
     });
   }
 
-try {
-  await createRecord({
-    token,
-    baseId,
-    tableName: TABLES.applications,
-    fields: buildApplicationFields(data, null, null),
-  });
+  const url = `${AIRTABLE_API_URL}/${baseId}/${encodeURIComponent(tableName)}`;
 
-  return redirect("/thank-you/");
-} catch (error) {
-  console.error("TBG Airtable integration error:", {
-    baseId,
-    applicationsTable: TABLES.applications,
-    message: error.message,
-    status: error.status,
-    details: error.details,
-  });
+  try {
+    const airtableResponse = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        records: [
+          {
+            fields: buildApplicationFields(data),
+          },
+        ],
+        typecast: true,
+      }),
+    });
 
-  return jsonResponse(error.status || 500, {
-    error: "Airtable integration failed.",
-    baseId,
-    applicationsTable: TABLES.applications,
-    message: error.message,
-    details: error.details || null,
-  });
-}
+    const result = await airtableResponse.json();
+
+    if (!airtableResponse.ok) {
+      return jsonResponse(airtableResponse.status, {
+        error: "Airtable integration failed.",
+        tableName,
+        details: result,
+      });
+    }
+
+    return redirect("/thank-you/");
+  } catch (error) {
+    return jsonResponse(500, {
+      error: "Airtable integration failed.",
+      message: error.message,
+    });
+  }
+};
