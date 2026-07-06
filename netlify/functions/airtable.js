@@ -4,9 +4,18 @@
 const AIRTABLE_API_URL = "https://api.airtable.com/v0";
 
 const TABLES = {
-  applications: process.env.AIRTABLE_APPLICATIONS_TABLE || "Executive Applications",
-  contacts: process.env.AIRTABLE_CONTACTS_TABLE || "Executive Contacts",
-  organizations: process.env.AIRTABLE_ORGANIZATIONS_TABLE || "Organizations",
+  applications:
+    process.env.AIRTABLE_APPLICATIONS_TABLE ||
+    "Executive Applications",
+
+  contacts:
+    process.env.AIRTABLE_CONTACTS_TABLE ||
+    "Executive Contacts",
+
+  organizations:
+    process.env.AIRTABLE_ORGS_TABLE ||
+    process.env.AIRTABLE_ORGANIZATIONS_TABLE ||
+    "Organizations",
 };
 
 function jsonResponse(statusCode, body) {
