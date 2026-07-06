@@ -6,7 +6,73 @@
 
   <title>Executive Participation Application | The Buckler Group</title>
   <meta name="description" content="Apply for consideration to participate in The Buckler Group Executive Strategic Dialogues." />
+.executive-contact{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:42px 28px 44px;
+  border-top:1px solid var(--line-soft);
+}
 
+.executive-contact-inner{
+  display:grid;
+  grid-template-columns:minmax(0,.72fr) minmax(320px,1fr);
+  gap:54px;
+  align-items:start;
+}
+
+.contact-kicker{
+  margin:0 0 12px;
+  color:var(--gold-soft);
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.executive-contact h2{
+  margin:0;
+  color:var(--white);
+  font-size:28px;
+  line-height:1.16;
+  font-weight:400;
+  letter-spacing:.01em;
+}
+
+.contact-copy p{
+  margin:0 0 16px;
+  color:var(--muted-2);
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:14.5px;
+  line-height:1.72;
+}
+
+.contact-copy a{
+  display:inline-block;
+  color:var(--gold);
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:14px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  border-bottom:1px solid rgba(201,162,74,.38);
+  padding-bottom:5px;
+}
+
+.contact-copy a:hover{
+  color:var(--cream);
+}
+
+.contact-note{
+  margin-top:18px!important;
+  color:var(--muted)!important;
+  font-size:12.5px!important;
+}
+
+@media(max-width:960px){
+  .executive-contact-inner{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+}
   <style>
     :root{
       --navy:#061526;
@@ -898,27 +964,28 @@
       </div>
     </section>
 <section class="executive-contact">
+  <div class="executive-contact-inner">
+    <div>
+      <p class="contact-kicker">Institutional Inquiries</p>
+      <h2>Executive Participation & Partnerships</h2>
+    </div>
 
-    <div class="contact-rule"></div>
+    <div class="contact-copy">
+      <p>
+        For administrative inquiries regarding executive participation,
+        institutional partnerships, or advisory engagement, please contact:
+      </p>
 
-    <h2>Executive Inquiries</h2>
-
-    <p>
-        For administrative inquiries regarding participation,
-        institutional partnerships, or Strategic Sessions,
-        please contact:
-    </p>
-
-    <a href="mailto:info@thebucklergroup.com">
+      <a href="mailto:info@thebucklergroup.com">
         info@thebucklergroup.com
-    </a>
+      </a>
 
-    <p class="contact-note">
-        Applications are reviewed individually.
-        Participation decisions are communicated following
-        the formal review process.
-    </p>
-
+      <p class="contact-note">
+        Applications are reviewed individually. Participation decisions are
+        communicated following the formal review process.
+      </p>
+    </div>
+  </div>
 </section>
     <footer class="footer">
       <div class="footer-brand">
