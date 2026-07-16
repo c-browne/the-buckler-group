@@ -926,7 +926,7 @@
       </div>
     </section>
 
-    <footer class="footer">
+      <footer class="footer">
       <div class="footer-brand">
         <img class="footer-logo" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest">
         <div>
@@ -939,5 +939,71 @@
       <div class="copyright">© 2026 The Buckler Group. All rights reserved.</div>
     </footer>
   </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const partnerMap = {
+        "AAREPNY": {
+            partner: "AAREPNY",
+            code: "AAREP-NY-EXEC",
+            category: "Strategic Institutional Partner",
+            campaign: "strategic-sessions-2026-aarepny"
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const ref = (params.get("ref") || "").toUpperCase();
+
+    if (partnerMap[ref]) {
+        sessionStorage.setItem("tbgReferral", ref);
+    }
+
+    const storedReferral = sessionStorage.getItem("tbgReferral");
+
+    if (!storedReferral) return;
+
+    const referral = partnerMap[storedReferral];
+
+    const form = document.querySelector('form[name="participation"]');
+
+    if (!form) return;
+
+    function setHiddenField(name, value){
+
+        let field = form.querySelector(`[name="${name}"]`);
+
+        if(!field){
+            field = document.createElement("input");
+            field.type = "hidden";
+            field.name = name;
+            form.appendChild(field);
+        }
+
+        field.value = value;
+    }
+
+    setHiddenField("referral_partner", referral.partner);
+    setHiddenField("referral_code", referral.code);
+    setHiddenField("referral_category", referral.category);
+    setHiddenField("referral_entry_url", window.location.href);
+
+    let campaign = form.querySelector('[name="campaign"]');
+
+    if(campaign){
+        campaign.value = referral.campaign;
+    }
+
+    const strategicSession = form.querySelector(
+        'input[name="interest[]"][value="Strategic Sessions"]'
+    );
+
+    if(strategicSession){
+        strategicSession.checked = true;
+    }
+
+});
+</script>
+
 </body>
 </html>
