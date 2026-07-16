@@ -4747,6 +4747,435 @@
     object-fit: cover !important;
   }
 }
+
+/* =========================================================
+   EXECUTIVE CLOSED SESSIONS™ — HOMEPAGE INTEGRATION
+   ========================================================= */
+
+/* Strategic Sessions dropdown */
+.nav-dropdown{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+}
+.nav-dropdown > a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+.nav-dropdown > a::after{
+  content:"▾";
+  color:var(--gold);
+  font-size:9px;
+}
+.nav-dropdown-menu{
+  position:absolute;
+  left:0;
+  top:calc(100% + 17px);
+  width:265px;
+  padding:10px;
+  background:#07111f;
+  border:1px solid rgba(183,144,75,.42);
+  box-shadow:0 22px 50px rgba(0,0,0,.28);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:.2s ease;
+  z-index:80;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.nav-dropdown-menu a{
+  display:block;
+  padding:12px 13px;
+  color:rgba(255,255,255,.74);
+  font-size:10px;
+  letter-spacing:.1em;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav-dropdown-menu a:last-child{border-bottom:0}
+.nav-dropdown-menu a:hover{
+  color:var(--gold);
+  background:rgba(255,255,255,.035);
+}
+
+/* Jurisdiction calendar actions */
+#sessions .calendar-row{
+  grid-template-columns:1fr .62fr 1.05fr auto !important;
+}
+#sessions .calendar-header{
+  grid-template-columns:1fr .62fr 1.05fr auto !important;
+}
+.calendar-action-head{
+  text-align:right;
+}
+.calendar-session-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:8px;
+  min-width:174px;
+}
+.calendar-session-actions a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:0 12px;
+  border:1px solid rgba(7,17,31,.18);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.calendar-session-actions .open-session-link{
+  color:var(--navy);
+  background:#fff;
+}
+.calendar-session-actions .closed-session-link{
+  color:#fff;
+  background:var(--navy);
+  border-color:var(--navy);
+}
+.calendar-session-actions a:hover{
+  border-color:var(--gold);
+}
+
+/* Homepage Closed Session feature — directly below calendar */
+.executive-session-home{
+  background:#07111f;
+  color:#fff;
+  padding:104px 5vw;
+  border-top:1px solid rgba(183,144,75,.38);
+  border-bottom:1px solid rgba(183,144,75,.38);
+}
+.executive-session-home-inner{
+  max-width:1420px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:.82fr 1.18fr;
+  gap:70px;
+  align-items:start;
+}
+.executive-session-home-intro h2{
+  color:#fff;
+  font-size:clamp(42px,5.6vw,80px);
+  line-height:.94;
+  letter-spacing:-.045em;
+}
+.executive-session-home-intro > p{
+  color:rgba(255,255,255,.68);
+  font-size:17px;
+  line-height:1.7;
+  max-width:630px;
+}
+.executive-session-home-metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(255,255,255,.14);
+  border-left:1px solid rgba(255,255,255,.14);
+  margin-top:34px;
+}
+.executive-session-home-metrics div{
+  min-height:118px;
+  padding:22px;
+  border-right:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(255,255,255,.14);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.executive-session-home-metrics strong{
+  color:var(--gold);
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:40px;
+  line-height:.9;
+}
+.executive-session-home-metrics span{
+  color:rgba(255,255,255,.55);
+  margin-top:10px;
+  font-size:9px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.executive-session-home-panel{
+  background:#0d1a2b;
+  border:1px solid rgba(183,144,75,.38);
+  padding:38px;
+}
+.executive-session-home-panel h3{
+  color:#fff;
+  font-size:34px;
+  margin-bottom:20px;
+}
+.executive-session-home-panel p{
+  color:rgba(255,255,255,.67);
+}
+.executive-session-home-benefits{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 24px;
+  list-style:none;
+  padding:0;
+  margin:26px 0 32px;
+}
+.executive-session-home-benefits li{
+  padding:13px 0;
+  border-top:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.73);
+  font-size:12px;
+}
+.executive-session-home-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.executive-session-home-actions a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 18px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:10px;
+  font-weight:800;
+}
+.executive-review-btn{
+  background:var(--gold);
+  color:#07111f;
+  border:1px solid var(--gold);
+}
+.executive-reserve-btn{
+  color:#fff;
+  border:1px solid rgba(255,255,255,.35);
+}
+
+/* Commercial journey — directly before Investment Corridors / EXODUS */
+.commercial-journey{
+  background:#fff;
+  padding:96px 5vw;
+  border-top:1px solid rgba(7,17,31,.1);
+  border-bottom:1px solid rgba(7,17,31,.1);
+}
+.commercial-journey-inner{
+  max-width:1420px;
+  margin:0 auto;
+}
+.commercial-journey-head{
+  max-width:900px;
+  margin-bottom:48px;
+}
+.commercial-journey-head h2{
+  color:var(--navy);
+  font-size:clamp(38px,4.8vw,68px);
+  line-height:.96;
+  letter-spacing:-.04em;
+}
+.commercial-journey-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(7,17,31,.12);
+  border-left:1px solid rgba(7,17,31,.12);
+}
+.commercial-journey-step{
+  min-height:225px;
+  padding:28px;
+  border-right:1px solid rgba(7,17,31,.12);
+  border-bottom:1px solid rgba(7,17,31,.12);
+}
+.commercial-journey-step span{
+  color:#8a6a3f;
+  font-size:10px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.commercial-journey-step h3{
+  color:var(--navy);
+  font-size:27px;
+  margin:17px 0 13px;
+}
+.commercial-journey-step p{
+  color:#667085;
+  font-size:13px;
+  line-height:1.65;
+}
+
+/* Child page */
+.executive-page-hero{
+  min-height:680px;
+  padding:100px 5vw;
+  background:
+    linear-gradient(90deg,rgba(7,17,31,.98),rgba(7,17,31,.82)),
+    url("assets-images/hero.webp");
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  display:flex;
+  align-items:center;
+}
+.executive-page-hero-inner{
+  max-width:1420px;
+  width:100%;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:80px;
+  align-items:end;
+}
+.executive-page-hero h1{
+  max-width:880px;
+  color:#fff;
+}
+.executive-page-hero .lead{
+  max-width:720px;
+  color:rgba(255,255,255,.74);
+  font-size:18px;
+}
+.executive-page-aside{
+  background:rgba(7,17,31,.72);
+  border:1px solid rgba(183,144,75,.42);
+  padding:34px;
+}
+.executive-page-aside h3{color:#fff;font-size:30px}
+.executive-page-aside p{color:rgba(255,255,255,.65)}
+.executive-page-metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(255,255,255,.13);
+  border-left:1px solid rgba(255,255,255,.13);
+  margin-top:25px;
+}
+.executive-page-metrics div{
+  padding:20px;
+  border-right:1px solid rgba(255,255,255,.13);
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
+.executive-page-metrics strong{
+  display:block;
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:36px;
+}
+.executive-page-metrics span{
+  display:block;
+  color:rgba(255,255,255,.52);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+.executive-page-section{padding:96px 5vw;background:var(--bone)}
+.executive-page-grid{
+  max-width:1420px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:.75fr 1.25fr;
+  gap:64px;
+}
+.executive-checkout-card{
+  background:#07111f;
+  color:#fff;
+  padding:36px;
+  align-self:start;
+  position:sticky;
+  top:105px;
+}
+.executive-checkout-card .price{
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:58px;
+  line-height:1;
+  margin:18px 0;
+}
+.executive-checkout-card p{color:rgba(255,255,255,.65)}
+.executive-checkout-card button{
+  width:100%;
+  min-height:50px;
+  border:0;
+  background:var(--gold);
+  color:#07111f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.executive-detail-card{
+  background:#fff;
+  border:1px solid rgba(7,17,31,.12);
+  padding:36px;
+  margin-bottom:22px;
+}
+.executive-detail-card h2{
+  color:var(--navy);
+  font-size:clamp(34px,4vw,55px);
+}
+.executive-agenda div{
+  display:grid;
+  grid-template-columns:90px 1fr;
+  gap:20px;
+  padding:16px 0;
+  border-top:1px solid rgba(7,17,31,.1);
+}
+.executive-agenda span{
+  color:#8a6a3f;
+  font-size:10px;
+  font-weight:800;
+}
+.executive-agenda p{
+  color:#667085;
+  margin:4px 0 0;
+  font-size:12px;
+}
+.executive-detail-card ul{
+  list-style:none;
+  padding:0;
+}
+.executive-detail-card li{
+  padding:12px 0;
+  border-top:1px solid rgba(7,17,31,.1);
+  color:#475569;
+  font-size:13px;
+}
+
+/* Footer addition */
+.institutional-footer .footer-column a[href*="executive-session"]{
+  color:var(--gold);
+}
+
+@media(max-width:1050px){
+  #sessions .calendar-row,
+  #sessions .calendar-header{
+    grid-template-columns:1fr .65fr 1.1fr !important;
+  }
+  .calendar-action-head{display:none}
+  .calendar-session-actions{
+    grid-column:1/-1;
+    flex-direction:row;
+  }
+  .executive-session-home-inner,
+  .executive-page-hero-inner,
+  .executive-page-grid{
+    grid-template-columns:1fr;
+  }
+  .commercial-journey-grid{grid-template-columns:1fr 1fr}
+  .executive-checkout-card{position:static}
+}
+@media(max-width:700px){
+  .commercial-journey-grid,
+  .executive-session-home-benefits,
+  .executive-session-home-metrics,
+  .executive-page-metrics{
+    grid-template-columns:1fr;
+  }
+  .calendar-session-actions{flex-direction:column}
+}
+
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 </head>
@@ -4756,7 +5185,14 @@
     <nav>
       <a href="#advisory">Advisory</a>
       <a href="#renaissance">Caribbean Renaissance™</a>
-      <a href="#sessions">Strategic Sessions</a>
+      <div class="nav-dropdown">
+        <a href="#sessions">Strategic Sessions</a>
+        <div class="nav-dropdown-menu">
+          <a href="#sessions">Strategic Sessions Overview</a>
+          <a href="#executive-closed-session">Executive Closed Sessions™</a>
+          <a href="investment-corridors.html">Investment Corridors™</a>
+        </div>
+      </div>
       <a href="#exodus">EXODUS™</a>
       <a href="#insights">Insights</a>
       <a href="#founder">Founder</a>
@@ -4914,6 +5350,7 @@
               <div>Jurisdiction</div>
               <div>Session Date</div>
               <div>Strategic Review Lens</div>
+              <div class="calendar-action-head">Participation</div>
             </div>
           
 
@@ -4925,6 +5362,10 @@
                 Energy-led expansion, infrastructure growth, and rising hospitality demand.
                 <div class="calendar-tags"><em>Energy</em><em>Infrastructure</em><em>Hospitality</em></div>
               </div>
+              <div class="calendar-session-actions">
+                <a class="open-session-link" href="participation.html?jurisdiction=guyana">Open Session</a>
+                <a class="closed-session-link" href="executive-session.html?jurisdiction=guyana">Closed Session Access</a>
+              </div>
             </article>
 
             <article class="calendar-row">
@@ -4934,6 +5375,10 @@
                 <strong>Strategic focus</strong>
                 Lifestyle demand, global capital flows, and luxury hospitality positioning.
                 <div class="calendar-tags"><em>Luxury</em><em>Capital</em><em>Lifestyle</em></div>
+              </div>
+              <div class="calendar-session-actions">
+                <a class="open-session-link" href="participation.html?jurisdiction=barbados">Open Session</a>
+                <a class="closed-session-link" href="executive-session.html?jurisdiction=barbados">Closed Session Access</a>
               </div>
             </article>
 
@@ -4945,6 +5390,10 @@
                 Resort scale, maritime economy, and international visitation strength.
                 <div class="calendar-tags"><em>Resorts</em><em>Maritime</em><em>Tourism Scale</em></div>
               </div>
+              <div class="calendar-session-actions">
+                <a class="open-session-link" href="participation.html?jurisdiction=bahamas">Open Session</a>
+                <a class="closed-session-link" href="executive-session.html?jurisdiction=bahamas">Closed Session Access</a>
+              </div>
             </article>
 
             <article class="calendar-row">
@@ -4954,6 +5403,10 @@
                 <strong>Strategic focus</strong>
                 Regenerative tourism, climate resilience, and destination development.
                 <div class="calendar-tags"><em>Regeneration</em><em>Climate</em><em>Destination</em></div>
+              </div>
+              <div class="calendar-session-actions">
+                <a class="open-session-link" href="participation.html?jurisdiction=grenada">Open Session</a>
+                <a class="closed-session-link" href="executive-session.html?jurisdiction=grenada">Closed Session Access</a>
               </div>
             </article>
 
@@ -4965,6 +5418,10 @@
                 Marina infrastructure, yachting economy, and luxury residential demand.
                 <div class="calendar-tags"><em>Marina</em><em>Yachting</em><em>Residential</em></div>
               </div>
+              <div class="calendar-session-actions">
+                <a class="open-session-link" href="participation.html?jurisdiction=antigua-barbuda">Open Session</a>
+                <a class="closed-session-link" href="executive-session.html?jurisdiction=antigua-barbuda">Closed Session Access</a>
+              </div>
             </article>
 
             <article class="calendar-row">
@@ -4974,6 +5431,10 @@
                 <strong>Strategic focus</strong>
                 Commercial depth, institutional capacity, and Tobago tourism repositioning.
                 <div class="calendar-tags"><em>Commercial</em><em>Institutional</em><em>Tourism</em></div>
+              </div>
+              <div class="calendar-session-actions">
+                <a class="open-session-link" href="participation.html?jurisdiction=tobago">Open Session</a>
+                <a class="closed-session-link" href="executive-session.html?jurisdiction=tobago">Closed Session Access</a>
               </div>
             </article>
 
@@ -5040,6 +5501,51 @@ Strategic Sessions Powered by EXODUS™
     </div>
 
   </section>
+
+<section class="executive-session-home" id="executive-closed-session">
+  <div class="executive-session-home-inner">
+    <div class="executive-session-home-intro">
+      <div class="eyebrow">Beyond the Open Session</div>
+      <h2>Executive Closed Sessions™</h2>
+      <p>
+        Private jurisdiction dialogue for qualified investors, lenders, developers,
+        operators, government representatives, and professional advisers seeking
+        deeper engagement beyond the public Strategic Session.
+      </p>
+
+      <div class="executive-session-home-metrics">
+        <div><strong>90</strong><span>Minutes</span></div>
+        <div><strong>40</strong><span>Maximum Participants</span></div>
+        <div><strong>$750</strong><span>Per Session</span></div>
+      </div>
+    </div>
+
+    <div class="executive-session-home-panel">
+      <div class="eyebrow">Private Executive Format</div>
+      <h3>Development intelligence. Direct dialogue. Defined next actions.</h3>
+      <p>
+        Each Closed Session follows the open jurisdiction discussion and provides a
+        controlled environment for policy context, development-pipeline review,
+        institutional Q&amp;A, and qualification for deeper participation.
+      </p>
+
+      <ul class="executive-session-home-benefits">
+        <li>Senior jurisdiction and industry engagement</li>
+        <li>Hospitality and real estate pipeline discussion</li>
+        <li>Planning, entitlement, incentives, and infrastructure context</li>
+        <li>Private investor, lender, developer, and operator Q&amp;A</li>
+        <li>Post-session executive summary and follow-up</li>
+        <li>Priority consideration for Investment Corridors™</li>
+      </ul>
+
+      <div class="executive-session-home-actions">
+        <a class="executive-review-btn" href="#executive-closed-session">Review Executive Session</a>
+        <a class="executive-reserve-btn" href="#executive-closed-session">Reserve Closed Session Access</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <section id="jurisdictions" class="caribbean-intelligence">
     <div class="section-head">
@@ -5186,7 +5692,43 @@ Strategic Sessions Powered by EXODUS™
 
 
   
-  <section id="exodus" class="exodus-integration-layer">
+  
+<section class="commercial-journey" id="commercial-journey">
+  <div class="commercial-journey-inner">
+    <div class="commercial-journey-head">
+      <div class="eyebrow">Commercial Journey</div>
+      <h2>One continuous path from intelligence to execution.</h2>
+    </div>
+
+    <div class="commercial-journey-grid">
+      <article class="commercial-journey-step">
+        <span>01 / Intelligence</span>
+        <h3>Strategic Sessions™</h3>
+        <p>Establish jurisdiction intelligence through public executive dialogue.</p>
+      </article>
+
+      <article class="commercial-journey-step">
+        <span>02 / Qualification</span>
+        <h3>Executive Closed Sessions™</h3>
+        <p>Qualify the relationship through private discussion and defined next actions.</p>
+      </article>
+
+      <article class="commercial-journey-step">
+        <span>03 / Access</span>
+        <h3>Investment Corridors™</h3>
+        <p>Provide direct market access through site engagement and on-the-ground diligence.</p>
+      </article>
+
+      <article class="commercial-journey-step">
+        <span>04 / Execution</span>
+        <h3>EXODUS™</h3>
+        <p>Advance advisory, capital formation, market entry, and long-term execution.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="exodus" class="exodus-integration-layer">
     <div class="exodus-inner">
       <div class="exodus-copy">
         <div class="exodus-label">EXODUS™ Integration Layer</div>
@@ -5349,7 +5891,9 @@ Strategic Sessions Powered by EXODUS™
 
       <div class="footer-column">
         <h4>Platforms</h4>
-        <a href="#sessions">Strategic Sessions</a>
+        <a href="#sessions">Strategic Sessions™</a>
+        <a href="#executive-closed-session">Executive Closed Sessions™</a>
+        <a href="investment-corridors.html">Investment Corridors™</a>
         <a href="#exodus">EXODUS™</a>
         <a href="#jurisdictions">Jurisdiction Intelligence</a>
         <a href="#insights">Insights</a>
