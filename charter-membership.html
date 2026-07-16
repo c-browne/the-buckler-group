@@ -48,9 +48,28 @@
       border-bottom:1px solid var(--line);
     }
 
-    .brand{display:flex;align-items:center;gap:16px;}
-    .brand-mark{color:var(--gold);font-family:"Cormorant Garamond", Georgia, serif;font-size:46px;font-weight:600;line-height:1;letter-spacing:.04em;}
-    .brand-name{color:#fff;font-family:"Cormorant Garamond", Georgia, serif;font-size:22px;line-height:1;}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .brand-logo{
+      height:64px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+      flex:0 0 auto;
+    }
+
+    .brand-name{
+      color:#fff;
+      font-family:"Cormorant Garamond", Georgia, serif;
+      font-size:22px;
+      font-weight:600;
+      line-height:1;
+      letter-spacing:.01em;
+    }
     .nav-return{color:rgba(255,255,255,.78);text-transform:uppercase;letter-spacing:.13em;font-size:12px;font-weight:700;}
     .nav-return:hover{color:var(--gold);}
 
@@ -192,7 +211,7 @@
 
     @media(max-width:760px){
       .topbar{align-items:flex-start;gap:18px;flex-direction:column;}
-      .brand-mark{font-size:38px;}
+      .brand-logo{height:52px;}
       .brand-name{font-size:20px;}
       .hero,.page-section{padding:58px 24px;}
       h1{font-size:clamp(44px,14vw,68px);}
@@ -209,12 +228,48 @@
       .cta-row{flex-direction:column;}
       .btn{width:100%;}
     }
+  
+    /* TBG logo integration refinement */
+    .topbar{
+      min-height:88px;
+    }
+
+    .brand:hover .brand-name{
+      color:var(--gold-light);
+    }
+
+    .brand-logo{
+      filter:drop-shadow(0 6px 18px rgba(0,0,0,.22));
+    }
+
+    @media(max-width:760px){
+      .topbar{
+        min-height:auto;
+      }
+
+      .brand{
+        gap:12px;
+      }
+
+      .brand-logo{
+        height:50px;
+      }
+
+      .brand-name{
+        font-size:19px;
+      }
+    }
+
   </style>
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="index.html">
-      <div class="brand-mark">TBG</div>
+    <a class="brand" href="index.html" aria-label="The Buckler Group home">
+      <img
+        src="assets-images/tbg-logo-new.png"
+        alt="The Buckler Group crest"
+        class="brand-logo"
+      >
       <div class="brand-name">The Buckler Group</div>
     </a>
     <a class="nav-return" href="index.html">Return to Main Site</a>
