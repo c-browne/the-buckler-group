@@ -171,7 +171,10 @@ function buildApplicationFields(data) {
     "Date Submitted": new Date().toISOString(),
     "Next Action": score >= 85 ? "Review for invitation approval" : "Review application",
   };
-
+"Referral Partner": data.referral_partner || "",
+"Referral Code": data.referral_code || "",
+"Referral Category": data.referral_category || "",
+"Referral Entry URL": data.referral_entry_url || "",
   Object.keys(fields).forEach((key) => {
     if (fields[key] === "") delete fields[key];
     if (Array.isArray(fields[key]) && fields[key].length === 0) delete fields[key];
