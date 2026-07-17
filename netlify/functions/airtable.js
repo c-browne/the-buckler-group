@@ -1,5 +1,6 @@
 // netlify/functions/airtable.js
-// The Buckler Group — Airtable Integration v4.1 Safe Baseline
+// The Buckler Group — Airtable Integration v4.2
+// Safe baseline with institutional referral attribution
 
 const AIRTABLE_API_URL = "https://api.airtable.com/v0";
 
@@ -9,7 +10,9 @@ const APPLICATIONS_TABLE =
 function jsonResponse(statusCode, body) {
   return {
     statusCode,
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(body),
   };
 }
@@ -17,14 +20,24 @@ function jsonResponse(statusCode, body) {
 function redirectToThankYou() {
   return {
     statusCode: 302,
-    headers: { Location: "/thank-you/" },
+    headers: {
+      Location: "/thank-you/",
+      "Cache-Control": "no-store",
+    },
     body: "",
   };
 }
 
 function clean(value) {
   if (value === undefined || value === null) return "";
-  if (Array.isArray(value)) return value.filter(Boolean).join(", ");
+
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => String(item).trim())
+      .filter(Boolean)
+      .join(", ");
+  }
+
   return String(value).trim();
 }
 
@@ -44,9 +57,11 @@ function normalizeMultiSelect(value) {
 function parseFormBody(event) {
   if (!event.body) return {};
 
+  const headers = event.headers || {};
+
   const contentType =
-    event.headers["content-type"] ||
-    event.headers["Content-Type"] ||
+    headers["content-type"] ||
+    headers["Content-Type"] ||
     "";
 
   if (contentType.includes("application/x-www-form-urlencoded")) {
@@ -54,10 +69,15 @@ function parseFormBody(event) {
     const data = {};
 
     for (const [rawKey, value] of params.entries()) {
-      const key = rawKey.endsWith("[]") ? rawKey.replace("[]", "") : rawKey;
+      const key = rawKey.endsWith("[]")
+        ? rawKey.slice(0, -2)
+        : rawKey;
 
-      if (data[key]) {
-        if (!Array.isArray(data[key])) data[key] = [data[key]];
+      if (Object.prototype.hasOwnProperty.call(data, key)) {
+        if (!Array.isArray(data[key])) {
+          data[key] = [data[key]];
+        }
+
         data[key].push(value);
       } else {
         data[key] = value;
@@ -69,7 +89,13 @@ function parseFormBody(event) {
 
   try {
     const parsed = JSON.parse(event.body);
-    return parsed?.payload?.data || parsed?.data || parsed || {};
+
+    return (
+      parsed?.payload?.data ||
+      parsed?.data ||
+      parsed ||
+      {}
+    );
   } catch {
     return {};
   }
@@ -78,13 +104,26 @@ function parseFormBody(event) {
 function scoreApplication(data) {
   let score = 0;
 
-  const stakeholder = clean(data.stakeholder_category).toLowerCase();
-  const capacity = clean(data.investment_capacity).toLowerCase();
-  const country = clean(data.country_jurisdiction).toLowerCase();
-  const area = clean(data.primary_area_of_interest).toLowerCase();
-  const organization = clean(data.organization_company);
-  const linkedin = clean(data.linkedin_profile);
-  const note = clean(data.interest_note);
+  const stakeholder =
+    clean(data.stakeholder_category).toLowerCase();
+
+  const capacity =
+    clean(data.investment_capacity).toLowerCase();
+
+  const country =
+    clean(data.country_jurisdiction).toLowerCase();
+
+  const area =
+    clean(data.primary_area_of_interest).toLowerCase();
+
+  const organization =
+    clean(data.organization_company);
+
+  const linkedin =
+    clean(data.linkedin_profile);
+
+  const note =
+    clean(data.interest_note);
 
   if (stakeholder.includes("institutional investor")) score += 20;
   if (stakeholder.includes("family office")) score += 20;
@@ -113,7 +152,13 @@ function scoreApplication(data) {
     "tobago",
   ];
 
-  if (priorityJurisdictions.some((j) => country.includes(j))) score += 12;
+  if (
+    priorityJurisdictions.some((jurisdiction) =>
+      country.includes(jurisdiction)
+    )
+  ) {
+    score += 12;
+  }
 
   if (area.includes("hospitality")) score += 10;
   if (area.includes("real estate")) score += 10;
@@ -140,6 +185,25 @@ function reviewStatusFromScore(score) {
   return score >= 85 ? "Under Review" : "New";
 }
 
+function removeEmptyFields(fields) {
+  const cleanedFields = { ...fields };
+
+  Object.keys(cleanedFields).forEach((key) => {
+    const value = cleanedFields[key];
+
+    if (value === "") {
+      delete cleanedFields[key];
+      return;
+    }
+
+    if (Array.isArray(value) && value.length === 0) {
+      delete cleanedFields[key];
+    }
+  });
+
+  return cleanedFields;
+}
+
 function buildApplicationFields(data) {
   const score = scoreApplication(data);
   const priority = priorityFromScore(score);
@@ -154,8 +218,12 @@ function buildApplicationFields(data) {
     "LinkedIn Profile": clean(data.linkedin_profile),
     "Organization Website": clean(data.organization_website),
     "Stakeholder Category": clean(data.stakeholder_category),
-    "Primary Area of Interest": clean(data.primary_area_of_interest),
-    "Participation Interest": normalizeMultiSelect(data.interest),
+    "Primary Area of Interest": clean(
+      data.primary_area_of_interest
+    ),
+    "Participation Interest": normalizeMultiSelect(
+      data.interest
+    ),
     "Investment Capacity": clean(data.investment_capacity),
     "Notes": clean(data.interest_note),
 
@@ -164,29 +232,43 @@ function buildApplicationFields(data) {
     "Strategic Priority": priority,
     "Priority": priority,
 
-    "Submission Source": clean(data.source_page || "participation"),
-    "Campaign": clean(data.campaign || "strategic-sessions-2026"),
-    "Platform": clean(data.platform || "thebucklergroup.com"),
-    "Form Version": clean(data.form_version || "v4.1"),
-    "Date Submitted": new Date().toISOString(),
-    "Next Action": score >= 85 ? "Review for invitation approval" : "Review application",
-  };
-"Referral Partner": data.referral_partner || "",
-"Referral Code": data.referral_code || "",
-"Referral Category": data.referral_category || "",
-"Referral Entry URL": data.referral_entry_url || "",
-  Object.keys(fields).forEach((key) => {
-    if (fields[key] === "") delete fields[key];
-    if (Array.isArray(fields[key]) && fields[key].length === 0) delete fields[key];
-  });
+    "Referral Partner": clean(data.referral_partner),
+    "Referral Code": clean(data.referral_code),
+    "Referral Category": clean(data.referral_category),
+    "Referral Entry URL": clean(data.referral_entry_url),
 
-  return fields;
+    "Submission Source": clean(
+      data.source_page || "participation"
+    ),
+
+    "Campaign": clean(
+      data.campaign || "strategic-sessions-2026"
+    ),
+
+    "Platform": clean(
+      data.platform || "thebucklergroup.com"
+    ),
+
+    "Form Version": clean(
+      data.form_version || "v4.2"
+    ),
+
+    "Date Submitted": new Date().toISOString(),
+
+    "Next Action":
+      score >= 85
+        ? "Review for invitation approval"
+        : "Review application",
+  };
+
+  return removeEmptyFields(fields);
 }
 
 exports.handler = async function handler(event) {
   if (event.httpMethod !== "POST") {
     return jsonResponse(405, {
-      error: "Method not allowed. Submit the participation form to use this endpoint.",
+      error:
+        "Method not allowed. Submit the participation form to use this endpoint.",
     });
   }
 
@@ -196,21 +278,32 @@ exports.handler = async function handler(event) {
 
   if (!token || !baseId) {
     return jsonResponse(500, {
-      error: "Missing required Airtable environment variables.",
-      required: ["AIRTABLE_TOKEN", "AIRTABLE_BASE_ID"],
+      error:
+        "Missing required Airtable environment variables.",
+      required: [
+        "AIRTABLE_TOKEN",
+        "AIRTABLE_BASE_ID",
+      ],
     });
   }
 
   const data = parseFormBody(event);
 
-  if (!clean(data.full_name) || !clean(data.email_address)) {
+  if (
+    !clean(data.full_name) ||
+    !clean(data.email_address)
+  ) {
     return jsonResponse(400, {
       error: "Missing required form fields.",
-      required: ["full_name", "email_address"],
+      required: [
+        "full_name",
+        "email_address",
+      ],
     });
   }
 
-  const airtableUrl = `${AIRTABLE_API_URL}/${baseId}/${encodeURIComponent(tableName)}`;
+  const airtableUrl =
+    `${AIRTABLE_API_URL}/${baseId}/${encodeURIComponent(tableName)}`;
 
   try {
     const airtableResponse = await fetch(airtableUrl, {
@@ -229,7 +322,9 @@ exports.handler = async function handler(event) {
       }),
     });
 
-    const result = await airtableResponse.json().catch(() => ({}));
+    const result = await airtableResponse
+      .json()
+      .catch(() => ({}));
 
     if (!airtableResponse.ok) {
       console.error("Airtable write failed:", {
@@ -238,20 +333,29 @@ exports.handler = async function handler(event) {
         details: result,
       });
 
-      return jsonResponse(airtableResponse.status, {
-        error: "Airtable integration failed.",
-        tableName,
-        details: result,
-      });
+      return jsonResponse(
+        airtableResponse.status,
+        {
+          error: "Airtable integration failed.",
+          tableName,
+          details: result,
+        }
+      );
     }
 
     return redirectToThankYou();
   } catch (error) {
-    console.error("Airtable function error:", error);
+    console.error(
+      "Airtable function error:",
+      error
+    );
 
     return jsonResponse(500, {
       error: "Airtable integration failed.",
-      message: error.message,
+      message:
+        error instanceof Error
+          ? error.message
+          : "Unknown server error.",
     });
   }
 };
