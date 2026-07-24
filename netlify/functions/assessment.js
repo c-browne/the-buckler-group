@@ -233,8 +233,6 @@ function buildAssessmentFields(data) {
 
     "Assessment Status": "New",
 
-    "Date Submitted":
-      new Date().toISOString(),
   };
 
   if (fields["Strategic Value"] === null) {
