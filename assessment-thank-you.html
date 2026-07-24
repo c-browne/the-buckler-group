@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Assessment Received | The Buckler Group</title>
+  <meta
+    name="description"
+    content="Thank you for completing The Buckler Group Strategic Session Assessment."
+  />
+
+  <style>
+    :root{
+      --navy:#061526;
+      --navy-2:#081a2c;
+      --gold:#c9a24a;
+      --gold-soft:#d6b56d;
+      --cream:#f6f1e8;
+      --white:#ffffff;
+      --muted:#aeb8c3;
+      --muted-2:#d7dee6;
+      --line:rgba(201,162,74,.28);
+      --line-soft:rgba(255,255,255,.10);
+      --max:1160px;
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      background:var(--navy);
+      color:var(--white);
+      font-family:Georgia,"Times New Roman",serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .site{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(201,162,74,.12), transparent 30%),
+        linear-gradient(135deg, #061526 0%, #071b2e 52%, #04101e 100%);
+    }
+
+    .header{
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 28px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:28px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:0;
+    }
+
+    .brand-logo{
+      width:76px;
+      height:auto;
+      display:block;
+      flex:0 0 auto;
+    }
+
+    .brand-title{
+      margin:0;
+      font-size:25px;
+      line-height:1.05;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+      font-weight:400;
+      white-space:nowrap;
+    }
+
+    .brand-subtitle{
+      margin:8px 0 0;
+      color:var(--gold);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:11px;
+      letter-spacing:.21em;
+      text-transform:uppercase;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:22px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      color:#e7edf3;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:11px;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+      opacity:.9;
+    }
+
+    .nav a:hover{
+      color:var(--gold);
+    }
+
+    .main{
+      flex:1;
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:82px 28px 90px;
+      display:grid;
+      place-items:center;
+    }
+
+    .confirmation-card{
+      width:100%;
+      max-width:790px;
+      padding:54px 58px 48px;
+      text-align:center;
+      background:
+        radial-gradient(circle at 86% 10%, rgba(201,162,74,.07), transparent 30%),
+        linear-gradient(180deg, rgba(10,32,53,.94), rgba(6,21,38,.99));
+      border:1px solid var(--line);
+      border-radius:4px;
+      box-shadow:0 28px 90px rgba(0,0,0,.30);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .confirmation-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(135deg, transparent 0%, rgba(255,255,255,.025) 100%);
+    }
+
+    .confirmation-card > *{
+      position:relative;
+    }
+
+    .status{
+      width:64px;
+      height:64px;
+      margin:0 auto 24px;
+      border:1px solid rgba(201,162,74,.55);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      color:var(--gold);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:28px;
+      line-height:1;
+    }
+
+    .eyebrow{
+      margin:0 0 16px;
+      color:var(--gold-soft);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .headline{
+      margin:0;
+      color:var(--white);
+      font-size:42px;
+      line-height:1.1;
+      font-weight:400;
+      letter-spacing:.01em;
+    }
+
+    .rule{
+      width:74px;
+      height:1px;
+      margin:28px auto 24px;
+      background:var(--gold);
+    }
+
+    .lead{
+      max-width:640px;
+      margin:0 auto;
+      color:var(--muted-2);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:15.5px;
+      line-height:1.78;
+    }
+
+    .lead + .lead{
+      margin-top:15px;
+    }
+
+    .next-step{
+      max-width:620px;
+      margin:34px auto 0;
+      padding:24px 26px;
+      border-top:1px solid var(--line-soft);
+      border-bottom:1px solid var(--line-soft);
+    }
+
+    .next-step h2{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:400;
+    }
+
+    .next-step p{
+      margin:0;
+      color:#dbe3eb;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .actions{
+      margin-top:34px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:210px;
+      min-height:48px;
+      padding:14px 20px;
+      border-radius:2px;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:11.5px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      transition:.2s ease;
+    }
+
+    .button-primary{
+      background:linear-gradient(180deg, #e2b85a, #c99e43);
+      color:var(--navy);
+      border:1px solid transparent;
+    }
+
+    .button-primary:hover{
+      filter:brightness(1.06);
+    }
+
+    .button-secondary{
+      color:var(--cream);
+      border:1px solid rgba(201,162,74,.42);
+      background:rgba(255,255,255,.02);
+    }
+
+    .button-secondary:hover{
+      border-color:var(--gold);
+      color:var(--gold);
+    }
+
+    .contact-note{
+      margin:28px 0 0;
+      color:var(--muted);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:12.5px;
+      line-height:1.6;
+    }
+
+    .contact-note a{
+      color:var(--gold);
+      border-bottom:1px solid rgba(201,162,74,.38);
+      padding-bottom:2px;
+    }
+
+    .footer{
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 28px 40px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:34px;
+      align-items:center;
+      border-top:1px solid var(--line-soft);
+    }
+
+    .footer-brand{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .footer-logo{
+      width:64px;
+      height:auto;
+      display:block;
+    }
+
+    .footer h3{
+      margin:0 0 5px;
+      font-size:18px;
+      font-weight:400;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .footer p{
+      margin:0;
+      color:#d8e1e9;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:13px;
+    }
+
+    .motto{
+      padding-left:34px;
+      border-left:1px solid var(--gold);
+      color:var(--gold);
+      font-size:23px;
+      line-height:1.2;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .copyright{
+      text-align:right;
+      color:#d8e0e8;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:13px;
+    }
+
+    @media(max-width:900px){
+      .header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav{
+        justify-content:flex-start;
+      }
+
+      .footer{
+        grid-template-columns:1fr;
+        align-items:start;
+      }
+
+      .motto{
+        border-left:0;
+        border-top:1px solid var(--gold);
+        padding:22px 0 0;
+      }
+
+      .copyright{
+        text-align:left;
+      }
+    }
+
+    @media(max-width:720px){
+      .header,
+      .main,
+      .footer{
+        padding-left:20px;
+        padding-right:20px;
+      }
+
+      .main{
+        padding-top:54px;
+        padding-bottom:64px;
+      }
+
+      .brand{
+        align-items:flex-start;
+      }
+
+      .brand-logo{
+        width:60px;
+      }
+
+      .brand-title{
+        font-size:20px;
+        white-space:normal;
+      }
+
+      .confirmation-card{
+        padding:40px 22px 36px;
+      }
+
+      .headline{
+        font-size:34px;
+      }
+
+      .button{
+        width:100%;
+      }
+
+      .motto{
+        white-space:normal;
+        font-size:21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site">
+    <header class="header">
+      <a class="brand" href="/" aria-label="The Buckler Group home">
+        <img
+          class="brand-logo"
+          src="assets-images/tbg-logo-new.png"
+          alt="The Buckler Group crest"
+        >
+        <div>
+          <h1 class="brand-title">The Buckler Group</h1>
+          <p class="brand-subtitle">Strategy. Investment. Development.</p>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/caribbean-renaissance.html">Caribbean Renaissance™</a>
+        <a href="/assessment.html">Assessment</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="confirmation-card" aria-labelledby="confirmation-title">
+        <div class="status" aria-hidden="true">✓</div>
+
+        <p class="eyebrow">Strategic Session Assessment</p>
+
+        <h2 class="headline" id="confirmation-title">
+          Assessment Received
+        </h2>
+
+        <div class="rule"></div>
+
+        <p class="lead">
+          Thank you for contributing your perspective to The Buckler Group’s
+          Caribbean Executive Intelligence Platform™.
+        </p>
+
+        <p class="lead">
+          Your assessment has been securely received and will help inform
+          future Strategic Sessions, institutional engagement, and qualified
+          executive follow-up.
+        </p>
+
+        <div class="next-step">
+          <h2>What Happens Next</h2>
+          <p>
+            The Buckler Group will review submitted intelligence for emerging
+            priorities, market opportunities, institutional alignment, and
+            appropriate pathways for continued engagement.
+          </p>
+        </div>
+
+        <div class="actions">
+          <a class="button button-primary" href="/">
+            Return to The Buckler Group
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="/caribbean-renaissance.html"
+          >
+            Explore the Framework
+          </a>
+        </div>
+
+        <p class="contact-note">
+          For assessment or executive engagement inquiries, contact
+          <a href="mailto:info@thebucklergroup.com">
+            info@thebucklergroup.com
+          </a>.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-brand">
+        <img
+          class="footer-logo"
+          src="assets-images/tbg-logo-new.png"
+          alt="The Buckler Group crest"
+        >
+        <div>
+          <h3>The Buckler Group</h3>
+          <p>Strategy. Investment. Development.</p>
+        </div>
+      </div>
+
+      <div class="motto">
+        Many Islands.<br>One Civilization.
+      </div>
+
+      <div class="copyright">
+        © 2026 The Buckler Group. All rights reserved.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
