@@ -1,29 +1,33 @@
 // netlify/functions/assessment.js
-// The Buckler Group — Strategic Session Assessment Integration v1.0
-// TBG website assessment form → Airtable
+// The Buckler Group — Strategic Session Executive Debrief
+// Netlify Function → Airtable Integration v2.0
 
 const AIRTABLE_API_URL = "https://api.airtable.com/v0";
 
-const ASSESSMENTS_TABLE =
+const AIRTABLE_TABLE =
   process.env.AIRTABLE_ASSESSMENTS_TABLE ||
   "Strategic Session Executive Debrief";
+
+const SUCCESS_REDIRECT = "/assessment-thank-you/";
 
 function jsonResponse(statusCode, body) {
   return {
     statusCode,
     headers: {
       "Content-Type": "application/json",
-      "Cache-Control": "no-store",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
     },
     body: JSON.stringify(body),
   };
 }
 
-function redirectToThankYou() {
+function redirectResponse(location = SUCCESS_REDIRECT) {
   return {
     statusCode: 302,
     headers: {
-      Location: "/assessment-thank-you.html",
+      Location: location,
       "Cache-Control": "no-store",
     },
     body: "",
@@ -31,24 +35,68 @@ function redirectToThankYou() {
 }
 
 function clean(value) {
-  if (value === undefined || value === null) {
-    return "";
-  }
+  if (value === undefined || value === null) return "";
 
   if (Array.isArray(value)) {
     return value
       .map((item) => String(item).trim())
-      .filter(Boolean)
-      .join(", ");
+      .filter(Boolean);
   }
 
   return String(value).trim();
 }
 
-function normalizeMultiSelect(value) {
-  if (!value) {
-    return [];
+function compactObject(object) {
+  return Object.fromEntries(
+    Object.entries(object).filter(([, value]) => {
+      if (Array.isArray(value)) return value.length > 0;
+      return value !== "";
+    })
+  );
+}
+
+function parseRequestBody(event) {
+  const contentType =
+    event.headers?.["content-type"] ||
+    event.headers?.["Content-Type"] ||
+    "";
+
+  if (!event.body) return {};
+
+  if (contentType.includes("application/json")) {
+    try {
+      return JSON.parse(event.body);
+    } catch {
+      throw new Error("The submitted JSON body is invalid.");
+    }
   }
+
+  const params = new URLSearchParams(event.body);
+  const data = {};
+
+  for (const [key, value] of params.entries()) {
+    const normalizedKey = key.endsWith("[]")
+      ? key.slice(0, -2)
+      : key;
+
+    if (Object.prototype.hasOwnProperty.call(data, normalizedKey)) {
+      if (!Array.isArray(data[normalizedKey])) {
+        data[normalizedKey] = [data[normalizedKey]];
+      }
+
+      data[normalizedKey].push(value);
+    } else {
+      data[normalizedKey] = key.endsWith("[]")
+        ? [value]
+        : value;
+    }
+  }
+
+  return data;
+}
+
+function normalizeArray(value) {
+  if (!value) return [];
 
   if (Array.isArray(value)) {
     return value
@@ -62,415 +110,220 @@ function normalizeMultiSelect(value) {
     .filter(Boolean);
 }
 
-function parseFormBody(event) {
-  if (!event.body) {
-    return {};
-  }
-
-  const headers = event.headers || {};
-
+function isJsonRequest(event) {
   const contentType =
-    headers["content-type"] ||
-    headers["Content-Type"] ||
+    event.headers?.["content-type"] ||
+    event.headers?.["Content-Type"] ||
     "";
 
-  if (
-    contentType.includes(
-      "application/x-www-form-urlencoded"
-    )
-  ) {
-    const params = new URLSearchParams(event.body);
-    const data = {};
-
-    for (const [rawKey, value] of params.entries()) {
-      const key = rawKey.endsWith("[]")
-        ? rawKey.slice(0, -2)
-        : rawKey;
-
-      if (
-        Object.prototype.hasOwnProperty.call(
-          data,
-          key
-        )
-      ) {
-        if (!Array.isArray(data[key])) {
-          data[key] = [data[key]];
-        }
-
-        data[key].push(value);
-      } else {
-        data[key] = value;
-      }
-    }
-
-    return data;
-  }
-
-  try {
-    const parsed = JSON.parse(event.body);
-
-    return (
-      parsed?.payload?.data ||
-      parsed?.data ||
-      parsed ||
-      {}
-    );
-  } catch {
-    return {};
-  }
-}
-
-function removeEmptyFields(fields) {
-  const cleanedFields = {
-    ...fields,
-  };
-
-  Object.keys(cleanedFields).forEach((key) => {
-    const value = cleanedFields[key];
-
-    if (
-      value === "" ||
-      value === undefined ||
-      value === null
-    ) {
-      delete cleanedFields[key];
-      return;
-    }
-
-    if (
-      Array.isArray(value) &&
-      value.length === 0
-    ) {
-      delete cleanedFields[key];
-    }
-  });
-
-  return cleanedFields;
-}
-
-function buildAssessmentFields(data) {
-  const strategicValueRaw = Number.parseInt(
-    clean(data.strategic_value),
-    10
-  );
-
-  const strategicValue =
-    Number.isInteger(strategicValueRaw) &&
-    strategicValueRaw >= 1 &&
-    strategicValueRaw <= 5
-      ? strategicValueRaw
-      : null;
-
-  const fields = {
-    "Full Name": clean(data.full_name),
-
-    "Email Address": clean(
-      data.email_address
-    ),
-
-    "Organization": clean(
-      data.organization
-    ),
-
-    "Title / Position": clean(
-      data.title_position
-    ),
-
-    "Strategic Value": strategicValue,
-
-    "Investment Horizon": clean(
-      data.investment_horizon
-    ),
-
-    "Priority Sectors": normalizeMultiSelect(
-      data.priority_sectors
-    ),
-
-    "Relevant Opportunity": clean(
-      data.relevant_opportunity
-    ),
-
-    "Opportunity or Obstacle": clean(
-      data.opportunity_or_obstacle
-    ),
-
-    "TBG Value Pathways": normalizeMultiSelect(
-      data.value_pathways
-    ),
-
-    "Future Programming": clean(
-      data.future_programming
-    ),
-
-    "Most Valuable Takeaway": clean(
-      data.most_valuable_takeaway
-    ),
-
-    "Permission to Follow Up": clean(
-      data.permission_to_follow_up
-    ),
-
-    "Session Code": clean(
-      data.session_code
-    ),
-
-    "Session Name": clean(
-      data.session_name
-    ),
-
-    "Session Jurisdiction": clean(
-      data.session_jurisdiction
-    ),
-
-    "Submission Source": clean(
-      data.submission_source ||
-      "TBG Website"
-    ),
-
-    "Referral Entry URL": clean(
-      data.referral_entry_url
-    ),
-
-    "Assessment Status": "New",
-
-  };
-
-  if (fields["Strategic Value"] === null) {
-    delete fields["Strategic Value"];
-  }
-
-  return removeEmptyFields(fields);
-}
-
-function validateAssessment(data) {
-  const requiredFields = {
-    full_name: clean(data.full_name),
-
-    email_address: clean(
-      data.email_address
-    ),
-
-    organization: clean(
-      data.organization
-    ),
-
-    strategic_value: clean(
-      data.strategic_value
-    ),
-
-    investment_horizon: clean(
-      data.investment_horizon
-    ),
-
-    most_valuable_takeaway: clean(
-      data.most_valuable_takeaway
-    ),
-
-    permission_to_follow_up: clean(
-      data.permission_to_follow_up
-    ),
-  };
-
-  const missingFields = Object.entries(
-    requiredFields
-  )
-    .filter(([, value]) => !value)
-    .map(([key]) => key);
-
-  if (missingFields.length > 0) {
-    return {
-      valid: false,
-      statusCode: 400,
-      body: {
-        error:
-          "Missing required assessment fields.",
-        required: missingFields,
-      },
-    };
-  }
-
-  const strategicValue = Number.parseInt(
-    clean(data.strategic_value),
-    10
-  );
-
-  if (
-    !Number.isInteger(strategicValue) ||
-    strategicValue < 1 ||
-    strategicValue > 5
-  ) {
-    return {
-      valid: false,
-      statusCode: 400,
-      body: {
-        error:
-          "Strategic Value must be an integer from 1 to 5.",
-      },
-    };
-  }
-
-  const prioritySectors =
-    normalizeMultiSelect(
-      data.priority_sectors
-    );
-
-  if (prioritySectors.length === 0) {
-    return {
-      valid: false,
-      statusCode: 400,
-      body: {
-        error:
-          "Please select at least one priority sector.",
-        required: [
-          "priority_sectors",
-        ],
-      },
-    };
-  }
-
-  const valuePathways =
-    normalizeMultiSelect(
-      data.value_pathways
-    );
-
-  if (valuePathways.length === 0) {
-    return {
-      valid: false,
-      statusCode: 400,
-      body: {
-        error:
-          "Please select at least one TBG value pathway.",
-        required: [
-          "value_pathways",
-        ],
-      },
-    };
-  }
-
-  return {
-    valid: true,
-  };
+  return contentType.includes("application/json");
 }
 
 exports.handler = async function handler(event) {
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 204,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+      },
+      body: "",
+    };
+  }
+
   if (event.httpMethod !== "POST") {
     return jsonResponse(405, {
-      error:
-        "Method not allowed. Submit the Strategic Session Assessment form to use this endpoint.",
+      error: "Method not allowed.",
     });
   }
 
-  const token =
-    process.env.AIRTABLE_TOKEN;
+  const accessToken = process.env.AIRTABLE_ACCESS_TOKEN;
+  const baseId = process.env.AIRTABLE_BASE_ID;
 
-  const baseId =
-    process.env.AIRTABLE_BASE_ID;
+  if (!accessToken || !baseId) {
+    console.error("Missing Airtable environment variables.", {
+      hasAccessToken: Boolean(accessToken),
+      hasBaseId: Boolean(baseId),
+    });
 
-  const tableName =
-    ASSESSMENTS_TABLE;
-
-  if (!token || !baseId) {
     return jsonResponse(500, {
-      error:
-        "Missing required Airtable environment variables.",
-      required: [
-        "AIRTABLE_TOKEN",
-        "AIRTABLE_BASE_ID",
-      ],
+      error: "Airtable integration is not configured.",
     });
   }
-
-  const data =
-    parseFormBody(event);
-
-  const validation =
-    validateAssessment(data);
-
-  if (!validation.valid) {
-    return jsonResponse(
-      validation.statusCode,
-      validation.body
-    );
-  }
-
-  const airtableUrl =
-    `${AIRTABLE_API_URL}/${baseId}/${encodeURIComponent(
-      tableName
-    )}`;
 
   try {
-    const airtableResponse =
-      await fetch(airtableUrl, {
-        method: "POST",
+    const submission = parseRequestBody(event);
 
-        headers: {
-          Authorization:
-            `Bearer ${token}`,
+    // Netlify honeypot protection
+    if (clean(submission["bot-field"])) {
+      console.warn("Honeypot field completed. Submission rejected.");
 
-          "Content-Type":
-            "application/json",
-        },
-
-        body: JSON.stringify({
-          records: [
-            {
-              fields:
-                buildAssessmentFields(
-                  data
-                ),
-            },
-          ],
-
-          typecast: true,
-        }),
+      return jsonResponse(400, {
+        error: "Invalid submission.",
       });
-
-    const result =
-      await airtableResponse
-        .json()
-        .catch(() => ({}));
-
-    if (!airtableResponse.ok) {
-      console.error(
-        "Airtable assessment write failed:",
-        {
-          status:
-            airtableResponse.status,
-
-          tableName,
-
-          details: result,
-        }
-      );
-
-      return jsonResponse(
-        airtableResponse.status,
-        {
-          error:
-            "Airtable assessment integration failed.",
-
-          tableName,
-
-          details: result,
-        }
-      );
     }
 
-    return redirectToThankYou();
-  } catch (error) {
-    console.error(
-      "Airtable assessment function error:",
-      error
+    const fullName = clean(submission.full_name);
+    const emailAddress = clean(submission.email_address);
+    const attendanceStatus = clean(submission.attendance_status);
+    const permissionToFollowUp = clean(
+      submission.permission_to_follow_up
     );
 
-    return jsonResponse(500, {
-      error:
-        "Airtable assessment integration failed.",
+    if (!fullName) {
+      return jsonResponse(400, {
+        error: "Full Name is required.",
+      });
+    }
 
-      message:
-        error instanceof Error
-          ? error.message
-          : "Unknown server error.",
+    if (!emailAddress) {
+      return jsonResponse(400, {
+        error: "Email Address is required.",
+      });
+    }
+
+    if (!attendanceStatus) {
+      return jsonResponse(400, {
+        error: "Attendance Status is required.",
+      });
+    }
+
+    if (!permissionToFollowUp) {
+      return jsonResponse(400, {
+        error: "Permission to Follow Up is required.",
+      });
+    }
+
+    /*
+     * Important:
+     * Airtable Multiple Select fields must receive arrays.
+     * Do not convert these values into comma-separated text:
+     *
+     * - Requested Follow-Up
+     * - Closed Executive Session Stakeholders
+     */
+
+    const fields = compactObject({
+      "Full Name": fullName,
+      Email: emailAddress,
+
+      "Attendance Status": attendanceStatus,
+      "Participation Barrier": clean(
+        submission.participation_barrier
+      ),
+      "Requested Follow-Up": normalizeArray(
+        submission.requested_follow_up
+      ),
+
+      "Session Effectiveness": clean(
+        submission.session_effectiveness
+      ),
+      "Greatest Impact": clean(
+        submission.greatest_impact
+      ),
+      "Most Valuable Takeaway": clean(
+        submission.most_valuable_takeaway
+      ),
+      "Greatest Development Barrier": clean(
+        submission.greatest_development_barrier
+      ),
+
+      "Closed Executive Session Stakeholders": normalizeArray(
+        submission.closed_session_stakeholders
+      ),
+      "Closed Session Topic": clean(
+        submission.closed_session_topic
+      ),
+      "Investment Confidence": clean(
+        submission.investment_confidence
+      ),
+      "Next TBG Offering": clean(
+        submission.next_tbg_offering
+      ),
+      "Strategic Session Recommendation": clean(
+        submission.strategic_session_recommendation
+      ),
+
+      "Permission to Follow Up": permissionToFollowUp,
+
+      "Session Code": clean(submission.session_code),
+      "Strategic Session": clean(submission.session_name),
+      "Session Jurisdiction": clean(
+        submission.session_jurisdiction
+      ),
+      "Submission Source": clean(
+        submission.submission_source
+      ),
+      "Referral Entry URL": clean(
+        submission.referral_entry_url
+      ),
+    });
+
+    /*
+     * Date Submitted is intentionally omitted.
+     * Airtable creates that value automatically through its
+     * Created Time/computed field.
+     */
+
+    const airtableUrl =
+      `${AIRTABLE_API_URL}/${baseId}/` +
+      encodeURIComponent(AIRTABLE_TABLE);
+
+    const airtableResponse = await fetch(airtableUrl, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        records: [
+          {
+            fields,
+          },
+        ],
+        typecast: true,
+      }),
+    });
+
+    const airtableResult = await airtableResponse.json();
+
+    if (!airtableResponse.ok) {
+      console.error("Airtable Executive Debrief error:", {
+        tableName: AIRTABLE_TABLE,
+        status: airtableResponse.status,
+        response: airtableResult,
+        submittedFields: Object.keys(fields),
+      });
+
+      return jsonResponse(airtableResponse.status, {
+        error: "Airtable Executive Debrief integration failed.",
+        tableName: AIRTABLE_TABLE,
+        details: airtableResult,
+      });
+    }
+
+    console.log("Executive Debrief submitted successfully.", {
+      tableName: AIRTABLE_TABLE,
+      recordId: airtableResult.records?.[0]?.id,
+    });
+
+    if (isJsonRequest(event)) {
+      return jsonResponse(200, {
+        success: true,
+        message: "Executive Debrief submitted successfully.",
+        redirect: SUCCESS_REDIRECT,
+        recordId: airtableResult.records?.[0]?.id || null,
+      });
+    }
+
+    return redirectResponse();
+  } catch (error) {
+    console.error("Executive Debrief function error:", error);
+
+    return jsonResponse(500, {
+      error: "The Executive Debrief could not be submitted.",
+      details: error.message,
     });
   }
 };
