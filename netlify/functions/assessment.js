@@ -1,7 +1,7 @@
 // netlify/functions/assessment.js
 // The Buckler Group
 // Strategic Session Executive Debrief → Airtable
-// Production Integration v3.2
+// Stable Production Version
 //
 // Required Netlify environment variables:
 // AIRTABLE_TOKEN
@@ -16,6 +16,9 @@ const AIRTABLE_TABLE =
 
 const SUCCESS_REDIRECT = "/assessment-thank-you/";
 
+/**
+ * Return a JSON response.
+ */
 function jsonResponse(statusCode, body) {
   return {
     statusCode,
@@ -30,6 +33,9 @@ function jsonResponse(statusCode, body) {
   };
 }
 
+/**
+ * Redirect a successful browser submission.
+ */
 function redirectResponse(location = SUCCESS_REDIRECT) {
   return {
     statusCode: 302,
@@ -41,6 +47,9 @@ function redirectResponse(location = SUCCESS_REDIRECT) {
   };
 }
 
+/**
+ * Clean a submitted value.
+ */
 function clean(value) {
   if (value === undefined || value === null) {
     return "";
@@ -55,6 +64,10 @@ function clean(value) {
   return String(value).trim();
 }
 
+/**
+ * Convert repeated checkbox values into an array
+ * for Airtable multiple-select fields.
+ */
 function normalizeArray(value) {
   if (
     value === undefined ||
@@ -76,6 +89,9 @@ function normalizeArray(value) {
     .filter(Boolean);
 }
 
+/**
+ * Remove blank fields before sending data to Airtable.
+ */
 function removeEmptyFields(fields) {
   return Object.fromEntries(
     Object.entries(fields).filter(([, value]) => {
@@ -88,6 +104,9 @@ function removeEmptyFields(fields) {
   );
 }
 
+/**
+ * Read the request content type.
+ */
 function getContentType(event) {
   return (
     event.headers?.["content-type"] ||
@@ -96,12 +115,18 @@ function getContentType(event) {
   );
 }
 
+/**
+ * Determine whether the request was submitted as JSON.
+ */
 function isJsonRequest(event) {
   return getContentType(event).includes(
     "application/json"
   );
 }
 
+/**
+ * Parse JSON or standard HTML form submissions.
+ */
 function parseRequestBody(event) {
   if (!event.body) {
     return {};
@@ -130,10 +155,7 @@ function parseRequestBody(event) {
       : rawKey;
 
     if (
-      Object.prototype.hasOwnProperty.call(
-        data,
-        key
-      )
+      Object.prototype.hasOwnProperty.call(data, key)
     ) {
       if (!Array.isArray(data[key])) {
         data[key] = [data[key]];
@@ -150,12 +172,18 @@ function parseRequestBody(event) {
   return data;
 }
 
+/**
+ * Basic email-address validation.
+ */
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
     value
   );
 }
 
+/**
+ * Safely parse the Airtable response.
+ */
 function parseAirtableResponse(responseText) {
   if (!responseText) {
     return {};
@@ -167,13 +195,18 @@ function parseAirtableResponse(responseText) {
     return {
       error: {
         type: "INVALID_AIRTABLE_RESPONSE",
-        message: responseText,
+        message:
+          responseText ||
+          "Airtable returned an invalid response.",
       },
     };
   }
 }
 
 exports.handler = async function handler(event) {
+  /**
+   * Browser preflight request.
+   */
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 204,
@@ -189,6 +222,9 @@ exports.handler = async function handler(event) {
     };
   }
 
+  /**
+   * Only POST submissions are accepted.
+   */
   if (event.httpMethod !== "POST") {
     return jsonResponse(405, {
       error: "Method not allowed.",
@@ -209,7 +245,8 @@ exports.handler = async function handler(event) {
           Boolean(accessToken),
         hasAirtableBaseId:
           Boolean(baseId),
-        tableName: AIRTABLE_TABLE,
+        tableName:
+          AIRTABLE_TABLE,
       }
     );
 
@@ -227,16 +264,18 @@ exports.handler = async function handler(event) {
     const submission =
       parseRequestBody(event);
 
+    /**
+     * Honeypot spam protection.
+     */
     if (clean(submission["bot-field"])) {
-      console.warn(
-        "Executive Debrief submission rejected by honeypot."
-      );
-
       return jsonResponse(400, {
         error: "Invalid submission.",
       });
     }
 
+    /**
+     * Required form values.
+     */
     const fullName = clean(
       submission.full_name
     );
@@ -253,6 +292,9 @@ exports.handler = async function handler(event) {
       submission.permission_to_follow_up
     );
 
+    /**
+     * Required-field validation.
+     */
     if (!fullName) {
       return jsonResponse(400, {
         error: "Full Name is required.",
@@ -286,35 +328,47 @@ exports.handler = async function handler(event) {
       });
     }
 
+    /**
+     * Stable Airtable mapping.
+     *
+     * Only actual assessment-response fields are sent.
+     * Computed fields and metadata fields are excluded.
+     */
     const airtableFields =
       removeEmptyFields({
-        "Full Name": fullName,
+        "Full Name":
+          fullName,
 
-        "Email Address": emailAddress,
+        "Email Address":
+          emailAddress,
 
         "Attendance Status":
           attendanceStatus,
 
-        "Participation Barrier": clean(
-          submission.participation_barrier
-        ),
+        "Participation Barrier":
+          clean(
+            submission.participation_barrier
+          ),
 
         "Requested Follow-Up":
           normalizeArray(
             submission.requested_follow_up
           ),
 
-        "Session Effectiveness": clean(
-          submission.session_effectiveness
-        ),
+        "Session Effectiveness":
+          clean(
+            submission.session_effectiveness
+          ),
 
-        "Greatest Impact": clean(
-          submission.greatest_impact
-        ),
+        "Greatest Impact":
+          clean(
+            submission.greatest_impact
+          ),
 
-        "Most Valuable Takeaway": clean(
-          submission.most_valuable_takeaway
-        ),
+        "Most Valuable Takeaway":
+          clean(
+            submission.most_valuable_takeaway
+          ),
 
         "Greatest Development Barrier":
           clean(
@@ -328,17 +382,20 @@ exports.handler = async function handler(event) {
               .closed_session_stakeholders
           ),
 
-        "Closed Session Topic": clean(
-          submission.closed_session_topic
-        ),
+        "Closed Session Topic":
+          clean(
+            submission.closed_session_topic
+          ),
 
-        "Investment Confidence": clean(
-          submission.investment_confidence
-        ),
+        "Investment Confidence":
+          clean(
+            submission.investment_confidence
+          ),
 
-        "Next TBG Offering": clean(
-          submission.next_tbg_offering
-        ),
+        "Next TBG Offering":
+          clean(
+            submission.next_tbg_offering
+          ),
 
         "Strategic Session Recommendation":
           clean(
@@ -348,26 +405,18 @@ exports.handler = async function handler(event) {
 
         "Permission to Follow Up":
           permissionToFollowUp,
-
-        "Session Jurisdiction": clean(
-          submission.session_jurisdiction
-        ),
-
-        "Submission Source": clean(
-          submission.submission_source
-        ),
-
-        "Referral Entry URL": clean(
-          submission.referral_entry_url
-        ),
       });
 
+    /**
+     * Construct the Airtable endpoint.
+     */
     const airtableUrl =
       `${AIRTABLE_API_URL}/${baseId}/` +
-      encodeURIComponent(
-        AIRTABLE_TABLE
-      );
+      encodeURIComponent(AIRTABLE_TABLE);
 
+    /**
+     * Create the Airtable record.
+     */
     const airtableResponse =
       await fetch(airtableUrl, {
         method: "POST",
@@ -393,6 +442,9 @@ exports.handler = async function handler(event) {
     const airtableResult =
       parseAirtableResponse(responseText);
 
+    /**
+     * Return any Airtable error.
+     */
     if (!airtableResponse.ok) {
       console.error(
         "Airtable Executive Debrief integration failed.",
@@ -404,9 +456,7 @@ exports.handler = async function handler(event) {
           details:
             airtableResult,
           submittedFields:
-            Object.keys(
-              airtableFields
-            ),
+            Object.keys(airtableFields),
         }
       );
 
@@ -437,6 +487,9 @@ exports.handler = async function handler(event) {
       }
     );
 
+    /**
+     * JSON submissions receive a JSON response.
+     */
     if (isJsonRequest(event)) {
       return jsonResponse(200, {
         success: true,
@@ -448,6 +501,10 @@ exports.handler = async function handler(event) {
       });
     }
 
+    /**
+     * Standard form submissions redirect
+     * to the thank-you page.
+     */
     return redirectResponse(
       `${SUCCESS_REDIRECT}?status=success`
     );
