@@ -6,7 +6,7 @@ const AIRTABLE_API_URL = "https://api.airtable.com/v0";
 
 const ASSESSMENTS_TABLE =
   process.env.AIRTABLE_ASSESSMENTS_TABLE ||
-  "Strategic Session Executive Debrief";";
+  "Strategic Session Executive Debrief";
 
 function jsonResponse(statusCode, body) {
   return {
