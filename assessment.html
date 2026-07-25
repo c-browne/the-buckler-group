@@ -1217,7 +1217,16 @@ document.addEventListener("DOMContentLoaded", function () {
   setSectionState(nonAttendeeSection, false);
 });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const referralField =
+      document.getElementById("referral-entry-url");
 
+    if (referralField) {
+      referralField.value = window.location.href;
+    }
+  });
+</script>
 
 </body>
 </html>
