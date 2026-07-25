@@ -1,7 +1,7 @@
 // netlify/functions/assessment.js
 // The Buckler Group
 // Strategic Session Executive Debrief → Airtable
-// Production Integration v2.2
+// Production Integration v2.3
 
 const AIRTABLE_API_URL = "https://api.airtable.com/v0";
 
@@ -11,9 +11,6 @@ const AIRTABLE_TABLE =
 
 const SUCCESS_REDIRECT = "/assessment-thank-you/";
 
-/**
- * Return a JSON response.
- */
 function jsonResponse(statusCode, body) {
   return {
     statusCode,
@@ -28,9 +25,6 @@ function jsonResponse(statusCode, body) {
   };
 }
 
-/**
- * Redirect the browser after a successful form submission.
- */
 function redirectResponse(location = SUCCESS_REDIRECT) {
   return {
     statusCode: 302,
@@ -42,9 +36,6 @@ function redirectResponse(location = SUCCESS_REDIRECT) {
   };
 }
 
-/**
- * Clean a submitted value.
- */
 function clean(value) {
   if (value === undefined || value === null) {
     return "";
@@ -59,11 +50,6 @@ function clean(value) {
   return String(value).trim();
 }
 
-/**
- * Convert checkbox or multiple-select values into an array.
- *
- * Airtable multiple-select fields must receive arrays.
- */
 function normalizeArray(value) {
   if (value === undefined || value === null || value === "") {
     return [];
@@ -81,9 +67,6 @@ function normalizeArray(value) {
     .filter(Boolean);
 }
 
-/**
- * Remove blank values before sending data to Airtable.
- */
 function removeEmptyFields(fields) {
   return Object.fromEntries(
     Object.entries(fields).filter(([, value]) => {
@@ -96,9 +79,6 @@ function removeEmptyFields(fields) {
   );
 }
 
-/**
- * Read the request content type.
- */
 function getContentType(event) {
   return (
     event.headers?.["content-type"] ||
@@ -107,18 +87,10 @@ function getContentType(event) {
   );
 }
 
-/**
- * Determine whether the request body is JSON.
- */
 function isJsonRequest(event) {
   return getContentType(event).includes("application/json");
 }
 
-/**
- * Parse either:
- * - application/json
- * - application/x-www-form-urlencoded
- */
 function parseRequestBody(event) {
   if (!event.body) {
     return {};
@@ -129,7 +101,7 @@ function parseRequestBody(event) {
   if (contentType.includes("application/json")) {
     try {
       return JSON.parse(event.body);
-    } catch (error) {
+    } catch {
       throw new Error("The submitted JSON body is invalid.");
     }
   }
@@ -157,17 +129,11 @@ function parseRequestBody(event) {
   return data;
 }
 
-/**
- * Validate an email address using a basic format check.
- */
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 exports.handler = async function handler(event) {
-  /*
-   * Allow browser preflight requests.
-   */
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 204,
@@ -181,22 +147,12 @@ exports.handler = async function handler(event) {
     };
   }
 
-  /*
-   * Only POST submissions are permitted.
-   */
   if (event.httpMethod !== "POST") {
     return jsonResponse(405, {
       error: "Method not allowed.",
     });
   }
 
-  /*
-   * These names match your existing Netlify variables:
-   *
-   * AIRTABLE_TOKEN
-   * AIRTABLE_BASE_ID
-   * AIRTABLE_ASSESSMENT_TABLE
-   */
   const accessToken = process.env.AIRTABLE_TOKEN;
   const baseId = process.env.AIRTABLE_BASE_ID;
 
@@ -219,20 +175,12 @@ exports.handler = async function handler(event) {
   try {
     const submission = parseRequestBody(event);
 
-    /*
-     * Reject bots that complete the hidden honeypot field.
-     */
     if (clean(submission["bot-field"])) {
-      console.warn("Honeypot field was completed.");
-
       return jsonResponse(400, {
         error: "Invalid submission.",
       });
     }
 
-    /*
-     * Required fields.
-     */
     const fullName = clean(submission.full_name);
     const emailAddress = clean(submission.email_address);
     const attendanceStatus = clean(
@@ -272,18 +220,10 @@ exports.handler = async function handler(event) {
       });
     }
 
-    /*
-     * Map website form fields to Airtable fields.
-     *
-     * Airtable field names must match exactly.
-     *
-     * Date Submitted is intentionally excluded because
-     * Airtable calculates it automatically.
-     */
     const airtableFields = removeEmptyFields({
       "Full Name": fullName,
 
-      "Email": emailAddress,
+      "Email Address": emailAddress,
 
       "Attendance Status": attendanceStatus,
 
@@ -355,16 +295,10 @@ exports.handler = async function handler(event) {
       ),
     });
 
-    /*
-     * Construct the Airtable endpoint.
-     */
     const airtableUrl =
       `${AIRTABLE_API_URL}/${baseId}/` +
       encodeURIComponent(AIRTABLE_TABLE);
 
-    /*
-     * Send the record to Airtable.
-     */
     const airtableResponse = await fetch(airtableUrl, {
       method: "POST",
       headers: {
@@ -381,9 +315,6 @@ exports.handler = async function handler(event) {
       }),
     });
 
-    /*
-     * Parse Airtable's response safely.
-     */
     const responseText = await airtableResponse.text();
 
     let airtableResult;
@@ -392,28 +323,31 @@ exports.handler = async function handler(event) {
       airtableResult = responseText
         ? JSON.parse(responseText)
         : {};
-    } catch (error) {
+    } catch {
       airtableResult = {
         error: {
           type: "INVALID_AIRTABLE_RESPONSE",
-          message: responseText || "Airtable returned an empty response.",
+          message:
+            responseText ||
+            "Airtable returned an empty response.",
         },
       };
     }
 
-    /*
-     * Return Airtable errors with enough detail for troubleshooting.
-     */
     if (!airtableResponse.ok) {
-      console.error("Airtable Executive Debrief submission failed.", {
-        status: airtableResponse.status,
-        tableName: AIRTABLE_TABLE,
-        airtableResult,
-        submittedFields: Object.keys(airtableFields),
-      });
+      console.error(
+        "Airtable Executive Debrief submission failed.",
+        {
+          status: airtableResponse.status,
+          tableName: AIRTABLE_TABLE,
+          airtableResult,
+          submittedFields: Object.keys(airtableFields),
+        }
+      );
 
       return jsonResponse(airtableResponse.status, {
-        error: "Airtable Executive Debrief integration failed.",
+        error:
+          "Airtable Executive Debrief integration failed.",
         tableName: AIRTABLE_TABLE,
         details: airtableResult,
       });
@@ -422,27 +356,16 @@ exports.handler = async function handler(event) {
     const recordId =
       airtableResult.records?.[0]?.id || null;
 
-    console.log("Executive Debrief submitted successfully.", {
-      tableName: AIRTABLE_TABLE,
-      recordId,
-    });
-
-    /*
-     * JSON submissions receive a JSON success response.
-     */
     if (isJsonRequest(event)) {
       return jsonResponse(200, {
         success: true,
-        message: "Executive Debrief submitted successfully.",
+        message:
+          "Executive Debrief submitted successfully.",
         redirect: SUCCESS_REDIRECT,
         recordId,
       });
     }
 
-    /*
-     * Standard browser form submissions redirect to the
-     * Executive Debrief thank-you page.
-     */
     return redirectResponse();
   } catch (error) {
     console.error("Executive Debrief function error.", {
@@ -451,7 +374,8 @@ exports.handler = async function handler(event) {
     });
 
     return jsonResponse(500, {
-      error: "The Executive Debrief could not be submitted.",
+      error:
+        "The Executive Debrief could not be submitted.",
       details: error.message,
     });
   }
