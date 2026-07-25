@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Strategic Session Assessment | The Buckler Group</title>
-  <meta name="description" content="Complete The Buckler Group Strategic Session Assessment and contribute to the Caribbean Executive Intelligence Platform™." />
+  <title>Executive Debrief | Session I: Guyana | The Buckler Group</title>
+  <meta name="description" content="Complete The Buckler Group Executive Debrief for the Caribbean Entitlement & Hospitality Strategic Sessions™ | Session I: Guyana." />
 
   <style>
     :root{
@@ -598,6 +598,88 @@
       font-size:13px;
     }
 
+
+    .conditional-section[hidden]{display:none}
+
+    .choice-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px 14px;
+      margin-bottom:18px;
+    }
+
+    .choice-card{
+      position:relative;
+      display:flex;
+      align-items:flex-start;
+      gap:9px;
+      min-height:50px;
+      margin:0;
+      padding:12px 13px;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:2px;
+      background:rgba(4,17,30,.72);
+      color:#e5ebf1;
+      cursor:pointer;
+      transition:border-color .18s ease,background .18s ease;
+    }
+
+    .choice-card:hover{border-color:rgba(201,162,74,.72)}
+
+    .choice-card input{
+      width:auto;
+      flex:0 0 auto;
+      margin:2px 0 0;
+      accent-color:var(--gold);
+    }
+
+    .choice-card:has(input:checked){
+      border-color:var(--gold);
+      background:rgba(201,162,74,.10);
+    }
+
+    .question-note{
+      margin:-4px 0 11px;
+      color:var(--muted);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:11.5px;
+      line-height:1.5;
+    }
+
+    .selection-status{
+      min-height:18px;
+      margin:-8px 0 16px;
+      color:var(--gold-soft);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:11.5px;
+    }
+
+    .form-status{
+      display:none;
+      margin:15px 0 0;
+      padding:11px 12px;
+      border:1px solid rgba(201,162,74,.35);
+      color:#f5e6bd;
+      background:rgba(201,162,74,.08);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:12.5px;
+      line-height:1.5;
+    }
+
+    .form-status.show{display:block}
+
+    .identity-note{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    @media(max-width:720px){
+      .choice-grid{grid-template-columns:1fr}
+    }
+
     @media(max-width:1060px){
       .header{
         flex-direction:column;
@@ -693,10 +775,10 @@
       
 <section>
   <p class="eyebrow">Caribbean Executive Intelligence Platform™</p>
-  <h2 class="headline">Strategic Session Assessment</h2>
+  <h2 class="headline">Executive Debrief</h2>
   <div class="rule"></div>
 
-  <p class="lead">Thank you for participating in today’s Strategic Session. This confidential two-minute assessment helps The Buckler Group identify investment priorities, strengthen executive collaboration, and inform future programming.</p>
+  <p class="lead">Thank you for contributing to Friday’s Strategic Session. This confidential two-minute Executive Debrief will help The Buckler Group refine future executive dialogue, Closed Executive Sessions™, and market engagement.</p>
 
   <p class="lead">Your responses will contribute to The Buckler Group’s Caribbean Executive Intelligence Platform™ and support more focused engagement among government, investors, developers, operators, and institutional partners.</p>
 
@@ -722,20 +804,20 @@
   <div class="signature">Your insight strengthens the quality of future executive action.</div>
 
   <div class="criteria">
-    <h3>Assessment Principles</h3>
+    <h3>Debrief Principles</h3>
     <ul>
       <li>Confidential and intended for executive intelligence</li>
-      <li>Designed to be completed in approximately two minutes</li>
+      <li>Designed for easy completion in approximately two minutes</li>
       <li>Focused on strategic relevance, opportunity, and next-step engagement</li>
-      <li>Used to improve future Strategic Sessions and institutional follow-up</li>
+      <li>Used to improve future Strategic Sessions™, Closed Executive Sessions™, and institutional follow-up</li>
     </ul>
   </div>
 </section>
 
 
 <aside class="form-card" id="assessment-form">
-  <h2 class="form-title">Executive Assessment</h2>
-  <p class="form-subtitle">Please provide a concise assessment of today’s discussion and the opportunities most relevant to your organization.</p>
+  <h2 class="form-title">Executive Debrief</h2>
+  <p class="form-subtitle">Please provide a concise reflection on Friday’s Strategic Session and the issues that warrant deeper executive engagement.</p>
   <div class="form-rule"></div>
 
   <form name="assessment" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/.netlify/functions/assessment">
@@ -750,119 +832,185 @@
       <label>Do not fill this out if you are human: <input name="bot-field"></label>
     </p>
 
-    <div class="section-label">1. Participant Information</div>
+
+    <div class="section-label">1. Participation</div>
+
+    <label>Did you attend Friday’s Strategic Session? <span class="req">*</span></label>
+    <div class="choice-grid">
+      <label class="choice-card">
+        <input type="radio" name="attendance_status" value="Attended" required>
+        <span>Yes — I attended the live session</span>
+      </label>
+
+      <label class="choice-card">
+        <input type="radio" name="attendance_status" value="Registered but did not attend" required>
+        <span>No — I was unable to attend</span>
+      </label>
+    </div>
+
+    <div id="non-attendee-section" class="conditional-section" hidden>
+      <div class="section-label">2. Follow-Up</div>
+
+      <div class="field">
+        <label for="participation_barrier">What prevented your participation?</label>
+        <select id="participation_barrier" name="participation_barrier">
+          <option value="">Select one</option>
+          <option>Scheduling conflict</option>
+          <option>Work commitment</option>
+          <option>Technical issue</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <label>What follow-up would be most useful?</label>
+      <p class="question-note">Select all that apply.</p>
+
+      <div class="choice-grid">
+        <label class="choice-card"><input type="checkbox" name="requested_follow_up[]" value="Executive Summary"><span>Executive Summary</span></label>
+        <label class="choice-card"><input type="checkbox" name="requested_follow_up[]" value="Future Strategic Sessions"><span>Future Strategic Sessions™</span></label>
+        <label class="choice-card"><input type="checkbox" name="requested_follow_up[]" value="Closed Executive Session"><span>Closed Executive Session™</span></label>
+        <label class="choice-card"><input type="checkbox" name="requested_follow_up[]" value="Executive Inward Delegation"><span>Executive Inward Delegation™</span></label>
+      </div>
+    </div>
+
+    <div id="attendee-section" class="conditional-section" hidden>
+      <div class="section-label">2. Strategic Reflection</div>
+
+      <div class="field">
+        <label for="session_effectiveness">How effective was Friday’s Strategic Session in connecting public policy, infrastructure, and private investment?</label>
+        <select id="session_effectiveness" name="session_effectiveness">
+          <option value="">Select one</option>
+          <option value="5 - Exceptional">5 — Exceptional</option>
+          <option value="4 - Strong">4 — Strong</option>
+          <option value="3 - Adequate">3 — Adequate</option>
+          <option value="2 - Limited">2 — Limited</option>
+          <option value="1 - Not effective">1 — Not effective</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="greatest_impact">Which discussion most changed your understanding of Guyana’s development environment?</label>
+        <select id="greatest_impact" name="greatest_impact">
+          <option value="">Select one</option>
+          <option>Government investment priorities</option>
+          <option>Infrastructure and destination readiness</option>
+          <option>Hospitality and tourism development</option>
+          <option>Real estate and mixed-use opportunities</option>
+          <option>Sustainability and green-building standards</option>
+          <option>Development approvals and institutional coordination</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="most_valuable_takeaway">What did Friday’s Strategic Session clarify that was previously uncertain?</label>
+        <textarea id="most_valuable_takeaway" name="most_valuable_takeaway" maxlength="600" placeholder="Identify one policy, investment, infrastructure, approval, or market issue that became clearer."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="greatest_development_barrier">What is the most significant barrier to executing a project in Guyana?</label>
+        <select id="greatest_development_barrier" name="greatest_development_barrier">
+          <option value="">Select one</option>
+          <option>Access to suitable land</option>
+          <option>Land-title certainty</option>
+          <option>Planning and development approvals</option>
+          <option>Infrastructure capacity</option>
+          <option>Project financing</option>
+          <option>Construction costs and procurement</option>
+          <option>Identifying qualified local partners</option>
+          <option>Availability of reliable market data</option>
+          <option>Government and agency coordination</option>
+          <option>Political or execution risk</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="section-label">3. Closed Executive Session™</div>
+
+      <label>Which stakeholders should be included in the Closed Executive Session™?</label>
+      <p class="question-note">Select up to three.</p>
+
+      <div class="choice-grid" id="stakeholder-options">
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Senior central-government decision-makers"><span>Senior government decision-makers</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Planning and development-approval agencies"><span>Planning and approval agencies</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Guyana Tourism Authority"><span>Guyana Tourism Authority</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Infrastructure and public-utilities agencies"><span>Infrastructure and utilities agencies</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Commercial banks and capital providers"><span>Banks and capital providers</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Institutional and private investors"><span>Institutional and private investors</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Landowners and property representatives"><span>Landowners and property representatives</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Local developers and development partners"><span>Local developers and partners</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Hotel owners, operators, and hospitality brands"><span>Hotel owners, operators, and brands</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Attorneys, title specialists, and regulatory advisers"><span>Legal, title, and regulatory advisers</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Architects, planners, engineers, and sustainability experts"><span>Technical and sustainability experts</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Other"><span>Other</span></label>
+      </div>
+
+      <p id="stakeholder-status" class="selection-status" aria-live="polite"></p>
+
+      <div class="field">
+        <label for="closed_session_topic">Which issue should receive deeper treatment during the Closed Executive Session™?</label>
+        <select id="closed_session_topic" name="closed_session_topic">
+          <option value="">Select one</option>
+          <option>Land acquisition and title</option>
+          <option>Planning and development approvals</option>
+          <option>Government incentives</option>
+          <option>Infrastructure delivery</option>
+          <option>Hospitality demand and market positioning</option>
+          <option>Project financing and capital access</option>
+          <option>Public-private partnership structures</option>
+          <option>Local development partners</option>
+          <option>Sustainability and resilience requirements</option>
+          <option>Investor protections and execution risk</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="investment_confidence">Did Friday’s Strategic Session increase your confidence in Guyana as an investment and development market?</label>
+        <select id="investment_confidence" name="investment_confidence">
+          <option value="">Select one</option>
+          <option>Significantly increased</option>
+          <option>Moderately increased</option>
+          <option>No material change</option>
+          <option>Reduced</option>
+          <option>I require additional diligence before forming a view</option>
+        </select>
+      </div>
+
+      <div class="section-label">4. Next Engagement</div>
+
+      <div class="field">
+        <label for="next_tbg_offering">Which next step would provide the greatest value?</label>
+        <select id="next_tbg_offering" name="next_tbg_offering">
+          <option value="">Select one</option>
+          <option>Executive Summary</option>
+          <option>Closed Executive Session™</option>
+          <option>Guyana-focused investor roundtable</option>
+          <option>Government or agency introductions</option>
+          <option>Specific investment opportunities</option>
+          <option>Executive Inward Delegation™</option>
+          <option>No immediate next step</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="strategic_session_recommendation">What single action should The Buckler Group take before the next Guyana engagement?</label>
+        <textarea id="strategic_session_recommendation" name="strategic_session_recommendation" maxlength="600" placeholder="Provide one concise recommendation."></textarea>
+      </div>
+    </div>
+
+    <div class="section-label">5. Confirmation</div>
+    <p class="identity-note">These details are used only to match your response with your registration record.</p>
 
     <div class="form-grid">
       <div class="field">
         <label for="full_name">Full Name <span class="req">*</span></label>
-        <input id="full_name" name="full_name" type="text" placeholder="Enter your full name" required>
+        <input id="full_name" name="full_name" type="text" placeholder="Enter your full name" autocomplete="name" required>
       </div>
 
       <div class="field">
         <label for="email">Email Address <span class="req">*</span></label>
-        <input id="email" name="email_address" type="email" placeholder="name@organization.com" required>
+        <input id="email" name="email_address" type="email" placeholder="name@organization.com" autocomplete="email" required>
       </div>
-    </div>
-
-    <div class="form-grid">
-      <div class="field">
-        <label for="organization">Organization <span class="req">*</span></label>
-        <input id="organization" name="organization" type="text" placeholder="Enter organization name" required>
-      </div>
-
-      <div class="field">
-        <label for="title">Title / Position</label>
-        <input id="title" name="title_position" type="text" placeholder="Enter your title">
-      </div>
-    </div>
-
-    <div class="section-label">2. Strategic Value</div>
-
-    <div class="field">
-      <label for="strategic_value">How valuable was today’s Strategic Session to your organization? <span class="req">*</span></label>
-      <select id="strategic_value" name="strategic_value" required>
-        <option value="">Select rating</option>
-        <option value="5">5 — Exceptional strategic value</option>
-        <option value="4">4 — Strong strategic value</option>
-        <option value="3">3 — Relevant and useful</option>
-        <option value="2">2 — Limited relevance</option>
-        <option value="1">1 — Minimal relevance</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label for="investment_horizon">How soon is your organization likely to explore opportunities in Guyana? <span class="req">*</span></label>
-      <select id="investment_horizon" name="investment_horizon" required>
-        <option value="">Select timeframe</option>
-        <option>Immediately</option>
-        <option>Within 12 months</option>
-        <option>Within 1–3 years</option>
-        <option>Monitoring developments</option>
-        <option>No current plans</option>
-      </select>
-    </div>
-
-    <div class="section-label">3. Market Opportunity</div>
-
-    <label>Which sectors are most relevant to your organization? <span class="req">*</span></label>
-    <div class="check-grid">
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Hospitality"> Hospitality</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Hotels and Resorts"> Hotels & Resorts</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Mixed-Use Development"> Mixed-Use Development</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Residential Development"> Residential Development</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Affordable and Workforce Housing"> Affordable & Workforce Housing</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Commercial Real Estate"> Commercial Real Estate</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Infrastructure"> Infrastructure</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Public-Private Partnerships"> Public-Private Partnerships</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Tourism"> Tourism</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Capital Markets"> Capital Markets</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Debt Financing"> Debt Financing</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Equity Investment"> Equity Investment</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Hotel Operations"> Hotel Operations</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Professional Services"> Professional Services</label>
-      <label class="check"><input type="checkbox" name="priority_sectors[]" value="Other"> Other</label>
-    </div>
-
-    <div class="field" style="margin-top:18px;">
-      <label for="relevant_opportunity">What opportunity discussed today is most relevant to your organization?</label>
-      <textarea id="relevant_opportunity" name="relevant_opportunity" placeholder="Identify the opportunity, sector, project type, or market signal that warrants further consideration."></textarea>
-    </div>
-
-    <div class="field">
-      <label for="opportunity_obstacle">What is the single greatest opportunity—or obstacle—that should be addressed to accelerate investment and development in Guyana?</label>
-      <textarea id="opportunity_obstacle" name="opportunity_or_obstacle" placeholder="Provide one concise strategic observation."></textarea>
-    </div>
-
-    <div class="section-label">4. Executive Engagement</div>
-
-    <label>How can The Buckler Group create the greatest value for your organization over the next 12 months? <span class="req">*</span></label>
-    <div class="check-grid">
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Executive Closed Session™"> Executive Closed Session™</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Executive Inward Delegation™"> Executive Inward Delegation™</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Government Introductions"> Government Introductions</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Investment Opportunities"> Investment Opportunities</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Development Partners"> Development Partners</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Hospitality Operators"> Hospitality Operators</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Capital Partners"> Capital Partners</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Market Intelligence"> Market Intelligence</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Policy Dialogue"> Policy Dialogue</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Strategic Partnerships"> Strategic Partnerships</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Speaking Opportunities"> Speaking Opportunities</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Sponsorship"> Sponsorship</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Future Strategic Sessions"> Future Strategic Sessions</label>
-      <label class="check"><input type="checkbox" name="value_pathways[]" value="Other"> Other</label>
-    </div>
-
-    <div class="section-label">5. Looking Ahead</div>
-
-    <div class="field">
-      <label for="future_programming">What topic should be explored in a future Strategic Session?</label>
-      <textarea id="future_programming" name="future_programming" placeholder="Suggest a market, policy, investment, or development topic."></textarea>
-    </div>
-
-    <div class="field">
-      <label for="takeaway">What was your most valuable takeaway from today’s discussion? <span class="req">*</span></label>
-      <textarea id="takeaway" name="most_valuable_takeaway" placeholder="Share the insight, opportunity, or implication that was most useful to you." required></textarea>
     </div>
 
     <div class="field">
@@ -874,8 +1022,10 @@
       </select>
     </div>
 
-    <button class="submit" type="submit">Complete Assessment</button>
+    <button class="submit" type="submit">Complete Executive Debrief</button>
     <p class="secure">Your responses will be treated as confidential executive intelligence.</p>
+    <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+
   </form>
 </aside>
 
@@ -888,7 +1038,7 @@
           <h2 class="focus-title">From executive dialogue to actionable intelligence.</h2>
         </div>
 
-        <p class="focus-copy">Assessment responses are organized into a structured intelligence framework that helps The Buckler Group identify market priorities, institutional readiness, strategic fit, and the most appropriate next stage of engagement.</p>
+        <p class="focus-copy">Executive Debrief responses are organized into a structured intelligence framework that helps The Buckler Group identify market priorities, institutional readiness, strategic fit, and the most appropriate next stage of engagement.</p>
       </div>
 
       
@@ -907,13 +1057,13 @@
       <div class="executive-contact-inner">
         <div class="executive-contact-heading">
           <p class="contact-kicker">Institutional Inquiries</p>
-          <h2>Assessment & Executive Engagement</h2>
+          <h2>Executive Debrief &amp; Engagement</h2>
         </div>
 
         <div class="executive-contact-copy">
-          <p>For questions regarding this assessment, future Strategic Sessions, or executive engagement with The Buckler Group, please contact:</p>
+          <p>For questions regarding this Executive Debrief, future Strategic Sessions™, or executive engagement with The Buckler Group, please contact:</p>
           <a href="mailto:info@thebucklergroup.com">info@thebucklergroup.com</a>
-          <p class="contact-note">Assessment responses are reviewed to inform future programming, institutional follow-up, and qualified executive engagement.</p>
+          <p class="contact-note">Executive Debrief responses are reviewed to inform future programming, institutional follow-up, and qualified executive engagement.</p>
         </div>
       </div>
     </section>
@@ -939,6 +1089,12 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!form) return;
 
   const params = new URLSearchParams(window.location.search);
+  const attendeeSection = document.getElementById("attendee-section");
+  const nonAttendeeSection = document.getElementById("non-attendee-section");
+  const attendanceInputs = form.querySelectorAll('input[name="attendance_status"]');
+  const stakeholderInputs = form.querySelectorAll('input[name="closed_session_stakeholders[]"]');
+  const stakeholderStatus = document.getElementById("stakeholder-status");
+  const formStatus = document.getElementById("form-status");
 
   function setHiddenField(name, value) {
     let field = form.querySelector(`[name="${name}"]`);
@@ -951,6 +1107,31 @@ document.addEventListener("DOMContentLoaded", function () {
     field.value = value;
   }
 
+  function setSectionState(section, active) {
+    section.hidden = !active;
+
+    section.querySelectorAll("input, select, textarea").forEach(function (control) {
+      control.disabled = !active;
+
+      if (!active) {
+        if (control.type === "checkbox" || control.type === "radio") {
+          control.checked = false;
+        } else {
+          control.value = "";
+        }
+      }
+    });
+  }
+
+  function updateAttendancePath() {
+    const selected = form.querySelector('input[name="attendance_status"]:checked');
+    const attended = selected && selected.value === "Attended";
+    const absent = selected && selected.value === "Registered but did not attend";
+
+    setSectionState(attendeeSection, Boolean(attended));
+    setSectionState(nonAttendeeSection, Boolean(absent));
+  }
+
   setHiddenField("referral_entry_url", window.location.href);
 
   const sessionCode = params.get("session");
@@ -961,21 +1142,56 @@ document.addEventListener("DOMContentLoaded", function () {
   if (jurisdiction) setHiddenField("session_jurisdiction", jurisdiction);
   if (sessionName) setHiddenField("session_name", sessionName);
 
-  form.addEventListener("submit", function (event) {
-    const selectedSectors = form.querySelectorAll('input[name="priority_sectors[]"]:checked');
-    const selectedPathways = form.querySelectorAll('input[name="value_pathways[]"]:checked');
+  const fullName =
+    params.get("name") ||
+    [params.get("first"), params.get("last")].filter(Boolean).join(" ");
 
-    if (selectedSectors.length === 0) {
+  if (fullName) document.getElementById("full_name").value = fullName;
+  if (params.get("email")) document.getElementById("email").value = params.get("email");
+
+  attendanceInputs.forEach(function (input) {
+    input.addEventListener("change", updateAttendancePath);
+  });
+
+  stakeholderInputs.forEach(function (input) {
+    input.addEventListener("change", function () {
+      const selected = [...stakeholderInputs].filter(function (item) {
+        return item.checked;
+      });
+
+      if (selected.length > 3) {
+        input.checked = false;
+        stakeholderStatus.textContent = "Select no more than three stakeholders.";
+        return;
+      }
+
+      stakeholderStatus.textContent =
+        selected.length > 0 ? `${selected.length} of 3 selected.` : "";
+    });
+  });
+
+  form.addEventListener("submit", function (event) {
+    formStatus.classList.remove("show");
+    formStatus.textContent = "";
+
+    const attendance = form.querySelector('input[name="attendance_status"]:checked');
+
+    if (!attendance) {
       event.preventDefault();
-      alert("Please select at least one priority sector.");
+      formStatus.textContent = "Please confirm whether you attended Friday’s Strategic Session.";
+      formStatus.classList.add("show");
+      formStatus.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
 
-    if (selectedPathways.length === 0) {
+    if (!form.checkValidity()) {
       event.preventDefault();
-      alert("Please select at least one way The Buckler Group can create value for your organization.");
+      form.reportValidity();
     }
   });
+
+  setSectionState(attendeeSection, false);
+  setSectionState(nonAttendeeSection, false);
 });
 </script>
 
