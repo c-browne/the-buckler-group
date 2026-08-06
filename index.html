@@ -5184,6 +5184,95 @@ div[id] {
 }
 .brand { text-decoration: none; }
 
+
+/* =========================================================
+   INVESTMENT CORRIDORS™ PATHWAY
+   ========================================================= */
+.investment-corridors-section {
+  background: #07111f;
+  color: #ffffff;
+  padding: 112px 5vw;
+  border-top: 1px solid rgba(183,144,75,.35);
+  border-bottom: 1px solid rgba(183,144,75,.35);
+}
+
+.investment-corridors-section .section-head h2 {
+  color: #ffffff;
+}
+
+.investment-corridors-section .section-head p {
+  color: rgba(255,255,255,.72);
+  max-width: 760px;
+}
+
+.corridors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 54px;
+  background: rgba(183,144,75,.28);
+  border: 1px solid rgba(183,144,75,.28);
+}
+
+.corridor-step {
+  background: #0d1a2b;
+  padding: 30px;
+  min-height: 280px;
+}
+
+.corridor-step span {
+  display: block;
+  color: #b7904b;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 22px;
+}
+
+.corridor-step h3 {
+  color: #ffffff;
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.corridor-step p {
+  color: rgba(255,255,255,.68);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.corridor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.investment-corridors-section .btn.primary {
+  background: #b7904b;
+  border-color: #b7904b;
+  color: #07111f;
+}
+
+.investment-corridors-section .btn.ghost {
+  color: #ffffff;
+  border-color: rgba(255,255,255,.35);
+}
+
+@media (max-width: 1000px) {
+  .corridors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .corridors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 </head>
@@ -5887,7 +5976,63 @@ Strategic Sessions Powered by EXODUS™
 
 
 
-  <footer class="institutional-footer">
+  
+<section id="investment-corridors" class="investment-corridors-section">
+  <div class="section-head">
+    <div class="eyebrow">Capital Deployment Architecture</div>
+    <h2>Investment Corridors™</h2>
+    <p>
+      Investment Corridors™ convert jurisdictional intelligence into structured pathways for
+      capital deployment, development partnerships, and transaction-specific engagement.
+    </p>
+  </div>
+
+  <div class="corridors-grid">
+    <article class="corridor-step">
+      <span>01</span>
+      <h3>Market Intelligence</h3>
+      <p>
+        Strategic Sessions™ establish the policy, entitlement, infrastructure, and sector context
+        required to assess a jurisdiction responsibly.
+      </p>
+    </article>
+
+    <article class="corridor-step">
+      <span>02</span>
+      <h3>Executive Qualification</h3>
+      <p>
+        Closed Executive Sessions™ clarify investment thesis, capital parameters, asset class,
+        counterparties, and development requirements.
+      </p>
+    </article>
+
+    <article class="corridor-step">
+      <span>03</span>
+      <h3>In-Market Diligence</h3>
+      <p>
+        Executive Inward Sessions™ connect qualified participants with sites, officials,
+        developers, operators, advisers, and market infrastructure.
+      </p>
+    </article>
+
+    <article class="corridor-step">
+      <span>04</span>
+      <h3>Corridor Formation</h3>
+      <p>
+        TBG aligns capital, projects, public-sector priorities, and execution partners into
+        defined investment pathways capable of advancing toward transaction.
+      </p>
+    </article>
+  </div>
+
+  <div class="corridor-actions">
+    <a class="btn primary" href="/investment-corridors.html">Explore Investment Corridors™</a>
+    <a class="btn ghost" href="/participation.html">Request Strategic Participation</a>
+  </div>
+</section>
+
+
+<footer class="institutional-footer">
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>The Buckler Group</h3>
