@@ -5176,26 +5176,34 @@
   .calendar-session-actions{flex-direction:column}
 }
 
+
+/* Navigation pathway reliability */
+section[id],
+div[id] {
+  scroll-margin-top: 96px;
+}
+.brand { text-decoration: none; }
+
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><img class="brand-crest" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest"><span class="wordmark">The Buckler Group</span></div>
+    <a class="brand" href="/" aria-label="The Buckler Group home"><img class="brand-crest" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest"><span class="wordmark">The Buckler Group</span></a>
     <nav>
       <a href="#advisory">Advisory</a>
-      <a href="#renaissance">Caribbean Renaissance™</a>
+      <a href="#caribbean-renaissance-declaration">Caribbean Renaissance™</a>
       <div class="nav-dropdown">
         <a href="#sessions">Strategic Sessions</a>
         <div class="nav-dropdown-menu">
           <a href="#sessions">Strategic Sessions Overview</a>
           <a href="#executive-closed-session">Executive Closed Sessions™</a>
-          <a href="investment-corridors.html">Investment Corridors™</a>
+          <a href="/investment-corridors.html">Investment Corridors™</a>
         </div>
       </div>
       <a href="#exodus">EXODUS™</a>
       <a href="#insights">Insights</a>
-      <a href="#founder">Founder</a>
+      <a href="#founder-perspective">Founder</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -5208,7 +5216,7 @@
         <div class="hero-subline">Caribbean Renaissance™</div>
         <p>Organizing capital, development, and opportunity across the Caribbean.</p>
         <div class="button-row">
-          <a class="btn primary" href="#advisory">Explore the Framework</a>
+          <a class="btn primary" href="#caribbean-renaissance-declaration">Explore the Framework</a>
           <a class="btn secondary" href="#sessions">Strategic Sessions 2026</a>
         </div>
       </div>
@@ -5335,7 +5343,7 @@
           <p style="color:rgba(255,255,255,.78);font-size:18px;max-width:720px;">Jurisdiction-led discussions on development, investment, entitlement, and execution.</p>
           
 <div class="headline-actions">
-            <a href="participation.html" class="headline-btn headline-btn-primary">
+            <a href="/participation.html" class="headline-btn headline-btn-primary">
               Reserve Participation
             </a>
 
@@ -5360,7 +5368,7 @@
                 <div class="calendar-tags"><em>Energy</em><em>Infrastructure</em><em>Hospitality</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="participation.html?jurisdiction=guyana">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=guyana">Open Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=guyana">Closed Session Access</a>
               </div>
             </article>
@@ -5374,7 +5382,7 @@
                 <div class="calendar-tags"><em>Luxury Tourism</em><em>Wealth Migration</em><em>Diaspora Capital</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="participation.html?jurisdiction=barbados">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=barbados">Open Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=barbados">Closed Session Access</a>
               </div>
             </article>
@@ -5388,7 +5396,7 @@
                 <div class="calendar-tags"><em>Ultra-Luxury</em><em>Family Offices</em><em>Maritime</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="participation.html?jurisdiction=bahamas">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=bahamas">Open Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=bahamas">Closed Session Access</a>
               </div>
             </article>
@@ -5402,7 +5410,7 @@
                 <div class="calendar-tags"><em>Climate Resilience</em><em>Boutique Hospitality</em><em>Regeneration</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="participation.html?jurisdiction=grenada">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=grenada">Open Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=grenada">Closed Session Access</a>
               </div>
             </article>
@@ -5416,7 +5424,7 @@
                 <div class="calendar-tags"><em>Industry</em><em>Energy Transition</em><em>Logistics</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="participation.html?jurisdiction=trinidad-tobago">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=trinidad-tobago">Open Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=trinidad-tobago">Closed Session Access</a>
               </div>
             </article>
@@ -5430,7 +5438,7 @@
                 <div class="calendar-tags"><em>Institutional Capital</em><em>Hospitality &amp; Real Estate</em><em>Scalable Deployment</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="participation.html?jurisdiction=dominican-republic">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=dominican-republic">Open Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=dominican-republic">Closed Session Access</a>
               </div>
             </article>
@@ -5489,7 +5497,7 @@ Strategic Sessions Powered by EXODUS™
             <p>Evaluating how governance excellence can strengthen capital formation and attract premium real estate and hospitality investment.</p>
           </div>
 
-          <a href="/charter-membership.html" class="market-button">Reserve Participation</a>
+          <a href="/participation.html?jurisdiction=${jurisdiction}" class="market-button">Reserve Participation</a>
         </aside>
       </div>
     </div>
@@ -5871,7 +5879,7 @@ Strategic Sessions Powered by EXODUS™
       </div>
       <div class="button-row">
         <a class="btn primary" href="mailto:cbrowne@thebucklergroup.com?subject=Strategic%20Advisory%20Inquiry">Engage TBG</a>
-        <a class="btn secondary" href="participation.html">Strategic Sessions</a>
+        <a class="btn secondary" href="/participation.html">Strategic Sessions</a>
         <a class="btn secondary" href="https://example.com/exodus-charter-membership" target="_blank" rel="noopener">EXODUS™</a>
       </div>
     </div>
@@ -5898,7 +5906,7 @@ Strategic Sessions Powered by EXODUS™
         <h4>Platforms</h4>
         <a href="#sessions">Strategic Sessions™</a>
         <a href="#executive-closed-session">Executive Closed Sessions™</a>
-        <a href="investment-corridors.html">Investment Corridors™</a>
+        <a href="/investment-corridors.html">Investment Corridors™</a>
         <a href="#exodus">EXODUS™</a>
         <a href="#jurisdictions">Jurisdiction Intelligence</a>
         <a href="#insights">Insights</a>
@@ -5907,8 +5915,8 @@ Strategic Sessions Powered by EXODUS™
       <div class="footer-column">
         <h4>Engage</h4>
         <a href="#contact">Request Advisory</a>
-        <a href="participation.html">Reserve Participation</a>
-        <a href="participation.html">Request Invitation</a>
+        <a href="/participation.html">Reserve Participation</a>
+        <a href="/charter-membership.html">Request Invitation</a>
         <span>New York | Caribbean</span>
       </div>
     </div>
@@ -5939,7 +5947,18 @@ Strategic Sessions Powered by EXODUS™
     { name:"Dominican Republic", coords:[-70.1627,18.7357], session:"Session VI", date:"Friday, December 18, 2026", time:"12:30 PM – 1:30 PM EST", theme:"Institutional Capital at Scale", focus:"Examining how market depth, tourism infrastructure, development pipeline, air connectivity, and a diversified real estate ecosystem create scalable opportunities for institutional capital." }
   ];
 
+  function jurisdictionSlug(name){
+    return name
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .replace("the-bahamas", "bahamas")
+      .replace("trinidad-and-tobago", "trinidad-tobago");
+  }
+
   function renderPanel(item){
+    const jurisdiction = jurisdictionSlug(item.name);
     panel.innerHTML = `
       <p class="panel-kicker">Caribbean Intelligence</p>
       <h3>${item.name}</h3>
@@ -5951,7 +5970,7 @@ Strategic Sessions Powered by EXODUS™
       <div class="map-format">Virtual Executive Session</div>
       <div class="map-brief-block"><h4>Theme</h4><p>${item.theme}</p></div>
       <div class="map-brief-block"><h4>Strategic Focus</h4><p>${item.focus}</p></div>
-      <a href="/charter-membership.html" class="market-button">Reserve Participation</a>
+      <a href="/participation.html?jurisdiction=${jurisdiction}" class="market-button">Reserve Participation</a>
     `;
   }
 
