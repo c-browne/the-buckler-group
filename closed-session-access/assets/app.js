@@ -1,59 +1,157 @@
 (() => {
-  const checkoutButton = document.getElementById("checkoutButton");
-  const jurisdictionSelect = document.getElementById("jurisdiction");
+  const checkoutButton =
+    document.getElementById("checkoutButton");
+
+  const jurisdictionSelect =
+    document.getElementById("jurisdiction");
 
   if (!checkoutButton || !jurisdictionSelect) {
     return;
   }
 
-  const params = new URLSearchParams(window.location.search);
-  const jurisdictionFromUrl = params.get("jurisdiction");
+  const allowedJurisdictions = new Set([
+    "guyana",
+    "barbados",
+    "bahamas",
+    "grenada",
+    "trinidad-tobago",
+    "dominican-republic"
+  ]);
 
-  if (jurisdictionFromUrl) {
-    const matchingOption = [...jurisdictionSelect.options]
-      .find(option => option.value === jurisdictionFromUrl);
+  const jurisdictionNames = {
+    guyana: "Guyana",
+    barbados: "Barbados",
+    bahamas: "The Bahamas",
+    grenada: "Grenada",
+    "trinidad-tobago": "Trinidad & Tobago",
+    "dominican-republic": "Dominican Republic"
+  };
 
-    if (matchingOption) {
-      jurisdictionSelect.value = jurisdictionFromUrl;
-    }
+  const aliases = {
+    tobago: "trinidad-tobago",
+    trinidad: "trinidad-tobago",
+
+    "trinidad & tobago":
+      "trinidad-tobago",
+
+    "trinidad and tobago":
+      "trinidad-tobago",
+
+    "dominican republic":
+      "dominican-republic",
+
+    dr: "dominican-republic"
+  };
+
+  function normalizeJurisdiction(value) {
+    const raw = String(value || "")
+      .trim()
+      .toLowerCase();
+
+    return aliases[raw] || raw;
   }
 
-  checkoutButton.addEventListener("click", async () => {
-    const originalText = checkoutButton.textContent;
+  /*
+   * Allow direct links such as:
+   *
+   * /closed-session-access/?jurisdiction=dominican-republic#access
+   */
 
-    checkoutButton.disabled = true;
-    checkoutButton.textContent = "Opening Secure Checkout…";
+  const params =
+    new URLSearchParams(window.location.search);
 
-    try {
-      const response = await fetch(
-        "/.netlify/functions/create-executive-session-checkout",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            jurisdiction: jurisdictionSelect.value
-          })
-        }
-      );
+  const requestedJurisdiction =
+    normalizeJurisdiction(
+      params.get("jurisdiction")
+    );
 
-      const data = await response.json();
+  if (
+    requestedJurisdiction &&
+    allowedJurisdictions.has(
+      requestedJurisdiction
+    )
+  ) {
+    jurisdictionSelect.value =
+      requestedJurisdiction;
+  }
 
-      if (!response.ok || !data.url) {
-        throw new Error(data.error || "Checkout unavailable.");
+  checkoutButton.addEventListener(
+    "click",
+    async () => {
+      const jurisdiction =
+        normalizeJurisdiction(
+          jurisdictionSelect.value
+        );
+
+      if (
+        !jurisdiction ||
+        !allowedJurisdictions.has(
+          jurisdiction
+        )
+      ) {
+        window.alert(
+          "Please select an available jurisdiction."
+        );
+
+        return;
       }
 
-      window.location.assign(data.url);
-    } catch (error) {
-      console.error("Executive Session checkout error:", error);
+      const jurisdictionName =
+        jurisdictionNames[jurisdiction];
 
-      window.alert(
-        "Secure checkout could not be opened. Please contact info@thebucklergroup.com."
-      );
+      const originalText =
+        checkoutButton.textContent;
 
-      checkoutButton.disabled = false;
-      checkoutButton.textContent = originalText;
+      checkoutButton.disabled = true;
+
+      checkoutButton.textContent =
+        `Opening ${jurisdictionName} Checkout…`;
+
+      try {
+        const response = await fetch(
+          "/.netlify/functions/create-executive-session-checkout",
+          {
+            method: "POST",
+
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+              jurisdiction
+            })
+          }
+        );
+
+        const data =
+          await response.json();
+
+        if (!response.ok || !data.url) {
+          throw new Error(
+            data.error ||
+            "Checkout unavailable."
+          );
+        }
+
+        window.location.assign(
+          data.url
+        );
+      } catch (error) {
+        console.error(
+          "Executive Session checkout error:",
+          error
+        );
+
+        window.alert(
+          "Secure checkout could not be opened. Please contact info@thebucklergroup.com."
+        );
+
+        checkoutButton.disabled = false;
+
+        checkoutButton.textContent =
+          originalText;
+      }
     }
-  });
+  );
 })();
