@@ -4903,6 +4903,19 @@
   letter-spacing:.12em;
   text-transform:uppercase;
 }
+
+.executive-session-home-metrics .executive-access-metric strong{
+  font-family:"Inter",Arial,sans-serif;
+  font-size:22px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:-.03em;
+}
+
+.executive-session-home-metrics .executive-access-metric span{
+  max-width:130px;
+  line-height:1.45;
+}
 .executive-session-home-panel{
   background:#0d1a2b;
   border:1px solid rgba(183,144,75,.38);
@@ -5255,6 +5268,796 @@ div[id] {
   }
 }
 
+
+/* =========================================================
+   EXECUTIVE CLOSED SESSION™ — CONVERSION / DISCOVERY DESIGN
+   Homepage intentionally withholds pricing; access page carries terms.
+   ========================================================= */
+
+.executive-session-conversion .executive-session-home-inner{
+  position:relative;
+}
+
+.executive-session-conversion .executive-session-home-intro{
+  padding-right:clamp(20px,4vw,70px);
+}
+
+.executive-session-conversion .executive-session-lead{
+  max-width:650px;
+  font-size:17px;
+  line-height:1.75;
+}
+
+.executive-session-conversion .executive-session-signal{
+  margin-top:34px;
+  padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+
+.executive-session-conversion .executive-session-signal span{
+  display:block;
+  color:var(--gold);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  margin-bottom:9px;
+}
+
+.executive-session-conversion .executive-session-signal p{
+  margin:0;
+  color:rgba(255,255,255,.60);
+  font-size:11px;
+  line-height:1.6;
+  letter-spacing:.035em;
+}
+
+.executive-session-conversion .executive-session-home-panel{
+  position:relative;
+  overflow:hidden;
+}
+
+.executive-session-conversion .executive-session-home-panel::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:72px;
+  height:2px;
+  background:var(--gold);
+}
+
+.executive-session-conversion .executive-session-home-panel h3{
+  max-width:570px;
+  font-size:clamp(35px,3.6vw,54px);
+  line-height:.98;
+  letter-spacing:-.035em;
+  margin-bottom:22px;
+}
+
+.executive-session-conversion .executive-session-outcomes{
+  margin-top:30px;
+  border-top:1px solid rgba(7,17,31,.10);
+}
+
+.executive-session-conversion .executive-session-outcomes > div{
+  display:grid;
+  grid-template-columns:42px 1fr;
+  gap:16px;
+  align-items:start;
+  padding:16px 0;
+  border-bottom:1px solid rgba(7,17,31,.10);
+}
+
+.executive-session-conversion .executive-session-outcomes span{
+  color:#8a6a3f;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+
+.executive-session-conversion .executive-session-outcomes p{
+  margin:0;
+  color:#334155;
+  font-size:13px;
+  line-height:1.55;
+}
+
+.executive-session-conversion .executive-session-single-action{
+  margin-top:30px;
+}
+
+.executive-session-conversion .executive-discover-btn{
+  width:100%;
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  background:var(--navy);
+  border:1px solid var(--navy);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  transition:all .25s ease;
+}
+
+.executive-session-conversion .executive-discover-btn:hover{
+  background:#10213a;
+  border-color:#10213a;
+  transform:translateY(-1px);
+}
+
+.executive-session-conversion .executive-discover-btn span{
+  color:var(--gold);
+  font-size:20px;
+  line-height:1;
+  transition:transform .25s ease;
+}
+
+.executive-session-conversion .executive-discover-btn:hover span{
+  transform:translateX(4px);
+}
+
+.executive-session-conversion .executive-session-access-note{
+  margin:13px 0 0;
+  color:#7b8492;
+  font-size:10.5px;
+  line-height:1.55;
+}
+
+@media (max-width:900px){
+  .executive-session-conversion .executive-session-home-intro{
+    padding-right:0;
+  }
+}
+
+
+/* =========================================================
+   EXECUTIVE CLOSED SESSION™ — PREMIUM ACCESS REDESIGN
+   Scarcity-led, no participant-count advertising
+   ========================================================= */
+
+.executive-session-conversion{
+  background:
+    radial-gradient(circle at 12% 18%, rgba(183,144,75,.12), transparent 34%),
+    linear-gradient(135deg,#050b14 0%,#07111f 48%,#0d1a2b 100%) !important;
+  color:#fff !important;
+  border-top:1px solid rgba(183,144,75,.28) !important;
+  border-bottom:1px solid rgba(183,144,75,.28) !important;
+}
+
+.executive-session-conversion .executive-session-home-inner{
+  gap:clamp(42px,6vw,90px) !important;
+}
+
+.executive-session-conversion .executive-session-home-intro{
+  background:transparent !important;
+  color:#fff !important;
+}
+
+.executive-session-conversion .executive-session-home-intro .eyebrow{
+  color:#c6a15a !important;
+}
+
+.executive-session-conversion .executive-session-home-intro h2{
+  color:#fff !important;
+}
+
+.executive-session-conversion .executive-session-lead{
+  color:rgba(255,255,255,.70) !important;
+}
+
+.executive-session-conversion .executive-session-access-signals{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  margin-top:36px !important;
+  border-top:1px solid rgba(255,255,255,.12) !important;
+  border-bottom:1px solid rgba(255,255,255,.12) !important;
+}
+
+.executive-session-conversion .executive-session-access-signals > div{
+  padding:23px 24px 23px 0 !important;
+  border-right:1px solid rgba(255,255,255,.10) !important;
+}
+
+.executive-session-conversion .executive-session-access-signals > div:last-child{
+  padding-left:24px !important;
+  border-right:none !important;
+}
+
+.executive-session-conversion .executive-session-access-signals strong{
+  display:block !important;
+  color:#fff !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:36px !important;
+  line-height:.95 !important;
+  letter-spacing:-.04em !important;
+  font-weight:600 !important;
+}
+
+.executive-session-conversion .executive-session-access-signals .executive-access-metric strong{
+  color:#c6a15a !important;
+  font-family:"Inter",Arial,sans-serif !important;
+  font-size:20px !important;
+  font-weight:700 !important;
+  letter-spacing:-.025em !important;
+  text-transform:none !important;
+}
+
+.executive-session-conversion .executive-session-access-signals span{
+  display:block !important;
+  margin-top:10px !important;
+  color:rgba(255,255,255,.48) !important;
+  font-size:9px !important;
+  font-weight:800 !important;
+  letter-spacing:.13em !important;
+  text-transform:uppercase !important;
+}
+
+.executive-session-conversion .executive-session-signal{
+  border-top:none !important;
+  margin-top:28px !important;
+  padding-top:0 !important;
+}
+
+.executive-session-conversion .executive-session-signal span{
+  color:#c6a15a !important;
+}
+
+.executive-session-conversion .executive-session-home-panel{
+  background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025)) !important;
+  border:1px solid rgba(183,144,75,.32) !important;
+  box-shadow:0 28px 80px rgba(0,0,0,.24) !important;
+  padding:clamp(34px,4vw,54px) !important;
+  color:#fff !important;
+}
+
+.executive-session-conversion .executive-session-home-panel::before{
+  width:100% !important;
+  height:2px !important;
+  background:linear-gradient(90deg,#b7904b,rgba(183,144,75,.15)) !important;
+}
+
+.executive-session-conversion .executive-session-home-panel .eyebrow{
+  color:#c6a15a !important;
+}
+
+.executive-session-conversion .executive-session-home-panel h3{
+  color:#fff !important;
+}
+
+.executive-session-conversion .executive-session-home-panel > p{
+  color:rgba(255,255,255,.67) !important;
+}
+
+.executive-session-conversion .executive-session-outcomes{
+  border-top:1px solid rgba(255,255,255,.10) !important;
+}
+
+.executive-session-conversion .executive-session-outcomes > div{
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+}
+
+.executive-session-conversion .executive-session-outcomes span{
+  color:#c6a15a !important;
+}
+
+.executive-session-conversion .executive-session-outcomes p{
+  color:rgba(255,255,255,.72) !important;
+}
+
+.executive-session-conversion .executive-discover-btn{
+  background:#b7904b !important;
+  border-color:#b7904b !important;
+  color:#07111f !important;
+}
+
+.executive-session-conversion .executive-discover-btn:hover{
+  background:#c8a35d !important;
+  border-color:#c8a35d !important;
+}
+
+.executive-session-conversion .executive-discover-btn span{
+  color:#07111f !important;
+}
+
+.executive-session-conversion .executive-session-access-note{
+  color:rgba(255,255,255,.45) !important;
+}
+
+@media(max-width:700px){
+  .executive-session-conversion .executive-session-access-signals{
+    grid-template-columns:1fr !important;
+  }
+
+  .executive-session-conversion .executive-session-access-signals > div,
+  .executive-session-conversion .executive-session-access-signals > div:last-child{
+    padding:18px 0 !important;
+    border-right:none !important;
+    border-bottom:1px solid rgba(255,255,255,.10) !important;
+  }
+
+  .executive-session-conversion .executive-session-access-signals > div:last-child{
+    border-bottom:none !important;
+  }
+}
+
+
+/* =========================================================
+   EXECUTIVE CLOSED SESSION™ — WORLD-CLASS ACCESS EXPERIENCE
+   Institutional restraint inspired by leading private-market firms.
+   ========================================================= */
+
+.executive-session-worldclass{
+  position:relative;
+  padding:128px 5vw 132px !important;
+  background:
+    linear-gradient(180deg,#08111d 0%,#060d16 100%) !important;
+  color:#fff !important;
+  overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.executive-session-worldclass::before{
+  content:"";
+  position:absolute;
+  width:620px;
+  height:620px;
+  right:-280px;
+  top:-320px;
+  border:1px solid rgba(183,144,75,.11);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.executive-session-worldclass::after{
+  content:"";
+  position:absolute;
+  left:5vw;
+  right:5vw;
+  bottom:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(183,144,75,.28),transparent);
+}
+
+.executive-session-worldclass-shell{
+  max-width:1400px;
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+
+.executive-session-worldclass-header{
+  max-width:860px;
+}
+
+.executive-session-kicker{
+  color:#b7904b;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:10px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  margin-bottom:26px;
+}
+
+.executive-session-worldclass-header h2{
+  margin:0;
+  color:#fff;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(50px,6.4vw,96px);
+  line-height:.88;
+  letter-spacing:-.055em;
+  font-weight:600;
+}
+
+.executive-session-worldclass-header > p{
+  max-width:760px;
+  margin:30px 0 0;
+  color:rgba(255,255,255,.62);
+  font-size:17px;
+  line-height:1.72;
+}
+
+.executive-session-worldclass-rule{
+  height:1px;
+  width:100%;
+  margin:72px 0 0;
+  background:rgba(255,255,255,.12);
+}
+
+.executive-session-worldclass-grid{
+  display:grid;
+  grid-template-columns:minmax(300px,.78fr) minmax(500px,1.22fr);
+  gap:clamp(60px,8vw,130px);
+  padding-top:58px;
+}
+
+.executive-session-worldclass-thesis{
+  position:relative;
+  padding-top:4px;
+}
+
+.executive-session-index{
+  display:block;
+  color:#b7904b;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.16em;
+  margin-bottom:22px;
+}
+
+.executive-session-worldclass-thesis h3{
+  margin:0;
+  color:#fff;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(34px,4vw,58px);
+  line-height:.98;
+  letter-spacing:-.04em;
+  font-weight:500;
+  max-width:500px;
+}
+
+.executive-session-worldclass-copy > p{
+  max-width:720px;
+  margin:0;
+  color:rgba(255,255,255,.69);
+  font-size:15.5px;
+  line-height:1.78;
+}
+
+.executive-session-worldclass-points{
+  margin-top:42px;
+  border-top:1px solid rgba(255,255,255,.11);
+}
+
+.executive-session-worldclass-points > div{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:28px;
+  padding:20px 0;
+  border-bottom:1px solid rgba(255,255,255,.11);
+  align-items:start;
+}
+
+.executive-session-worldclass-points span{
+  color:#b7904b;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  padding-top:3px;
+}
+
+.executive-session-worldclass-points p{
+  margin:0;
+  max-width:520px;
+  color:rgba(255,255,255,.76);
+  font-size:13.5px;
+  line-height:1.6;
+}
+
+.executive-session-worldclass-action{
+  margin-top:44px;
+  max-width:720px;
+}
+
+.executive-session-worldclass-btn{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  min-height:68px;
+  padding:0 24px 0 26px;
+  border-top:1px solid rgba(183,144,75,.70);
+  border-bottom:1px solid rgba(183,144,75,.70);
+  color:#fff;
+  background:transparent;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  transition:
+    background .25s ease,
+    padding .25s ease,
+    color .25s ease;
+}
+
+.executive-session-worldclass-btn:hover{
+  background:#b7904b;
+  color:#07111f;
+  padding-left:30px;
+  padding-right:20px;
+}
+
+.executive-session-worldclass-arrow{
+  color:#b7904b;
+  font-size:19px;
+  line-height:1;
+  transition:transform .25s ease,color .25s ease;
+}
+
+.executive-session-worldclass-btn:hover .executive-session-worldclass-arrow{
+  color:#07111f;
+  transform:translate(3px,-3px);
+}
+
+.executive-session-worldclass-note{
+  margin:15px 0 0 !important;
+  color:rgba(255,255,255,.38) !important;
+  font-size:10.5px !important;
+  line-height:1.6 !important;
+  max-width:600px !important;
+}
+
+@media(max-width:900px){
+  .executive-session-worldclass{
+    padding:92px 5vw 96px !important;
+  }
+
+  .executive-session-worldclass-rule{
+    margin-top:52px;
+  }
+
+  .executive-session-worldclass-grid{
+    grid-template-columns:1fr;
+    gap:42px;
+    padding-top:42px;
+  }
+
+  .executive-session-worldclass-thesis h3{
+    max-width:650px;
+  }
+}
+
+@media(max-width:620px){
+  .executive-session-worldclass-points > div{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+
+  .executive-session-worldclass-btn{
+    min-height:62px;
+  }
+}
+
+
+/* =========================================================
+   TBG — SEAMLINED COMMERCIAL JOURNEY + INVESTMENT CORRIDORS™
+   Canonical architecture: Learn → Qualify → Diligence → Align → Execute
+   ========================================================= */
+
+.commercial-journey-definition{
+  max-width:800px;
+  margin:22px 0 0;
+  color:#667085;
+  font-size:15px;
+  line-height:1.72;
+}
+
+.commercial-journey-grid-five{
+  grid-template-columns:repeat(5,1fr) !important;
+}
+
+.commercial-journey-step{
+  min-height:255px !important;
+  position:relative;
+}
+
+.commercial-journey-step-corridor{
+  background:#07111f !important;
+}
+
+.commercial-journey-step-corridor span{
+  color:#c6a15a !important;
+}
+
+.commercial-journey-step-corridor h3{
+  color:#fff !important;
+}
+
+.commercial-journey-step-corridor p{
+  color:rgba(255,255,255,.68) !important;
+}
+
+.commercial-journey-step-execution{
+  background:#fbfaf7 !important;
+}
+
+.commercial-journey-integration{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:34px;
+  align-items:start;
+  margin-top:24px;
+  padding:24px 0 0;
+  border-top:1px solid rgba(7,17,31,.12);
+}
+
+.commercial-journey-integration span{
+  color:#8a6a3f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.commercial-journey-integration p{
+  max-width:760px;
+  margin:0;
+  color:#667085;
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* Investment Corridors™ = architecture, not event */
+.investment-corridors-seamlined{
+  background:#07111f !important;
+  color:#fff !important;
+  padding:112px 5vw !important;
+  border-top:1px solid rgba(183,144,75,.26);
+  border-bottom:1px solid rgba(183,144,75,.26);
+}
+
+.investment-corridors-seamlined .section-head{
+  max-width:1020px !important;
+  margin-bottom:54px !important;
+}
+
+.investment-corridors-seamlined .section-head .eyebrow{
+  color:#b7904b !important;
+}
+
+.investment-corridors-seamlined .section-head h2{
+  color:#fff !important;
+}
+
+.investment-corridors-seamlined .corridor-canonical-definition{
+  max-width:900px !important;
+  color:#fff !important;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(26px,3vw,42px) !important;
+  line-height:1.12 !important;
+  letter-spacing:-.025em;
+  margin-top:24px !important;
+}
+
+.investment-corridors-seamlined .corridor-definition-detail{
+  max-width:760px !important;
+  color:rgba(255,255,255,.58) !important;
+  font-size:15px !important;
+  line-height:1.72 !important;
+  margin-top:22px !important;
+}
+
+.corridor-architecture-label{
+  padding-bottom:15px;
+  border-bottom:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.42);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.investment-corridors-seamlined .corridors-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4,1fr) !important;
+  gap:0 !important;
+  background:transparent !important;
+  border:none !important;
+}
+
+.investment-corridors-seamlined .corridor-step{
+  min-height:290px !important;
+  padding:30px 28px 30px 0 !important;
+  margin-right:28px !important;
+  background:transparent !important;
+  border:none !important;
+  border-bottom:1px solid rgba(255,255,255,.13) !important;
+  box-shadow:none !important;
+}
+
+.investment-corridors-seamlined .corridor-step + .corridor-step{
+  border-left:1px solid rgba(255,255,255,.11) !important;
+  padding-left:28px !important;
+}
+
+.investment-corridors-seamlined .corridor-step span{
+  color:#b7904b !important;
+  font-size:9px !important;
+  font-weight:800 !important;
+  letter-spacing:.14em !important;
+  text-transform:uppercase !important;
+}
+
+.investment-corridors-seamlined .corridor-step h3{
+  color:#fff !important;
+  font-size:clamp(24px,2.4vw,34px) !important;
+  line-height:1 !important;
+  margin:24px 0 16px !important;
+}
+
+.investment-corridors-seamlined .corridor-step p{
+  color:rgba(255,255,255,.60) !important;
+  font-size:13px !important;
+  line-height:1.68 !important;
+  margin:0 !important;
+}
+
+.investment-corridors-seamlined .corridor-step-formation{
+  background:linear-gradient(180deg,rgba(183,144,75,.10),rgba(183,144,75,.025)) !important;
+  border-top:1px solid rgba(183,144,75,.42) !important;
+  border-right:1px solid rgba(183,144,75,.28) !important;
+  padding-right:28px !important;
+}
+
+.investment-corridors-seamlined .corridor-step-formation h3{
+  color:#d1b170 !important;
+}
+
+.corridor-qualification-note{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:34px;
+  margin-top:34px;
+  padding-top:26px;
+  border-top:1px solid rgba(183,144,75,.28);
+}
+
+.corridor-qualification-note strong{
+  color:#b7904b;
+  font-size:10px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.corridor-qualification-note span{
+  max-width:780px;
+  color:rgba(255,255,255,.48);
+  font-size:12px;
+  line-height:1.7;
+}
+
+@media(max-width:1100px){
+  .commercial-journey-grid-five{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+
+  .investment-corridors-seamlined .corridors-grid{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+}
+
+@media(max-width:700px){
+  .commercial-journey-grid-five,
+  .investment-corridors-seamlined .corridors-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .commercial-journey-integration,
+  .corridor-qualification-note{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .investment-corridors-seamlined .corridor-step{
+    margin-right:0 !important;
+    padding:26px 0 !important;
+    border-left:none !important;
+  }
+
+  .investment-corridors-seamlined .corridor-step + .corridor-step{
+    border-left:none !important;
+    padding-left:0 !important;
+  }
+}
+
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 </head>
@@ -5575,58 +6378,66 @@ Strategic Sessions Powered by EXODUS™
 
   </section>
 
-<section class="executive-session-home" id="executive-closed-session">
-  <div class="executive-session-home-inner">
-    <div class="executive-session-home-intro">
-      <div class="eyebrow">Beyond the Open Session</div>
-      <h2>Executive Closed Sessions™</h2>
-      <p>
-        Private jurisdiction dialogue for qualified investors, lenders, developers,
-        operators, government representatives, and professional advisers seeking
-        deeper engagement beyond the public Strategic Session.
-      </p>
+<section class="executive-session-home executive-session-worldclass" id="executive-closed-session">
+  <div class="executive-session-worldclass-shell">
 
-      <div class="executive-session-home-metrics">
-        <div><strong>90</strong><span>Minutes</span></div>
-        <div><strong>40</strong><span>Maximum Participants</span></div>
-        <div><strong>$750</strong><span>Per Session</span></div>
+    <div class="executive-session-worldclass-header">
+      <div class="executive-session-kicker">Executive Access</div>
+      <h2>Executive Closed Session™</h2>
+      <p>
+        A private extension of the Strategic Session™ for qualified participants
+        seeking deeper market intelligence, direct institutional dialogue, and a
+        clearer pathway toward investment, development, or strategic engagement.
+      </p>
+    </div>
+
+    <div class="executive-session-worldclass-rule"></div>
+
+    <div class="executive-session-worldclass-grid">
+      <div class="executive-session-worldclass-thesis">
+        <span class="executive-session-index">01</span>
+        <h3>Where market interest becomes institutional engagement.</h3>
+      </div>
+
+      <div class="executive-session-worldclass-copy">
+        <p>
+          The Executive Closed Session™ is designed for decision-makers prepared
+          to examine a jurisdiction at greater depth. Discussion moves beyond the
+          public Strategic Session™ into the conditions that shape execution:
+          development pipelines, entitlement and planning frameworks, capital
+          requirements, infrastructure, institutional counterparties, and the
+          sequencing required to advance credible opportunities.
+        </p>
+
+        <div class="executive-session-worldclass-points">
+          <div>
+            <span>Access</span>
+            <p>Direct dialogue with relevant public- and private-sector stakeholders.</p>
+          </div>
+          <div>
+            <span>Intelligence</span>
+            <p>Deeper examination of investable opportunities and market constraints.</p>
+          </div>
+          <div>
+            <span>Pathway</span>
+            <p>Defined next steps for qualified participants seeking to move forward.</p>
+          </div>
+        </div>
+
+        <div class="executive-session-worldclass-action">
+          <a href="/closed-session-access/#access" class="executive-session-worldclass-btn">
+            <span>Explore Executive Access</span>
+            <span class="executive-session-worldclass-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <p class="executive-session-worldclass-note">
+            Access is qualification-led. Participation criteria and current session
+            terms are available on the Executive Access page.
+          </p>
+        </div>
       </div>
     </div>
 
-    <div class="executive-session-home-panel">
-      <div class="eyebrow">Private Executive Format</div>
-      <h3>Development intelligence. Direct dialogue. Defined next actions.</h3>
-      <p>
-        Each Closed Session follows the open jurisdiction discussion and provides a
-        controlled environment for policy context, development-pipeline review,
-        institutional Q&amp;A, and qualification for deeper participation.
-      </p>
-
-      <ul class="executive-session-home-benefits">
-        <li>Senior jurisdiction and industry engagement</li>
-        <li>Hospitality and real estate pipeline discussion</li>
-        <li>Planning, entitlement, incentives, and infrastructure context</li>
-        <li>Private investor, lender, developer, and operator Q&amp;A</li>
-        <li>Post-session executive summary and follow-up</li>
-        <li>Priority consideration for Investment Corridors™</li>
-      </ul>
-
-     <div class="executive-session-home-actions">
-  <a
-    class="executive-review-btn"
-    href="/closed-session-access/#architecture"
-  >
-    Review Executive Session
-  </a>
-
-  <a
-    class="executive-reserve-btn"
-    href="/closed-session-access/#access"
-  >
-    Reserve Closed Session Access
-  </a>
-</div>
-    </div>
   </div>
 </section>
 
@@ -5782,32 +6593,67 @@ Strategic Sessions Powered by EXODUS™
     <div class="commercial-journey-head">
       <div class="eyebrow">Commercial Journey</div>
       <h2>One continuous path from intelligence to execution.</h2>
+      <p class="commercial-journey-definition">
+        TBG moves qualified participants through a disciplined sequence of intelligence,
+        qualification, in-market diligence, and capital alignment. Investment Corridors™
+        are the architecture that organizes those elements into an executable pathway.
+      </p>
     </div>
 
-    <div class="commercial-journey-grid">
+    <div class="commercial-journey-grid commercial-journey-grid-five">
       <article class="commercial-journey-step">
         <span>01 / Intelligence</span>
         <h3>Strategic Sessions™</h3>
-        <p>Establish jurisdiction intelligence through public executive dialogue.</p>
+        <p>
+          Establish jurisdiction, policy, entitlement, infrastructure, and sector context
+          through structured executive dialogue.
+        </p>
       </article>
 
       <article class="commercial-journey-step">
         <span>02 / Qualification</span>
         <h3>Executive Closed Sessions™</h3>
-        <p>Qualify the relationship through private discussion and defined next actions.</p>
+        <p>
+          Clarify participant objectives, investment parameters, strategic fit,
+          counterparties, and defined next actions.
+        </p>
       </article>
 
       <article class="commercial-journey-step">
-        <span>03 / Access</span>
+        <span>03 / Diligence</span>
+        <h3>Executive Inward Delegations™</h3>
+        <p>
+          Conduct in-market diligence through direct engagement with sites, public-sector
+          stakeholders, developers, operators, advisers, and market infrastructure.
+        </p>
+      </article>
+
+      <article class="commercial-journey-step commercial-journey-step-corridor">
+        <span>04 / Alignment</span>
         <h3>Investment Corridors™</h3>
-        <p>Provide direct market access through site engagement and on-the-ground diligence.</p>
+        <p>
+          Align qualified capital, projects, jurisdictional priorities, and execution
+          partners into defined pathways toward investment and development.
+        </p>
       </article>
 
-      <article class="commercial-journey-step">
-        <span>04 / Execution</span>
-        <h3>EXODUS™</h3>
-        <p>Advance advisory, capital formation, market entry, and long-term execution.</p>
+      <article class="commercial-journey-step commercial-journey-step-execution">
+        <span>05 / Execution</span>
+        <h3>TBG Advisory</h3>
+        <p>
+          Support transaction advancement, market entry, development coordination,
+          capital formation, and long-term execution where mandates require it.
+        </p>
       </article>
+    </div>
+
+    <div class="commercial-journey-integration">
+      <span>EXODUS™ Integration Layer</span>
+      <p>
+        EXODUS™ surrounds the commercial journey as TBG's long-term engagement and
+        membership layer, connecting qualified participants to intelligence, relationships,
+        jurisdictional access, and continuing regional opportunity.
+      </p>
     </div>
   </div>
 </section>
@@ -5820,9 +6666,9 @@ Strategic Sessions Powered by EXODUS™
         <h2>From interest to qualified participation.</h2>
 
         <p>
-          EXODUS™ serves as the engagement layer connecting qualified participants
-          to Caribbean Renaissance™ intelligence, Strategic Sessions, jurisdictional
-          briefings, and curated pathways for long-term regional opportunity.
+          EXODUS™ serves as TBG's long-term integration and membership layer, connecting
+          qualified participants to Caribbean Renaissance™ intelligence, relationships,
+          jurisdictional access, and continuing regional opportunity across the platform.
         </p>
       </div>
 
@@ -5845,52 +6691,68 @@ Strategic Sessions Powered by EXODUS™
   </section>
 
 
-  <section id="investment-corridors" class="investment-corridors-section">
+  <section id="investment-corridors" class="investment-corridors-section investment-corridors-seamlined">
   <div class="section-head">
     <div class="eyebrow">Capital Deployment Architecture</div>
     <h2>Investment Corridors™</h2>
-    <p>
-      Investment Corridors™ convert jurisdictional intelligence into structured pathways for
-      capital deployment, development partnerships, and transaction-specific engagement.
+    <p class="corridor-canonical-definition">
+      Investment Corridors™ are TBG's capital-deployment architecture for moving
+      qualified participants from market intelligence to executable opportunity.
+    </p>
+    <p class="corridor-definition-detail">
+      Each corridor connects qualified capital and development capability with
+      jurisdictional priorities, investable opportunities, institutional counterparties,
+      and the conditions required to advance toward execution.
     </p>
   </div>
 
+  <div class="corridor-architecture-label">Corridor Formation Sequence</div>
+
   <div class="corridors-grid">
     <article class="corridor-step">
-      <span>01</span>
-      <h3>Market Intelligence</h3>
+      <span>01 / Intelligence</span>
+      <h3>Strategic Sessions™</h3>
       <p>
-        Strategic Sessions™ establish the policy, entitlement, infrastructure, and sector context
-        required to assess a jurisdiction responsibly.
+        Establish jurisdiction, policy, entitlement, infrastructure, and sector context
+        required to assess a market responsibly.
       </p>
     </article>
 
     <article class="corridor-step">
-      <span>02</span>
-      <h3>Executive Qualification</h3>
+      <span>02 / Qualification</span>
+      <h3>Executive Closed Sessions™</h3>
       <p>
-        Closed Executive Sessions™ clarify investment thesis, capital parameters, asset class,
-        counterparties, and development requirements.
+        Establish participant objectives, investment parameters, strategic fit,
+        counterparties, and the basis for deeper engagement.
       </p>
     </article>
 
     <article class="corridor-step">
-      <span>03</span>
-      <h3>In-Market Diligence</h3>
+      <span>03 / Diligence</span>
+      <h3>Executive Inward Delegations™</h3>
       <p>
-        Executive Inward Sessions™ connect qualified participants with sites, officials,
-        developers, operators, advisers, and market infrastructure.
+        Enable direct market, site, stakeholder, entitlement, infrastructure,
+        and opportunity diligence for qualified participants.
       </p>
     </article>
 
-    <article class="corridor-step">
-      <span>04</span>
-      <h3>Corridor Formation</h3>
+    <article class="corridor-step corridor-step-formation">
+      <span>04 / Corridor Formation</span>
+      <h3>Capital &amp; Opportunity Alignment</h3>
       <p>
-        TBG aligns capital, projects, public-sector priorities, and execution partners into
-        defined investment pathways capable of advancing toward transaction.
+        TBG aligns qualified capital, projects, jurisdictional priorities, public-sector
+        objectives, and execution partners into a defined pathway toward transaction.
       </p>
     </article>
+  </div>
+
+  <div class="corridor-qualification-note">
+    <strong>Qualification-led by design.</strong>
+    <span>
+      Participation in a Strategic Session™ or Executive Closed Session™ does not
+      automatically constitute entry into an Investment Corridor™. Corridor formation
+      follows diligence, strategic fit, and defined commercial relevance.
+    </span>
   </div>
 </section>
 
