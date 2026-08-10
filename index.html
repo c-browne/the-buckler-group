@@ -6724,6 +6724,107 @@ footer a{
   }
 }
 
+
+/* =========================================================
+   TBG REGIONAL INVESTMENT HUB MAP — FULL FOOTPRINT
+   Governing behavior: every active investment hub remains
+   visible simultaneously on desktop, tablet, and mobile.
+   ========================================================= */
+
+#sessions .tbg-map-layout{
+  grid-template-columns:minmax(0,3.35fr) minmax(310px,.85fr) !important;
+  min-height:680px !important;
+}
+
+#sessions .tbg-map-frame,
+#sessions #tbgMap,
+#sessions .tbg-jurisdiction-panel{
+  min-height:680px !important;
+  height:680px !important;
+}
+
+.tbg-marker-wrap{
+  position:relative;
+  width:16px;
+  height:16px;
+}
+
+.tbg-marker-wrap .tbg-marker{
+  position:absolute;
+  inset:0;
+  width:16px !important;
+  height:16px !important;
+  border-radius:50%;
+  background:#b7904b;
+  border:2px solid #fff !important;
+  box-shadow:
+    0 0 0 5px rgba(183,144,75,.18),
+    0 0 0 10px rgba(183,144,75,.07) !important;
+  cursor:pointer;
+}
+
+.tbg-marker-wrap .tbg-hub-label{
+  position:absolute;
+  left:22px;
+  top:50%;
+  transform:translateY(-50%);
+  width:max-content;
+  max-width:150px;
+  padding:5px 7px;
+  background:rgba(7,17,31,.82);
+  border:1px solid rgba(183,144,75,.24);
+  color:#fff;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:9px;
+  line-height:1.15;
+  font-weight:700;
+  letter-spacing:.06em;
+  white-space:nowrap;
+  pointer-events:none;
+  backdrop-filter:blur(4px);
+}
+
+.tbg-marker-wrap.is-left .tbg-hub-label{
+  left:auto;
+  right:22px;
+}
+
+.tbg-marker-wrap.is-active .tbg-marker{
+  transform:scale(1.25);
+  background:#d0ad68;
+}
+
+@media(max-width:1000px){
+  #sessions .tbg-map-layout{
+    grid-template-columns:1fr !important;
+  }
+
+  #sessions .tbg-map-frame,
+  #sessions #tbgMap{
+    height:540px !important;
+    min-height:540px !important;
+  }
+
+  #sessions .tbg-jurisdiction-panel{
+    min-height:auto !important;
+    height:auto !important;
+  }
+}
+
+@media(max-width:600px){
+  #sessions .tbg-map-frame,
+  #sessions #tbgMap{
+    height:470px !important;
+    min-height:470px !important;
+  }
+
+  .tbg-marker-wrap .tbg-hub-label{
+    font-size:7.5px;
+    padding:4px 5px;
+    max-width:112px;
+  }
+}
+
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 </head>
@@ -6908,7 +7009,7 @@ footer a{
                 <div class="calendar-tags"><em>Energy</em><em>Infrastructure</em><em>Hospitality</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="/participation.html?jurisdiction=guyana">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=guyana">Strategic Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=guyana">Closed Session Access</a>
               </div>
             </article>
@@ -6922,7 +7023,7 @@ footer a{
                 <div class="calendar-tags"><em>Luxury Tourism</em><em>Wealth Migration</em><em>Diaspora Capital</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="/participation.html?jurisdiction=barbados">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=barbados">Strategic Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=barbados">Closed Session Access</a>
               </div>
             </article>
@@ -6936,7 +7037,7 @@ footer a{
                 <div class="calendar-tags"><em>Ultra-Luxury</em><em>Family Offices</em><em>Maritime</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="/participation.html?jurisdiction=bahamas">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=bahamas">Strategic Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=bahamas">Closed Session Access</a>
               </div>
             </article>
@@ -6950,7 +7051,7 @@ footer a{
                 <div class="calendar-tags"><em>Climate Resilience</em><em>Boutique Hospitality</em><em>Regeneration</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="/participation.html?jurisdiction=grenada">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=grenada">Strategic Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=grenada">Closed Session Access</a>
               </div>
             </article>
@@ -6964,7 +7065,7 @@ footer a{
                 <div class="calendar-tags"><em>Industry</em><em>Energy Transition</em><em>Logistics</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="/participation.html?jurisdiction=trinidad-tobago">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=trinidad-tobago">Strategic Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=trinidad-tobago">Closed Session Access</a>
               </div>
             </article>
@@ -6978,7 +7079,7 @@ footer a{
                 <div class="calendar-tags"><em>Institutional Capital</em><em>Hospitality &amp; Real Estate</em><em>Scalable Deployment</em></div>
               </div>
               <div class="calendar-session-actions">
-                <a class="open-session-link" href="/participation.html?jurisdiction=dominican-republic">Open Session</a>
+                <a class="open-session-link" href="/participation.html?jurisdiction=dominican-republic">Strategic Session</a>
                 <a class="closed-session-link" href="/closed-session-access/?jurisdiction=dominican-republic">Closed Session Access</a>
               </div>
             </article>
@@ -7560,7 +7661,7 @@ Strategic Sessions Powered by EXODUS™
       <div class="button-row">
         <a class="btn primary" href="mailto:cbrowne@thebucklergroup.com?subject=Strategic%20Advisory%20Inquiry">Engage TBG</a>
         <a class="btn secondary" href="/participation.html">Strategic Sessions</a>
-        <a class="btn secondary" href="https://example.com/exodus-charter-membership" target="_blank" rel="noopener">EXODUS™</a>
+        <a class="btn secondary" href="/charter-membership.html">EXODUS™</a>
       </div>
     </div>
   </main>
@@ -7687,11 +7788,11 @@ Strategic Sessions Powered by EXODUS™
 
     map.fitBounds(bounds, {
       padding: compact
-        ? {top:42,right:34,bottom:54,left:34}
+        ? {top:58,right:52,bottom:64,left:52}
         : tablet
-          ? {top:52,right:52,bottom:62,left:52}
-          : {top:68,right:78,bottom:72,left:78},
-      maxZoom: compact ? 4.0 : 4.35,
+          ? {top:66,right:72,bottom:74,left:72}
+          : {top:82,right:104,bottom:86,left:104},
+      maxZoom: compact ? 3.85 : tablet ? 4.0 : 4.12,
       duration:0
     });
   }
@@ -7702,19 +7803,33 @@ Strategic Sessions Powered by EXODUS™
     const markerEls = [];
 
     sessions.forEach(function(item){
+      const markerWrap = document.createElement("div");
+      markerWrap.className = "tbg-marker-wrap";
+      markerWrap.title = item.name;
+      markerWrap.setAttribute("aria-label", item.name);
+      markerWrap.setAttribute("role", "button");
+
+      if (item.name === "The Bahamas" || item.name === "Dominican Republic") {
+        markerWrap.classList.add("is-left");
+      }
+
       const marker = document.createElement("div");
       marker.className = "tbg-marker";
-      marker.title = item.name;
-      marker.setAttribute("aria-label", item.name);
-      marker.setAttribute("role", "button");
 
-      new mapboxgl.Marker({element:marker})
+      const label = document.createElement("span");
+      label.className = "tbg-hub-label";
+      label.textContent = item.name;
+
+      markerWrap.appendChild(marker);
+      markerWrap.appendChild(label);
+
+      new mapboxgl.Marker({element:markerWrap})
         .setLngLat(item.coords)
         .addTo(map);
 
-      markerEls.push({el:marker,item:item});
+      markerEls.push({el:markerWrap,item:item});
 
-      marker.addEventListener("click", function(){
+      markerWrap.addEventListener("click", function(){
         markerEls.forEach(function(entry){
           entry.el.classList.toggle("is-active", entry.item.name === item.name);
         });
