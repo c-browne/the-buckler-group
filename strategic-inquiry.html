@@ -1,1 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Submit a strategic inquiry to The Buckler Group regarding advisory, Strategic Sessions™, Investment Corridors™, EXODUS™, and Caribbean market engagement." />
+  <title>Strategic Inquiry | The Buckler Group</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#07111f;
+      --midnight:#0d1a2b;
+      --ink:#101828;
+      --slate:#667085;
+      --bone:#f7f3ea;
+      --sand:#eee6d8;
+      --gold:#b7904b;
+      --white:#ffffff;
+      --line:rgba(183,144,75,.35);
+      --soft-line:rgba(7,17,31,.12);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Inter",Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bone);
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .topbar{
+      background:rgba(7,17,31,.97);
+      color:var(--white);
+      padding:17px 5vw;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(14px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .brand-crest{
+      height:58px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+    }
+
+    .wordmark{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:21px;
+      font-weight:500;
+      color:var(--white);
+      white-space:nowrap;
+    }
+
+    nav{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      color:rgba(255,255,255,.78);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:700;
+    }
+
+    nav a:hover{color:var(--gold)}
+
+    .hero{
+      background:
+        radial-gradient(circle at 75% 30%, rgba(183,144,75,.12), transparent 30%),
+        linear-gradient(135deg,#07111f 0%,#0d1a2b 100%);
+      color:var(--white);
+      padding:105px 5vw 94px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-inner{
+      max-width:1180px;
+      margin:0 auto;
+    }
+
+    .eyebrow{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-size:11px;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    h1,h2,h3{
+      font-family:"Cormorant Garamond",Georgia,serif;
+      line-height:1.02;
+      margin:0;
+      font-weight:600;
+    }
+
+    h1{
+      max-width:900px;
+      font-size:clamp(46px,6vw,84px);
+      letter-spacing:-.045em;
+    }
+
+    .hero p{
+      max-width:760px;
+      color:rgba(255,255,255,.72);
+      font-size:18px;
+      margin:26px 0 0;
+    }
+
+    .content{
+      padding:84px 5vw 110px;
+    }
+
+    .layout{
+      max-width:1180px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:.78fr 1.22fr;
+      gap:70px;
+      align-items:start;
+    }
+
+    .context{
+      padding-top:12px;
+    }
+
+    .context h2{
+      color:var(--navy);
+      font-size:clamp(34px,4vw,52px);
+      letter-spacing:-.035em;
+      margin-bottom:22px;
+    }
+
+    .context p{
+      color:var(--slate);
+      font-size:16px;
+      margin:0 0 24px;
+    }
+
+    .context-rule{
+      width:54px;
+      height:1px;
+      background:var(--gold);
+      margin:28px 0;
+    }
+
+    .context-note{
+      color:#475569;
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .context-list{
+      list-style:none;
+      padding:0;
+      margin:30px 0 0;
+      border-top:1px solid var(--soft-line);
+    }
+
+    .context-list li{
+      padding:14px 0;
+      border-bottom:1px solid var(--soft-line);
+      color:var(--navy);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      font-weight:700;
+    }
+
+    .form-card{
+      background:var(--white);
+      border:1px solid var(--soft-line);
+      box-shadow:0 28px 80px rgba(7,17,31,.07);
+      padding:42px;
+    }
+
+    .form-card h2{
+      color:var(--navy);
+      font-size:38px;
+      letter-spacing:-.03em;
+      margin-bottom:10px;
+    }
+
+    .form-intro{
+      color:var(--slate);
+      margin:0 0 34px;
+      font-size:14px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .field.full{
+      grid-column:1 / -1;
+    }
+
+    label{
+      color:var(--navy);
+      font-size:10px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    input,select,textarea{
+      width:100%;
+      border:1px solid rgba(7,17,31,.16);
+      background:#fff;
+      color:var(--ink);
+      font:inherit;
+      font-size:14px;
+      padding:14px 15px;
+      outline:none;
+      border-radius:0;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+
+    textarea{
+      min-height:180px;
+      resize:vertical;
+    }
+
+    input:focus,select:focus,textarea:focus{
+      border-color:var(--gold);
+      box-shadow:0 0 0 3px rgba(183,144,75,.10);
+    }
+
+    .required{color:#8a6a3f}
+
+    .honeypot{display:none}
+
+    .submit-row{
+      margin-top:30px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .submit-btn{
+      appearance:none;
+      border:1px solid var(--gold);
+      background:var(--gold);
+      color:var(--navy);
+      min-width:210px;
+      min-height:52px;
+      padding:0 24px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:11px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .submit-btn:hover{
+      transform:translateY(-1px);
+      background:#c29a52;
+    }
+
+    .privacy{
+      max-width:360px;
+      color:var(--slate);
+      font-size:11px;
+      line-height:1.6;
+      margin:0;
+    }
+
+    .direct-contact{
+      margin-top:22px;
+      color:#475569;
+      font-size:12px;
+    }
+
+    .direct-contact a{
+      color:#8a6a3f;
+      font-weight:700;
+    }
+
+    footer{
+      background:#050b14;
+      color:rgba(255,255,255,.58);
+      padding:32px 5vw;
+      border-top:1px solid rgba(183,144,75,.32);
+      font-size:12px;
+    }
+
+    .footer-inner{
+      max-width:1180px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    @media(max-width:900px){
+      nav{display:none}
+      .brand-crest{height:48px}
+      .wordmark{font-size:18px}
+      .hero{padding-top:76px}
+      .layout{grid-template-columns:1fr;gap:48px}
+      .form-card{padding:28px 22px}
+    }
+
+    @media(max-width:650px){
+      .form-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .submit-row{align-items:flex-start;flex-direction:column}
+      .submit-btn{width:100%}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="The Buckler Group home">
+      <img class="brand-crest" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest">
+      <span class="wordmark">The Buckler Group</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/#sessions">Strategic Sessions™</a>
+      <a href="/#investment-corridors">Investment Corridors™</a>
+      <a href="/charter-membership.html">EXODUS™</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">Strategic Engagement</div>
+        <h1>Begin a Strategic Inquiry.</h1>
+        <p>
+          Submit a confidential inquiry regarding advisory, market entry, capital formation,
+          Strategic Sessions™, Investment Corridors™, EXODUS™, or jurisdiction-specific engagement.
+        </p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="layout">
+        <aside class="context">
+          <div class="eyebrow">The Buckler Group</div>
+          <h2>Structured engagement begins with context.</h2>
+          <p>
+            TBG works across the intersection of capital, real estate, institutions, and Caribbean
+            market development. This inquiry enables our team to understand the strategic objective
+            before determining the appropriate engagement pathway.
+          </p>
+
+          <div class="context-rule"></div>
+
+          <p class="context-note">
+            Submissions are reviewed for strategic fit. Where appropriate, TBG will respond with
+            next-step guidance, a meeting request, or the relevant participation pathway.
+          </p>
+
+          <ul class="context-list">
+            <li>Strategic Advisory</li>
+            <li>Capital &amp; Market Entry</li>
+            <li>Strategic Sessions™</li>
+            <li>Investment Corridors™</li>
+            <li>EXODUS™</li>
+          </ul>
+        </aside>
+
+        <div class="form-card">
+          <h2>Strategic Inquiry</h2>
+          <p class="form-intro">Please provide sufficient context for an informed executive review.</p>
+
+          <!--
+            NETLIFY FORMS:
+            1) Deploy this page to the same Netlify site.
+            2) Netlify will detect the form because of data-netlify="true".
+            3) In Netlify: Forms → Form notifications → Add notification → Email notification.
+            4) Set recipient to: info@thebucklergroup.com
+          -->
+          <form
+            name="tbg-strategic-inquiry"
+            method="POST"
+            action="/inquiry-thank-you.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="tbg-strategic-inquiry">
+
+            <p class="honeypot">
+              <label>Do not fill this out if you are human: <input name="bot-field"></label>
+            </p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name <span class="required">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+
+              <div class="field">
+                <label for="email">Email <span class="required">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+
+              <div class="field">
+                <label for="organization">Organization <span class="required">*</span></label>
+                <input id="organization" name="organization" type="text" autocomplete="organization" required>
+              </div>
+
+              <div class="field">
+                <label for="title">Title / Position</label>
+                <input id="title" name="title" type="text" autocomplete="organization-title">
+              </div>
+
+              <div class="field">
+                <label for="jurisdiction">Jurisdiction <span class="required">*</span></label>
+                <select id="jurisdiction" name="jurisdiction" required>
+                  <option value="" selected disabled>Select jurisdiction</option>
+                  <option>Guyana</option>
+                  <option>Barbados</option>
+                  <option>The Bahamas</option>
+                  <option>Grenada</option>
+                  <option>Trinidad &amp; Tobago</option>
+                  <option>Dominican Republic</option>
+                  <option>Regional / Multi-Jurisdiction</option>
+                  <option>United States / Diaspora</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="interest">Area of Interest <span class="required">*</span></label>
+                <select id="interest" name="area-of-interest" required>
+                  <option value="" selected disabled>Select area</option>
+                  <option>Strategic Advisory</option>
+                  <option>Real Estate &amp; Development</option>
+                  <option>Hospitality &amp; Mixed-Use</option>
+                  <option>Capital Formation / Investment</option>
+                  <option>Market Entry / FDI</option>
+                  <option>Public-Private Partnerships</option>
+                  <option>Strategic Sessions™</option>
+                  <option>Executive Closed Session™</option>
+                  <option>Investment Corridors™</option>
+                  <option>Executive Inward Delegations™</option>
+                  <option>EXODUS™</option>
+                  <option>Institutional Partnership</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="inquiry">Inquiry <span class="required">*</span></label>
+                <textarea
+                  id="inquiry"
+                  name="inquiry"
+                  required
+                  placeholder="Briefly describe the opportunity, objective, jurisdiction, relevant stakeholders, and desired outcome."
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="submit-row">
+              <button class="submit-btn" type="submit">Submit Inquiry</button>
+              <p class="privacy">
+                Information submitted through this form is intended for executive review by The Buckler Group
+                and will be handled as business correspondence.
+              </p>
+            </div>
+          </form>
+
+          <p class="direct-contact">
+            General correspondence: <a href="mailto:info@thebucklergroup.com">info@thebucklergroup.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 The Buckler Group, Inc.</span>
+      <span>New York | Caribbean</span>
+    </div>
+  </footer>
+</body>
+</html>
