@@ -6825,6 +6825,548 @@ footer a{
   }
 }
 
+
+/* =========================================================
+   TBG FOOTER — UNIFORM TYPOGRAPHY OVERRIDE
+   Single institutional type system: Inter
+   ========================================================= */
+.institutional-footer,
+.institutional-footer * {
+  font-family: "Inter", Arial, sans-serif !important;
+}
+
+.institutional-footer {
+  font-style: normal !important;
+  letter-spacing: 0 !important;
+}
+
+.institutional-footer .footer-brand h3 {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: 18px !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+  letter-spacing: .01em !important;
+  text-transform: none !important;
+  font-style: normal !important;
+  margin: 0 0 16px !important;
+}
+
+.institutional-footer .footer-brand p {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-style: normal !important;
+}
+
+.institutional-footer .footer-column h4 {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: 11px !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  font-style: normal !important;
+  margin: 0 0 18px !important;
+}
+
+.institutional-footer .footer-column a,
+.institutional-footer .footer-column span {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-style: normal !important;
+  margin-bottom: 10px !important;
+}
+
+.institutional-footer .footer-bottom,
+.institutional-footer .footer-bottom div {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  font-style: normal !important;
+}
+
+
+/* =========================================================
+   TBG RESPONSIVE COMPATIBILITY PACK
+   Mobile • Tablet • Laptop • Desktop • Large Display
+   ========================================================= */
+
+/* Global resilience */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img, video, iframe, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+button,
+input,
+select,
+textarea,
+a.btn,
+.calendar-btn,
+.headline-btn {
+  max-width: 100%;
+}
+
+/* Large screens */
+@media (min-width: 1440px) {
+  .hero,
+  section,
+  .regional-demand,
+  #sessions,
+  .regional-participation,
+  .ecosystem-architecture,
+  .office-founder,
+  .institutional-footer {
+    padding-left: max(5vw, calc((100vw - 1500px) / 2));
+    padding-right: max(5vw, calc((100vw - 1500px) / 2));
+  }
+}
+
+/* Standard desktop / laptop */
+@media (max-width: 1280px) {
+  .services,
+  #advisory .services {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .spotlights,
+  #jurisdictions .spotlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .roles,
+  .cards,
+  .insights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .participation-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .participation-lead {
+    grid-column: span 4 !important;
+  }
+
+  .founder-layout,
+  .office-founder-inner {
+    grid-template-columns: .9fr 1.1fr !important;
+    gap: 42px !important;
+  }
+}
+
+/* Tablet landscape / small laptops */
+@media (max-width: 1100px) {
+  .topbar {
+    padding: 14px 4vw !important;
+  }
+
+  nav {
+    gap: 14px !important;
+    font-size: 10px !important;
+  }
+
+  .hero {
+    padding: 72px 5vw !important;
+    min-height: auto !important;
+  }
+
+  h1 {
+    font-size: clamp(42px, 7vw, 74px) !important;
+  }
+
+  section {
+    padding: 78px 5vw !important;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .affiliations,
+  .demand-grid,
+  .pricing-grid,
+  .stakeholder-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .calendar-row,
+  #sessions .calendar-row,
+  .calendar-header,
+  #sessions .calendar-header {
+    grid-template-columns: 1fr .7fr 1.15fr !important;
+    gap: 18px !important;
+  }
+
+  .ecosystem-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 900px) {
+  .topbar {
+    position: relative !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+
+  .brand {
+    min-width: 0 !important;
+  }
+
+  .brand-crest {
+    height: 46px !important;
+  }
+
+  .brand .wordmark,
+  .wordmark {
+    font-size: 17px !important;
+    white-space: normal !important;
+  }
+
+  nav {
+    display: none !important;
+  }
+
+  .hero {
+    padding: 64px 5vw !important;
+    background-position: center !important;
+  }
+
+  .hero p {
+    font-size: 17px !important;
+  }
+
+  section,
+  #sessions,
+  .regional-demand,
+  .regional-participation,
+  .ecosystem-architecture,
+  .office-founder {
+    padding: 68px 5vw !important;
+  }
+
+  .services,
+  #advisory .services,
+  .cards,
+  .roles,
+  .spotlights,
+  #jurisdictions .spotlights,
+  .insights-grid,
+  .affiliations,
+  .stats,
+  .demand-grid,
+  .pricing-grid,
+  .stakeholder-grid,
+  .program-panel,
+  .declaration-panel,
+  .founder-layout,
+  .office-founder-inner,
+  .founder-compact,
+  .participation-grid,
+  .ecosystem-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .participation-lead {
+    grid-column: span 1 !important;
+  }
+
+  #advisory .service {
+    display: block !important;
+    padding: 24px 0 !important;
+  }
+
+  #advisory .service::before {
+    display: block !important;
+    margin-bottom: 10px !important;
+  }
+
+  .program-panel {
+    padding: 28px !important;
+  }
+
+  .founder-image-panel,
+  .office-founder-image {
+    min-height: 360px !important;
+  }
+
+  .founder-copy,
+  .office-founder-copy {
+    padding: 32px !important;
+  }
+
+  .calendar-header,
+  #sessions .calendar-header {
+    display: none !important;
+  }
+
+  .calendar-row,
+  #sessions .calendar-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 24px 20px !important;
+  }
+
+  .calendar-market {
+    font-size: clamp(30px, 8vw, 46px) !important;
+  }
+
+  .headline-actions,
+  .calendar-actions,
+  .button-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .headline-btn,
+  .calendar-btn,
+  .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .cta-band {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .cta-band .button-row {
+    width: 100% !important;
+  }
+
+  .institutional-footer {
+    padding: 54px 5vw 28px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 30px !important;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1 !important;
+    max-width: none !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .topbar {
+    padding: 12px 18px !important;
+  }
+
+  .brand {
+    gap: 10px !important;
+  }
+
+  .brand-crest {
+    height: 40px !important;
+  }
+
+  .brand .wordmark,
+  .wordmark {
+    font-size: 15px !important;
+  }
+
+  .hero {
+    padding: 52px 20px !important;
+  }
+
+  .eyebrow,
+  .hero-subline {
+    font-size: 10px !important;
+    letter-spacing: .15em !important;
+  }
+
+  h1 {
+    font-size: clamp(38px, 12vw, 58px) !important;
+    line-height: .98 !important;
+  }
+
+  .hero p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    margin-top: 20px !important;
+  }
+
+  section,
+  #sessions,
+  .regional-demand,
+  .regional-participation,
+  .ecosystem-architecture,
+  .office-founder,
+  .institutional-premise {
+    padding: 54px 20px !important;
+  }
+
+  .section-head {
+    margin-bottom: 30px !important;
+  }
+
+  .section-head h2,
+  #sessions .program-panel h2,
+  .office-founder-copy h2,
+  .founder-copy h2 {
+    font-size: clamp(32px, 10vw, 46px) !important;
+    line-height: 1 !important;
+  }
+
+  .section-head p,
+  #sessions .program-panel p,
+  .office-founder-copy p,
+  .founder-copy p {
+    font-size: 15px !important;
+  }
+
+  .stat,
+  .service,
+  .card,
+  .role-card,
+  .demand-stat,
+  .pricing-card,
+  .stakeholder-card,
+  .affiliation {
+    padding: 22px !important;
+  }
+
+  .spotlight,
+  #jurisdictions .spotlight {
+    height: 260px !important;
+    min-height: 260px !important;
+  }
+
+  .spotlight-content,
+  #jurisdictions .spotlight-content {
+    padding: 16px !important;
+  }
+
+  .spotlight h3,
+  #jurisdictions .spotlight h3 {
+    font-size: 22px !important;
+  }
+
+  .spotlight p,
+  #jurisdictions .spotlight p {
+    font-size: 13px !important;
+  }
+
+  .program-panel {
+    padding: 22px !important;
+  }
+
+  .founder-image-panel,
+  .office-founder-image {
+    min-height: 300px !important;
+  }
+
+  .founder-copy,
+  .office-founder-copy {
+    padding: 24px 20px !important;
+  }
+
+  .calendar-row,
+  #sessions .calendar-row {
+    padding: 22px 18px !important;
+  }
+
+  .calendar-footnote,
+  #sessions .calendar-footnote {
+    padding: 22px 18px !important;
+  }
+
+  .calendar-tags {
+    gap: 6px !important;
+  }
+
+  .calendar-tags em {
+    font-size: 8px !important;
+    padding: 6px 7px !important;
+  }
+
+  .ecosystem-node {
+    padding: 18px !important;
+  }
+
+  .ecosystem-arrow {
+    transform: rotate(90deg);
+    margin: 10px 0 !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .footer-brand {
+    grid-column: auto !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 16px !important;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 390px) {
+  .hero {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  section,
+  #sessions,
+  .regional-demand,
+  .regional-participation,
+  .ecosystem-architecture,
+  .office-founder,
+  .institutional-premise {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  h1 {
+    font-size: 36px !important;
+  }
+
+  .btn,
+  .calendar-btn,
+  .headline-btn {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    letter-spacing: .09em !important;
+    font-size: 10px !important;
+  }
+}
+
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 </head>
@@ -7659,7 +8201,7 @@ Strategic Sessions Powered by EXODUS™
         <p style="color:rgba(255,255,255,.72);max-width:700px;">For advisory, Strategic Sessions, EXODUS™, or jurisdiction-related engagement.</p>
       </div>
       <div class="button-row">
-        <a class="btn primary" href="mailto:info@thebucklergroup.com?subject=Strategic%20Advisory%20Inquiry">Engage TBG</a>
+        <a class="btn primary" href="/strategic-inquiry.html">Engage TBG</a>
         <a class="btn secondary" href="/participation.html">Strategic Sessions</a>
         <a class="btn secondary" href="/charter-membership.html">EXODUS™</a>
       </div>
@@ -7699,7 +8241,7 @@ Strategic Sessions Powered by EXODUS™
 
       <div class="footer-column">
         <h4>Engage</h4>
-        <a href="#contact">Request Advisory</a>
+        <a href="/strategic-inquiry.html">Request Advisory</a>
         <a href="/participation.html">Reserve Participation</a>
         <a href="/charter-membership.html">Request Invitation</a>
         <span>New York | Caribbean</span>
