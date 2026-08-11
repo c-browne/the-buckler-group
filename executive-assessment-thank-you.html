@@ -1,13 +1,346 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assessment Received | The Buckler Group</title>
-<style>
-:root{--n:#07111f;--g:#b7904b}
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;display:grid;place-items:center;padding:32px;background:linear-gradient(135deg,#07111f,#0d1a2b);color:#fff;font-family:Arial,sans-serif;text-align:center}
-.panel{max-width:760px}.k{color:#d7bf8c;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-h1{font:600 clamp(46px,7vw,78px)/.95 Georgia,serif;margin:20px 0;letter-spacing:-.04em}
-p{max-width:650px;margin:0 auto;color:#ffffffb8;line-height:1.7;font-size:16px}
-a{display:inline-block;margin-top:30px;padding:15px 24px;background:var(--g);color:var(--n);text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
-</style></head>
-<body><main class="panel"><div class="k">The Buckler Group • Executive Engagement</div><h1>Assessment Received.</h1><p>Thank you. Your Executive Engagement Assessment™ has been received for executive review. Your responses will help us focus the discussion on the opportunities, relationships, and engagement pathways most relevant to your priorities.</p><a href="/">Return to The Buckler Group</a></main></body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Buckler Group Executive Engagement Assessment confirmation" />
+  <title>Assessment Received | The Buckler Group</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#07111f;
+      --navy-2:#0c1727;
+      --gold:#b7904b;
+      --gold-soft:#c9ac73;
+      --paper:#f7f3ea;
+      --white:#ffffff;
+      --slate:#667085;
+      --line:rgba(255,255,255,.12);
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      width:100%;
+      min-height:100%;
+      overflow-x:hidden;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      background:var(--navy);
+      color:var(--white);
+      font-family:"Inter",Arial,sans-serif;
+      -webkit-text-size-adjust:100%;
+    }
+
+    img{max-width:100%;height:auto}
+    a{text-decoration:none;color:inherit}
+
+    .site-header{
+      background:var(--navy);
+      border-bottom:1px solid rgba(183,144,75,.36);
+    }
+
+    .header-inner{
+      max-width:1320px;
+      margin:0 auto;
+      padding:15px 32px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      width:auto;
+      height:44px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .brand-name{
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:22px;
+      font-weight:600;
+      letter-spacing:.005em;
+      line-height:1;
+    }
+
+    .header-meta{
+      color:rgba(255,255,255,.42);
+      font-size:9px;
+      font-weight:600;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    main{
+      flex:1;
+      display:grid;
+      place-items:center;
+      padding:72px 32px 86px;
+      background:
+        radial-gradient(circle at 78% 18%,rgba(183,144,75,.10),transparent 28%),
+        linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
+    }
+
+    .confirmation{
+      width:min(100%, 980px);
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);
+      gap:64px;
+      align-items:center;
+    }
+
+    .kicker{
+      color:var(--gold-soft);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.19em;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+
+    h1{
+      margin:0;
+      max-width:700px;
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:clamp(46px,5.4vw,74px);
+      font-weight:600;
+      line-height:.97;
+      letter-spacing:-.038em;
+    }
+
+    .lead{
+      max-width:690px;
+      margin:22px 0 0;
+      color:rgba(255,255,255,.72);
+      font-size:15px;
+      line-height:1.72;
+    }
+
+    .action-row{
+      margin-top:30px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      min-height:46px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 22px;
+      border:1px solid var(--gold);
+      background:var(--gold);
+      color:var(--navy);
+      font-size:9px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      transition:.2s ease;
+    }
+
+    .btn:hover{
+      background:#c29a51;
+      transform:translateY(-1px);
+    }
+
+    .review-panel{
+      border-left:1px solid rgba(255,255,255,.14);
+      padding-left:28px;
+    }
+
+    .review-panel .eyebrow{
+      color:#fff;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .review-panel p{
+      margin:0;
+      color:rgba(255,255,255,.56);
+      font-size:12px;
+      line-height:1.65;
+    }
+
+    .review-panel .rule{
+      height:1px;
+      background:var(--line);
+      margin:20px 0;
+    }
+
+    footer{
+      background:#050b14;
+      border-top:1px solid rgba(183,144,75,.26);
+      color:rgba(255,255,255,.45);
+      padding:28px 32px;
+    }
+
+    .footer-inner{
+      max-width:1320px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      font-size:9px;
+      font-weight:600;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+
+    @media(max-width:900px){
+      main{
+        padding:60px 24px 72px;
+      }
+
+      .confirmation{
+        grid-template-columns:1fr;
+        gap:34px;
+      }
+
+      .review-panel{
+        border-left:0;
+        border-top:1px solid rgba(255,255,255,.14);
+        padding-left:0;
+        padding-top:24px;
+        max-width:720px;
+      }
+    }
+
+    @media(max-width:700px){
+      .header-inner{
+        padding:12px 18px;
+      }
+
+      .brand img{
+        height:38px;
+      }
+
+      .brand-name{
+        font-size:17px;
+      }
+
+      .header-meta{
+        display:none;
+      }
+
+      main{
+        padding:48px 18px 58px;
+      }
+
+      h1{
+        font-size:clamp(38px,11vw,54px);
+      }
+
+      .lead{
+        font-size:14px;
+      }
+
+      .action-row{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      footer{
+        padding:24px 18px;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        gap:8px;
+        font-size:8.5px;
+      }
+    }
+
+    @media(max-width:390px){
+      .header-inner,
+      main,
+      footer{
+        padding-left:15px;
+        padding-right:15px;
+      }
+
+      h1{
+        font-size:36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="The Buckler Group home">
+      <img src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest">
+      <span class="brand-name">The Buckler Group</span>
+    </a>
+    <div class="header-meta">Private &amp; Confidential Executive Engagement</div>
+  </div>
+</header>
+
+<main>
+  <section class="confirmation">
+    <div>
+      <div class="kicker">Executive Engagement</div>
+      <h1>Assessment Received.</h1>
+      <p class="lead">
+        Thank you. Your Executive Engagement Assessment™ has been received for executive review.
+        Your responses will help us focus the discussion on the opportunities, relationships, and
+        engagement pathways most relevant to your priorities.
+      </p>
+
+      <div class="action-row">
+        <a class="btn" href="/">Return to The Buckler Group</a>
+      </div>
+    </div>
+
+    <aside class="review-panel">
+      <div class="eyebrow">Next Step</div>
+      <p>
+        Your submission will be reviewed in advance of our discussion so that the conversation can
+        remain focused, efficient, and aligned with your stated priorities.
+      </p>
+
+      <div class="rule"></div>
+
+      <div class="eyebrow">Executive Review</div>
+      <p>
+        Information submitted through this assessment is intended solely to establish strategic
+        context for potential engagement with The Buckler Group.
+      </p>
+    </aside>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 The Buckler Group, Inc.</span>
+    <span>Building Order. Advancing Opportunity.</span>
+  </div>
+</footer>
+
+</body>
+</html>
