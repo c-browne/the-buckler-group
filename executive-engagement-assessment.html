@@ -14,15 +14,15 @@
     :root{
       --navy:#07111f;
       --navy-2:#0c1727;
-      --ink:#111827;
       --gold:#b7904b;
-      --gold-soft:#d7bf8c;
-      --ivory:#f7f3ea;
-      --paper:#fbfaf7;
+      --gold-soft:#c9ac73;
+      --paper:#f7f3ea;
       --white:#ffffff;
+      --ink:#111827;
       --slate:#667085;
-      --line:rgba(7,17,31,.14);
-      --line-dark:rgba(255,255,255,.12);
+      --muted:#8b95a5;
+      --line:#d9dde3;
+      --line-soft:#e9ebef;
     }
 
     *{box-sizing:border-box}
@@ -37,21 +37,18 @@
     }
 
     img{max-width:100%;height:auto}
-    a{color:inherit;text-decoration:none}
+    a{text-decoration:none;color:inherit}
 
+    /* HEADER */
     .site-header{
-      position:sticky;
-      top:0;
-      z-index:30;
-      background:rgba(7,17,31,.98);
+      background:var(--navy);
       border-bottom:1px solid rgba(183,144,75,.36);
-      backdrop-filter:blur(12px);
     }
 
     .header-inner{
-      max-width:1440px;
+      max-width:1320px;
       margin:0 auto;
-      padding:14px 5vw;
+      padding:15px 32px;
       display:flex;
       justify-content:space-between;
       align-items:center;
@@ -61,56 +58,57 @@
     .brand{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:12px;
       color:#fff;
     }
 
     .brand img{
-      height:56px;
       width:auto;
+      height:44px;
       object-fit:contain;
+      display:block;
     }
 
     .brand-name{
       font-family:"Cormorant Garamond",Georgia,serif;
-      font-size:23px;
-      letter-spacing:.01em;
+      font-size:22px;
       font-weight:600;
+      letter-spacing:.005em;
+      line-height:1;
     }
 
     .header-meta{
-      color:rgba(255,255,255,.48);
+      color:rgba(255,255,255,.42);
       font-size:9px;
+      font-weight:600;
       letter-spacing:.16em;
       text-transform:uppercase;
-      white-space:nowrap;
     }
 
+    /* HERO */
     .hero{
-      background:
-        linear-gradient(120deg,rgba(7,17,31,.99),rgba(12,23,39,.96)),
-        radial-gradient(circle at 85% 15%,rgba(183,144,75,.18),transparent 30%);
-      color:white;
-      padding:92px 5vw 86px;
-      border-bottom:1px solid rgba(183,144,75,.30);
+      background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
+      color:#fff;
+      border-bottom:1px solid rgba(183,144,75,.26);
     }
 
     .hero-inner{
-      max-width:1440px;
+      max-width:1320px;
       margin:0 auto;
+      padding:76px 32px 72px;
       display:grid;
-      grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);
-      gap:80px;
+      grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
+      gap:74px;
       align-items:end;
     }
 
     .kicker{
+      margin-bottom:16px;
       color:var(--gold-soft);
       font-size:10px;
       font-weight:700;
-      letter-spacing:.20em;
+      letter-spacing:.19em;
       text-transform:uppercase;
-      margin-bottom:20px;
     }
 
     h1,h2,h3{
@@ -120,225 +118,230 @@
     }
 
     h1{
-      max-width:920px;
-      font-size:clamp(48px,6vw,86px);
-      line-height:.94;
-      letter-spacing:-.045em;
+      max-width:760px;
+      font-size:clamp(48px,5.1vw,74px);
+      line-height:.97;
+      letter-spacing:-.038em;
     }
 
     .hero-copy{
-      max-width:780px;
-      margin:26px 0 0;
+      max-width:720px;
+      margin:22px 0 0;
       color:rgba(255,255,255,.72);
-      font-size:17px;
+      font-size:16px;
       line-height:1.7;
     }
 
     .hero-side{
-      border-left:1px solid rgba(255,255,255,.15);
-      padding-left:30px;
+      border-left:1px solid rgba(255,255,255,.14);
+      padding-left:28px;
     }
 
     .hero-side strong{
       display:block;
-      color:white;
-      font-size:12px;
-      text-transform:uppercase;
+      color:#fff;
+      font-size:10px;
+      font-weight:700;
       letter-spacing:.12em;
-      margin-bottom:11px;
+      text-transform:uppercase;
+      margin-bottom:8px;
     }
 
     .hero-side p{
       margin:0;
-      color:rgba(255,255,255,.56);
-      font-size:13px;
+      color:rgba(255,255,255,.58);
+      font-size:12px;
       line-height:1.65;
     }
 
     .hero-side .rule{
       height:1px;
       background:rgba(255,255,255,.12);
-      margin:22px 0;
+      margin:20px 0;
     }
 
+    /* MAIN */
     .assessment-shell{
-      max-width:1440px;
+      max-width:1320px;
       margin:0 auto;
-      padding:0 5vw 110px;
+      padding:72px 32px 110px;
       display:grid;
-      grid-template-columns:320px minmax(0,1fr);
-      gap:64px;
+      grid-template-columns:260px minmax(0,1fr);
+      gap:46px;
+      align-items:start;
     }
 
     .context-panel{
-      padding-top:72px;
-      position:sticky;
-      top:95px;
-      align-self:start;
+      padding-top:8px;
     }
 
     .context-label{
-      color:#8a6a3f;
+      margin-bottom:14px;
+      color:#8f713d;
       font-size:9px;
       font-weight:700;
       letter-spacing:.16em;
       text-transform:uppercase;
-      margin-bottom:18px;
     }
 
     .context-panel h2{
       color:var(--navy);
-      font-size:36px;
+      font-size:32px;
       line-height:1.02;
-      letter-spacing:-.03em;
+      letter-spacing:-.025em;
     }
 
     .context-panel p{
+      margin:16px 0 24px;
       color:var(--slate);
-      font-size:13px;
+      font-size:12px;
       line-height:1.7;
-      margin:18px 0 26px;
     }
 
     .context-index{
-      border-top:1px solid var(--line);
+      border-top:1px solid rgba(7,17,31,.12);
     }
 
     .context-index div{
       display:grid;
-      grid-template-columns:34px 1fr;
-      gap:10px;
-      padding:13px 0;
-      border-bottom:1px solid var(--line);
-      font-size:10px;
-      text-transform:uppercase;
-      letter-spacing:.10em;
-      color:#344054;
+      grid-template-columns:28px 1fr;
+      gap:8px;
+      padding:11px 0;
+      border-bottom:1px solid rgba(7,17,31,.10);
+      color:#3f4b5d;
+      font-size:9px;
       font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
     }
 
     .context-index span{
       color:#9a7a45;
     }
 
-    .form-wrap{
-      margin-top:-32px;
-      position:relative;
-      z-index:5;
-    }
-
+    /* FORM FRAME */
     .form-card{
-      background:white;
-      border:1px solid rgba(7,17,31,.11);
-      box-shadow:0 28px 90px rgba(7,17,31,.08);
+      background:#fff;
+      border:1px solid #d7dbe1;
+      box-shadow:0 18px 55px rgba(7,17,31,.055);
     }
 
     .form-header{
-      padding:34px 38px 26px;
-      border-bottom:1px solid var(--line);
+      padding:28px 32px 24px;
       display:flex;
       justify-content:space-between;
-      gap:24px;
       align-items:flex-start;
+      gap:22px;
+      border-bottom:1px solid var(--line-soft);
     }
 
     .form-header h2{
       color:var(--navy);
-      font-size:38px;
+      font-size:34px;
       line-height:1;
+      letter-spacing:-.02em;
     }
 
     .form-header p{
-      color:var(--slate);
       margin:8px 0 0;
-      font-size:12px;
+      color:var(--slate);
+      font-size:11px;
+      line-height:1.6;
     }
 
     .confidential{
-      border:1px solid rgba(183,144,75,.45);
+      padding:7px 9px;
+      border:1px solid rgba(183,144,75,.38);
       color:#8a6a3f;
-      padding:8px 10px;
       font-size:8px;
       font-weight:700;
-      letter-spacing:.13em;
+      letter-spacing:.11em;
       text-transform:uppercase;
       white-space:nowrap;
     }
 
     .section{
-      padding:34px 38px 38px;
-      border-bottom:1px solid var(--line);
+      padding:28px 32px 30px;
+      border-bottom:1px solid var(--line-soft);
     }
 
-    .section:last-of-type{border-bottom:0}
+    .section:last-of-type{
+      border-bottom:0;
+    }
 
     .section-heading{
       display:flex;
-      align-items:baseline;
-      gap:14px;
-      margin-bottom:24px;
+      align-items:center;
+      gap:12px;
+      margin-bottom:20px;
     }
 
     .section-no{
       color:#9a7a45;
       font-size:9px;
       font-weight:700;
-      letter-spacing:.13em;
+      letter-spacing:.11em;
     }
 
     .section-heading h3{
-      color:var(--navy);
       font-family:"Inter",Arial,sans-serif;
-      font-size:13px;
+      color:#1c2738;
+      font-size:11px;
       font-weight:700;
-      letter-spacing:.08em;
+      letter-spacing:.09em;
       text-transform:uppercase;
     }
 
     .grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:22px;
+      gap:20px 24px;
     }
 
     .field{
       display:flex;
       flex-direction:column;
-      gap:8px;
+      gap:7px;
     }
 
     .full{grid-column:1/-1}
 
     label,.legend{
-      color:#253248;
-      font-size:10px;
+      color:#344054;
+      font-size:9px;
       font-weight:700;
       letter-spacing:.08em;
       text-transform:uppercase;
     }
 
     .help{
-      color:#7a8494;
-      font-size:11px;
-      margin-top:-3px;
+      color:var(--muted);
+      font-size:10px;
+      margin-top:-2px;
     }
 
     input,select,textarea{
       width:100%;
-      border:0;
-      border-bottom:1px solid rgba(7,17,31,.22);
+      border:1px solid #d9dde3;
       background:#fff;
-      color:#101828;
-      padding:12px 2px;
+      color:#111827;
+      padding:12px 12px;
       font-family:"Inter",Arial,sans-serif;
-      font-size:14px;
+      font-size:13px;
       outline:none;
       border-radius:0;
-      transition:border-color .2s ease;
+      transition:border-color .2s ease, box-shadow .2s ease;
     }
 
-    input:focus,select:focus,textarea:focus{border-bottom-color:var(--gold)}
-    textarea{min-height:130px;resize:vertical}
+    input:focus,select:focus,textarea:focus{
+      border-color:var(--gold);
+      box-shadow:0 0 0 2px rgba(183,144,75,.08);
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
 
     fieldset{
       border:0;
@@ -349,18 +352,18 @@
     .option-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:10px 18px;
-      margin-top:12px;
+      gap:8px 18px;
+      margin-top:10px;
     }
 
     .option{
       display:flex;
       align-items:flex-start;
-      gap:9px;
-      padding:10px 0;
-      border-bottom:1px solid rgba(7,17,31,.08);
-      color:#344054;
-      font-size:12px;
+      gap:8px;
+      padding:8px 0;
+      border-bottom:1px solid #eef0f3;
+      color:#475467;
+      font-size:11px;
       font-weight:500;
       text-transform:none;
       letter-spacing:0;
@@ -369,8 +372,8 @@
 
     .option input{
       width:auto;
-      margin:2px 0 0;
       padding:0;
+      margin:2px 0 0;
       accent-color:var(--gold);
       flex:0 0 auto;
     }
@@ -379,32 +382,31 @@
 
     .submit-band{
       background:var(--navy);
-      color:white;
-      padding:30px 38px;
+      padding:24px 32px;
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:28px;
+      align-items:center;
+      gap:24px;
     }
 
     .submit-band p{
       max-width:500px;
       margin:0;
-      color:rgba(255,255,255,.56);
-      font-size:11px;
-      line-height:1.6;
+      color:rgba(255,255,255,.55);
+      font-size:10px;
+      line-height:1.65;
     }
 
     .submit-btn{
-      min-height:50px;
-      border:1px solid var(--gold);
+      min-height:46px;
+      padding:0 22px;
       background:var(--gold);
+      border:1px solid var(--gold);
       color:var(--navy);
-      padding:0 24px;
       font-family:"Inter",Arial,sans-serif;
       font-size:9px;
       font-weight:800;
-      letter-spacing:.14em;
+      letter-spacing:.12em;
       text-transform:uppercase;
       cursor:pointer;
       white-space:nowrap;
@@ -412,19 +414,19 @@
     }
 
     .submit-btn:hover{
-      background:#c39a50;
+      background:#c29a51;
       transform:translateY(-1px);
     }
 
     footer{
       background:#050b14;
-      border-top:1px solid rgba(183,144,75,.28);
-      color:rgba(255,255,255,.48);
-      padding:32px 5vw;
+      border-top:1px solid rgba(183,144,75,.26);
+      color:rgba(255,255,255,.45);
+      padding:28px 32px;
     }
 
     .footer-inner{
-      max-width:1440px;
+      max-width:1320px;
       margin:0 auto;
       display:flex;
       justify-content:space-between;
@@ -432,48 +434,491 @@
       flex-wrap:wrap;
       font-size:9px;
       font-weight:600;
-      letter-spacing:.10em;
+      letter-spacing:.09em;
       text-transform:uppercase;
     }
 
-    @media(max-width:1050px){
-      .hero-inner{grid-template-columns:1fr;gap:36px}
-      .hero-side{max-width:720px}
-      .assessment-shell{grid-template-columns:1fr;gap:22px}
-      .context-panel{position:static;padding-top:50px}
-      .context-index{display:grid;grid-template-columns:1fr 1fr}
-      .context-index div:nth-child(odd){border-right:1px solid var(--line);padding-right:16px}
-      .context-index div:nth-child(even){padding-left:16px}
-      .form-wrap{margin-top:0}
+    @media(max-width:1024px){
+      .hero-inner{
+        grid-template-columns:1fr;
+        gap:34px;
+      }
+
+      .hero-side{
+        max-width:680px;
+      }
+
+      .assessment-shell{
+        grid-template-columns:1fr;
+        gap:34px;
+      }
+
+      .context-index{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+      }
+
+      .context-index div:nth-child(odd){
+        border-right:1px solid rgba(7,17,31,.10);
+        padding-right:14px;
+      }
+
+      .context-index div:nth-child(even){
+        padding-left:14px;
+      }
     }
 
     @media(max-width:720px){
-      .header-inner{padding:12px 20px}
-      .brand img{height:44px}
-      .brand-name{font-size:18px}
-      .header-meta{display:none}
-      .hero{padding:58px 20px}
-      .hero-copy{font-size:15px}
-      .assessment-shell{padding:0 20px 70px}
-      .context-panel{padding-top:42px}
-      .context-index{grid-template-columns:1fr}
-      .context-index div:nth-child(odd){border-right:0;padding-right:0}
-      .context-index div:nth-child(even){padding-left:0}
-      .form-header,.section,.submit-band{padding-left:22px;padding-right:22px}
-      .form-header{flex-direction:column}
-      .grid,.option-grid{grid-template-columns:1fr}
-      .full{grid-column:auto}
-      .submit-band{flex-direction:column;align-items:stretch}
-      .submit-btn{width:100%}
-      input,select,textarea{font-size:16px}
+      .header-inner{
+        padding:12px 20px;
+      }
+
+      .brand img{
+        height:40px;
+      }
+
+      .brand-name{
+        font-size:18px;
+      }
+
+      .header-meta{
+        display:none;
+      }
+
+      .hero-inner{
+        padding:56px 20px 52px;
+      }
+
+      h1{
+        font-size:clamp(42px,12vw,60px);
+      }
+
+      .hero-copy{
+        font-size:15px;
+      }
+
+      .assessment-shell{
+        padding:48px 20px 72px;
+      }
+
+      .context-index{
+        grid-template-columns:1fr;
+      }
+
+      .context-index div:nth-child(odd){
+        border-right:0;
+        padding-right:0;
+      }
+
+      .context-index div:nth-child(even){
+        padding-left:0;
+      }
+
+      .form-header,
+      .section,
+      .submit-band{
+        padding-left:20px;
+        padding-right:20px;
+      }
+
+      .form-header{
+        flex-direction:column;
+      }
+
+      .grid,.option-grid{
+        grid-template-columns:1fr;
+      }
+
+      .full{
+        grid-column:auto;
+      }
+
+      .submit-band{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .submit-btn{
+        width:100%;
+      }
+
+      input,select,textarea{
+        font-size:16px;
+      }
     }
-  </style>
+  
+/* =========================================================
+   TBG RESPONSIVE COMPATIBILITY — MOBILE / TABLET / DESKTOP
+   ========================================================= */
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img, svg, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+.site-header,
+.hero,
+.assessment-shell,
+footer {
+  width: 100%;
+}
+
+.header-inner,
+.hero-inner,
+.assessment-shell,
+.footer-inner {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Large desktop */
+@media (min-width: 1440px) {
+  .header-inner,
+  .hero-inner,
+  .assessment-shell,
+  .footer-inner {
+    max-width: 1380px;
+  }
+
+  .assessment-shell {
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 54px;
+  }
+}
+
+/* Standard desktop / laptop */
+@media (max-width: 1280px) {
+  .header-inner,
+  .hero-inner,
+  .assessment-shell,
+  .footer-inner {
+    max-width: 1180px;
+  }
+
+  .hero-inner {
+    gap: 56px;
+  }
+
+  .assessment-shell {
+    grid-template-columns: 240px minmax(0,1fr);
+    gap: 38px;
+  }
+
+  h1 {
+    font-size: clamp(46px, 5vw, 68px);
+  }
+}
+
+/* Tablet landscape / smaller laptops */
+@media (max-width: 1100px) {
+  .hero-inner {
+    grid-template-columns: minmax(0,1fr) 320px;
+    gap: 42px;
+  }
+
+  .hero-side {
+    padding-left: 22px;
+  }
+
+  .assessment-shell {
+    grid-template-columns: 220px minmax(0,1fr);
+    gap: 30px;
+  }
+
+  .form-header,
+  .section,
+  .submit-band {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
+  .option-grid {
+    gap: 8px 14px;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 900px) {
+  .header-inner {
+    padding: 13px 24px;
+  }
+
+  .hero-inner {
+    padding: 62px 24px 58px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero-side {
+    max-width: 700px;
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.14);
+    padding-top: 22px;
+  }
+
+  .assessment-shell {
+    padding: 54px 24px 88px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .context-panel {
+    padding-top: 0;
+  }
+
+  .context-panel h2 {
+    max-width: 520px;
+  }
+
+  .context-panel p {
+    max-width: 680px;
+  }
+
+  .context-index {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+
+  .context-index div:nth-child(odd) {
+    border-right: 1px solid rgba(7,17,31,.10);
+    padding-right: 16px;
+  }
+
+  .context-index div:nth-child(even) {
+    padding-left: 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .option-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .submit-band {
+    align-items: flex-start;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .header-inner {
+    padding: 12px 18px;
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brand img {
+    height: 38px;
+  }
+
+  .brand-name {
+    font-size: 17px;
+  }
+
+  .header-meta {
+    display: none;
+  }
+
+  .hero-inner {
+    padding: 48px 18px 46px;
+  }
+
+  .kicker {
+    font-size: 9px;
+    letter-spacing: .16em;
+  }
+
+  h1 {
+    font-size: clamp(38px, 11vw, 54px);
+    line-height: .98;
+    max-width: none;
+  }
+
+  .hero-copy {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .hero-side strong {
+    font-size: 9px;
+  }
+
+  .hero-side p {
+    font-size: 11px;
+  }
+
+  .assessment-shell {
+    padding: 42px 18px 68px;
+    gap: 28px;
+  }
+
+  .context-panel h2 {
+    font-size: 29px;
+  }
+
+  .context-panel p {
+    font-size: 11.5px;
+  }
+
+  .context-index {
+    grid-template-columns: 1fr;
+  }
+
+  .context-index div:nth-child(odd) {
+    border-right: 0;
+    padding-right: 0;
+  }
+
+  .context-index div:nth-child(even) {
+    padding-left: 0;
+  }
+
+  .form-card {
+    box-shadow: 0 12px 34px rgba(7,17,31,.05);
+  }
+
+  .form-header {
+    padding: 22px 18px 18px;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .form-header h2 {
+    font-size: 30px;
+  }
+
+  .form-header p {
+    font-size: 10.5px;
+  }
+
+  .confidential {
+    font-size: 7.5px;
+    padding: 6px 8px;
+  }
+
+  .section {
+    padding: 22px 18px 24px;
+  }
+
+  .section-heading {
+    gap: 9px;
+    margin-bottom: 16px;
+  }
+
+  .section-heading h3 {
+    font-size: 10px;
+  }
+
+  .grid,
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full {
+    grid-column: auto;
+  }
+
+  label, .legend {
+    font-size: 8.5px;
+  }
+
+  .help {
+    font-size: 9.5px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+    padding: 12px 11px;
+  }
+
+  textarea {
+    min-height: 110px;
+  }
+
+  .option {
+    font-size: 11px;
+    padding: 7px 0;
+  }
+
+  .submit-band {
+    padding: 20px 18px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .submit-band p {
+    font-size: 9.5px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  footer {
+    padding: 24px 18px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 8.5px;
+  }
+}
+
+/* Very small mobile */
+@media (max-width: 390px) {
+  .hero-inner,
+  .assessment-shell,
+  .header-inner,
+  footer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .form-header h2 {
+    font-size: 28px;
+  }
+
+  .context-panel h2 {
+    font-size: 27px;
+  }
+
+  .submit-btn {
+    font-size: 8px;
+    letter-spacing: .10em;
+  }
+}
+
+</style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="/" class="brand" aria-label="The Buckler Group home">
+    <a class="brand" href="/" aria-label="The Buckler Group home">
       <img src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest">
       <span class="brand-name">The Buckler Group</span>
     </a>
@@ -486,8 +931,11 @@
     <div>
       <div class="kicker">Executive Engagement</div>
       <h1>Executive Engagement Assessment™</h1>
-      <p class="hero-copy">A concise executive assessment designed to help The Buckler Group understand your strategic interests, priorities, and intended outcomes ahead of our discussion.</p>
+      <p class="hero-copy">
+        A concise executive assessment designed to help The Buckler Group understand your strategic interests, priorities, and intended outcomes ahead of our discussion.
+      </p>
     </div>
+
     <div class="hero-side">
       <strong>Designed for informed dialogue</strong>
       <p>Your responses provide context only. The assessment is not an application, transaction document, or request for sensitive deal information.</p>
@@ -514,143 +962,138 @@
     </div>
   </aside>
 
-  <div class="form-wrap">
-    <form class="form-card"
-          name="executive-engagement-assessment"
-          method="POST"
-          action="/executive-assessment-thank-you.html"
-          data-netlify="true"
-          netlify-honeypot="bot-field">
+  <form class="form-card"
+        name="executive-engagement-assessment"
+        method="POST"
+        action="/executive-assessment-thank-you.html"
+        data-netlify="true"
+        netlify-honeypot="bot-field">
 
-      <input type="hidden" name="form-name" value="executive-engagement-assessment">
-      <p class="hp"><label>Do not fill this out: <input name="bot-field"></label></p>
+    <input type="hidden" name="form-name" value="executive-engagement-assessment">
+    <p class="hp"><label>Do not fill this out: <input name="bot-field"></label></p>
 
-      <div class="form-header">
-        <div>
-          <h2>Executive Assessment</h2>
-          <p>Please provide the information most relevant to your current objectives.</p>
-        </div>
-        <div class="confidential">Executive Review</div>
+    <div class="form-header">
+      <div>
+        <h2>Executive Assessment</h2>
+        <p>Please provide the information most relevant to your current objectives.</p>
       </div>
+      <div class="confidential">Executive Review</div>
+    </div>
 
-      <section class="section">
-        <div class="section-heading"><span class="section-no">01</span><h3>Executive Profile</h3></div>
-        <div class="grid">
-          <div class="field"><label for="name">Full Name *</label><input id="name" name="full-name" type="text" autocomplete="name" required></div>
-          <div class="field"><label for="email">Email Address *</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-          <div class="field"><label for="title">Title / Position *</label><input id="title" name="title-position" type="text" autocomplete="organization-title" required></div>
-          <div class="field"><label for="org">Organization *</label><input id="org" name="organization" type="text" autocomplete="organization" required></div>
+    <section class="section">
+      <div class="section-heading"><span class="section-no">01</span><h3>Executive Profile</h3></div>
+      <div class="grid">
+        <div class="field"><label for="name">Full Name *</label><input id="name" name="full-name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="email">Email Address *</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="title">Title / Position *</label><input id="title" name="title-position" type="text" autocomplete="organization-title" required></div>
+        <div class="field"><label for="org">Organization *</label><input id="org" name="organization" type="text" autocomplete="organization" required></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><span class="section-no">02</span><h3>Market Focus</h3></div>
+      <div class="field">
+        <label for="jurisdiction">Primary Jurisdiction of Interest *</label>
+        <select id="jurisdiction" name="primary-jurisdiction" required>
+          <option value="" disabled selected>Select jurisdiction</option>
+          <option>Guyana</option>
+          <option>Barbados</option>
+          <option>The Bahamas</option>
+          <option>Grenada</option>
+          <option>Trinidad &amp; Tobago</option>
+          <option>Dominican Republic</option>
+          <option>Regional / Multi-Jurisdiction</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><span class="section-no">03</span><h3>Strategic Priorities</h3></div>
+      <fieldset>
+        <div class="legend">Which area best reflects your current strategic interest? *</div>
+        <div class="option-grid">
+          <label class="option"><input type="radio" name="strategic-interest" value="Real Estate Development" required>Real Estate Development</label>
+          <label class="option"><input type="radio" name="strategic-interest" value="Hospitality & Tourism">Hospitality &amp; Tourism</label>
+          <label class="option"><input type="radio" name="strategic-interest" value="Private Equity / Investment">Private Equity / Investment</label>
+          <label class="option"><input type="radio" name="strategic-interest" value="Institutional Capital">Institutional Capital</label>
+          <label class="option"><input type="radio" name="strategic-interest" value="Infrastructure / PPP">Infrastructure / PPP</label>
+          <label class="option"><input type="radio" name="strategic-interest" value="Market Entry / FDI">Market Entry / FDI</label>
+          <label class="option"><input type="radio" name="strategic-interest" value="Government / Economic Development">Government / Economic Development</label>
+          <label class="option"><input type="radio" name="strategic-interest" value="Professional / Advisory Services">Professional / Advisory Services</label>
+          <label class="option"><input type="radio" name="strategic-interest" value="Diaspora Investment">Diaspora Investment</label>
+          <label class="option"><input type="radio" name="strategic-interest" value="Other">Other</label>
         </div>
-      </section>
+      </fieldset>
+    </section>
 
-      <section class="section">
-        <div class="section-heading"><span class="section-no">02</span><h3>Market Focus</h3></div>
-        <div class="grid">
-          <div class="field full">
-            <label for="jurisdiction">Primary Jurisdiction of Interest *</label>
-            <select id="jurisdiction" name="primary-jurisdiction" required>
-              <option value="" disabled selected>Select jurisdiction</option>
-              <option>Guyana</option>
-              <option>Barbados</option>
-              <option>The Bahamas</option>
-              <option>Grenada</option>
-              <option>Trinidad &amp; Tobago</option>
-              <option>Dominican Republic</option>
-              <option>Regional / Multi-Jurisdiction</option>
-              <option>Other</option>
-            </select>
-          </div>
+    <section class="section">
+      <div class="section-heading"><span class="section-no">04</span><h3>Engagement Objective</h3></div>
+      <fieldset>
+        <div class="legend">What are you primarily seeking through engagement with TBG? *</div>
+        <div class="help">Select all that apply.</div>
+        <div class="option-grid">
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Investment opportunities">Investment opportunities</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Development opportunities">Development opportunities</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Capital or financing relationships">Capital or financing relationships</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Market-entry intelligence">Market-entry intelligence</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Government / institutional relationships">Government / institutional relationships</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Strategic partnerships">Strategic partnerships</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Strategic advisory">Strategic advisory</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Strategic Sessions™">Strategic Sessions™</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Investment Corridors™">Investment Corridors™</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Executive Inward Delegations™">Executive Inward Delegations™</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="EXODUS™">EXODUS™</label>
+          <label class="option"><input type="checkbox" name="engagement-objective[]" value="Other">Other</label>
         </div>
-      </section>
+      </fieldset>
+    </section>
 
-      <section class="section">
-        <div class="section-heading"><span class="section-no">03</span><h3>Strategic Priorities</h3></div>
-        <fieldset>
-          <div class="legend">Which area best reflects your current strategic interest? *</div>
-          <div class="option-grid">
-            <label class="option"><input type="radio" name="strategic-interest" value="Real Estate Development" required>Real Estate Development</label>
-            <label class="option"><input type="radio" name="strategic-interest" value="Hospitality & Tourism">Hospitality &amp; Tourism</label>
-            <label class="option"><input type="radio" name="strategic-interest" value="Private Equity / Investment">Private Equity / Investment</label>
-            <label class="option"><input type="radio" name="strategic-interest" value="Institutional Capital">Institutional Capital</label>
-            <label class="option"><input type="radio" name="strategic-interest" value="Infrastructure / PPP">Infrastructure / PPP</label>
-            <label class="option"><input type="radio" name="strategic-interest" value="Market Entry / FDI">Market Entry / FDI</label>
-            <label class="option"><input type="radio" name="strategic-interest" value="Government / Economic Development">Government / Economic Development</label>
-            <label class="option"><input type="radio" name="strategic-interest" value="Professional / Advisory Services">Professional / Advisory Services</label>
-            <label class="option"><input type="radio" name="strategic-interest" value="Diaspora Investment">Diaspora Investment</label>
-            <label class="option"><input type="radio" name="strategic-interest" value="Other">Other</label>
-          </div>
-        </fieldset>
-      </section>
-
-      <section class="section">
-        <div class="section-heading"><span class="section-no">04</span><h3>Engagement Objective</h3></div>
-        <fieldset>
-          <div class="legend">What are you primarily seeking through engagement with TBG? *</div>
-          <div class="help">Select all that apply.</div>
-          <div class="option-grid">
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Investment opportunities">Investment opportunities</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Development opportunities">Development opportunities</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Capital or financing relationships">Capital or financing relationships</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Market-entry intelligence">Market-entry intelligence</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Government / institutional relationships">Government / institutional relationships</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Strategic partnerships">Strategic partnerships</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Strategic advisory">Strategic advisory</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Strategic Sessions™">Strategic Sessions™</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Investment Corridors™">Investment Corridors™</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Executive Inward Delegations™">Executive Inward Delegations™</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="EXODUS™">EXODUS™</label>
-            <label class="option"><input type="checkbox" name="engagement-objective[]" value="Other">Other</label>
-          </div>
-        </fieldset>
-      </section>
-
-      <section class="section">
-        <div class="section-heading"><span class="section-no">05</span><h3>Timing &amp; Capacity</h3></div>
-        <div class="grid">
-          <div class="field">
-            <label for="horizon">Investment / Participation Horizon</label>
-            <select id="horizon" name="investment-participation-horizon">
-              <option value="" selected>Select horizon</option>
-              <option>Immediate — 0–6 months</option>
-              <option>Near term — 6–12 months</option>
-              <option>Medium term — 1–3 years</option>
-              <option>Exploratory</option>
-              <option>Not applicable</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="capacity">Investment Capacity</label>
-            <select id="capacity" name="investment-capacity">
-              <option value="" selected>Select range</option>
-              <option>Under $1M</option>
-              <option>$1M–$5M</option>
-              <option>$5M–$25M</option>
-              <option>$25M–$100M</option>
-              <option>$100M+</option>
-              <option>Institutional / Fund</option>
-              <option>Prefer not to disclose</option>
-              <option>Not applicable</option>
-            </select>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-heading"><span class="section-no">06</span><h3>Desired Outcome</h3></div>
+    <section class="section">
+      <div class="section-heading"><span class="section-no">05</span><h3>Timing &amp; Capacity</h3></div>
+      <div class="grid">
         <div class="field">
-          <label for="value">What would make our discussion most valuable to you? *</label>
-          <textarea id="value" name="discussion-value" maxlength="500" required placeholder="Briefly identify the priority, opportunity, relationship, or outcome you would most value discussing."></textarea>
-          <div class="help">Maximum 500 characters.</div>
+          <label for="horizon">Investment / Participation Horizon</label>
+          <select id="horizon" name="investment-participation-horizon">
+            <option value="" selected>Select horizon</option>
+            <option>Immediate — 0–6 months</option>
+            <option>Near term — 6–12 months</option>
+            <option>Medium term — 1–3 years</option>
+            <option>Exploratory</option>
+            <option>Not applicable</option>
+          </select>
         </div>
-      </section>
-
-      <div class="submit-band">
-        <p>Responses are intended for executive review by The Buckler Group and are used solely to establish context for potential engagement.</p>
-        <button class="submit-btn" type="submit">Submit Executive Assessment</button>
+        <div class="field">
+          <label for="capacity">Investment Capacity</label>
+          <select id="capacity" name="investment-capacity">
+            <option value="" selected>Select range</option>
+            <option>Under $1M</option>
+            <option>$1M–$5M</option>
+            <option>$5M–$25M</option>
+            <option>$25M–$100M</option>
+            <option>$100M+</option>
+            <option>Institutional / Fund</option>
+            <option>Prefer not to disclose</option>
+            <option>Not applicable</option>
+          </select>
+        </div>
       </div>
-    </form>
-  </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><span class="section-no">06</span><h3>Desired Outcome</h3></div>
+      <div class="field">
+        <label for="value">What would make our discussion most valuable to you? *</label>
+        <textarea id="value" name="discussion-value" maxlength="500" required placeholder="Briefly identify the priority, opportunity, relationship, or outcome you would most value discussing."></textarea>
+        <div class="help">Maximum 500 characters.</div>
+      </div>
+    </section>
+
+    <div class="submit-band">
+      <p>Responses are intended for executive review by The Buckler Group and are used solely to establish context for potential engagement.</p>
+      <button class="submit-btn" type="submit">Submit Executive Assessment</button>
+    </div>
+  </form>
 </main>
 
 <footer>
