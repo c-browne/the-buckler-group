@@ -8349,6 +8349,127 @@ nav {
 }
 </style>
 
+
+<style>
+/* =========================================================
+   FINAL INSTITUTIONAL RESEARCH LIBRARY CORRECTION
+   Prevent cropped cover text + remove visible frame artifacts
+   ========================================================= */
+
+/* Card grid */
+#insights .cr-publications-grid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:24px !important;
+  align-items:stretch !important;
+}
+
+/* Clean card boundary */
+#insights .cr-publication-card{
+  overflow:hidden !important;
+  border:1px solid rgba(7,17,31,.08) !important;
+  box-shadow:0 18px 48px rgba(7,17,31,.055) !important;
+  background:#fff !important;
+}
+
+/* Universal image wrapper: no inner border, no padding, no dark frame */
+#insights .cr-publication-image{
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+  overflow:hidden !important;
+  display:block !important;
+  background:#fff !important;
+  border:0 !important;
+  border-bottom:1px solid rgba(7,17,31,.07) !important;
+  aspect-ratio:auto !important;
+}
+
+/* Default publication artwork (Founding Paper / Issue 002 / Issue 003):
+   show the ENTIRE artwork so no title or wording is cut off. */
+#insights .cr-publication-image img{
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* Guyana EIR No. 001 is a landscape photograph, not a publication-cover graphic.
+   Give it a disciplined full-bleed institutional crop. */
+#insights .cr-publication-card--eir .cr-publication-image{
+  aspect-ratio:16 / 9 !important;
+  background:#07111f !important;
+}
+
+#insights .cr-publication-card--eir .cr-publication-image img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center 48% !important;
+}
+
+/* Issues 002 and 003: explicitly cancel earlier full-bleed cover cropping.
+   Their typography must remain fully visible. */
+#insights .cr-publication-card--fullbleed .cr-publication-image{
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+  background:#fff !important;
+}
+
+#insights .cr-publication-card--fullbleed .cr-publication-image img{
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  transform:none !important;
+}
+
+/* Keep publication content aligned even when source artwork ratios differ */
+#insights .cr-publication-content{
+  padding:26px 28px 28px !important;
+  flex:1 !important;
+}
+
+#insights .cr-publication-card h3{
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+  hyphens:none !important;
+}
+
+/* Tablet */
+@media(max-width:900px){
+  #insights .cr-publications-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  #insights .cr-publication-card--eir .cr-publication-image{
+    aspect-ratio:16 / 9 !important;
+  }
+}
+
+/* Mobile */
+@media(max-width:600px){
+  #insights .cr-publication-content{
+    padding:22px !important;
+  }
+
+  #insights .cr-publication-card--eir .cr-publication-image{
+    aspect-ratio:16 / 10 !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <header class="topbar">
@@ -9092,7 +9213,7 @@ Strategic Sessions Powered by EXODUS™
 
     <div class="cr-publications-grid">
 
-      <a href="/insights/executive-intelligence-report-001-guyana.html" class="cr-publication-card cr-publication-card--eir" aria-label="Read Executive Intelligence Report No. 001 on Guyana">
+      <a href="executive-intelligence-report-001-guyana.html" class="cr-publication-card cr-publication-card--eir" aria-label="Read Executive Intelligence Report No. 001 on Guyana">
         <div class="cr-publication-image cr-publication-image--eir">
           <img
             src="assets-images/Guyana Executive Intelligence photo.webp"
