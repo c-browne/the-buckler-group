@@ -7718,6 +7718,119 @@ iframe {
 }
 </style>
 
+
+<style>
+/* =========================================================
+   ISSUE 001 — CARIBBEAN RENAISSANCE™
+   Preserve complete cover artwork and wording
+   ========================================================= */
+
+/* Issue 001 image frame */
+#insights
+.cr-publication-card[href="/caribbean-renaissance.html"]
+> .cr-publication-image,
+#insights
+.cr-publication-card[href="/caribbean-renaissance-framework.html"]
+> .cr-publication-image{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  width:100% !important;
+  height:320px !important;
+  min-height:320px !important;
+  max-height:320px !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  overflow:hidden !important;
+
+  background:#ffffff !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* Show the ENTIRE Issue 001 artwork.
+   This overrides the universal cover crop used for landscape photography. */
+#insights
+.cr-publication-card[href="/caribbean-renaissance.html"]
+> .cr-publication-image > img,
+#insights
+.cr-publication-card[href="/caribbean-renaissance-framework.html"]
+> .cr-publication-image > img{
+  position:static !important;
+  inset:auto !important;
+
+  display:block !important;
+
+  width:100% !important;
+  height:100% !important;
+
+  min-width:0 !important;
+  min-height:0 !important;
+
+  max-width:100% !important;
+  max-height:100% !important;
+
+  margin:0 auto !important;
+  padding:0 !important;
+
+  object-fit:contain !important;
+  object-position:center center !important;
+
+  background:#ffffff !important;
+
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+
+  transform:none !important;
+}
+
+/* Tablet */
+@media(max-width:1024px){
+  #insights
+  .cr-publication-card[href="/caribbean-renaissance.html"]
+  > .cr-publication-image,
+  #insights
+  .cr-publication-card[href="/caribbean-renaissance-framework.html"]
+  > .cr-publication-image{
+    height:280px !important;
+    min-height:280px !important;
+    max-height:280px !important;
+  }
+}
+
+/* Tablet portrait */
+@media(max-width:820px){
+  #insights
+  .cr-publication-card[href="/caribbean-renaissance.html"]
+  > .cr-publication-image,
+  #insights
+  .cr-publication-card[href="/caribbean-renaissance-framework.html"]
+  > .cr-publication-image{
+    height:320px !important;
+    min-height:320px !important;
+    max-height:320px !important;
+  }
+}
+
+/* Mobile */
+@media(max-width:600px){
+  #insights
+  .cr-publication-card[href="/caribbean-renaissance.html"]
+  > .cr-publication-image,
+  #insights
+  .cr-publication-card[href="/caribbean-renaissance-framework.html"]
+  > .cr-publication-image{
+    height:240px !important;
+    min-height:240px !important;
+    max-height:240px !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <header class="topbar">
