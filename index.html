@@ -8603,6 +8603,255 @@ nav {
 }
 </style>
 
+
+<style>
+/* =========================================================
+   TBG INSTITUTIONAL RESEARCH LIBRARY
+   FINAL FULL-BLEED COVER IMAGE SYSTEM
+   ========================================================= */
+
+/* Research Library grid */
+#insights .cr-publications-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+}
+
+/* Publication card */
+#insights .cr-publication-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+
+  background: #ffffff !important;
+  border: 1px solid rgba(7, 17, 31, 0.08) !important;
+  box-shadow: 0 18px 48px rgba(7, 17, 31, 0.05) !important;
+}
+
+/* =========================================================
+   UNIVERSAL PREVIEW FRAME
+   ========================================================= */
+#insights .cr-publication-image {
+  position: relative !important;
+
+  width: 100% !important;
+  height: 320px !important;
+  min-height: 320px !important;
+  max-height: 320px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  overflow: hidden !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+
+  background: transparent !important;
+}
+
+/* Remove any inherited pseudo-border or frame */
+#insights .cr-publication-image::before,
+#insights .cr-publication-image::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* =========================================================
+   ALL RESEARCH COVER IMAGES
+   Edge-to-edge full-bleed treatment
+   ========================================================= */
+#insights .cr-publication-image img {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-width: 100% !important;
+  min-height: 100% !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+
+  transform: none !important;
+}
+
+/* =========================================================
+   GUYANA EXECUTIVE INTELLIGENCE REPORT™
+   ========================================================= */
+#insights
+.cr-publication-card--eir
+.cr-publication-image img {
+  object-position: center 48% !important;
+}
+
+/* =========================================================
+   ISSUE 002
+   ========================================================= */
+#insights
+.cr-publication-card[href="/hospitality-economic-infrastructure.html"]
+.cr-publication-image img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* =========================================================
+   ISSUE 003
+   ========================================================= */
+#insights
+.cr-publication-card[href="/development-entitlements-and-development-readiness.html"]
+.cr-publication-image img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* =========================================================
+   ISSUE 004
+   Add class: cr-publication-card--issue004
+   ========================================================= */
+#insights
+.cr-publication-card--issue004
+.cr-publication-image img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* =========================================================
+   CARD BODY
+   ========================================================= */
+#insights .cr-publication-content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  flex: 1 1 auto !important;
+
+  padding: 26px 28px 28px !important;
+
+  background: #ffffff !important;
+
+  border-top: 0 !important;
+}
+
+/* Publication title */
+#insights .cr-publication-card h3 {
+  margin: 0 0 12px !important;
+
+  font-size: clamp(27px, 2.35vw, 35px) !important;
+  line-height: 1.02 !important;
+
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
+}
+
+/* Subtitle */
+#insights .cr-subtitle {
+  margin: 0 0 12px !important;
+
+  font-size: 13.5px !important;
+  line-height: 1.48 !important;
+}
+
+/* Description */
+#insights .cr-publication-content p:not(.cr-subtitle) {
+  margin: 0 !important;
+
+  font-size: 12.5px !important;
+  line-height: 1.62 !important;
+}
+
+/* Footer */
+#insights .cr-publication-footer {
+  margin-top: 22px !important;
+  padding-top: 16px !important;
+
+  border-top: 1px solid rgba(7, 17, 31, 0.10) !important;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+@media (max-width: 1024px) {
+
+  #insights .cr-publications-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+  }
+
+  #insights .cr-publication-image {
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+  }
+}
+
+/* =========================================================
+   TABLET PORTRAIT
+   ========================================================= */
+@media (max-width: 820px) {
+
+  #insights .cr-publications-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #insights .cr-publication-image {
+    height: 320px !important;
+    min-height: 320px !important;
+    max-height: 320px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+@media (max-width: 600px) {
+
+  #insights .cr-publication-image {
+    height: 240px !important;
+    min-height: 240px !important;
+    max-height: 240px !important;
+  }
+
+  #insights .cr-publication-content {
+    padding: 22px !important;
+  }
+
+  #insights .cr-publication-card h3 {
+    font-size: 27px !important;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+@media (max-width: 390px) {
+
+  #insights .cr-publication-image {
+    height: 215px !important;
+    min-height: 215px !important;
+    max-height: 215px !important;
+  }
+
+  #insights .cr-publication-card h3 {
+    font-size: 24px !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <header class="topbar">
