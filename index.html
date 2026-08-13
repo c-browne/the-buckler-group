@@ -9460,6 +9460,303 @@ nav {
 }
 </style>
 
+
+<style>
+/* =========================================================
+   TBG RESEARCH LIBRARY — VISIBLE TRUE FULL-BLEED PREVIEWS
+   Final authoritative override
+   ========================================================= */
+
+#insights .cr-publications-grid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:24px !important;
+  align-items:stretch !important;
+}
+
+#insights .cr-publication-card{
+  display:flex !important;
+  flex-direction:column !important;
+  height:100% !important;
+  min-width:0 !important;
+  overflow:hidden !important;
+  background:#fff !important;
+  border:1px solid rgba(7,17,31,.08) !important;
+  box-shadow:0 18px 48px rgba(7,17,31,.05) !important;
+}
+
+/* Exact same preview frame for every research item */
+#insights .cr-publication-image,
+#insights .cr-publication-image--issue002,
+#insights .cr-publication-image--issue003{
+  position:relative !important;
+  display:block !important;
+  width:100% !important;
+
+  height:320px !important;
+  min-height:320px !important;
+  max-height:320px !important;
+
+  padding:0 !important;
+  margin:0 !important;
+
+  overflow:hidden !important;
+  background:transparent !important;
+
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  aspect-ratio:auto !important;
+}
+
+/* Eliminate all inherited mattes / frame effects */
+#insights .cr-publication-image::before,
+#insights .cr-publication-image::after{
+  display:none !important;
+  content:none !important;
+}
+
+/* Every preview artwork touches all four edges */
+#insights .cr-publication-image > img{
+  display:block !important;
+
+  width:100% !important;
+  height:100% !important;
+
+  min-width:100% !important;
+  min-height:100% !important;
+
+  max-width:none !important;
+  max-height:none !important;
+
+  object-fit:cover !important;
+  object-position:center center !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+
+  transform:none !important;
+}
+
+/* Guyana photography crop */
+#insights .cr-publication-card--eir .cr-publication-image > img{
+  object-fit:cover !important;
+  object-position:center 48% !important;
+}
+
+/* Issue 002 — same full-bleed behavior as Guyana */
+#insights .cr-publication-image--issue002 > img,
+#insights .cr-publication-card[href="/hospitality-economic-infrastructure.html"] .cr-publication-image > img{
+  object-fit:cover !important;
+  object-position:center center !important;
+}
+
+/* Issue 003 — same full-bleed behavior as Guyana */
+#insights .cr-publication-image--issue003 > img,
+#insights .cr-publication-card[href="/development-entitlements-and-development-readiness.html"] .cr-publication-image > img{
+  object-fit:cover !important;
+  object-position:center center !important;
+}
+
+/* Copy begins immediately below artwork */
+#insights .cr-publication-content{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:space-between !important;
+  flex:1 1 auto !important;
+
+  margin:0 !important;
+  padding:26px 28px 28px !important;
+
+  background:#fff !important;
+  border-top:0 !important;
+  box-shadow:none !important;
+}
+
+#insights .cr-publication-image + .cr-publication-content{
+  margin-top:0 !important;
+  border-top:0 !important;
+}
+
+/* Typography alignment */
+#insights .cr-publication-card h3{
+  margin:0 0 12px !important;
+  font-size:clamp(27px,2.35vw,35px) !important;
+  line-height:1.02 !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+  hyphens:none !important;
+}
+
+#insights .cr-subtitle{
+  margin:0 0 12px !important;
+  font-size:13.5px !important;
+  line-height:1.48 !important;
+}
+
+#insights .cr-publication-content p:not(.cr-subtitle){
+  margin:0 !important;
+  font-size:12.5px !important;
+  line-height:1.62 !important;
+}
+
+#insights .cr-publication-footer{
+  margin-top:22px !important;
+  padding-top:16px !important;
+  border-top:1px solid rgba(7,17,31,.10) !important;
+}
+
+/* Laptop / tablet */
+@media(max-width:1024px){
+  #insights .cr-publications-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:20px !important;
+  }
+
+  #insights .cr-publication-image,
+  #insights .cr-publication-image--issue002,
+  #insights .cr-publication-image--issue003{
+    height:280px !important;
+    min-height:280px !important;
+    max-height:280px !important;
+  }
+}
+
+/* Tablet portrait */
+@media(max-width:820px){
+  #insights .cr-publications-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  #insights .cr-publication-image,
+  #insights .cr-publication-image--issue002,
+  #insights .cr-publication-image--issue003{
+    height:320px !important;
+    min-height:320px !important;
+    max-height:320px !important;
+  }
+}
+
+/* Mobile */
+@media(max-width:600px){
+  #insights .cr-publication-image,
+  #insights .cr-publication-image--issue002,
+  #insights .cr-publication-image--issue003{
+    height:240px !important;
+    min-height:240px !important;
+    max-height:240px !important;
+  }
+
+  #insights .cr-publication-content{
+    padding:22px !important;
+  }
+
+  #insights .cr-publication-card h3{
+    font-size:27px !important;
+  }
+}
+
+/* Small mobile */
+@media(max-width:390px){
+  #insights .cr-publication-image,
+  #insights .cr-publication-image--issue002,
+  #insights .cr-publication-image--issue003{
+    height:215px !important;
+    min-height:215px !important;
+    max-height:215px !important;
+  }
+
+  #insights .cr-publication-card h3{
+    font-size:24px !important;
+  }
+}
+</style>
+
+
+<style>
+/* =========================================================
+   FINAL DEDICATED LANDSCAPE PREVIEW SYSTEM
+   Guyana EIR + Issue 002 + Issue 003
+   ========================================================= */
+
+#insights .cr-publication-image{
+  width:100% !important;
+  height:320px !important;
+  min-height:320px !important;
+  max-height:320px !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+}
+
+#insights .cr-publication-image::before,
+#insights .cr-publication-image::after{
+  content:none !important;
+  display:none !important;
+}
+
+#insights .cr-publication-image > img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  min-width:100% !important;
+  min-height:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+
+#insights .cr-publication-card--eir .cr-publication-image > img{
+  object-position:center 48% !important;
+}
+
+#insights .cr-publication-content{
+  margin:0 !important;
+  padding:26px 28px 28px !important;
+  background:#fff !important;
+  border-top:0 !important;
+}
+
+@media(max-width:1024px){
+  #insights .cr-publication-image{
+    height:280px !important;
+    min-height:280px !important;
+    max-height:280px !important;
+  }
+}
+
+@media(max-width:820px){
+  #insights .cr-publication-image{
+    height:320px !important;
+    min-height:320px !important;
+    max-height:320px !important;
+  }
+}
+
+@media(max-width:600px){
+  #insights .cr-publication-image{
+    height:240px !important;
+    min-height:240px !important;
+    max-height:240px !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <header class="topbar">
@@ -10261,10 +10558,13 @@ Strategic Sessions Powered by EXODUS™
       </a>
 
       <a href="/hospitality-economic-infrastructure.html" class="cr-publication-card cr-publication-card--fullbleed">
-        <div
-          class="cr-publication-image cr-publication-image--background issue-002-preview"
-          role="img"
-          aria-label="Hospitality as Infrastructure™ publication cover">
+        <div class="cr-publication-image cr-publication-image--issue002">
+          <img
+            src="assets-images/hospitality-infrastructure-preview.webp"
+            alt="Hospitality as Infrastructure™ publication cover"
+            loading="lazy"
+            decoding="async"
+          >
         </div>
 
         <div class="cr-publication-content">
@@ -10289,10 +10589,13 @@ Strategic Sessions Powered by EXODUS™
       </a>
 
       <a href="/development-entitlements-and-development-readiness.html" class="cr-publication-card cr-publication-card--fullbleed">
-        <div
-          class="cr-publication-image cr-publication-image--background issue-003-preview"
-          role="img"
-          aria-label="Development Readiness publication cover">
+        <div class="cr-publication-image cr-publication-image--issue003">
+          <img
+            src="assets-images/development-readiness-preview.webp"
+            alt="Development Readiness publication cover"
+            loading="lazy"
+            decoding="async"
+          >
         </div>
 
         <div class="cr-publication-content">
