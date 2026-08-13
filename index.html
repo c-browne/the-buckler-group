@@ -9234,6 +9234,232 @@ nav {
 }
 </style>
 
+
+<style>
+/* =========================================================
+   TBG RESEARCH LIBRARY — TRUE END-TO-END BLEED
+   Issue 002 + Issue 003
+   Background-image implementation removes all legacy img conflicts.
+   ========================================================= */
+
+/* Consistent card grid */
+#insights .cr-publications-grid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:24px !important;
+  align-items:stretch !important;
+}
+
+/* Consistent card shell */
+#insights .cr-publication-card{
+  display:flex !important;
+  flex-direction:column !important;
+  min-width:0 !important;
+  height:100% !important;
+  overflow:hidden !important;
+  background:#ffffff !important;
+  border:1px solid rgba(7,17,31,.08) !important;
+  box-shadow:0 18px 48px rgba(7,17,31,.05) !important;
+}
+
+/* ---------------------------------------------------------
+   UNIVERSAL PREVIEW FRAME
+   --------------------------------------------------------- */
+#insights .cr-publication-image{
+  display:block !important;
+  position:relative !important;
+
+  width:100% !important;
+  height:320px !important;
+  min-height:320px !important;
+  max-height:320px !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  overflow:hidden !important;
+
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+
+  background-color:transparent !important;
+  aspect-ratio:auto !important;
+}
+
+/* Kill every inherited frame / matte / border */
+#insights .cr-publication-image::before,
+#insights .cr-publication-image::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* ---------------------------------------------------------
+   GUYANA EXECUTIVE INTELLIGENCE REPORT™
+   Keep actual photograph as full-bleed <img>
+   --------------------------------------------------------- */
+#insights .cr-publication-card--eir .cr-publication-image img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  min-width:100% !important;
+  min-height:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  object-fit:cover !important;
+  object-position:center 48% !important;
+}
+
+/* ---------------------------------------------------------
+   TRUE FULL-BLEED BACKGROUND PREVIEWS
+   These do NOT use <img>, eliminating old object-fit/padding rules.
+   --------------------------------------------------------- */
+#insights .cr-publication-image--background{
+  background-repeat:no-repeat !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-origin:border-box !important;
+  background-clip:border-box !important;
+}
+
+/* Issue 002 */
+#insights .issue-002-preview{
+  background-image:url("assets-images/hospitality-infrastructure.webp.webp") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+}
+
+/* Issue 003 */
+#insights .issue-003-preview{
+  background-image:url("assets-images/development-readiness.webp.webp") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+}
+
+/* ---------------------------------------------------------
+   COPY AREA — begins directly beneath artwork
+   --------------------------------------------------------- */
+#insights .cr-publication-content{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:space-between !important;
+  flex:1 1 auto !important;
+
+  margin:0 !important;
+  padding:26px 28px 28px !important;
+
+  background:#ffffff !important;
+  border-top:0 !important;
+  box-shadow:none !important;
+}
+
+#insights .cr-publication-image + .cr-publication-content{
+  border-top:0 !important;
+  margin-top:0 !important;
+}
+
+#insights .cr-publication-label{
+  margin-bottom:12px !important;
+}
+
+#insights .cr-publication-card h3{
+  margin:0 0 12px !important;
+  font-size:clamp(27px,2.35vw,35px) !important;
+  line-height:1.02 !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+  hyphens:none !important;
+}
+
+#insights .cr-subtitle{
+  margin:0 0 12px !important;
+  font-size:13.5px !important;
+  line-height:1.48 !important;
+}
+
+#insights .cr-publication-content p:not(.cr-subtitle){
+  margin:0 !important;
+  font-size:12.5px !important;
+  line-height:1.62 !important;
+}
+
+#insights .cr-publication-footer{
+  margin-top:22px !important;
+  padding-top:16px !important;
+  border-top:1px solid rgba(7,17,31,.10) !important;
+}
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+@media(max-width:1024px){
+  #insights .cr-publications-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:20px !important;
+  }
+
+  #insights .cr-publication-image{
+    height:280px !important;
+    min-height:280px !important;
+    max-height:280px !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   TABLET PORTRAIT
+   --------------------------------------------------------- */
+@media(max-width:820px){
+  #insights .cr-publications-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  #insights .cr-publication-image{
+    height:320px !important;
+    min-height:320px !important;
+    max-height:320px !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+@media(max-width:600px){
+  #insights .cr-publication-image{
+    height:240px !important;
+    min-height:240px !important;
+    max-height:240px !important;
+  }
+
+  #insights .cr-publication-content{
+    padding:22px !important;
+  }
+
+  #insights .cr-publication-card h3{
+    font-size:27px !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   SMALL MOBILE
+   --------------------------------------------------------- */
+@media(max-width:390px){
+  #insights .cr-publication-image{
+    height:215px !important;
+    min-height:215px !important;
+    max-height:215px !important;
+  }
+
+  #insights .cr-publication-card h3{
+    font-size:24px !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <header class="topbar">
@@ -10035,8 +10261,10 @@ Strategic Sessions Powered by EXODUS™
       </a>
 
       <a href="/hospitality-economic-infrastructure.html" class="cr-publication-card cr-publication-card--fullbleed">
-        <div class="cr-publication-image cr-publication-image--fullbleed">
-          <img src="assets-images/hospitality-infrastructure.webp.webp" alt="Hospitality as Infrastructure™ publication cover">
+        <div
+          class="cr-publication-image cr-publication-image--background issue-002-preview"
+          role="img"
+          aria-label="Hospitality as Infrastructure™ publication cover">
         </div>
 
         <div class="cr-publication-content">
@@ -10061,8 +10289,10 @@ Strategic Sessions Powered by EXODUS™
       </a>
 
       <a href="/development-entitlements-and-development-readiness.html" class="cr-publication-card cr-publication-card--fullbleed">
-        <div class="cr-publication-image cr-publication-image--fullbleed">
-          <img src="assets-images/development-readiness.webp.webp" alt="Development Readiness publication cover">
+        <div
+          class="cr-publication-image cr-publication-image--background issue-003-preview"
+          role="img"
+          aria-label="Development Readiness publication cover">
         </div>
 
         <div class="cr-publication-content">
