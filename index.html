@@ -7949,6 +7949,128 @@ iframe {
 }
 </style>
 
+
+<style>
+/* =========================================================
+   ISSUE 001 — DEFINITIVE COMPLETE-ARTWORK FIX
+   Root cause resolved:
+   actual card URL = /caribbean-renaissance-insights.html
+   ========================================================= */
+
+/* Issue 001 frame */
+#insights .cr-publication-card--issue001 > .cr-publication-image,
+#insights .cr-publication-card[href="/caribbean-renaissance-insights.html"] > .cr-publication-image {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 100% !important;
+  height: 320px !important;
+  min-height: 320px !important;
+  max-height: 320px !important;
+  flex: 0 0 320px !important;
+
+  margin: 0 !important;
+  padding: 10px 18px !important;
+
+  overflow: hidden !important;
+  background: #ffffff !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Issue 001 artwork:
+   reset global absolute cover behavior and shrink the full 1024×1024 source
+   so all transparent-canvas content, including top wording, remains visible.
+*/
+#insights .cr-publication-card--issue001 > .cr-publication-image > img,
+#insights .cr-publication-card[href="/caribbean-renaissance-insights.html"] > .cr-publication-image > img {
+  position: static !important;
+  inset: auto !important;
+
+  display: block !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  min-width: 0 !important;
+  min-height: 0 !important;
+
+  max-width: 88% !important;
+  max-height: 300px !important;
+
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  object-fit: contain !important;
+  object-position: center center !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+
+  transform: none !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  #insights .cr-publication-card--issue001 > .cr-publication-image,
+  #insights .cr-publication-card[href="/caribbean-renaissance-insights.html"] > .cr-publication-image {
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+    flex-basis: 280px !important;
+    padding: 8px 16px !important;
+  }
+
+  #insights .cr-publication-card--issue001 > .cr-publication-image > img,
+  #insights .cr-publication-card[href="/caribbean-renaissance-insights.html"] > .cr-publication-image > img {
+    max-width: 86% !important;
+    max-height: 264px !important;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 820px) {
+  #insights .cr-publication-card--issue001 > .cr-publication-image,
+  #insights .cr-publication-card[href="/caribbean-renaissance-insights.html"] > .cr-publication-image {
+    height: 320px !important;
+    min-height: 320px !important;
+    max-height: 320px !important;
+    flex-basis: 320px !important;
+  }
+
+  #insights .cr-publication-card--issue001 > .cr-publication-image > img,
+  #insights .cr-publication-card[href="/caribbean-renaissance-insights.html"] > .cr-publication-image > img {
+    max-width: 88% !important;
+    max-height: 300px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #insights .cr-publication-card--issue001 > .cr-publication-image,
+  #insights .cr-publication-card[href="/caribbean-renaissance-insights.html"] > .cr-publication-image {
+    height: 240px !important;
+    min-height: 240px !important;
+    max-height: 240px !important;
+    flex-basis: 240px !important;
+    padding: 8px 14px !important;
+  }
+
+  #insights .cr-publication-card--issue001 > .cr-publication-image > img,
+  #insights .cr-publication-card[href="/caribbean-renaissance-insights.html"] > .cr-publication-image > img {
+    max-width: 82% !important;
+    max-height: 224px !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <header class="topbar">
@@ -8723,8 +8845,8 @@ Strategic Sessions Powered by EXODUS™
 
 
 
-      <a href="/caribbean-renaissance-insights.html" class="cr-publication-card">
-        <div class="cr-publication-image">
+      <a href="/caribbean-renaissance-insights.html" class="cr-publication-card cr-publication-card--issue001">
+        <div class="cr-publication-image cr-publication-image--issue001">
           <img src="assets-images/caribbean-renaissance-insights.webp.webp" alt="The Caribbean Renaissance™ publication cover">
         </div>
 
