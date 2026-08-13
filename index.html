@@ -7369,6 +7369,986 @@ a.btn,
 
 </style>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+
+<style>
+/* =========================================================
+   INSTITUTIONAL RESEARCH LIBRARY — EIR 001 INTEGRATION
+   ========================================================= */
+#insights .cr-publications-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  max-width:1180px !important;
+}
+
+#insights .cr-publication-card{
+  min-height:560px !important;
+}
+
+#insights .cr-publication-image{
+  height:330px !important;
+}
+
+#insights .eir-cover{
+  height:100%;
+  width:100%;
+  padding:34px;
+  background:
+    linear-gradient(145deg,rgba(183,144,75,.08),rgba(183,144,75,0) 46%),
+    #07111f;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  color:#fff;
+  border:1px solid rgba(183,144,75,.25);
+}
+
+#insights .eir-cover-top{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:flex-start;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:9px;
+  line-height:1.5;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:rgba(255,255,255,.52);
+}
+
+#insights .eir-cover-series{
+  color:#b7904b;
+  font-weight:700;
+}
+
+#insights .eir-cover-main{
+  max-width:90%;
+}
+
+#insights .eir-cover-main span{
+  display:block;
+  color:#b7904b;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+#insights .eir-cover-main strong{
+  display:block;
+  color:#fff;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(29px,3vw,42px);
+  line-height:.98;
+  letter-spacing:-.035em;
+  font-weight:600;
+}
+
+#insights .eir-cover-rule{
+  width:48px;
+  height:1px;
+  background:#b7904b;
+  margin:18px 0 14px;
+}
+
+#insights .eir-cover-subtitle{
+  color:rgba(255,255,255,.73);
+  font-family:"Inter",Arial,sans-serif;
+  font-size:11.5px;
+  line-height:1.55;
+  max-width:430px;
+}
+
+#insights .eir-cover-bottom{
+  color:rgba(255,255,255,.40);
+  font-family:"Inter",Arial,sans-serif;
+  font-size:8.5px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+#insights .cr-insights-head p{
+  color:#667085 !important;
+  font-size:15px !important;
+  line-height:1.68 !important;
+  max-width:720px !important;
+}
+
+#insights .cr-insights-head h2{
+  font-size:clamp(38px,4.8vw,66px) !important;
+  line-height:.96 !important;
+  margin-bottom:18px !important;
+}
+
+#insights .cr-publication-card h3{
+  font-size:clamp(28px,2.5vw,36px) !important;
+  line-height:1 !important;
+}
+
+#insights .cr-subtitle{
+  font-size:14px !important;
+  line-height:1.45 !important;
+}
+
+#insights .cr-publication-content p:not(.cr-subtitle){
+  font-size:13px !important;
+  line-height:1.65 !important;
+}
+
+@media(max-width:1100px){
+  #insights .cr-publications-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+}
+
+@media(max-width:760px){
+  #insights .cr-publications-grid{
+    grid-template-columns:1fr !important;
+  }
+  #insights .cr-publication-image{
+    height:300px !important;
+  }
+}
+</style>
+
+
+<style>
+/* =========================================================
+   PRE-DEPLOYMENT RESEARCH LIBRARY IMAGE REFINEMENT
+   Issue 001 visual standard / Issue 002–003 full-bleed treatment
+   ========================================================= */
+
+/* One disciplined image frame across all research cards */
+#insights .cr-publication-image{
+  height:330px !important;
+  min-height:330px !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  position:relative !important;
+  background:#07111f !important;
+  border-bottom:1px solid rgba(7,17,31,.10) !important;
+}
+
+/* Preserve Issue 001's clean full-frame presentation and extend it to 002/003 */
+#insights .cr-publication-image > img,
+#insights .cr-publication-image--fullbleed > img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  min-width:100% !important;
+  min-height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* Issue-specific crop tuning so artwork fills the frame cleanly */
+#insights .cr-publication-card[href="/hospitality-economic-infrastructure.html"] .cr-publication-image img{
+  object-position:center 50% !important;
+}
+
+#insights .cr-publication-card[href="/development-entitlements-and-development-readiness.html"] .cr-publication-image img{
+  object-position:center 50% !important;
+}
+
+/* EIR 001 reserved preview image frame */
+#insights .cr-publication-image--eir{
+  background:#07111f !important;
+}
+
+#insights .cr-publication-image--eir > img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+}
+
+/* Temporary preview placeholder — remove automatically when final image is inserted */
+#insights .eir-preview-placeholder{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:flex-end;
+  padding:28px;
+  background:
+    linear-gradient(180deg,rgba(7,17,31,.04) 0%,rgba(7,17,31,.18) 42%,rgba(7,17,31,.94) 100%),
+    linear-gradient(135deg,#101d30 0%,#07111f 64%);
+}
+
+#insights .eir-preview-placeholder::before{
+  content:"";
+  position:absolute;
+  inset:20px;
+  border:1px solid rgba(183,144,75,.24);
+  pointer-events:none;
+}
+
+#insights .eir-preview-placeholder-inner{
+  position:relative;
+  z-index:2;
+  max-width:82%;
+}
+
+#insights .eir-preview-label{
+  display:block;
+  margin-bottom:12px;
+  color:#b7904b;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:8.5px;
+  line-height:1.3;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+#insights .eir-preview-placeholder strong{
+  display:block;
+  color:#fff;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(26px,2.6vw,38px);
+  line-height:.98;
+  letter-spacing:-.03em;
+  font-weight:600;
+}
+
+#insights .eir-preview-title{
+  display:block;
+  margin-top:12px;
+  color:rgba(255,255,255,.76);
+  font-family:"Inter",Arial,sans-serif;
+  font-size:11px;
+  line-height:1.5;
+}
+
+#insights .eir-preview-note{
+  display:block;
+  margin-top:16px;
+  color:rgba(255,255,255,.40);
+  font-family:"Inter",Arial,sans-serif;
+  font-size:8px;
+  line-height:1.4;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+/* Clean, even card geometry */
+#insights .cr-publication-card{
+  min-height:558px !important;
+}
+
+#insights .cr-publication-content{
+  padding:26px 28px 28px !important;
+}
+
+#insights .cr-publication-card h3{
+  font-size:clamp(27px,2.35vw,35px) !important;
+  line-height:1.02 !important;
+  margin-bottom:12px !important;
+}
+
+#insights .cr-subtitle{
+  font-size:13.5px !important;
+  line-height:1.48 !important;
+  margin-bottom:12px !important;
+}
+
+#insights .cr-publication-content p:not(.cr-subtitle){
+  font-size:12.5px !important;
+  line-height:1.62 !important;
+}
+
+#insights .cr-publication-footer{
+  margin-top:22px !important;
+  padding-top:16px !important;
+}
+
+/* Desktop: clean two-column institutional library */
+#insights .cr-publications-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:24px !important;
+}
+
+/* Tablet / mobile */
+@media(max-width:900px){
+  #insights .cr-publications-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  #insights .cr-publication-image{
+    height:310px !important;
+    min-height:310px !important;
+  }
+}
+
+@media(max-width:600px){
+  #insights .cr-publication-image{
+    height:270px !important;
+    min-height:270px !important;
+  }
+
+  #insights .eir-preview-placeholder{
+    padding:22px;
+  }
+
+  #insights .eir-preview-placeholder-inner{
+    max-width:92%;
+  }
+}
+</style>
+
+
+<style>
+/* =========================================================
+   FINAL RESEARCH LIBRARY IMAGE TREATMENT
+   ========================================================= */
+#insights .cr-publication-image{
+  height:330px !important;
+  min-height:330px !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  position:relative !important;
+  background:#07111f !important;
+  border-bottom:1px solid rgba(7,17,31,.10) !important;
+}
+
+#insights .cr-publication-image img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  min-width:100% !important;
+  min-height:100% !important;
+  object-fit:cover !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+}
+
+/* Guyana EIR 001 */
+#insights .cr-publication-card--eir .cr-publication-image img{
+  object-position:center 48% !important;
+}
+
+/* Issues 002 and 003 */
+#insights .cr-publication-card--fullbleed .cr-publication-image img{
+  object-position:center center !important;
+}
+
+@media(max-width:900px){
+  #insights .cr-publication-image{
+    height:310px !important;
+    min-height:310px !important;
+  }
+}
+
+@media(max-width:600px){
+  #insights .cr-publication-image{
+    height:270px !important;
+    min-height:270px !important;
+  }
+}
+</style>
+
+
+<style>
+/* =========================================================
+   TBG CROSS-DEVICE RESPONSIVE HARDENING
+   Mobile · Tablet · Laptop · Desktop · Wide Screen
+   ========================================================= */
+
+/* Core overflow protection */
+html, body {
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+body {
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+img, svg, video, canvas, iframe {
+  max-width:100%;
+}
+
+table {
+  max-width:100%;
+}
+
+/* Fluid global paddings */
+section,
+.regional-demand,
+.pricing-section,
+.stakeholder-pricing,
+.office-founder,
+.ecosystem-architecture,
+.regional-participation,
+#sessions {
+  padding-left:clamp(20px,5vw,76px) !important;
+  padding-right:clamp(20px,5vw,76px) !important;
+}
+
+/* Header / brand */
+.topbar {
+  min-width:0;
+  gap:24px;
+}
+
+.brand {
+  min-width:0;
+  flex:0 1 auto;
+}
+
+.brand .wordmark {
+  max-width:100%;
+}
+
+nav {
+  min-width:0;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+/* Buttons never overflow */
+.btn,
+.calendar-btn,
+.headline-btn,
+.cr-framework-btn,
+.declaration-framework-btn,
+.research-link {
+  max-width:100%;
+  white-space:normal;
+  text-align:center;
+}
+
+/* Generic grid overflow fixes */
+.services,
+.cards,
+.roles,
+.spotlights,
+.affiliations,
+.insights-grid,
+.demand-grid,
+.pricing-grid,
+.stakeholder-grid,
+.participation-grid,
+.ecosystem-row,
+.footer-grid,
+.cr-publications-grid {
+  min-width:0;
+}
+
+.service,
+.card,
+.role-card,
+.spotlight,
+.affiliation,
+.insight,
+.demand-stat,
+.pricing-card,
+.stakeholder-card,
+.participation-card,
+.participation-lead,
+.ecosystem-node,
+.cr-publication-card {
+  min-width:0;
+}
+
+/* Responsive media framing */
+#jurisdictions .spotlight,
+#insights .cr-publication-image {
+  width:100%;
+}
+
+#jurisdictions .spotlight {
+  aspect-ratio:16/10 !important;
+  height:auto !important;
+  min-height:260px !important;
+}
+
+#insights .cr-publication-image {
+  aspect-ratio:16/10 !important;
+  height:auto !important;
+  min-height:0 !important;
+}
+
+#insights .cr-publication-image img {
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+/* Hero and major headings: safer fluid scale */
+.hero h1 {
+  font-size:clamp(42px,6.2vw,88px) !important;
+}
+
+.section-head h2,
+#sessions .program-panel h2,
+.declaration-hero-band .declaration-title,
+.institutional-premise h2,
+.office-founder-copy h2 {
+  overflow-wrap:anywhere;
+}
+
+/* Calendar rows resist horizontal overflow */
+#sessions .calendar-header,
+#sessions .calendar-row {
+  min-width:0;
+}
+
+#sessions .calendar-market,
+#sessions .calendar-date,
+#sessions .calendar-themes {
+  min-width:0;
+}
+
+/* Footer */
+.institutional-footer {
+  overflow:hidden;
+}
+
+/* =========================================================
+   LARGE DESKTOP — 1440px+
+   ========================================================= */
+@media (min-width:1440px) {
+  .topbar,
+  section,
+  .regional-demand,
+  .pricing-section,
+  .stakeholder-pricing,
+  .office-founder,
+  .ecosystem-architecture,
+  .regional-participation,
+  #sessions,
+  .institutional-footer {
+    padding-left:max(5vw,72px) !important;
+    padding-right:max(5vw,72px) !important;
+  }
+
+  .section-head {
+    max-width:1040px;
+  }
+}
+
+/* =========================================================
+   LAPTOP / SMALL DESKTOP — 1024–1279px
+   ========================================================= */
+@media (max-width:1279px) {
+  nav {
+    gap:16px !important;
+    font-size:10px !important;
+  }
+
+  .services,
+  .demand-grid,
+  .pricing-grid,
+  .stakeholder-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .spotlights {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .affiliations {
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+
+  .insights-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .founder-layout,
+  .office-founder-inner {
+    gap:42px !important;
+  }
+}
+
+/* =========================================================
+   TABLET LANDSCAPE / SMALL LAPTOP — <=1024px
+   ========================================================= */
+@media (max-width:1024px) {
+  .topbar {
+    padding:12px 24px !important;
+  }
+
+  nav {
+    display:none !important;
+  }
+
+  .brand-crest {
+    height:48px !important;
+  }
+
+  .hero {
+    min-height:auto !important;
+    padding-top:84px !important;
+    padding-bottom:84px !important;
+  }
+
+  .hero p,
+  .section-head p,
+  .declaration-hero-band .declaration-copy,
+  #sessions .program-panel p {
+    font-size:16px !important;
+    line-height:1.65 !important;
+  }
+
+  .stats {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .founder-layout,
+  .founder-compact,
+  .office-founder-inner,
+  .program-panel,
+  .declaration-panel {
+    grid-template-columns:1fr !important;
+  }
+
+  .founder-image-panel,
+  .office-founder-image {
+    min-height:420px !important;
+  }
+
+  .founder-copy,
+  .office-founder-copy {
+    padding:36px !important;
+  }
+
+  .participation-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .participation-lead {
+    grid-column:1 / -1 !important;
+  }
+
+  .ecosystem-row {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  #sessions .calendar-header {
+    display:none !important;
+  }
+
+  #sessions .calendar-row {
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+    padding:26px 24px !important;
+  }
+
+  #sessions .calendar-market {
+    font-size:clamp(30px,5vw,46px) !important;
+  }
+
+  .cta-band {
+    flex-direction:column !important;
+    align-items:flex-start !important;
+  }
+
+  .footer-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+/* =========================================================
+   TABLET PORTRAIT — <=820px
+   ========================================================= */
+@media (max-width:820px) {
+  section,
+  .regional-demand,
+  .pricing-section,
+  .stakeholder-pricing,
+  .office-founder,
+  .ecosystem-architecture,
+  .regional-participation,
+  #sessions {
+    padding-top:72px !important;
+    padding-bottom:72px !important;
+  }
+
+  .hero h1 {
+    font-size:clamp(40px,9vw,64px) !important;
+    line-height:.98 !important;
+  }
+
+  .section-head h2 {
+    font-size:clamp(34px,7vw,50px) !important;
+  }
+
+  .services,
+  .cards,
+  .roles,
+  .spotlights,
+  .demand-grid,
+  .pricing-grid,
+  .stakeholder-grid,
+  .insights-grid,
+  .affiliations,
+  #insights .cr-publications-grid {
+    grid-template-columns:1fr !important;
+  }
+
+  #jurisdictions .spotlight {
+    min-height:320px !important;
+  }
+
+  .stats {
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .headline-actions,
+  .calendar-actions,
+  .button-row {
+    gap:10px !important;
+  }
+
+  .headline-btn,
+  .calendar-btn {
+    min-width:0 !important;
+    flex:1 1 220px;
+  }
+
+  .ecosystem-row {
+    grid-template-columns:1fr !important;
+  }
+
+  .footer-grid {
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* =========================================================
+   MOBILE — <=600px
+   ========================================================= */
+@media (max-width:600px) {
+  .topbar {
+    padding:10px 18px !important;
+  }
+
+  .brand {
+    gap:10px !important;
+  }
+
+  .brand-crest {
+    height:42px !important;
+  }
+
+  .brand .wordmark {
+    font-size:16px !important;
+  }
+
+  .hero {
+    padding:64px 20px !important;
+    background-position:center !important;
+  }
+
+  .hero h1 {
+    font-size:clamp(38px,11vw,52px) !important;
+    letter-spacing:-.035em !important;
+  }
+
+  .hero p {
+    margin:22px 0 28px !important;
+    font-size:15px !important;
+  }
+
+  .eyebrow,
+  .hero-subline,
+  .institutional-premise .premise-label,
+  .strategic-calendar .calendar-label,
+  .founder-subtitle {
+    font-size:10px !important;
+    letter-spacing:.14em !important;
+  }
+
+  section,
+  .regional-demand,
+  .pricing-section,
+  .stakeholder-pricing,
+  .office-founder,
+  .ecosystem-architecture,
+  .regional-participation,
+  #sessions {
+    padding:58px 20px !important;
+  }
+
+  .section-head {
+    margin-bottom:32px !important;
+  }
+
+  .section-head h2,
+  #sessions .program-panel h2,
+  .institutional-premise h2,
+  .declaration-hero-band .declaration-title,
+  .office-founder-copy h2 {
+    font-size:clamp(32px,10vw,44px) !important;
+    line-height:.98 !important;
+    letter-spacing:-.03em !important;
+  }
+
+  .section-head p,
+  #sessions .program-panel p,
+  .declaration-hero-band .declaration-copy,
+  .founder-copy p,
+  .office-founder-copy p {
+    font-size:14px !important;
+    line-height:1.65 !important;
+  }
+
+  .button-row,
+  .headline-actions,
+  .calendar-actions {
+    flex-direction:column !important;
+    align-items:stretch !important;
+    width:100%;
+  }
+
+  .btn,
+  .headline-btn,
+  .calendar-btn,
+  .cr-framework-btn,
+  .declaration-framework-btn {
+    width:100% !important;
+    min-width:0 !important;
+    height:auto !important;
+    min-height:48px;
+    padding:14px 16px !important;
+  }
+
+  .stats {
+    grid-template-columns:1fr !important;
+  }
+
+  .stat {
+    padding:28px 20px !important;
+  }
+
+  .service,
+  .card,
+  .role-card,
+  .pricing-card,
+  .stakeholder-card,
+  .affiliation {
+    padding:22px !important;
+    min-height:auto !important;
+  }
+
+  #jurisdictions .spotlight {
+    min-height:280px !important;
+  }
+
+  #jurisdictions .spotlight-content {
+    padding:18px !important;
+  }
+
+  #jurisdictions .spotlight h3 {
+    font-size:22px !important;
+  }
+
+  #jurisdictions .spotlight p {
+    font-size:13px !important;
+  }
+
+  .founder-image-panel,
+  .office-founder-image {
+    min-height:320px !important;
+  }
+
+  .founder-copy,
+  .office-founder-copy {
+    padding:26px !important;
+  }
+
+  .quote-line,
+  .office-founder-copy blockquote {
+    font-size:22px !important;
+  }
+
+  .participation-grid {
+    grid-template-columns:1fr !important;
+  }
+
+  .participation-lead {
+    grid-column:auto !important;
+  }
+
+  .participation-lead,
+  .participation-card {
+    min-height:auto !important;
+  }
+
+  #sessions .strategic-calendar {
+    margin-top:46px !important;
+  }
+
+  #sessions .calendar-row {
+    padding:22px 18px !important;
+  }
+
+  #sessions .calendar-footnote {
+    padding:20px 18px !important;
+    font-size:12px !important;
+  }
+
+  #insights .cr-publication-image {
+    aspect-ratio:4/3 !important;
+  }
+
+  #insights .cr-publication-content {
+    padding:22px !important;
+  }
+
+  #insights .cr-publication-card h3 {
+    font-size:28px !important;
+  }
+
+  .cta-band {
+    padding:48px 20px !important;
+  }
+
+  .institutional-footer {
+    padding:44px 20px 26px !important;
+  }
+
+  .footer-bottom {
+    flex-direction:column;
+    gap:8px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE — <=390px
+   ========================================================= */
+@media (max-width:390px) {
+  .brand .wordmark {
+    font-size:15px !important;
+  }
+
+  .brand-crest {
+    height:38px !important;
+  }
+
+  .hero h1 {
+    font-size:36px !important;
+  }
+
+  .section-head h2,
+  #sessions .program-panel h2,
+  .declaration-hero-band .declaration-title,
+  .institutional-premise h2 {
+    font-size:31px !important;
+  }
+
+  #insights .cr-publication-card h3 {
+    font-size:25px !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <header class="topbar">
@@ -8112,6 +9092,37 @@ Strategic Sessions Powered by EXODUS™
 
     <div class="cr-publications-grid">
 
+      <a href="/insights/executive-intelligence-report-001-guyana.html" class="cr-publication-card cr-publication-card--eir" aria-label="Read Executive Intelligence Report No. 001 on Guyana">
+        <div class="cr-publication-image cr-publication-image--eir">
+          <img
+            src="assets-images/Guyana Executive Intelligence photo.webp"
+            alt="Aerial view of Georgetown, Guyana waterfront and urban development"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+
+        <div class="cr-publication-content">
+          <div>
+            <div class="cr-publication-label">Executive Intelligence Report™ · No. 001</div>
+            <h3>Guyana: Hospitality, Real Estate &amp; the Future of Development</h3>
+            <p class="cr-subtitle">Institutional intelligence derived from the inaugural Guyana Strategic Session™.</p>
+            <p>
+              A disciplined review of the market signals, entitlement considerations,
+              infrastructure conditions and execution issues shaping Guyana's emerging
+              investment and development environment.
+            </p>
+          </div>
+
+          <div class="cr-publication-footer">
+            <span>Guyana · August 2026</span>
+            <span>Read Report →</span>
+          </div>
+        </div>
+      </a>
+
+
+
       <a href="/caribbean-renaissance-insights.html" class="cr-publication-card">
         <div class="cr-publication-image">
           <img src="assets-images/caribbean-renaissance-insights.webp.webp" alt="The Caribbean Renaissance™ publication cover">
@@ -8138,8 +9149,8 @@ Strategic Sessions Powered by EXODUS™
         </div>
       </a>
 
-      <a href="/hospitality-economic-infrastructure.html" class="cr-publication-card">
-        <div class="cr-publication-image">
+      <a href="/hospitality-economic-infrastructure.html" class="cr-publication-card cr-publication-card--fullbleed">
+        <div class="cr-publication-image cr-publication-image--fullbleed">
           <img src="assets-images/hospitality-infrastructure.webp.webp" alt="Hospitality as Infrastructure™ publication cover">
         </div>
 
@@ -8164,8 +9175,8 @@ Strategic Sessions Powered by EXODUS™
         </div>
       </a>
 
-      <a href="/development-entitlements-and-development-readiness.html" class="cr-publication-card">
-        <div class="cr-publication-image">
+      <a href="/development-entitlements-and-development-readiness.html" class="cr-publication-card cr-publication-card--fullbleed">
+        <div class="cr-publication-image cr-publication-image--fullbleed">
           <img src="assets-images/development-readiness.webp.webp" alt="Development Readiness publication cover">
         </div>
 
