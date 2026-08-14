@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Request for Consideration | Guyana Closed Executive Session™ | The Buckler Group</title>
-  <meta name="description" content="Request consideration for The Buckler Group Guyana Closed Executive Session™ and Guyana Investment Corridor™." />
+
+  <title>Executive Debrief | Session I: Guyana | The Buckler Group</title>
+  <meta name="description" content="Complete The Buckler Group Executive Debrief for the Caribbean Entitlement & Hospitality Strategic Sessions™ | Session I: Guyana." />
 
   <style>
     :root{
       --navy:#061526;
       --navy-2:#081a2c;
-      --navy-3:#0b2136;
       --gold:#c9a24a;
       --gold-soft:#d6b56d;
       --cream:#f6f1e8;
       --white:#ffffff;
       --muted:#aeb8c3;
       --muted-2:#d7dee6;
-      --line:rgba(201,162,74,.30);
+      --line:rgba(201,162,74,.28);
       --line-soft:rgba(255,255,255,.10);
       --field:#07192b;
-      --max:1120px;
+      --max:1160px;
     }
 
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       background:var(--navy);
@@ -33,741 +35,1135 @@
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
+
     a{color:inherit;text-decoration:none}
+
     .site{
       min-height:100vh;
       background:
-        radial-gradient(circle at 84% 10%, rgba(201,162,74,.10), transparent 28%),
-        linear-gradient(135deg, #061526 0%, #071b2e 56%, #04101e 100%);
+        radial-gradient(circle at 80% 10%, rgba(201,162,74,.12), transparent 30%),
+        linear-gradient(135deg, #061526 0%, #071b2e 52%, #04101e 100%);
     }
 
-    /* DISTINCT ACCESS HEADER */
     .header{
       max-width:var(--max);
       margin:0 auto;
-      padding:30px 28px 22px;
+      padding:34px 28px 24px;
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:28px;
       border-bottom:1px solid var(--line);
     }
+
     .brand{
       display:flex;
       align-items:center;
-      gap:16px;
+      gap:18px;
       min-width:0;
     }
-    .brand-logo{width:68px;height:auto;display:block}
+
+    .brand-logo{
+      width:76px;
+      height:auto;
+      display:block;
+      flex:0 0 auto;
+    }
+
     .brand-title{
       margin:0;
-      font-size:22px;
+      font-size:25px;
       line-height:1.05;
-      letter-spacing:.12em;
+      letter-spacing:.13em;
       text-transform:uppercase;
       font-weight:400;
       white-space:nowrap;
     }
+
     .brand-subtitle{
-      margin:7px 0 0;
+      margin:8px 0 0;
       color:var(--gold);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:10px;
-      letter-spacing:.20em;
+      font-size:11px;
+      letter-spacing:.21em;
       text-transform:uppercase;
-    }
-    .access-marker{
-      padding:9px 12px;
-      border:1px solid rgba(201,162,74,.44);
-      color:var(--gold-soft);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:9px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      white-space:nowrap;
     }
 
-    /* ACCESS HERO: clearly not Debrief */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:22px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      color:#e7edf3;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:11px;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+      opacity:.9;
+    }
+
+    .nav a:hover{color:var(--gold)}
+
     .hero{
       max-width:var(--max);
       margin:0 auto;
-      padding:58px 28px 48px;
+      padding:66px 28px 56px;
       display:grid;
-      grid-template-columns:minmax(0,.78fr) minmax(430px,1.22fr);
-      gap:68px;
+      grid-template-columns:minmax(0,.88fr) minmax(420px,1.12fr);
+      gap:72px;
       align-items:start;
     }
+
     .eyebrow{
-      margin:0 0 16px;
+      margin:0 0 18px;
       color:var(--gold-soft);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:10.5px;
+      font-size:12px;
       letter-spacing:.18em;
       text-transform:uppercase;
     }
+
     .headline{
       margin:0;
       max-width:520px;
-      font-size:42px;
-      line-height:1.07;
+      font-size:46px;
+      line-height:1.08;
       font-weight:400;
-      letter-spacing:.005em;
+      letter-spacing:.01em;
     }
-    .status-pill{
-      display:inline-block;
-      margin:18px 0 0;
-      padding:8px 10px;
-      background:rgba(201,162,74,.09);
-      border:1px solid rgba(201,162,74,.26);
-      color:#f2dcaa;
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:10px;
-      letter-spacing:.13em;
-      text-transform:uppercase;
+
+    .rule{
+      width:74px;
+      height:1px;
+      background:var(--gold);
+      margin:28px 0 24px;
     }
-    .rule{width:66px;height:1px;background:var(--gold);margin:26px 0 22px}
+
     .lead{
-      margin:0 0 16px;
+      margin:0 0 18px;
       max-width:520px;
       color:var(--muted-2);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:14.5px;
-      line-height:1.72;
-    }
-    .distinction{
-      margin:22px 0 0;
-      max-width:520px;
-      padding:16px 17px;
-      border-left:3px solid var(--gold);
-      background:rgba(255,255,255,.025);
-    }
-    .distinction strong{
-      display:block;
-      color:var(--gold-soft);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:10.5px;
-      line-height:1.4;
-      letter-spacing:.15em;
-      text-transform:uppercase;
-      margin-bottom:6px;
-    }
-    .distinction p{
-      margin:0;
-      color:#e1e7ed;
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:13px;
-      line-height:1.62;
+      font-size:15.5px;
+      line-height:1.78;
     }
 
-    .qualification-principles{
-      margin:30px 0 0;
+    .notice{
+      margin:20px 0 0;
+      color:var(--gold-soft);
+      font-size:17px;
+      line-height:1.45;
+    }
+
+    .institutional-statements{
+      margin:38px 0 40px;
       display:grid;
-      gap:16px;
+      gap:22px;
       max-width:520px;
     }
-    .principle{
+
+    .statement{
       display:grid;
-      grid-template-columns:132px 1fr;
-      gap:18px;
-      padding-bottom:16px;
+      grid-template-columns:150px 1fr;
+      gap:22px;
+      padding-bottom:22px;
       border-bottom:1px solid var(--line-soft);
+      align-items:start;
     }
-    .principle:last-child{border-bottom:0}
-    .principle h3{
+
+    .statement:last-child{border-bottom:0;padding-bottom:0}
+
+    .statement h3{
       margin:0;
       color:var(--gold);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:10px;
+      font-size:11px;
       line-height:1.35;
       letter-spacing:.14em;
       text-transform:uppercase;
       font-weight:400;
     }
-    .principle p{
+
+    .statement p{
       margin:0;
       color:#dbe3eb;
       font-family:Arial,Helvetica,sans-serif;
-      font-size:13.5px;
-      line-height:1.58;
+      font-size:14.5px;
+      line-height:1.66;
     }
 
-    /* FORM: access gate, more compact than Debrief */
+    .signature{
+      max-width:520px;
+      margin-top:34px;
+      padding-top:28px;
+      border-top:1px solid var(--line);
+      color:var(--cream);
+      font-size:23px;
+      line-height:1.38;
+    }
+
+    .criteria{
+      max-width:520px;
+      margin-top:30px;
+      padding-top:26px;
+      border-top:1px solid var(--line-soft);
+    }
+
+    .criteria h3{
+      margin:0 0 14px;
+      color:var(--gold);
+      font-size:15px;
+      font-weight:400;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .criteria ul{
+      margin:0;
+      padding-left:18px;
+      color:#dce4eb;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:14px;
+      line-height:1.85;
+    }
+
     .form-card{
-      background:
-        linear-gradient(180deg, rgba(10,32,53,.96), rgba(6,21,38,.99));
-      border:1px solid rgba(201,162,74,.32);
-      border-radius:3px;
-      padding:30px 32px 28px;
-      box-shadow:0 30px 95px rgba(0,0,0,.30);
+      background:linear-gradient(180deg, rgba(10,32,53,.92), rgba(6,21,38,.98));
+      border:1px solid var(--line);
+      border-radius:4px;
+      padding:34px 36px 30px;
+      box-shadow:0 28px 90px rgba(0,0,0,.28);
       position:relative;
       overflow:hidden;
     }
+
     .form-card:before{
       content:"";
       position:absolute;
       inset:0;
       pointer-events:none;
       background:
-        radial-gradient(circle at 88% 8%, rgba(201,162,74,.055), transparent 26%),
-        linear-gradient(135deg, transparent 0%, rgba(255,255,255,.018) 100%);
+        radial-gradient(circle at 86% 10%, rgba(201,162,74,.06), transparent 28%),
+        linear-gradient(135deg, transparent 0%, rgba(255,255,255,.025) 100%);
     }
-    .form-card>*{position:relative}
-    .form-kicker{
-      margin:0 0 8px;
-      text-align:center;
-      color:var(--gold-soft);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:9.5px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-    }
+
+    .form-card > *{position:relative}
+
     .form-title{
       margin:0;
       color:var(--gold);
       text-align:center;
-      font-size:21px;
-      line-height:1.26;
+      font-size:23px;
+      line-height:1.28;
       font-weight:400;
-      letter-spacing:.07em;
+      letter-spacing:.08em;
       text-transform:uppercase;
     }
+
     .form-subtitle{
-      margin:11px auto 0;
+      margin:14px auto 0;
       max-width:560px;
       text-align:center;
       color:var(--muted);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:12.5px;
-      line-height:1.52;
+      font-size:13.5px;
+      line-height:1.55;
     }
-    .form-rule{width:62px;height:1px;background:var(--gold);margin:19px auto 24px}
+
+    .form-rule{
+      width:68px;
+      height:1px;
+      background:var(--gold);
+      margin:22px auto 28px;
+    }
 
     .section-label{
-      margin:24px 0 13px;
+      margin:28px 0 16px;
       color:var(--gold-soft);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:10px;
-      letter-spacing:.15em;
+      font-size:11px;
+      letter-spacing:.16em;
       text-transform:uppercase;
     }
+
     .section-label:first-of-type{margin-top:0}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .field{margin-bottom:13px}
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field{margin-bottom:15px}
+
     label{
       display:block;
-      margin:0 0 6px;
+      margin:0 0 7px;
       color:#dbe3eb;
       font-family:Arial,Helvetica,sans-serif;
-      font-size:11.5px;
+      font-size:12px;
       line-height:1.3;
     }
+
     .req{color:var(--gold)}
-    input,select,textarea{
+
+    input,
+    select,
+    textarea{
       width:100%;
-      border:1px solid rgba(255,255,255,.17);
+      border:1px solid rgba(255,255,255,.18);
       border-radius:2px;
       background:rgba(4,17,30,.90);
       color:#f7fbff;
-      padding:11px 11px;
+      padding:12px 12px;
       font-family:Arial,Helvetica,sans-serif;
-      font-size:13.5px;
+      font-size:14px;
       outline:none;
     }
-    input::placeholder,textarea::placeholder{color:#7f8d99}
-    input:focus,select:focus,textarea:focus{
+
+    input::placeholder,
+    textarea::placeholder{color:#7f8d99}
+
+    input:focus,
+    select:focus,
+    textarea:focus{
       border-color:rgba(201,162,74,.78);
       box-shadow:0 0 0 3px rgba(201,162,74,.10);
     }
-    textarea{min-height:84px;resize:vertical;line-height:1.45}
 
-    .choice-grid{
+    textarea{
+      min-height:92px;
+      resize:vertical;
+      line-height:1.5;
+    }
+
+    .check-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:9px 12px;
-      margin-bottom:15px;
+      gap:10px 20px;
+      margin-bottom:16px;
     }
-    .choice-card{
-      position:relative;
+
+    .check,
+    .confirm{
       display:flex;
       align-items:flex-start;
-      gap:8px;
-      min-height:46px;
-      margin:0;
-      padding:10px 11px;
-      border:1px solid rgba(255,255,255,.15);
-      border-radius:2px;
-      background:rgba(4,17,30,.72);
+      gap:9px;
       color:#e5ebf1;
-      cursor:pointer;
-      transition:border-color .18s ease,background .18s ease;
-      font-size:12.25px;
-      line-height:1.4;
-    }
-    .choice-card:hover{border-color:rgba(201,162,74,.72)}
-    .choice-card input{width:auto;flex:0 0 auto;margin:2px 0 0;accent-color:var(--gold)}
-    .choice-card:has(input:checked){
-      border-color:var(--gold);
-      background:rgba(201,162,74,.10);
-    }
-    .question-note{
-      margin:-3px 0 9px;
-      color:var(--muted);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:10.5px;
+      font-size:13px;
       line-height:1.45;
     }
-    .selection-status{
-      min-height:16px;
-      margin:-6px 0 13px;
-      color:var(--gold-soft);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:10.5px;
+
+    .check input,
+    .confirm input{
+      width:auto;
+      margin-top:2px;
+      accent-color:var(--gold);
     }
+
+    .confirm{margin:18px 0 0}
+
     .submit{
       width:100%;
-      margin-top:19px;
+      margin-top:22px;
       border:0;
       border-radius:2px;
-      background:linear-gradient(180deg,#e2b85a,#c99e43);
+      background:linear-gradient(180deg, #e2b85a, #c99e43);
       color:var(--navy);
-      padding:14px 17px;
+      padding:15px 18px;
       cursor:pointer;
       font-family:Arial,Helvetica,sans-serif;
-      font-size:11.5px;
-      letter-spacing:.17em;
+      font-size:12.5px;
+      letter-spacing:.18em;
       text-transform:uppercase;
       font-weight:700;
     }
+
     .submit:hover{filter:brightness(1.06)}
+
     .secure{
-      margin:12px 0 0;
+      margin:14px 0 0;
       text-align:center;
       color:var(--muted);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:11px;
-      line-height:1.4;
-    }
-    .form-status{
-      display:none;
-      margin:13px 0 0;
-      padding:10px 11px;
-      border:1px solid rgba(201,162,74,.35);
-      color:#f5e6bd;
-      background:rgba(201,162,74,.08);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:11.5px;
+      font-size:12px;
       line-height:1.45;
     }
-    .form-status.show{display:block}
 
-    /* AFTER-FORM: distinctly qualification oriented */
-    .access-framework{
+    .focus{
       max-width:var(--max);
       margin:0 auto;
-      padding:42px 28px 48px;
+      padding:44px 28px 50px;
       border-top:1px solid var(--line-soft);
     }
-    .framework-header{
+
+    .focus-header{
       display:grid;
-      grid-template-columns:minmax(0,.68fr) minmax(320px,1fr);
-      gap:48px;
+      grid-template-columns:minmax(0,.72fr) minmax(320px,1fr);
+      gap:54px;
       align-items:end;
-      margin-bottom:26px;
+      margin-bottom:30px;
     }
-    .framework-kicker{
-      margin:0 0 10px;
+
+    .focus-kicker{
+      margin:0 0 12px;
       color:var(--gold-soft);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:10px;
+      font-size:11px;
       letter-spacing:.18em;
       text-transform:uppercase;
     }
-    .framework-title{
+
+    .focus-title{
       margin:0;
-      color:#fff;
-      font-size:28px;
+      color:var(--white);
+      font-size:30px;
       line-height:1.12;
       font-weight:400;
+      letter-spacing:.01em;
     }
-    .framework-copy{
+
+    .focus-copy{
       margin:0;
       color:var(--muted-2);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:13.5px;
-      line-height:1.68;
-      max-width:610px;
+      font-size:14.5px;
+      line-height:1.72;
+      max-width:620px;
     }
-    .framework-grid{
+
+    .focus-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:1px;
       background:rgba(201,162,74,.22);
       border:1px solid rgba(201,162,74,.22);
     }
-    .framework-item{
-      min-height:154px;
-      padding:20px 20px 18px;
-      background:linear-gradient(180deg,rgba(8,26,44,.96),rgba(6,21,38,.98));
+
+    .focus-item{
+      min-height:176px;
+      padding:24px 24px 22px;
+      background:linear-gradient(180deg, rgba(8,26,44,.96), rgba(6,21,38,.98));
       color:#e9eef4;
       display:flex;
       flex-direction:column;
       justify-content:space-between;
     }
-    .framework-number{
+
+    .focus-number{
       color:rgba(201,162,74,.72);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:10px;
-      letter-spacing:.17em;
+      font-size:11px;
+      letter-spacing:.18em;
       text-transform:uppercase;
-      margin-bottom:20px;
+      margin-bottom:24px;
     }
-    .framework-item h3{
-      margin:0 0 10px;
+
+    .focus-item h3{
+      margin:0 0 12px;
       color:var(--gold);
-      font-size:16px;
-      line-height:1.2;
+      font-size:17px;
+      line-height:1.22;
       font-weight:400;
-      letter-spacing:.03em;
+      letter-spacing:.04em;
     }
-    .framework-item p{
+
+    .focus-item p{
       margin:0;
       color:#d7dee6;
       font-family:Arial,Helvetica,sans-serif;
-      font-size:12.5px;
-      line-height:1.56;
+      font-size:13.5px;
+      line-height:1.62;
     }
 
     .executive-contact{
       max-width:var(--max);
       margin:0 auto;
-      padding:38px 28px 40px;
+      padding:42px 28px 44px;
       border-top:1px solid var(--line-soft);
     }
+
     .executive-contact-inner{
       display:grid;
-      grid-template-columns:minmax(0,.68fr) minmax(320px,1fr);
-      gap:48px;
+      grid-template-columns:minmax(0,.72fr) minmax(320px,1fr);
+      gap:54px;
       align-items:start;
     }
+
     .contact-kicker{
-      margin:0 0 10px;
+      margin:0 0 12px;
       color:var(--gold-soft);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:10px;
+      font-size:11px;
       letter-spacing:.18em;
       text-transform:uppercase;
     }
+
     .executive-contact-heading h2{
       margin:0;
-      color:#fff;
-      font-size:26px;
+      color:var(--white);
+      font-size:28px;
       line-height:1.16;
       font-weight:400;
+      letter-spacing:.01em;
     }
+
     .executive-contact-copy p{
-      margin:0 0 14px;
+      margin:0 0 16px;
       color:var(--muted-2);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:13.5px;
-      line-height:1.68;
+      font-size:14.5px;
+      line-height:1.72;
     }
+
     .executive-contact-copy a{
       display:inline-block;
       color:var(--gold);
       font-family:Arial,Helvetica,sans-serif;
-      font-size:13px;
+      font-size:14px;
       line-height:1.4;
       letter-spacing:.08em;
       text-transform:uppercase;
       border-bottom:1px solid rgba(201,162,74,.38);
-      padding-bottom:4px;
+      padding-bottom:5px;
     }
-    .contact-note{margin-top:16px!important;margin-bottom:0!important;color:var(--muted)!important;font-size:11.5px!important}
+
+    .executive-contact-copy a:hover{color:var(--cream)}
+
+    .executive-contact-copy .contact-note{
+      margin-top:18px;
+      margin-bottom:0;
+      color:var(--muted);
+      font-size:12.5px;
+    }
 
     .footer{
       max-width:var(--max);
       margin:0 auto;
-      padding:30px 28px 36px;
+      padding:34px 28px 40px;
       display:grid;
       grid-template-columns:1fr auto 1fr;
-      gap:30px;
+      gap:34px;
       align-items:center;
       border-top:1px solid var(--line-soft);
     }
-    .footer-brand{display:flex;align-items:center;gap:14px}
-    .footer-logo{width:58px;height:auto;display:block}
-    .footer h3{margin:0 0 4px;font-size:17px;font-weight:400;letter-spacing:.08em;text-transform:uppercase}
-    .footer p{margin:0;color:#d8e1e9;font-family:Arial,Helvetica,sans-serif;font-size:12px}
+
+    .footer-brand{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .footer-logo{
+      width:64px;
+      height:auto;
+      display:block;
+    }
+
+    .footer h3{
+      margin:0 0 5px;
+      font-size:18px;
+      font-weight:400;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .footer p{
+      margin:0;
+      color:#d8e1e9;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:13px;
+    }
+
     .motto{
-      padding-left:30px;
+      padding-left:34px;
       border-left:1px solid var(--gold);
       color:var(--gold);
-      font-size:20px;
-      line-height:1.18;
-      letter-spacing:.05em;
+      font-size:23px;
+      line-height:1.2;
+      letter-spacing:.06em;
       text-transform:uppercase;
       white-space:nowrap;
     }
-    .copyright{text-align:right;color:#d8e0e8;font-family:Arial,Helvetica,sans-serif;font-size:12px}
+
+    .copyright{
+      text-align:right;
+      color:#d8e0e8;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:13px;
+    }
+
+
+    .conditional-section[hidden]{display:none}
+
+    .choice-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px 14px;
+      margin-bottom:18px;
+    }
+
+    .choice-card{
+      position:relative;
+      display:flex;
+      align-items:flex-start;
+      gap:9px;
+      min-height:50px;
+      margin:0;
+      padding:12px 13px;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:2px;
+      background:rgba(4,17,30,.72);
+      color:#e5ebf1;
+      cursor:pointer;
+      transition:border-color .18s ease,background .18s ease;
+    }
+
+    .choice-card:hover{border-color:rgba(201,162,74,.72)}
+
+    .choice-card input{
+      width:auto;
+      flex:0 0 auto;
+      margin:2px 0 0;
+      accent-color:var(--gold);
+    }
+
+    .choice-card:has(input:checked){
+      border-color:var(--gold);
+      background:rgba(201,162,74,.10);
+    }
+
+    .question-note{
+      margin:-4px 0 11px;
+      color:var(--muted);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:11.5px;
+      line-height:1.5;
+    }
+
+    .selection-status{
+      min-height:18px;
+      margin:-8px 0 16px;
+      color:var(--gold-soft);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:11.5px;
+    }
+
+    .form-status{
+      display:none;
+      margin:15px 0 0;
+      padding:11px 12px;
+      border:1px solid rgba(201,162,74,.35);
+      color:#f5e6bd;
+      background:rgba(201,162,74,.08);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:12.5px;
+      line-height:1.5;
+    }
+
+    .form-status.show{display:block}
+
+    .identity-note{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    @media(max-width:720px){
+      .choice-grid{grid-template-columns:1fr}
+    }
 
     @media(max-width:1060px){
-      .header{flex-direction:column;align-items:flex-start}
-      .hero{grid-template-columns:1fr;gap:42px}
+      .header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav{justify-content:flex-start}
+
+      .hero{
+        grid-template-columns:1fr;
+        gap:48px;
+      }
+
       .form-card{max-width:780px}
-      .framework-header,.executive-contact-inner{grid-template-columns:1fr;gap:16px}
-      .framework-grid{grid-template-columns:repeat(2,1fr)}
-      .footer{grid-template-columns:1fr;align-items:start}
-      .motto{border-left:0;border-top:1px solid var(--gold);padding:20px 0 0}
+      .focus-header{grid-template-columns:1fr;gap:18px}
+      .focus-grid{grid-template-columns:repeat(2,1fr)}
+      .executive-contact-inner{grid-template-columns:1fr;gap:18px}
+
+      .footer{
+        grid-template-columns:1fr;
+        align-items:start;
+      }
+
+      .motto{
+        border-left:0;
+        border-top:1px solid var(--gold);
+        padding:22px 0 0;
+      }
+
       .copyright{text-align:left}
     }
+
     @media(max-width:720px){
-      .header,.hero,.access-framework,.executive-contact,.footer{padding-left:20px;padding-right:20px}
-      .brand-logo{width:58px}
-      .brand-title{font-size:19px;white-space:normal}
-      .access-marker{white-space:normal}
-      .headline{font-size:34px}
-      .principle{grid-template-columns:1fr;gap:7px}
-      .form-card{padding:26px 18px}
-      .form-grid,.choice-grid{grid-template-columns:1fr}
-      .framework-grid{grid-template-columns:1fr}
-      .executive-contact-heading h2{font-size:23px}
-      .motto{white-space:normal;font-size:19px}
+      .header,
+      .hero,
+      .focus,
+      .executive-contact,
+      .footer{
+        padding-left:20px;
+        padding-right:20px;
+      }
+
+      .brand{align-items:flex-start}
+      .brand-logo{width:60px}
+
+      .brand-title{
+        font-size:20px;
+        white-space:normal;
+      }
+
+      .headline{font-size:37px}
+
+      .statement{
+        grid-template-columns:1fr;
+        gap:8px;
+      }
+
+      .form-card{padding:28px 20px}
+
+      .form-grid,
+      .check-grid{grid-template-columns:1fr}
+
+      .focus-grid{grid-template-columns:1fr}
+
+      .executive-contact-heading h2{font-size:24px}
+
+      .motto{
+        white-space:normal;
+        font-size:21px;
+      }
     }
   </style>
 </head>
 
 <body>
-<div class="site">
-  <header class="header">
-    <a class="brand" href="/" aria-label="The Buckler Group home">
-      <img class="brand-logo" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest">
-      <div>
-        <h1 class="brand-title">The Buckler Group</h1>
-        <p class="brand-subtitle">Strategy. Investment. Development.</p>
-      </div>
-    </a>
-    <div class="access-marker">Private Executive Qualification</div>
-  </header>
-
-  <main class="hero">
-    <section>
-      <p class="eyebrow">Guyana Investment Corridor™</p>
-      <h2 class="headline">Request for Consideration</h2>
-      <span class="status-pill">Closed Executive Session™</span>
-      <div class="rule"></div>
-
-      <p class="lead">This is a private qualification request for executives seeking potential participation in the Guyana Closed Executive Session™.</p>
-      <p class="lead">The Buckler Group uses this submission to assess mandate, decision authority, execution readiness, and the relevance of the access or opportunity being sought.</p>
-
-      <div class="distinction">
-        <strong>This is not the Executive Debrief.</strong>
-        <p>If you previously completed the Strategic Session Executive Debrief, no response is being duplicated here. This form serves a different purpose: qualification for potential next-stage access.</p>
-      </div>
-
-      <div class="qualification-principles">
-        <div class="principle">
-          <h3>Mandate</h3>
-          <p>Is there a defined investment, development, advisory, capital, or institutional objective?</p>
+  <div class="site">
+    <header class="header">
+      <a class="brand" href="/" aria-label="The Buckler Group home">
+        <img class="brand-logo" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest">
+        <div>
+          <h1 class="brand-title">The Buckler Group</h1>
+          <p class="brand-subtitle">Strategy. Investment. Development.</p>
         </div>
-        <div class="principle">
-          <h3>Authority</h3>
-          <p>Can the participant influence, sponsor, finance, advise, or execute the opportunity being advanced?</p>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/caribbean-renaissance.html">Caribbean Renaissance™</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      
+<section>
+  <p class="eyebrow">Caribbean Executive Intelligence Platform™</p>
+  <h2 class="headline">Executive Debrief</h2>
+  <div class="rule"></div>
+
+  <p class="lead">Thank you for contributing to Friday’s Strategic Session. This confidential two-minute Executive Debrief will help The Buckler Group refine future executive dialogue, Closed Executive Sessions™, and market engagement.</p>
+
+  <p class="lead">Your responses will contribute to The Buckler Group’s Caribbean Executive Intelligence Platform™ and support more focused engagement among government, investors, developers, operators, and institutional partners.</p>
+
+  <p class="notice">Your perspective will help shape the next stage of executive dialogue.</p>
+
+  <div class="institutional-statements">
+    <div class="statement">
+      <h3>Strategic Value</h3>
+      <p>Assess the relevance of the discussion to your organization and its current priorities.</p>
+    </div>
+
+    <div class="statement">
+      <h3>Market Intelligence</h3>
+      <p>Identify the sectors, jurisdictions, opportunities, and barriers that warrant deeper attention.</p>
+    </div>
+
+    <div class="statement">
+      <h3>Executive<br>Engagement</h3>
+      <p>Indicate where The Buckler Group can create the greatest institutional value over the next 12 months.</p>
+    </div>
+  </div>
+
+  <div class="signature">Your insight strengthens the quality of future executive action.</div>
+
+  <div class="criteria">
+    <h3>Debrief Principles</h3>
+    <ul>
+      <li>Confidential and intended for executive intelligence</li>
+      <li>Designed for easy completion in approximately two minutes</li>
+      <li>Focused on strategic relevance, opportunity, and next-step engagement</li>
+      <li>Used to improve future Strategic Sessions™, Closed Executive Sessions™, and institutional follow-up</li>
+    </ul>
+  </div>
+</section>
+
+
+<aside class="form-card" id="assessment-form">
+  <h2 class="form-title">Executive Debrief</h2>
+  <p class="form-subtitle">Please provide a concise reflection on Friday’s Strategic Session and the issues that warrant deeper executive engagement.</p>
+  <div class="form-rule"></div>
+
+  <form name="assessment" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/.netlify/functions/assessment">
+    <input type="hidden" name="form-name" value="assessment">
+    <input type="hidden" name="session_code" value="guyana-session-01-2026">
+    <input type="hidden" name="session_name" value="Caribbean Entitlement & Hospitality Strategic Sessions™ | Session I | Guyana">
+    <input type="hidden" name="session_jurisdiction" value="Guyana">
+    <input type="hidden" name="submission_source" value="TBG Website">
+    <input type="hidden" name="referral_entry_url" value="">
+<input
+  type="hidden"
+  name="session_code"
+  value="CEHSS-GUYANA-2026-01"
+/>
+
+<input
+  type="hidden"
+  name="session_jurisdiction"
+  value="Guyana"
+/>
+
+<input
+  type="hidden"
+  name="submission_source"
+  value="Executive Debrief Email Campaign"
+/>
+
+<input
+  type="hidden"
+  name="referral_entry_url"
+  id="referral-entry-url"
+  value=""
+/>
+    <p style="display:none;">
+      <label>Do not fill this out if you are human: <input name="bot-field"></label>
+    </p>
+
+
+    <div class="section-label">1. Participation</div>
+
+    <label>Did you attend Friday’s Strategic Session? <span class="req">*</span></label>
+    <div class="choice-grid">
+      <label class="choice-card">
+        <input type="radio" name="attendance_status" value="Attended" required>
+        <span>Yes — I attended the live session</span>
+      </label>
+
+      <label class="choice-card">
+        <input type="radio" name="attendance_status" value="Registered but did not attend" required>
+        <span>No — I was unable to attend</span>
+      </label>
+    </div>
+
+    <div id="non-attendee-section" class="conditional-section" hidden>
+      <div class="section-label">2. Follow-Up</div>
+
+      <div class="field">
+        <label for="participation_barrier">What prevented your participation?</label>
+        <select id="participation_barrier" name="participation_barrier">
+          <option value="">Select one</option>
+          <option>Scheduling conflict</option>
+          <option>Work commitment</option>
+          <option>Technical issue</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <label>What follow-up would be most useful?</label>
+      <p class="question-note">Select all that apply.</p>
+
+      <div class="choice-grid">
+        <label class="choice-card"><input type="checkbox" name="requested_follow_up[]" value="Executive Summary"><span>Executive Summary</span></label>
+        <label class="choice-card"><input type="checkbox" name="requested_follow_up[]" value="Future Strategic Sessions"><span>Future Strategic Sessions™</span></label>
+        <label class="choice-card"><input type="checkbox" name="requested_follow_up[]" value="Closed Executive Session"><span>Closed Executive Session™</span></label>
+        <label class="choice-card"><input type="checkbox" name="requested_follow_up[]" value="Executive Inward Delegation"><span>Executive Inward Delegation™</span></label>
+      </div>
+    </div>
+
+    <div id="attendee-section" class="conditional-section" hidden>
+      <div class="section-label">2. Strategic Reflection</div>
+
+      <div class="field">
+        <label for="session_effectiveness">How effective was Friday’s Strategic Session in connecting public policy, infrastructure, and private investment?</label>
+        <select id="session_effectiveness" name="session_effectiveness">
+          <option value="">Select one</option>
+          <option value="5 - Exceptional">5 — Exceptional</option>
+          <option value="4 - Strong">4 — Strong</option>
+          <option value="3 - Adequate">3 — Adequate</option>
+          <option value="2 - Limited">2 — Limited</option>
+          <option value="1 - Not effective">1 — Not effective</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="greatest_impact">Which discussion most changed your understanding of Guyana’s development environment?</label>
+        <select id="greatest_impact" name="greatest_impact">
+          <option value="">Select one</option>
+          <option>Government investment priorities</option>
+          <option>Infrastructure and destination readiness</option>
+          <option>Hospitality and tourism development</option>
+          <option>Real estate and mixed-use opportunities</option>
+          <option>Sustainability and green-building standards</option>
+          <option>Development approvals and institutional coordination</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="most_valuable_takeaway">What did Friday’s Strategic Session clarify that was previously uncertain?</label>
+        <textarea id="most_valuable_takeaway" name="most_valuable_takeaway" maxlength="600" placeholder="Identify one policy, investment, infrastructure, approval, or market issue that became clearer."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="greatest_development_barrier">What is the most significant barrier to executing a project in Guyana?</label>
+        <select id="greatest_development_barrier" name="greatest_development_barrier">
+          <option value="">Select one</option>
+          <option>Access to suitable land</option>
+          <option>Land-title certainty</option>
+          <option>Planning and development approvals</option>
+          <option>Infrastructure capacity</option>
+          <option>Project financing</option>
+          <option>Construction costs and procurement</option>
+          <option>Identifying qualified local partners</option>
+          <option>Availability of reliable market data</option>
+          <option>Government and agency coordination</option>
+          <option>Political or execution risk</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="section-label">3. Closed Executive Session™</div>
+
+      <label>Which stakeholders should be included in the Closed Executive Session™?</label>
+      <p class="question-note">Select up to three.</p>
+
+      <div class="choice-grid" id="stakeholder-options">
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Senior central-government decision-makers"><span>Senior government decision-makers</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Planning and development-approval agencies"><span>Planning and approval agencies</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Guyana Tourism Authority"><span>Guyana Tourism Authority</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Infrastructure and public-utilities agencies"><span>Infrastructure and utilities agencies</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Commercial banks and capital providers"><span>Banks and capital providers</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Institutional and private investors"><span>Institutional and private investors</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Landowners and property representatives"><span>Landowners and property representatives</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Local developers and development partners"><span>Local developers and partners</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Hotel owners, operators, and hospitality brands"><span>Hotel owners, operators, and brands</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Attorneys, title specialists, and regulatory advisers"><span>Legal, title, and regulatory advisers</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Architects, planners, engineers, and sustainability experts"><span>Technical and sustainability experts</span></label>
+        <label class="choice-card"><input type="checkbox" name="closed_session_stakeholders[]" value="Other"><span>Other</span></label>
+      </div>
+
+      <p id="stakeholder-status" class="selection-status" aria-live="polite"></p>
+
+      <div class="field">
+        <label for="closed_session_topic">Which issue should receive deeper treatment during the Closed Executive Session™?</label>
+        <select id="closed_session_topic" name="closed_session_topic">
+          <option value="">Select one</option>
+          <option>Land acquisition and title</option>
+          <option>Planning and development approvals</option>
+          <option>Government incentives</option>
+          <option>Infrastructure delivery</option>
+          <option>Hospitality demand and market positioning</option>
+          <option>Project financing and capital access</option>
+          <option>Public-private partnership structures</option>
+          <option>Local development partners</option>
+          <option>Sustainability and resilience requirements</option>
+          <option>Investor protections and execution risk</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="investment_confidence">Did Friday’s Strategic Session increase your confidence in Guyana as an investment and development market?</label>
+        <select id="investment_confidence" name="investment_confidence">
+          <option value="">Select one</option>
+          <option>Significantly increased</option>
+          <option>Moderately increased</option>
+          <option>No material change</option>
+          <option>Reduced</option>
+          <option>I require additional diligence before forming a view</option>
+        </select>
+      </div>
+
+      <div class="section-label">4. Next Engagement</div>
+
+      <div class="field">
+        <label for="next_tbg_offering">Which next step would provide the greatest value?</label>
+        <select id="next_tbg_offering" name="next_tbg_offering">
+          <option value="">Select one</option>
+          <option>Executive Summary</option>
+          <option>Closed Executive Session™</option>
+          <option>Guyana-focused investor roundtable</option>
+          <option>Government or agency introductions</option>
+          <option>Specific investment opportunities</option>
+          <option>Executive Inward Delegation™</option>
+          <option>No immediate next step</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="strategic_session_recommendation">What single action should The Buckler Group take before the next Guyana engagement?</label>
+        <textarea id="strategic_session_recommendation" name="strategic_session_recommendation" maxlength="600" placeholder="Provide one concise recommendation."></textarea>
+      </div>
+    </div>
+
+    <div class="section-label">5. Confirmation</div>
+    <p class="identity-note">These details are used only to match your response with your registration record.</p>
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="full_name">Full Name <span class="req">*</span></label>
+        <input id="full_name" name="full_name" type="text" placeholder="Enter your full name" autocomplete="name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address <span class="req">*</span></label>
+        <input id="email" name="email_address" type="email" placeholder="name@organization.com" autocomplete="email" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="follow_up">May The Buckler Group contact you regarding relevant executive opportunities or follow-up discussions? <span class="req">*</span></label>
+      <select id="follow_up" name="permission_to_follow_up" required>
+        <option value="">Select response</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <button class="submit" type="submit">Complete Executive Debrief</button>
+    <p class="secure">Your responses will be treated as confidential executive intelligence.</p>
+    <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+
+  </form>
+</aside>
+
+    </main>
+
+    <section class="focus">
+      <div class="focus-header">
+        <div>
+          <p class="focus-kicker">Executive Intelligence Framework</p>
+          <h2 class="focus-title">From executive dialogue to actionable intelligence.</h2>
         </div>
-        <div class="principle">
-          <h3>Readiness</h3>
-          <p>Is the interest sufficiently developed to justify focused executive access and opportunity formation?</p>
+
+        <p class="focus-copy">Executive Debrief responses are organized into a structured intelligence framework that helps The Buckler Group identify market priorities, institutional readiness, strategic fit, and the most appropriate next stage of engagement.</p>
+      </div>
+
+      
+<div class="focus-grid">
+  <article class="focus-item"><div class="focus-number">01</div><div><h3>Strategic Relevance</h3><p>Measures the value of the session to participating organizations and their current priorities.</p></div></article>
+  <article class="focus-item"><div class="focus-number">02</div><div><h3>Investment Readiness</h3><p>Identifies the likely timeframe for market exploration, capital deployment, or institutional engagement.</p></div></article>
+  <article class="focus-item"><div class="focus-number">03</div><div><h3>Sector Priorities</h3><p>Surfaces the sectors, project types, and development themes attracting the strongest executive interest.</p></div></article>
+  <article class="focus-item"><div class="focus-number">04</div><div><h3>Market Barriers</h3><p>Captures the principal obstacles and enabling conditions shaping investment and development decisions.</p></div></article>
+  <article class="focus-item"><div class="focus-number">05</div><div><h3>Relationship Pathways</h3><p>Directs qualified participants toward closed sessions, delegations, introductions, partnerships, and opportunities.</p></div></article>
+  <article class="focus-item"><div class="focus-number">06</div><div><h3>Future Programming</h3><p>Uses participant intelligence to shape future Strategic Sessions and jurisdiction-specific executive dialogue.</p></div></article>
+</div>
+</section>
+
+
+    <section class="executive-contact">
+      <div class="executive-contact-inner">
+        <div class="executive-contact-heading">
+          <p class="contact-kicker">Institutional Inquiries</p>
+          <h2>Executive Debrief &amp; Engagement</h2>
+        </div>
+
+        <div class="executive-contact-copy">
+          <p>For questions regarding this Executive Debrief, future Strategic Sessions™, or executive engagement with The Buckler Group, please contact:</p>
+          <a href="mailto:info@thebucklergroup.com">info@thebucklergroup.com</a>
+          <p class="contact-note">Executive Debrief responses are reviewed to inform future programming, institutional follow-up, and qualified executive engagement.</p>
         </div>
       </div>
     </section>
 
-    <aside class="form-card" id="consideration-form">
-      <p class="form-kicker">Private Access Review</p>
-      <h2 class="form-title">Executive Qualification</h2>
-      <p class="form-subtitle">Please provide concise information regarding the mandate or opportunity you are seeking to advance.</p>
-      <div class="form-rule"></div>
-
-      <form id="considerationForm" name="closed-executive-session-consideration" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="closed-executive-session-consideration">
-        <input type="hidden" name="session_code" value="CEHSS-GUYANA-2026-01">
-        <input type="hidden" name="session_jurisdiction" value="Guyana">
-        <input type="hidden" name="submission_source" value="Closed Executive Session Consideration">
-        <input type="hidden" name="referral_entry_url" id="referral-entry-url" value="">
-        <p style="display:none;"><label>Do not fill this out if you are human: <input name="bot-field"></label></p>
-
-        <div class="section-label">1. Executive Profile</div>
-        <div class="form-grid">
-          <div class="field">
-            <label for="full_name">Full Name <span class="req">*</span></label>
-            <input id="full_name" name="full_name" type="text" placeholder="Enter your full name" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="email">Email Address <span class="req">*</span></label>
-            <input id="email" name="email_address" type="email" placeholder="name@organization.com" autocomplete="email" required>
-          </div>
-          <div class="field">
-            <label for="title">Title / Position <span class="req">*</span></label>
-            <input id="title" name="title_position" type="text" placeholder="Your title" required>
-          </div>
-          <div class="field">
-            <label for="organization">Organization <span class="req">*</span></label>
-            <input id="organization" name="organization" type="text" placeholder="Organization name" required>
-          </div>
+      <footer class="footer">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest">
+        <div>
+          <h3>The Buckler Group</h3>
+          <p>Strategy. Investment. Development.</p>
         </div>
-
-        <div class="section-label">2. Mandate &amp; Readiness</div>
-
-        <div class="field">
-          <label for="primary_objective">Primary objective in Guyana <span class="req">*</span></label>
-          <select id="primary_objective" name="primary_objective" required>
-            <option value="">Select one</option>
-            <option>Deploy or represent investment capital</option>
-            <option>Develop or acquire real estate</option>
-            <option>Hospitality / tourism development or operations</option>
-            <option>Infrastructure / PPP participation</option>
-            <option>Provide professional or advisory services</option>
-            <option>Identify strategic or local partners</option>
-            <option>Government / institutional engagement</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="specific_mandate">What specifically are you seeking to advance? <span class="req">*</span></label>
-          <textarea id="specific_mandate" name="specific_mandate" maxlength="500" placeholder="Identify the mandate, project, capability, opportunity, or relationship." required></textarea>
-        </div>
-
-        <div class="field">
-          <label for="current_stage">Current stage <span class="req">*</span></label>
-          <select id="current_stage" name="current_stage" required>
-            <option value="">Select one</option>
-            <option>Active opportunity or project identified</option>
-            <option>Actively evaluating Guyana opportunities</option>
-            <option>Capital / development mandate established</option>
-            <option>Seeking qualified partners or counterparties</option>
-            <option>Exploring market entry</option>
-            <option>Early-stage interest</option>
-          </select>
-        </div>
-
-        <div class="section-label">3. Role &amp; Execution</div>
-
-        <label>Role in advancing the opportunity <span class="req">*</span></label>
-        <p class="question-note">Select all that apply.</p>
-        <div class="choice-grid" id="role-options">
-          <label class="choice-card"><input type="checkbox" name="role[]" value="Principal / decision-maker"><span>Principal / decision-maker</span></label>
-          <label class="choice-card"><input type="checkbox" name="role[]" value="Investor / capital provider"><span>Investor / capital provider</span></label>
-          <label class="choice-card"><input type="checkbox" name="role[]" value="Developer / owner"><span>Developer / owner</span></label>
-          <label class="choice-card"><input type="checkbox" name="role[]" value="Operator"><span>Operator</span></label>
-          <label class="choice-card"><input type="checkbox" name="role[]" value="Advisor / professional services provider"><span>Advisor / professional services</span></label>
-          <label class="choice-card"><input type="checkbox" name="role[]" value="Capital or investor representative"><span>Capital / investor representative</span></label>
-          <label class="choice-card"><input type="checkbox" name="role[]" value="Government / institutional stakeholder"><span>Government / institutional stakeholder</span></label>
-          <label class="choice-card"><input type="checkbox" name="role[]" value="Strategic partner"><span>Strategic partner</span></label>
-        </div>
-
-        <label>What would make the Closed Executive Session™ actionable? <span class="req">*</span></label>
-        <p class="question-note">Select up to three.</p>
-        <div class="choice-grid" id="actionable-options">
-          <label class="choice-card"><input type="checkbox" name="actionable[]" value="Specific investment or development opportunities"><span>Specific investment or development opportunities</span></label>
-          <label class="choice-card"><input type="checkbox" name="actionable[]" value="Government / investment-agency engagement"><span>Government / investment-agency engagement</span></label>
-          <label class="choice-card"><input type="checkbox" name="actionable[]" value="Local developers or operating partners"><span>Local developers or operating partners</span></label>
-          <label class="choice-card"><input type="checkbox" name="actionable[]" value="Capital and financing relationships"><span>Capital and financing relationships</span></label>
-          <label class="choice-card"><input type="checkbox" name="actionable[]" value="Planning, zoning and development approvals"><span>Planning, zoning &amp; development approvals</span></label>
-          <label class="choice-card"><input type="checkbox" name="actionable[]" value="Sites / land opportunities"><span>Sites / land opportunities</span></label>
-          <label class="choice-card"><input type="checkbox" name="actionable[]" value="Hospitality market intelligence"><span>Hospitality market intelligence</span></label>
-          <label class="choice-card"><input type="checkbox" name="actionable[]" value="Infrastructure / PPP opportunities"><span>Infrastructure / PPP opportunities</span></label>
-          <label class="choice-card"><input type="checkbox" name="actionable[]" value="Professional / technical partnerships"><span>Professional / technical partnerships</span></label>
-          <label class="choice-card"><input type="checkbox" name="actionable[]" value="Other"><span>Other</span></label>
-        </div>
-        <p id="actionable-status" class="selection-status" aria-live="polite"></p>
-
-        <div class="field">
-          <label for="participation_horizon">Investment / Participation Horizon <span class="req">*</span></label>
-          <select id="participation_horizon" name="participation_horizon" required>
-            <option value="">Select one</option>
-            <option>Immediate / active</option>
-            <option>0–6 months</option>
-            <option>6–12 months</option>
-            <option>12–24 months</option>
-            <option>Longer-term / exploratory</option>
-          </select>
-        </div>
-
-        <div class="section-label">4. Confirmation</div>
-        <div class="field">
-          <label for="follow_up">May The Buckler Group contact you regarding this qualification request? <span class="req">*</span></label>
-          <select id="follow_up" name="permission_to_follow_up" required>
-            <option value="">Select response</option>
-            <option>Yes</option>
-            <option>No</option>
-          </select>
-        </div>
-
-        <button class="submit" type="submit">Submit for Consideration</button>
-        <p class="secure">Confidential executive qualification. Submission does not constitute access or acceptance.</p>
-        <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
-      </form>
-    </aside>
-  </main>
-
-  <section class="access-framework">
-    <div class="framework-header">
-      <div>
-        <p class="framework-kicker">Qualification Architecture</p>
-        <h2 class="framework-title">From interest to controlled access.</h2>
       </div>
-      <p class="framework-copy">The Request for Consideration is a qualification instrument—not a post-session survey. It is used to determine whether a defined mandate should progress into focused executive access.</p>
-    </div>
 
-    <div class="framework-grid">
-      <article class="framework-item"><div class="framework-number">01</div><div><h3>Mandate</h3><p>Defines the capital, project, development, advisory, or institutional objective being advanced.</p></div></article>
-      <article class="framework-item"><div class="framework-number">02</div><div><h3>Authority</h3><p>Assesses the participant’s ability to influence, sponsor, finance, advise, or execute.</p></div></article>
-      <article class="framework-item"><div class="framework-number">03</div><div><h3>Readiness</h3><p>Determines whether the interest is exploratory, active, project-specific, or capital-backed.</p></div></article>
-      <article class="framework-item"><div class="framework-number">04</div><div><h3>Access Need</h3><p>Identifies the government, capital, land, entitlement, partner, or opportunity access required.</p></div></article>
-      <article class="framework-item"><div class="framework-number">05</div><div><h3>Qualification</h3><p>Determines whether a brief executive qualification call is warranted.</p></div></article>
-      <article class="framework-item"><div class="framework-number">06</div><div><h3>Invitation</h3><p>Qualified executives may then receive a private Closed Executive Session™ invitation.</p></div></article>
-    </div>
-  </section>
+      <div class="motto">Many Islands.<br>One Civilization.</div>
+      <div class="copyright">© 2026 The Buckler Group. All rights reserved.</div>
+    </footer>
+  </div>
 
-  <section class="executive-contact">
-    <div class="executive-contact-inner">
-      <div class="executive-contact-heading">
-        <p class="contact-kicker">Institutional Inquiries</p>
-        <h2>Closed Executive Session™ Access</h2>
-      </div>
-      <div class="executive-contact-copy">
-        <p>For questions regarding qualification, the Guyana Investment Corridor™, or executive engagement with The Buckler Group, please contact:</p>
-        <a href="mailto:info@thebucklergroup.com">info@thebucklergroup.com</a>
-        <p class="contact-note">The Executive Debrief and Request for Consideration are separate instruments with separate purposes.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-brand">
-      <img class="footer-logo" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest">
-      <div>
-        <h3>The Buckler Group</h3>
-        <p>Strategy. Investment. Development.</p>
-      </div>
-    </div>
-    <div class="motto">Many Islands.<br>One Civilization.</div>
-    <div class="copyright">© 2026 The Buckler Group. All rights reserved.</div>
-  </footer>
-</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("considerationForm");
+  const form = document.querySelector('form[name="assessment"]');
   if (!form) return;
 
   const params = new URLSearchParams(window.location.search);
-  const actionableInputs = [...form.querySelectorAll('input[name="actionable[]"]')];
-  const roleInputs = [...form.querySelectorAll('input[name="role[]"]')];
-  const actionableStatus = document.getElementById("actionable-status");
+  const attendeeSection = document.getElementById("attendee-section");
+  const nonAttendeeSection = document.getElementById("non-attendee-section");
+  const attendanceInputs = form.querySelectorAll('input[name="attendance_status"]');
+  const stakeholderInputs = form.querySelectorAll('input[name="closed_session_stakeholders[]"]');
+  const stakeholderStatus = document.getElementById("stakeholder-status");
   const formStatus = document.getElementById("form-status");
-  const referralField = document.getElementById("referral-entry-url");
 
-  if (referralField) referralField.value = window.location.href;
+  function setHiddenField(name, value) {
+    let field = form.querySelector(`[name="${name}"]`);
+    if (!field) {
+      field = document.createElement("input");
+      field.type = "hidden";
+      field.name = name;
+      form.appendChild(field);
+    }
+    field.value = value;
+  }
+
+  function setSectionState(section, active) {
+    section.hidden = !active;
+
+    section.querySelectorAll("input, select, textarea").forEach(function (control) {
+      control.disabled = !active;
+
+      if (!active) {
+        if (control.type === "checkbox" || control.type === "radio") {
+          control.checked = false;
+        } else {
+          control.value = "";
+        }
+      }
+    });
+  }
+
+  function updateAttendancePath() {
+    const selected = form.querySelector('input[name="attendance_status"]:checked');
+    const attended = selected && selected.value === "Attended";
+    const absent = selected && selected.value === "Registered but did not attend";
+
+    setSectionState(attendeeSection, Boolean(attended));
+    setSectionState(nonAttendeeSection, Boolean(absent));
+  }
+
+  setHiddenField("referral_entry_url", window.location.href);
+
+  const sessionCode = params.get("session");
+  const jurisdiction = params.get("jurisdiction");
+  const sessionName = params.get("session_name");
+
+  if (sessionCode) setHiddenField("session_code", sessionCode);
+  if (jurisdiction) setHiddenField("session_jurisdiction", jurisdiction);
+  if (sessionName) setHiddenField("session_name", sessionName);
 
   const fullName =
     params.get("name") ||
@@ -776,15 +1172,23 @@ document.addEventListener("DOMContentLoaded", function () {
   if (fullName) document.getElementById("full_name").value = fullName;
   if (params.get("email")) document.getElementById("email").value = params.get("email");
 
-  actionableInputs.forEach(function (input) {
+  attendanceInputs.forEach(function (input) {
+    input.addEventListener("change", updateAttendancePath);
+  });
+
+  stakeholderInputs.forEach(function (input) {
     input.addEventListener("change", function () {
-      const selected = actionableInputs.filter(item => item.checked);
+      const selected = [...stakeholderInputs].filter(function (item) {
+        return item.checked;
+      });
+
       if (selected.length > 3) {
         input.checked = false;
-        actionableStatus.textContent = "Select no more than three priorities.";
+        stakeholderStatus.textContent = "Select no more than three stakeholders.";
         return;
       }
-      actionableStatus.textContent =
+
+      stakeholderStatus.textContent =
         selected.length > 0 ? `${selected.length} of 3 selected.` : "";
     });
   });
@@ -793,17 +1197,11 @@ document.addEventListener("DOMContentLoaded", function () {
     formStatus.classList.remove("show");
     formStatus.textContent = "";
 
-    if (!roleInputs.some(item => item.checked)) {
-      event.preventDefault();
-      formStatus.textContent = "Please identify your role in advancing the opportunity.";
-      formStatus.classList.add("show");
-      formStatus.scrollIntoView({ behavior: "smooth", block: "center" });
-      return;
-    }
+    const attendance = form.querySelector('input[name="attendance_status"]:checked');
 
-    if (!actionableInputs.some(item => item.checked)) {
+    if (!attendance) {
       event.preventDefault();
-      formStatus.textContent = "Please identify at least one priority that would make the Closed Executive Session™ actionable.";
+      formStatus.textContent = "Please confirm whether you attended Friday’s Strategic Session.";
       formStatus.classList.add("show");
       formStatus.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
@@ -814,7 +1212,20 @@ document.addEventListener("DOMContentLoaded", function () {
       form.reportValidity();
     }
   });
+
+  setSectionState(attendeeSection, false);
+  setSectionState(nonAttendeeSection, false);
 });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const referralField =
+      document.getElementById("referral-entry-url");
+
+    if (referralField) {
+      referralField.value = window.location.href;
+    }
+  });
 </script>
 
 </body>
