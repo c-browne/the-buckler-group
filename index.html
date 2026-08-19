@@ -8071,11 +8071,590 @@ iframe {
 }
 </style>
 
+<style>
+/* =========================================================
+   TBG DEFINITIVE RESPONSIVE LAYER
+   Wide desktop • laptop • tablet • mobile • small mobile
+   ========================================================= */
+
+/* Universal layout resilience */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: clip;
+  scroll-padding-top: 96px;
+}
+
+body,
+main {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+img,
+picture,
+video,
+canvas,
+svg,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+section,
+header,
+footer,
+.program-panel,
+.calendar-row,
+.tbg-map-layout,
+.office-founder-inner,
+.exodus-inner,
+.footer-grid,
+.cta-band,
+.cr-publication-card,
+.priority-card {
+  min-width: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+a,
+span,
+strong {
+  overflow-wrap: break-word;
+}
+
+a,
+button,
+summary,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.btn,
+.headline-btn,
+.calendar-btn,
+.calendar-session-actions a,
+.market-button,
+.exodus-button,
+.executive-session-worldclass-btn,
+.cr-framework-btn {
+  min-height: 44px;
+}
+
+.nav-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(183,144,75,.55);
+  cursor: pointer;
+}
+
+.nav-toggle-line {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.topbar.is-nav-open .nav-toggle-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.topbar.is-nav-open .nav-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.topbar.is-nav-open .nav-toggle-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Large desktop */
+@media (min-width: 1600px) {
+  .topbar,
+  .hero,
+  main > section,
+  .cta-band,
+  .institutional-footer {
+    padding-left: max(6vw, calc((100vw - 1560px) / 2)) !important;
+    padding-right: max(6vw, calc((100vw - 1560px) / 2)) !important;
+  }
+
+  .hero > div,
+  .program-panel,
+  .footer-grid,
+  .footer-bottom {
+    max-width: 1560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Laptop and tablet landscape */
+@media (max-width: 1180px) {
+  .topbar {
+    padding-inline: 3vw !important;
+  }
+
+  .topbar nav {
+    gap: 12px !important;
+    font-size: 9px !important;
+  }
+
+  #sessions .calendar-header,
+  #sessions .calendar-row {
+    grid-template-columns: 1fr .65fr 1.15fr !important;
+    gap: 18px !important;
+  }
+
+  #sessions .calendar-action-head {
+    display: none !important;
+  }
+
+  #sessions .calendar-session-actions {
+    grid-column: 1 / -1;
+    flex-direction: row !important;
+    max-width: 420px;
+  }
+
+  #sessions .calendar-session-actions a {
+    flex: 1 1 0;
+  }
+
+  .priority-spotlight-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+
+  .commercial-journey-access-track {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+
+  .commercial-journey-access-track article {
+    min-height: auto !important;
+    border-bottom: 1px solid rgba(7,17,31,.10);
+  }
+}
+
+/* Tablet portrait and compact laptop */
+@media (max-width: 960px) {
+  html {
+    scroll-padding-top: 82px;
+  }
+
+  .topbar {
+    position: sticky !important;
+    top: 0;
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) auto;
+    align-items: center;
+    gap: 12px !important;
+    padding: 12px 5vw !important;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .topbar nav {
+    display: none !important;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    width: 100%;
+    max-height: calc(100dvh - 82px);
+    overflow-y: auto;
+    gap: 0 !important;
+    padding: 10px 0 4px;
+    border-top: 1px solid rgba(183,144,75,.30);
+  }
+
+  .topbar.is-nav-open nav {
+    display: grid !important;
+  }
+
+  .topbar nav > a,
+  .topbar .nav-dropdown > a {
+    min-height: 44px;
+    padding: 12px 10px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-dropdown {
+    display: grid !important;
+    align-items: stretch !important;
+  }
+
+  .nav-dropdown-menu {
+    position: static !important;
+    display: grid !important;
+    width: 100% !important;
+    padding: 0 0 0 10px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .nav-dropdown-menu a {
+    min-height: 40px;
+    padding: 10px !important;
+  }
+
+  .hero {
+    min-height: auto !important;
+    padding: 72px 5vw !important;
+  }
+
+  main > section,
+  #sessions,
+  .cta-band {
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+  }
+
+  .program-panel,
+  .office-founder-inner,
+  .executive-session-worldclass-grid,
+  .exodus-inner,
+  .investment-corridors-access-qualification {
+    grid-template-columns: 1fr !important;
+  }
+
+  #sessions .calendar-header {
+    display: none !important;
+  }
+
+  #sessions .calendar-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 26px 24px !important;
+  }
+
+  #sessions .calendar-session-actions {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  #sessions .tbg-map-layout {
+    grid-template-columns: 1fr !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  #sessions .tbg-map-frame,
+  #sessions #tbgMap {
+    height: 500px !important;
+    min-height: 500px !important;
+  }
+
+  #sessions .tbg-jurisdiction-panel {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  .priority-spotlight-grid,
+  #insights .cr-publications-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+/* Mobile landscape and standard phones */
+@media (max-width: 700px) {
+  .topbar nav {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-crest {
+    height: 40px !important;
+    width: auto !important;
+  }
+
+  .wordmark {
+    font-size: 15px !important;
+  }
+
+  .hero {
+    padding: 56px 20px !important;
+    background-position: 60% center !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 12vw, 58px) !important;
+  }
+
+  .hero p {
+    font-size: 16px !important;
+  }
+
+  main > section,
+  #sessions,
+  .regional-demand,
+  .regional-participation,
+  .office-founder,
+  .cta-band,
+  .institutional-footer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .button-row,
+  .headline-actions,
+  .calendar-actions,
+  .calendar-session-actions {
+    width: 100%;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .btn,
+  .headline-btn,
+  .calendar-btn,
+  .calendar-session-actions a,
+  .market-button,
+  .exodus-button,
+  .cr-framework-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    text-align: center;
+  }
+
+  .demand-grid,
+  .stats,
+  .services,
+  #advisory .services,
+  .priority-spotlight-grid,
+  #insights .cr-publications-grid,
+  .commercial-journey-access-track,
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-brand {
+    grid-column: auto !important;
+  }
+
+  .priority-card {
+    min-height: 310px !important;
+  }
+
+  .priority-card-content {
+    padding: 22px !important;
+  }
+
+  .executive-session-worldclass-points > div,
+  .investment-corridors-access-stages article,
+  .investment-corridors-access-qualification {
+    grid-template-columns: 1fr !important;
+  }
+
+  .investment-corridors-access-stages article {
+    gap: 12px !important;
+  }
+
+  #sessions .program-panel {
+    padding: 24px !important;
+  }
+
+  #sessions .calendar-row,
+  #sessions .calendar-footnote {
+    padding: 22px 18px !important;
+  }
+
+  #sessions .calendar-market {
+    font-size: clamp(30px, 10vw, 44px) !important;
+  }
+
+  #sessions .tbg-map-frame,
+  #sessions #tbgMap {
+    height: 420px !important;
+    min-height: 420px !important;
+  }
+
+  #sessions .tbg-jurisdiction-panel {
+    padding: 26px 22px !important;
+  }
+
+  .office-founder-image {
+    min-height: 290px !important;
+  }
+
+  .office-founder-copy {
+    padding: 26px 22px !important;
+  }
+
+  .cta-band {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 24px !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 430px) {
+  html {
+    scroll-padding-top: 74px;
+  }
+
+  .topbar {
+    padding: 10px 16px !important;
+  }
+
+  .wordmark {
+    font-size: 14px !important;
+  }
+
+  .nav-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero,
+  main > section,
+  #sessions,
+  .regional-demand,
+  .regional-participation,
+  .office-founder,
+  .cta-band,
+  .institutional-footer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 12vw, 46px) !important;
+  }
+
+  .declaration-hero-band .declaration-title,
+  .investment-corridors-access-head h2 {
+    font-size: clamp(40px, 14vw, 56px) !important;
+  }
+
+  #sessions .program-panel {
+    padding: 20px 16px !important;
+  }
+
+  #sessions .calendar-row,
+  #sessions .calendar-footnote {
+    padding: 20px 14px !important;
+  }
+
+  #sessions .calendar-tags em {
+    white-space: normal;
+  }
+
+  #sessions .tbg-map-frame,
+  #sessions #tbgMap {
+    height: 360px !important;
+    min-height: 360px !important;
+  }
+
+  #sessions .tbg-hub-label {
+    display: none !important;
+  }
+
+  #insights .cr-publication-card > .cr-publication-image,
+  #insights .cr-publication-card--issue001 > .cr-publication-image,
+  #insights .cr-publication-card[href="/caribbean-renaissance-insights.html"] > .cr-publication-image {
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+    flex-basis: 220px !important;
+  }
+
+  #insights .cr-publication-card > .cr-publication-content {
+    padding: 20px 18px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="/" aria-label="The Buckler Group home"><img class="brand-crest" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest"><span class="wordmark">The Buckler Group</span></a>
-    <nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNavigation">
+      <span class="nav-toggle-line" aria-hidden="true"></span>
+      <span class="nav-toggle-line" aria-hidden="true"></span>
+      <span class="nav-toggle-line" aria-hidden="true"></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav id="primaryNavigation" aria-label="Primary navigation">
       <a href="#advisory">Advisory</a>
       <a href="#caribbean-renaissance-declaration">Caribbean Renaissance™</a>
       <div class="nav-dropdown">
@@ -8102,7 +8681,7 @@ iframe {
         <p>Organizing capital, development, and opportunity across the Caribbean.</p>
         <div class="button-row">
           <a class="btn primary" href="#caribbean-renaissance-declaration">Explore the Framework</a>
-          <a class="btn secondary" href="#sessions">Strategic Sessions 2026</a>
+          <a class="btn secondary" href="#sessions">Strategic Sessions 2026–2027</a>
         </div>
       </div>
     </section>
@@ -8223,7 +8802,7 @@ iframe {
     <section id="sessions">
       <div class="program-panel">
         <div>
-          <div class="eyebrow">2026 Caribbean Strategic Calendar</div>
+          <div class="eyebrow">2026–2027 Caribbean Strategic Calendar</div>
           <h2>Strategic Sessions</h2>
           <p style="color:rgba(255,255,255,.78);font-size:18px;max-width:720px;">Jurisdiction-led discussions on development, investment, entitlement, and execution.</p>
           
@@ -8237,7 +8816,7 @@ iframe {
             </a>
           </div>
 
-          <div id="priority-markets" class="strategic-calendar" aria-label="2026 Caribbean Strategic Calendar">
+          <div id="priority-markets" class="strategic-calendar" aria-label="2026–2027 Caribbean Strategic Calendar">
             <div class="calendar-header">
               <div>Jurisdiction</div>
               <div>Session Date</div>
@@ -8260,7 +8839,7 @@ iframe {
 
             <article class="calendar-row">
               <div class="calendar-market">Barbados</div>
-              <div class="calendar-date">28 August 2026</div>
+              <div class="calendar-date">18 September 2026</div>
               <div class="calendar-themes">
                 <strong>Strategic focus</strong>
                 Luxury tourism, wealth migration, diaspora capital, and the governance premium.
@@ -8274,7 +8853,7 @@ iframe {
 
             <article class="calendar-row">
               <div class="calendar-market">The Bahamas</div>
-              <div class="calendar-date">18 September 2026</div>
+              <div class="calendar-date">16 October 2026</div>
               <div class="calendar-themes">
                 <strong>Strategic focus</strong>
                 Ultra-luxury hospitality, family-office capital, and maritime destination economics.
@@ -8288,7 +8867,7 @@ iframe {
 
             <article class="calendar-row">
               <div class="calendar-market">Grenada</div>
-              <div class="calendar-date">16 October 2026</div>
+              <div class="calendar-date">20 November 2026</div>
               <div class="calendar-themes">
                 <strong>Strategic focus</strong>
                 Climate-resilient hospitality, boutique development, and regenerative destination growth.
@@ -8302,7 +8881,7 @@ iframe {
 
             <article class="calendar-row">
               <div class="calendar-market">Trinidad &amp; Tobago</div>
-              <div class="calendar-date">20 November 2026</div>
+              <div class="calendar-date">18 December 2026</div>
               <div class="calendar-themes">
                 <strong>Strategic focus</strong>
                 Industrial diversification, energy transition, logistics, and urban regeneration.
@@ -8316,7 +8895,7 @@ iframe {
 
             <article class="calendar-row">
               <div class="calendar-market">Dominican Republic</div>
-              <div class="calendar-date">18 December 2026</div>
+              <div class="calendar-date">15 January 2027</div>
               <div class="calendar-themes">
                 <strong>Strategic focus</strong>
                 Examining scalable deployment across hospitality, mixed-use development, branded residences, logistics, aviation-linked development, and destination infrastructure.
@@ -8366,7 +8945,7 @@ Strategic Sessions Powered by EXODUS™
 
           <div class="map-session-meta">
             <span>Session II</span>
-            <strong>Friday, August 28, 2026</strong>
+            <strong>Friday, September 18, 2026</strong>
             <em>12:30 PM – 1:30 PM EDT</em>
           </div>
 
@@ -8476,7 +9055,7 @@ Strategic Sessions Powered by EXODUS™
 
         <article class="priority-card barbados">
           <div class="priority-card-content">
-            <div class="priority-tag">Session II · August 21, 2026</div>
+            <div class="priority-tag">Session II · September 18, 2026</div>
             <h3>Barbados</h3>
             <p>Luxury tourism, wealth migration, diaspora capital, branded residences, marina districts, and coastal mixed-use assets.</p>
           </div>
@@ -8484,7 +9063,7 @@ Strategic Sessions Powered by EXODUS™
 
         <article class="priority-card bahamas">
           <div class="priority-card-content">
-            <div class="priority-tag">Session III · September 18, 2026</div>
+            <div class="priority-tag">Session III · October 16, 2026</div>
             <h3>The Bahamas</h3>
             <p>Ultra-luxury hospitality, global capital attraction, private islands, branded residences, and aviation-linked hospitality.</p>
           </div>
@@ -8492,7 +9071,7 @@ Strategic Sessions Powered by EXODUS™
 
         <article class="priority-card grenada">
           <div class="priority-card-content">
-            <div class="priority-tag">Session IV · October 16, 2026</div>
+            <div class="priority-tag">Session IV · November 20, 2026</div>
             <h3>Grenada</h3>
             <p>Climate-resilient hospitality, boutique development, marina infrastructure, wellness, agro-tourism, and blue economy assets.</p>
           </div>
@@ -8500,7 +9079,7 @@ Strategic Sessions Powered by EXODUS™
 
         <article class="priority-card tobago">
           <div class="priority-card-content">
-            <div class="priority-tag">Session V · November 20, 2026</div>
+            <div class="priority-tag">Session V · December 18, 2026</div>
             <h3>Trinidad &amp; Tobago</h3>
             <p>Eco-tourism, maritime economies, cultural infrastructure, waterfront redevelopment, and differentiated destination strategy.</p>
           </div>
@@ -8508,7 +9087,7 @@ Strategic Sessions Powered by EXODUS™
 
         <article class="priority-card dominican-republic">
           <div class="priority-card-content">
-            <div class="priority-tag">Session VI · December 18, 2026</div>
+            <div class="priority-tag">Session VI · January 15, 2027</div>
             <h3>Dominican Republic</h3>
             <p>Institutional-scale opportunities across hospitality, branded residences, mixed-use communities, logistics, aviation-linked development, and destination infrastructure.</p>
           </div>
@@ -8997,6 +9576,42 @@ Strategic Sessions Powered by EXODUS™
     </div>
   </footer>
 
+<script>
+(function () {
+  const header = document.querySelector(".topbar");
+  const toggle = document.querySelector(".nav-toggle");
+  const navigation = document.getElementById("primaryNavigation");
+
+  if (!header || !toggle || !navigation) return;
+
+  function setNavigation(open) {
+    header.classList.toggle("is-nav-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+  }
+
+  toggle.addEventListener("click", function () {
+    setNavigation(!header.classList.contains("is-nav-open"));
+  });
+
+  navigation.addEventListener("click", function (event) {
+    if (event.target.closest("a") && window.innerWidth <= 960) {
+      setNavigation(false);
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      setNavigation(false);
+      toggle.focus();
+    }
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 960) setNavigation(false);
+  });
+})();
+</script>
+
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
 
 <script>
@@ -9010,11 +9625,11 @@ Strategic Sessions Powered by EXODUS™
 
   const sessions = [
     { name:"Guyana", coords:[-58.1551,6.8013], session:"Session I", date:"Friday, July 24, 2026", time:"12:30 PM – 1:30 PM EDT", theme:"Hospitality, Real Estate & the Future of Development in Guyana", focus:"Positioning Guyana as a rapidly emerging infrastructure and urbanization market within the Caribbean Basin." },
-    { name:"Barbados", coords:[-59.5432,13.1939], session:"Session II", date:"Friday, August 28, 2026", time:"12:30 PM – 1:30 PM EDT", theme:"Luxury Tourism, Wealth Migration & Diaspora Capital", focus:"Evaluating how governance excellence can strengthen capital formation and attract premium real estate and hospitality investment." },
-    { name:"The Bahamas", coords:[-77.3963,25.0343], session:"Session III", date:"Friday, September 18, 2026", time:"12:30 PM – 1:30 PM EDT", theme:"Ultra-Luxury Hospitality & Family Office Capital", focus:"Positioning The Bahamas as a global wealth, maritime, and ultra-luxury hospitality ecosystem." },
-    { name:"Grenada", coords:[-61.6790,12.1165], session:"Session IV", date:"Friday, October 16, 2026", time:"12:30 PM – 1:30 PM EDT", theme:"Climate-Resilient Hospitality & Boutique Development", focus:"Positioning Grenada as a climate-resilient boutique hospitality market aligned with premium experiential tourism and long-term sustainability." },
-    { name:"Trinidad & Tobago", coords:[-61.2225,10.6918], session:"Session V", date:"Friday, November 20, 2026", time:"12:30 PM – 1:30 PM EST", theme:"Industrial Diversification, Energy Transition & Urban Regeneration", focus:"Positioning Trinidad & Tobago as a regional platform for industrial investment, logistics, energy transition, and urban redevelopment." },
-    { name:"Dominican Republic", coords:[-70.1627,18.7357], session:"Session VI", date:"Friday, December 18, 2026", time:"12:30 PM – 1:30 PM EST", theme:"Institutional Capital at Scale", focus:"Examining how market depth, tourism infrastructure, development pipeline, air connectivity, and a diversified real estate ecosystem create scalable opportunities for institutional capital." }
+    { name:"Barbados", coords:[-59.5432,13.1939], session:"Session II", date:"Friday, September 18, 2026", time:"12:30 PM – 1:30 PM EDT", theme:"Luxury Tourism, Wealth Migration & Diaspora Capital", focus:"Evaluating how governance excellence can strengthen capital formation and attract premium real estate and hospitality investment." },
+    { name:"The Bahamas", coords:[-77.3963,25.0343], session:"Session III", date:"Friday, October 16, 2026", time:"12:30 PM – 1:30 PM EDT", theme:"Ultra-Luxury Hospitality & Family Office Capital", focus:"Positioning The Bahamas as a global wealth, maritime, and ultra-luxury hospitality ecosystem." },
+    { name:"Grenada", coords:[-61.6790,12.1165], session:"Session IV", date:"Friday, November 20, 2026", time:"12:30 PM – 1:30 PM EST", theme:"Climate-Resilient Hospitality & Boutique Development", focus:"Positioning Grenada as a climate-resilient boutique hospitality market aligned with premium experiential tourism and long-term sustainability." },
+    { name:"Trinidad & Tobago", coords:[-61.2225,10.6918], session:"Session V", date:"Friday, December 18, 2026", time:"12:30 PM – 1:30 PM EST", theme:"Industrial Diversification, Energy Transition & Urban Regeneration", focus:"Positioning Trinidad & Tobago as a regional platform for industrial investment, logistics, energy transition, and urban redevelopment." },
+    { name:"Dominican Republic", coords:[-70.1627,18.7357], session:"Session VI", date:"Friday, January 15, 2027", time:"12:30 PM – 1:30 PM EST", theme:"Institutional Capital at Scale", focus:"Examining how market depth, tourism infrastructure, development pipeline, air connectivity, and a diversified real estate ecosystem create scalable opportunities for institutional capital." }
   ];
 
   function jurisdictionSlug(name){
