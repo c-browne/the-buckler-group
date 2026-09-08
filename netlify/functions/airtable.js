@@ -1,6 +1,9 @@
-// The Buckler Group — v4.3. Existing scoring/referrals with mandatory consent.
+// The Buckler Group — v4.4. Verified jurisdiction links and date field mapping.
 const VERSION = '2026-09-08.1';
-const FORM_VERSION = 'v4.3';
+const FORM_VERSION = 'v4.4';
+// Verified against this base's Jurisdictions table. Update if records are replaced.
+const JURISDICTIONS_BASE = 'appLvJsO1Q8w5lLnP';
+const JURISDICTION_IDS = Object.freeze({"antigua & barbuda":"rechV8oz7jl8L1VvP","antigua and barbuda":"rechV8oz7jl8L1VvP","bahamas":"recczzVQLd2XkFRDI","barbados":"reccHf525q9E47YEc","canada":"recVD7yMAap2T3Cu7","dominican republic":"recWXhpQWhD7e4lvy","grenada":"recEGhw3KcGYMH9BT","guyana":"recmE3RDbMV84nS3Z","jamaica":"recyFPXHCSic5iVz7","other":"rec36O5zGtgIAH1ta","the bahamas":"recczzVQLd2XkFRDI","tobago":"rec38yRR8u016vNoJ","trinidad & tobago":"rec5y3fEZrCKYnYod","trinidad and tobago":"rec5y3fEZrCKYnYod","united kingdom":"rec1T8AkIrA5TKkr6","united states":"recKckUdA5YAe2Rf2"});
 const clean = value => value == null ? '' : Array.isArray(value)
   ? value.map(item => String(item).trim()).filter(Boolean).join(', ')
   : String(value).trim();
@@ -50,7 +53,8 @@ function buildApplicationFields(data) {
   const fields = {
     'Full Name':clean(data.full_name),'Email Address':clean(data.email_address),
     'Phone Number':clean(data.phone_number),'Title / Position':clean(data.title_position),
-    'Organization':clean(data.organization_company),'Country / Jurisdiction':clean(data.country_jurisdiction),
+    'Organization':clean(data.organization_company),
+    'Country / Jurisdiction':[JURISDICTION_IDS[clean(data.country_jurisdiction).toLowerCase()]],
     'LinkedIn Profile':clean(data.linkedin_profile),'Organization Website':clean(data.organization_website),
     'Stakeholder Category':clean(data.stakeholder_category),'Primary Area of Interest':clean(data.primary_area_of_interest),
     'Participation Interest':multi(data.interest),'Investment Capacity':clean(data.investment_capacity),'Notes':clean(data.interest_note),
@@ -61,7 +65,7 @@ function buildApplicationFields(data) {
     'Submission Source':clean(data.source_page || 'participation'),
     'Campaign':clean(data.campaign || 'strategic-sessions-2026'),
     'Platform':clean(data.platform || 'thebucklergroup.com'),
-    'Form Version':FORM_VERSION,'Date Submitted':now,
+    'Form Version':FORM_VERSION,'Date Submitted':now.slice(0,10),
     'Next Action':score >= 85 ? 'Review for invitation approval' : 'Review application',
     'Code of Conduct Accepted':true,
     'Code of Conduct Version':VERSION,
@@ -88,10 +92,16 @@ exports.handler = async function handler(event) {
   if (missing.length) return response(400,{error:'Missing required form fields.',required:missing});
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email_address.trim())) return response(400,{error:'Enter a valid email address.',field:'email_address'});
   if (!multi(data.interest).length) return response(400,{error:'Select at least one participation interest.',field:'interest'});
+  if (!Object.prototype.hasOwnProperty.call(JURISDICTION_IDS, data.country_jurisdiction.trim().toLowerCase()))
+    return response(400,{error:'Select a supported country or choose Other.',field:'country_jurisdiction'});
   const token = process.env.AIRTABLE_TOKEN;
   const baseId = process.env.AIRTABLE_BASE_ID;
   const tableName = process.env.AIRTABLE_APPLICATIONS_TABLE || 'Executive Applications';
   if (!token || !baseId) return response(500,{error:'Registration is temporarily unavailable. Please contact TBG.'});
+  if (baseId !== JURISDICTIONS_BASE) {
+    console.error('Jurisdiction mapping base mismatch');
+    return response(500,{error:'Registration configuration needs attention. Please contact TBG.'});
+  }
   try {
     const result = await fetch(`https://api.airtable.com/v0/${encodeURIComponent(baseId)}/${encodeURIComponent(tableName)}`,{
       method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},
@@ -100,7 +110,10 @@ exports.handler = async function handler(event) {
     });
     if (!result.ok) {
       // Do not return raw Airtable details or applicant information to the browser.
-      console.error('Airtable write failed',{status:result.status});
+      const detail = await result.json().catch(() => ({}));
+      const errorType = typeof detail.error?.type === 'string' && /^[A-Z0-9_]+$/.test(detail.error.type)
+        ? detail.error.type : 'UNKNOWN';
+      console.error('Airtable write failed',{status:result.status,errorType});
       return response(502,{error:'We could not save your application. Please contact TBG before resubmitting.'});
     }
     return redirect();
