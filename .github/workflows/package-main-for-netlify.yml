@@ -1,0 +1,25 @@
+name: Package main for Netlify
+
+on:
+  push:
+    paths:
+      - '.github/workflows/package-main-for-netlify.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove Git metadata
+        run: rm -rf .git
+      - name: Upload repository package
+        uses: actions/upload-artifact@v4
+        with:
+          name: tbg-main-netlify
+          path: .
+          include-hidden-files: true
+          retention-days: 1
