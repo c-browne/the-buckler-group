@@ -434,10 +434,12 @@
         <input type="hidden" name="session_jurisdiction" value="Grenada">
         <input type="hidden" name="referral_partner"><input type="hidden" name="referral_code">
         <input type="hidden" name="referral_category"><input type="hidden" name="referral_entry_url">
-        <input type="hidden" name="code_of_conduct_version" value="2026-09-08.1">
+        <input type="hidden" name="code_of_conduct_version" value="2026-09-16.1">
         <input type="hidden" name="code_of_conduct_accepted_at" id="code_of_conduct_accepted_at">
         <input type="hidden" name="code_of_conduct_title" value="Strategic Session™ Code of Conduct: Confidentiality, Information Use and Non-Circumvention Protocol">
+        <input type="hidden" name="form_started_at" id="form_started_at">
         <p hidden><label>Leave blank <input name="bot-field"></label></p>
+        <p hidden aria-hidden="true"><label>Company fax <input name="company_fax" type="text" tabindex="-1" autocomplete="off"></label></p>
 
         <section class="form-section" aria-labelledby="s1">
           <div class="section-head"><span class="section-number">01</span><h2 class="section-title" id="s1">Professional information</h2></div>
@@ -503,8 +505,11 @@
         </section>
 
         <section class="form-section" aria-labelledby="s4">
-          <div class="section-head"><span class="section-number">04</span><h2 class="section-title" id="s4">Capacity <span class="optional">Optional</span></h2></div>
-          <div class="field"><label for="capacity">Best description</label><select id="capacity" name="investment_capacity"><option value="">Select</option><option>Government / Policy Leader</option><option>Institutional Investor</option><option>Family Office / UHNW Principal</option><option>Developer / Sponsor</option><option>Advisor / Consultant</option><option>Academic / Institutional Partner</option><option>Service Provider</option></select></div>
+          <div class="section-head"><span class="section-number">04</span><h2 class="section-title" id="s4">Institutional profile <span class="optional">Optional</span></h2></div>
+          <div class="form-grid">
+            <div class="field"><label for="persona">Best description</label><select id="persona" name="applicant_persona"><option value="">Select</option><option>Government / Policy Leader</option><option>Institutional Investor</option><option>Family Office / UHNW Principal</option><option>Developer / Sponsor</option><option>Advisor / Consultant</option><option>Academic / Institutional Partner</option><option>Service Provider</option></select></div>
+            <div class="field"><label for="capital">Deployable capital range</label><select id="capital" name="deployable_capital_range"><option value="">Select</option><option>&lt;$1M</option><option>$1M-$5M</option><option>$5M-$25M</option><option>$25M-$100M</option><option>$100M+</option><option>Not Applicable</option><option>Not Disclosed</option></select></div>
+          </div>
         </section>
 
         <section class="form-section" aria-labelledby="s5">
@@ -554,6 +559,7 @@
       const form=document.querySelector('form[name="participation"]');
       const consent=document.querySelector("#code_of_conduct_accepted");
       const acceptedAt=document.querySelector("#code_of_conduct_accepted_at");
+      const formStartedAt=document.querySelector("#form_started_at");
       const error=document.querySelector("#terms-error");
       const success=document.querySelector("#success");
       const sessions={
@@ -572,6 +578,7 @@
       meta[0].textContent=session ? session[0] : "Not selected";
       meta[1].textContent=session ? session[1] : "To be confirmed";
       form.elements.session_jurisdiction.value=session ? session[0] : "";
+      formStartedAt.value=String(Date.now());
 
       function sync(showError){
         if(consent.checked){
