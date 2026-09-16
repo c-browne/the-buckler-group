@@ -1,4 +1,4 @@
-name: Apply v4.5 participation patch
+name: Verify executive application v4.5
 
 on:
   push:
@@ -7,31 +7,17 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  patch:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Apply v4.5 participation changes
-        shell: python
-        run: |
-          from pathlib import Path
-          p = Path('participation.html')
-          s = p.read_text()
-          replacements = [
-              ('<input type="hidden" name="code_of_conduct_version" value="2026-09-08.1">', '<input type="hidden" name="code_of_conduct_version" value="2026-09-16.1">'),
-              ('        <input type="hidden" name="code_of_conduct_title" value="Strategic Session™ Code of Conduct: Confidentiality, Information Use and Non-Circumvention Protocol">\n        <p hidden><label>Leave blank <input name="bot-field"></label></p>', '        <input type="hidden" name="code_of_conduct_title" value="Strategic Session™ Code of Conduct: Confidentiality, Information Use and Non-Circumvention Protocol">\n        <input type="hidden" name="form_started_at" id="form_started_at">\n        <p hidden><label>Leave blank <input name="bot-field"></label></p>\n        <p hidden aria-hidden="true"><label>Company fax <input name="company_fax" type="text" tabindex="-1" autocomplete="off"></label></p>'),
-              ('          <div class="section-head"><span class="section-number">04</span><h2 class="section-title" id="s4">Capacity <span class="optional">Optional</span></h2></div>\n          <div class="field"><label for="capacity">Best description</label><select id="capacity" name="investment_capacity"><option value="">Select</option><option>Government / Policy Leader</option><option>Institutional Investor</option><option>Family Office / UHNW Principal</option><option>Developer / Sponsor</option><option>Advisor / Consultant</option><option>Academic / Institutional Partner</option><option>Service Provider</option></select></div>', '          <div class="section-head"><span class="section-number">04</span><h2 class="section-title" id="s4">Institutional profile <span class="optional">Optional</span></h2></div>\n          <div class="form-grid">\n            <div class="field"><label for="persona">Best description</label><select id="persona" name="applicant_persona"><option value="">Select</option><option>Government / Policy Leader</option><option>Institutional Investor</option><option>Family Office / UHNW Principal</option><option>Developer / Sponsor</option><option>Advisor / Consultant</option><option>Academic / Institutional Partner</option><option>Service Provider</option></select></div>\n            <div class="field"><label for="capital">Deployable capital range</label><select id="capital" name="deployable_capital_range"><option value="">Select</option><option>&lt;$1M</option><option>$1M-$5M</option><option>$5M-$25M</option><option>$25M-$100M</option><option>$100M+</option><option>Not Applicable</option><option>Not Disclosed</option></select></div>\n          </div>'),
-              ('      const acceptedAt=document.querySelector("#code_of_conduct_accepted_at");\n      const error=document.querySelector("#terms-error");', '      const acceptedAt=document.querySelector("#code_of_conduct_accepted_at");\n      const formStartedAt=document.querySelector("#form_started_at");\n      const error=document.querySelector("#terms-error");'),
-              ('      form.elements.session_jurisdiction.value=session ? session[0] : "";\n\n      function sync(showError){', '      form.elements.session_jurisdiction.value=session ? session[0] : "";\n      formStartedAt.value=String(Date.now());\n\n      function sync(showError){')
-          ]
-          for old, new in replacements:
-              if old not in s:
-                  raise SystemExit('Expected patch context not found')
-              s = s.replace(old, new, 1)
-          p.write_text(s)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
       - name: Verify v4.5 form markers
         run: |
           grep -q 'code_of_conduct_version" value="2026-09-16.1' participation.html
@@ -39,11 +25,3 @@ jobs:
           grep -q 'name="deployable_capital_range"' participation.html
           grep -q 'name="company_fax"' participation.html
           grep -q 'form_started_at' participation.html
-      - name: Commit participation patch
-        run: |
-          git config user.name "TBG Deployment"
-          git config user.email "50028305+c-browne@users.noreply.github.com"
-          git add participation.html
-          git diff --cached --quiet && exit 0
-          git commit -m "Complete executive application v4.5 front end"
-          git push origin HEAD:main
