@@ -368,29 +368,98 @@
     }
     .motto{color:var(--gold);text-transform:uppercase}
 
+    /* Responsive application shell: desktop, tablet, and mobile. */
+    html{-webkit-text-size-adjust:100%}
+    img{max-width:100%}
+    input,select,textarea,button{max-width:100%}
+    .application,.terms,.accuracy{min-width:0}
+    .brand,.session,.field,.choice,.confirmation{min-width:0}
+    .meta-value,.session strong,.session span,.brand-title,.brand-subtitle,.choice,.confirmation{overflow-wrap:anywhere}
+    button,.choice,.confirmation,.terms-disclosure summary{touch-action:manipulation}
+
+    @media(max-width:1024px){
+      .header-inner{width:min(100% - 40px,960px)}
+      main{width:min(100% - 40px,820px);padding:48px 0 64px}
+      form{padding:8px 32px 36px}
+      .footer-inner{width:min(100% - 40px,960px)}
+    }
+
+    @media(max-width:820px){
+      .header-inner{gap:22px;padding:20px 0}
+      .brand{gap:14px}
+      .brand-logo{width:50px;height:75px}
+      .brand-title{font-size:22px}
+      .session{max-width:240px}
+      .session strong{font-size:16px}
+      main{padding:44px 0 60px}
+      h1{font-size:clamp(34px,7vw,46px)}
+      .application-meta{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .meta{padding:15px 16px}
+      .form-grid{gap:16px}
+      .choice-grid{grid-template-columns:1fr 1fr}
+      form{padding:6px 28px 34px}
+    }
+
     @media(max-width:680px){
-      .header-inner{align-items:flex-start}
+      body{font-size:16px}
+      .header-inner{align-items:flex-start;flex-wrap:wrap}
+      .brand{width:100%}
+      .session{width:100%;max-width:none;text-align:left;padding-left:64px;margin-top:-8px}
       .brand-logo{width:46px;height:69px}
       .brand-title{font-size:20px}
-      .session{max-width:160px}
       .session strong{font-size:15px}
       .application-meta,.form-grid,.choice-grid{grid-template-columns:1fr}
       .meta+.meta{border-left:0;border-top:1px solid var(--line)}
-      form{padding:6px 24px 30px}
+      form{padding:4px 24px 30px}
+      .form-section{padding:30px 0}
       .form-grid+.field,.field+.form-grid,.form-grid+.form-grid,.form-grid .field+.field{margin-top:20px}
+      input[type=text],input[type=email],input[type=tel],input[type=url],select,textarea{min-height:52px;font-size:16px;padding:13px 14px}
+      textarea{min-height:120px}
+      .choice{min-height:52px;padding:14px}
+      .choice input,.confirmation input{width:20px;height:20px}
+      .confirmation{padding:16px;font-size:14px}
+      .terms-disclosure summary{padding:16px 48px 16px 16px;font-size:14px}
+      .submit{min-height:54px;font-size:13px}
       .footer-inner{flex-direction:column;align-items:flex-start}
     }
+
     @media(max-width:470px){
-      .header-inner{width:min(100% - 28px,1160px);gap:14px}
+      .header-inner{width:min(100% - 28px,1160px);gap:12px;padding:18px 0}
       .brand{gap:11px}
-      .header-inner{flex-wrap:wrap}
-      .brand-subtitle{display:block;font-size:10px;letter-spacing:.08em}
+      .brand-logo{width:42px;height:63px}
+      .brand-title{font-size:19px}
+      .brand-subtitle{display:block;font-size:9px;letter-spacing:.08em;line-height:1.35}
+      .session{padding-left:53px;margin-top:-6px}
       .session span{font-size:9px}
-      main{width:min(100% - 24px,var(--content));padding-top:38px}
-      form{padding-inline:18px}
-      .form-section{padding:27px 0}
-      .section-head{grid-template-columns:28px minmax(0,1fr)}
-      .footer-inner{width:min(100% - 28px,1160px)}
+      main{width:min(100% - 24px,var(--content));padding:34px 0 48px}
+      .page-heading{margin-bottom:24px}
+      .eyebrow{font-size:11px;letter-spacing:.13em}
+      h1{font-size:clamp(31px,10vw,40px)}
+      .lede{font-size:15px;line-height:1.55}
+      .application{box-shadow:0 12px 34px rgba(0,0,0,.18)}
+      .meta{padding:14px 16px}
+      form{padding:2px 18px 26px}
+      .form-section{padding:26px 0}
+      .section-head{grid-template-columns:26px minmax(0,1fr);gap:9px;margin-bottom:18px}
+      .section-title{font-size:19px}
+      .optional{display:block;margin:5px 0 0;font-size:10px}
+      label,.group-label{font-size:13px}
+      .choice{font-size:13px}
+      .terms-text{padding:16px;font-size:12.5px}
+      .terms-text ol{padding-left:18px}
+      .privacy{font-size:11px;line-height:1.5}
+      .footer-inner{width:min(100% - 28px,1160px);padding:22px 0}
+    }
+
+    @media(max-width:360px){
+      .header-inner{width:min(100% - 20px,1160px)}
+      main{width:min(100% - 16px,var(--content))}
+      form{padding-inline:14px}
+      .session{padding-left:0;margin-top:0}
+      .brand-subtitle{display:none}
+      .section-number{font-size:14px}
+      .section-title{font-size:18px}
+      .footer-inner{width:min(100% - 20px,1160px)}
     }
   </style>
 </head>
@@ -588,103 +657,22 @@
         }else{
           acceptedAt.value="";
           consent.setCustomValidity("Acceptance of the Code of Conduct is required.");
-          error.hidden=!showError;
+          if(showError)error.hidden=false;
         }
       }
-
-      consent.addEventListener("change",function(){sync(false);success.hidden=true});
-      form.addEventListener("input",function(){success.hidden=true});
+      consent.addEventListener("change",()=>sync(false));
       form.addEventListener("submit",function(event){
         sync(true);
-        if(form.hasAttribute("data-preview"))event.preventDefault();
         if(!form.checkValidity()){
           event.preventDefault();
-          if(!consent.checked){
-            document.querySelector("#terms-disclosure").open=true;
-            consent.focus();
-          }else form.reportValidity();
+          form.reportValidity();
           return;
         }
-        if(form.hasAttribute("data-preview")){
-          success.hidden=false;
-          success.scrollIntoView({behavior:"smooth",block:"nearest"});
-        }
+        success.hidden=false;
+        success.textContent="Submitting your application securely…";
       });
-      consent.addEventListener("invalid", function(){ error.hidden=false; });
-      const interests=[...form.querySelectorAll('input[name="interest[]"]')];
-      function checkInterests(){
-        interests[0].setCustomValidity(interests.some(i=>i.checked) ? "" : "Select at least one participation interest.");
-      }
-      interests.forEach(i=>i.addEventListener("change",checkInterests));
-      checkInterests();
       sync(false);
-      form.noValidate=true;
     });
   </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const partnerMap = {
-        "AAREPNY": {
-            partner: "AAREPNY",
-            code: "AAREP-NY-EXEC",
-            category: "Strategic Institutional Partner",
-            campaign: "strategic-sessions-2026-aarepny"
-        }
-    };
-
-    const params = new URLSearchParams(window.location.search);
-    const ref = (params.get("ref") || "").toUpperCase();
-
-    if (partnerMap[ref]) {
-        try { sessionStorage.setItem("tbgReferral", ref); } catch {}
-    }
-
-    let storedReferral = ref;
-    try { storedReferral = ref || sessionStorage.getItem("tbgReferral"); } catch {}
-
-    if (!storedReferral || !Object.prototype.hasOwnProperty.call(partnerMap, storedReferral)) return;
-
-    const referral = partnerMap[storedReferral];
-
-    const form = document.querySelector('form[name="participation"]');
-
-    if (!form) return;
-
-    function setHiddenField(name, value){
-
-        let field = form.querySelector(`[name="${name}"]`);
-
-        if(!field){
-            field = document.createElement("input");
-            field.type = "hidden";
-            field.name = name;
-            form.appendChild(field);
-        }
-
-        field.value = value;
-    }
-
-    setHiddenField("referral_partner", referral.partner);
-    setHiddenField("referral_code", referral.code);
-    setHiddenField("referral_category", referral.category);
-    setHiddenField("referral_entry_url", window.location.origin + window.location.pathname + "?ref=" + encodeURIComponent(storedReferral));
-
-    let campaign = form.querySelector('[name="campaign"]');
-
-    if(campaign){
-        campaign.value = referral.campaign;
-    }
-
-    const strategicSession = form.querySelector(
-        'input[name="interest[]"][value="Strategic Sessions"]'
-    );
-
-    if(strategicSession){
-        strategicSession.checked = true;
-    }
-
-});
-</script>
 </body>
 </html>
