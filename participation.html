@@ -639,14 +639,35 @@
         bahamas:["The Bahamas","December 18, 2026"],
         "dominican-republic":["Dominican Republic","January 15, 2027"]
       };
-      const jurisdiction=new URLSearchParams(location.search).get("jurisdiction") || "";
+      const query=new URLSearchParams(location.search);
+      const jurisdiction=query.get("jurisdiction") || "";
       const session=Object.prototype.hasOwnProperty.call(sessions,jurisdiction) ? sessions[jurisdiction] : null;
+      const referrals=Object.freeze({
+        "TBG-GRD-NYCC-TTO-01":["Consulate General of Trinidad and Tobago in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-GUY-01":["Consulate General of Guyana in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-BRB-01":["Consulate General of Barbados in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-LCA-01":["Consulate General of Saint Lucia in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-JAM-01":["Consulate General of Jamaica in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-BHS-01":["Consulate General of The Bahamas in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-GRD-01":["Consulate General of Grenada in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-KNA-01":["Consulate General of Saint Kitts and Nevis in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-DMA-01":["Consulate General of Dominica in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-HTI-01":["Consulate General of Haiti in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-VCT-01":["Consulate General of Saint Vincent and the Grenadines in New York","New York Consular Corps"],
+        "TBG-GRD-NYCC-ATG-01":["Government of Antigua and Barbuda / New York representation","New York Consular Corps"]
+      });
+      const referralCode=(query.get("ref") || "").trim().toUpperCase();
+      const referral=Object.prototype.hasOwnProperty.call(referrals,referralCode) ? referrals[referralCode] : null;
       document.querySelector('.session strong').textContent=session ? session[0]+" Strategic Session™" : "Strategic Session™";
       document.querySelector('.session span').textContent=session ? session[1] : "Executive Participation";
       const meta=document.querySelectorAll('.meta-value');
       meta[0].textContent=session ? session[0] : "Not selected";
       meta[1].textContent=session ? session[1] : "To be confirmed";
       form.elements.session_jurisdiction.value=session ? session[0] : "";
+      form.elements.referral_partner.value=referral ? referral[0] : "";
+      form.elements.referral_code.value=referral ? referralCode : "";
+      form.elements.referral_category.value=referral ? referral[1] : "";
+      form.elements.referral_entry_url.value=location.href.slice(0,500);
       formStartedAt.value=String(Date.now());
 
       function sync(showError){
