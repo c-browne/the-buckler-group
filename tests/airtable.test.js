@@ -91,3 +91,33 @@ test('silently diverts honeypot submissions', async () => {
   const result = await handler(form({company_fax:'555-0100'}));
   assert.equal(result.statusCode,302);
 });
+
+
+test('silently discards high-confidence randomized bot submissions before Airtable', async () => {
+  global.fetch = async () => { throw new Error('fetch should not be called'); };
+  const result = await handler(form({
+    full_name:'MHqulkvoInEUuvFPyRCIB',
+    title_position:'TEpYfSFNmYcYcXAQTVGM',
+    organization_company:'Phpujbir LLC',
+    country_jurisdiction:'Antigua & Barbuda',
+    interest:['Strategic Sessions','Partnerships / Collaborations','Advisory Opportunities','EXODUS Membership','Investment Opportunities','Other']
+  }));
+  assert.equal(result.statusCode,302);
+});
+
+test('does not block a legitimate applicant who selects every participation option', async () => {
+  let posts=0;
+  global.fetch = async (url,options={}) => {
+    if (options.method === 'POST') { posts++; return jsonResponse({records:[{id:'recLegit'}]}); }
+    return jsonResponse({records:[]});
+  };
+  const result = await handler(form({
+    full_name:'Jane Executive',
+    title_position:'Managing Director',
+    organization_company:'Caribbean Development Partners',
+    country_jurisdiction:'Antigua & Barbuda',
+    interest:['Strategic Sessions','Partnerships / Collaborations','Advisory Opportunities','EXODUS Membership','Investment Opportunities','Other']
+  }));
+  assert.equal(result.statusCode,302);
+  assert.equal(posts,1);
+});
