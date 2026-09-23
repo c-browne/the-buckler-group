@@ -71,6 +71,21 @@ function scoreApplication(data) {
   for (const [term,points] of [['hospitality',10],['real estate',10],['infrastructure',10],['capital',10],['sustainable',8],['cultural',6]]) if (area.includes(term)) score += points;
   if (clean(data.organization_company)) score += 5; if (clean(data.linkedin_profile)) score += 5; if (clean(data.interest_note).length >= 120) score += 7; return Math.min(score,100);
 }
+function looksMachineGenerated(value) {
+  const text=clean(value);
+  if (text.length<15 || /\s/.test(text) || !/^[A-Za-z]+$/.test(text)) return false;
+  return /[a-z]/.test(text) && /[A-Z]/.test(text);
+}
+function isHighConfidenceBot(data) {
+  const interests=multi(data.interest);
+  if (interests.length!==INTERESTS.size) return false;
+  const identitySignals=[
+    looksMachineGenerated(data.full_name),
+    looksMachineGenerated(data.title_position),
+    looksMachineGenerated(clean(data.organization_company).replace(/\s+(LLC|INC|LTD|CORP|PLC)$/i,''))
+  ].filter(Boolean).length;
+  return identitySignals>=2;
+}
 function riskSignals(data) { const signals=[]; const interests=multi(data.interest); if (interests.length===INTERESTS.size) signals.push('all_participation_options'); else if (interests.length>4) signals.push('high_option_count'); if (!clean(data.form_started_at)) signals.push('missing_client_timing'); return signals; }
 function buildApplicationFields(data,{organizationRecordId,requestId,signals}) {
   const score=scoreApplication(data); const priority=score>=85?'Tier 1':score>=70?'Tier 2':score>=50?'Tier 3':'Watchlist'; const now=new Date().toISOString(); const persona=clean(data.applicant_persona || data.investment_capacity); const normalizedPersona=PERSONA_NORMALIZATION[persona] || persona; const capital=clean(data.deployable_capital_range);
@@ -88,6 +103,9 @@ exports.handler = async function handler(event) {
   if (data.code_of_conduct_accepted !== 'yes' || !ACCEPTED_CONDUCT_VERSIONS.has(clean(data.code_of_conduct_version))) return response(400,{error:'Accept the current Strategic Session Code of Conduct before submitting.',field:'code_of_conduct_accepted'});
   if (data.confirmation !== 'yes') return response(400,{error:'Confirm the application is accurate before submitting.',field:'confirmation'});
   const validationError=validate(data); if (validationError) return response(validationError.statusCode,validationError.body);
+  // Silently discard high-confidence automated submissions before any Airtable lookup/write.
+  // This deliberately requires multiple independent signals to avoid blocking legitimate applicants.
+  if (isHighConfidenceBot(data)) return redirect();
   const token=process.env.AIRTABLE_TOKEN; const baseId=process.env.AIRTABLE_BASE_ID; const tableName=process.env.AIRTABLE_APPLICATIONS_TABLE || 'Executive Applications'; const organizationsTable=process.env.AIRTABLE_ORGANIZATIONS_TABLE || 'Organizations';
   if (!token || !baseId) return response(500,{error:'Registration is temporarily unavailable. Please contact TBG.'});
   if (baseId !== JURISDICTIONS_BASE) { console.error('Jurisdiction mapping base mismatch'); return response(500,{error:'Registration configuration needs attention. Please contact TBG.'}); }
@@ -103,4 +121,4 @@ exports.handler = async function handler(event) {
     return redirect();
   } catch { console.error('Airtable request failed or timed out',{requestId}); return response(502,{error:'Your submission could not be confirmed. Please contact TBG before resubmitting.',requestId}); }
 };
-exports._test = {parse,validate,riskSignals,buildApplicationFields};
+exports._test = {parse,validate,riskSignals,isHighConfidenceBot,buildApplicationFields};
