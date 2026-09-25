@@ -43,45 +43,6 @@ async function findApplication(token,email){
   const r=await fetch('https://api.airtable.com/v0/'+encodeURIComponent(BASE_ID)+'/'+encodeURIComponent(APP_TABLE)+'?'+qs,{headers:{Authorization:'Bearer '+token},signal:AbortSignal.timeout(8000)});
   if(!r.ok)return null; const j=await r.json(); return j.records?.[0]?.id||null;
 }
-async function sendNotification(d,s,t,requestId){
-  const siteUrl=process.env.URL||'https://thebucklergroup.com';
-  const secret=process.env.NETLIFY_EMAILS_SECRET;
-  if(!secret){console.error('Grenada survey email secret missing',{requestId});return false}
-  const r=await fetch(siteUrl+'/.netlify/functions/emails/grenada-survey-submission',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','netlify-emails-secret':secret},
-    body:JSON.stringify({
-      from:'info@thebucklergroup.com',
-      to:'info@thebucklergroup.com',
-      replyTo:clean(d.email_address),
-      subject:'Grenada Post-Session Survey — '+clean(d.full_name)+' | '+t,
-      parameters:{
-        full_name:clean(d.full_name)||'—',
-        email_address:clean(d.email_address)||'—',
-        organization:clean(d.organization)||'—',
-        title_position:clean(d.title_position)||'—',
-        session_relevance:clean(d.session_relevance)||'—',
-        priority_areas:multi(d.priority_areas).join(', ')||'—',
-        current_objective:clean(d.current_objective)||'—',
-        defined_opportunity:clean(d.defined_opportunity)||'—',
-        action_horizon:clean(d.action_horizon)||'—',
-        capital_range:clean(d.capital_range)||'—',
-        support_needed:multi(d.support_needed).join(', ')||'—',
-        decision_authority:clean(d.decision_authority)||'—',
-        ces_interest:clean(d.ces_interest)||'—',
-        inward_delegation_interest:clean(d.inward_delegation_interest)||'—',
-        opportunity_description:clean(d.opportunity_description)||'—',
-        priority_question:clean(d.priority_question)||'—',
-        ces_desired_outcome:clean(d.ces_desired_outcome)||'—',
-        score:String(s),
-        tier:t
-      }
-    }),
-    signal:AbortSignal.timeout(10000)
-  });
-  if(!r.ok){const body=await r.text();console.error('Grenada survey email failed',{status:r.status,requestId,detail:body.slice(0,300)});return false}
-  return true;
-}
 exports.handler=async event=>{
   if(event.httpMethod!=='POST')return response(405,{error:'Method not allowed'});
   let d;try{d=parse(event)}catch(e){return response(e.statusCode||400,{error:'Invalid form body.'})}
@@ -108,8 +69,6 @@ exports.handler=async event=>{
   try{
     const r=await fetch('https://api.airtable.com/v0/'+encodeURIComponent(baseId)+'/'+encodeURIComponent(SURVEY_TABLE),{method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify({records:[{fields}],typecast:true}),signal:AbortSignal.timeout(10000)});
     if(!r.ok){const e=await r.text();console.error('Grenada survey Airtable write failed',{status:r.status,requestId,detail:e.slice(0,300)});return response(502,{error:'We could not save your survey response. Please contact TBG.',requestId})}
-    const emailed=await sendNotification(d,s,t,requestId).catch(e=>{console.error('Grenada survey email exception',{requestId,message:e?.message});return false});
-    if(!emailed)return response(502,{error:'Your response was saved, but the notification could not be delivered. Please contact TBG at info@thebucklergroup.com.',requestId});
     return redirect();
   }catch(e){console.error('Grenada survey request failed',{requestId,message:e?.message});return response(502,{error:'Your survey response could not be confirmed. Please contact TBG.',requestId})}
 };
