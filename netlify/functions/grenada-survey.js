@@ -19,14 +19,14 @@ function parse(event){
 }
 function score(d){
   let s=0;
-  const op=clean(d.defined_opportunity),h=clean(d.action_horizon),a=clean(d.decision_authority),c=clean(d.ces_interest),p=clean(d.paid_ces_readiness),dm=clean(d.decision_maker_value),rel=clean(d.session_relevance);
+  const op=clean(d.defined_opportunity),h=clean(d.action_horizon),a=clean(d.decision_authority),c=clean(d.ces_interest),rel=clean(d.session_relevance),cap=clean(d.capital_range),deleg=clean(d.inward_delegation_interest);
   if(op==='Yes — active and defined')s+=25; else if(op==='Yes — early-stage')s+=18; else if(op==='Not yet — actively seeking')s+=8;
   if(['Immediately / within 30 days','1–3 months'].includes(h))s+=20; else if(h==='3–6 months')s+=14; else if(h==='6–12 months')s+=7;
   if(a==='Yes')s+=20; else if(a==='Part of the decision-making team')s+=15; else if(a==='Adviser / intermediary')s+=8;
-  if(c==='Yes — consider me')s+=15; else if(c==='Possibly — send additional information')s+=8;
-  if(p==='Yes')s+=10; else if(p==='Possibly — subject to scope and participants')s+=5;
-  if(dm==='Yes')s+=5; else if(dm==='Possibly')s+=2;
-  if(rel==='Highly relevant')s+=5; else if(rel==='Relevant')s+=3;
+  if(c==='Yes — consider me')s+=20; else if(c==='Possibly — send additional information')s+=10;
+  if(rel==='Highly relevant')s+=10; else if(rel==='Very relevant')s+=8; else if(rel==='Relevant')s+=5; else if(rel==='Somewhat relevant')s+=2;
+  if(cap&&!['Not yet determined','Prefer to discuss privately'].includes(cap))s+=3;
+  if(deleg&&deleg!=='Not at this time')s+=2;
   return Math.min(s,100);
 }
 function tier(d,s){
@@ -47,7 +47,7 @@ exports.handler=async event=>{
   if(event.httpMethod!=='POST')return response(405,{error:'Method not allowed'});
   let d;try{d=parse(event)}catch(e){return response(e.statusCode||400,{error:'Invalid form body.'})}
   if(clean(d['bot-field']))return redirect();
-  const required=['full_name','email_address','organization','title_position','current_objective','defined_opportunity','action_horizon','decision_maker_value','decision_authority','ces_interest','paid_ces_readiness','session_relevance'];
+  const required=['full_name','email_address','organization','title_position','current_objective','defined_opportunity','action_horizon','decision_authority','ces_interest','session_relevance'];
   const missing=required.filter(k=>!clean(d[k])); if(missing.length)return response(400,{error:'Please complete the required fields.',fields:missing});
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean(d.email_address)))return response(400,{error:'Enter a valid email address.'});
   if(d.permission_follow_up!=='yes')return response(400,{error:'Permission to follow up is required.'});
@@ -60,10 +60,9 @@ exports.handler=async event=>{
     'Full Name':clean(d.full_name),'Email Address':clean(d.email_address).toLowerCase(),'Organization':clean(d.organization),'Title / Position':clean(d.title_position),
     'Executive Application':applicationId?[applicationId]:undefined,'Priority Areas':multi(d.priority_areas),'Current Objective':clean(d.current_objective),
     'Defined Opportunity':clean(d.defined_opportunity),'Opportunity Description':clean(d.opportunity_description),'Capital / Transaction Range':clean(d.capital_range),
-    'Action Horizon':clean(d.action_horizon),'Support Needed':multi(d.support_needed),'Decision-Maker Engagement Value':clean(d.decision_maker_value),
-    'CES Interest':clean(d.ces_interest),'CES Desired Outcome':clean(d.ces_desired_outcome),'Decision Authority':clean(d.decision_authority),
-    'Paid CES Readiness':clean(d.paid_ces_readiness),'Inward Delegation Interest':clean(d.inward_delegation_interest),'Priority Question':clean(d.priority_question),
-    'Session Relevance':clean(d.session_relevance),'Next-Stage Priority':clean(d.next_stage_priority),'Permission to Follow Up':true,
+    'Action Horizon':clean(d.action_horizon),'Support Needed':multi(d.support_needed),'CES Interest':clean(d.ces_interest),
+    'CES Desired Outcome':clean(d.ces_desired_outcome),'Decision Authority':clean(d.decision_authority),'Inward Delegation Interest':clean(d.inward_delegation_interest),
+    'Priority Question':clean(d.priority_question),'Session Relevance':clean(d.session_relevance),'Permission to Follow Up':true,
     'CES Qualification Score':s,'CES Candidate Tier':t,'Session Jurisdiction':'Grenada','Date Submitted':now.slice(0,10),'Source':clean(d.source||'grenada-post-session-survey')
   };
   for(const k of Object.keys(fields))if(fields[k]===''||fields[k]===undefined||(Array.isArray(fields[k])&&!fields[k].length))delete fields[k];
