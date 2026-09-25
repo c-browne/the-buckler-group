@@ -24,8 +24,8 @@ label,.field-label{display:block;margin-bottom:7px;color:#2c3949;font-size:11px;
 .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.choice{position:relative;display:flex;align-items:center;min-height:46px;border:1px solid #ddd6c8;padding:11px 12px 11px 38px;background:#fff;color:#384557;font-size:11.5px;font-weight:500;cursor:pointer}.choice:hover{border-color:#bda978;background:#fffdf8}.choice input{position:absolute;left:12px;width:14px;height:14px;margin:0;accent-color:var(--gold)}
 .rating{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}.rating label{margin:0;border:1px solid #ddd6c8;text-align:center;padding:11px 6px;font-size:10.5px;font-weight:500;cursor:pointer}.rating input{width:auto;margin-right:4px;accent-color:var(--gold)}
 .note{margin-top:17px;padding:13px 15px;background:var(--soft);border-left:2px solid var(--gold);color:#667085;font-size:11px}.note strong{color:var(--navy)}.success{margin:24px 56px 0;padding:15px 17px;border:1px solid rgba(183,144,75,.55);background:#fbf7ed;color:#49370f;font-size:11.5px}
-.submit{padding:36px 56px 44px;background:var(--navy);color:#fff}.submit-copy{display:flex;justify-content:space-between;align-items:end;gap:26px;margin-bottom:20px}.submit-copy h3{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-size:28px;font-weight:500}.submit-copy p{margin:0;max-width:430px;color:rgba(255,255,255,.54);font-size:10.5px;text-align:right}.consent{display:flex;gap:9px;align-items:flex-start;color:rgba(255,255,255,.62);font-size:10.5px;margin-bottom:18px}.consent input{width:14px;height:14px;margin-top:2px;accent-color:var(--gold)}
-button{width:100%;border:1px solid #c39a4d;background:linear-gradient(135deg,#caa552,#a77d31);color:var(--navy);padding:16px 20px;text-transform:uppercase;letter-spacing:.15em;font:600 10.5px Inter,Arial,sans-serif;cursor:pointer}button:hover{filter:brightness(1.03)}.privacy{margin:10px 0 0;text-align:center;color:rgba(255,255,255,.34);font-size:9px}
+.submit{padding:52px 56px 50px;background:linear-gradient(180deg,#07111f 0%,#0a1727 100%);color:#fff;text-align:center;border-top:1px solid rgba(183,144,75,.55);position:relative}.submit:before{content:"";display:block;width:54px;height:1px;background:var(--gold);margin:0 auto 20px}.submit-kicker{color:var(--gold-soft);font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}.submit-copy{max-width:650px;margin:0 auto 28px}.submit-copy h3{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-size:38px;line-height:1.05;font-weight:500;letter-spacing:-.02em}.submit-copy p{margin:11px auto 0;max-width:520px;color:rgba(255,255,255,.56);font-size:11px;line-height:1.65}.consent{max-width:620px;margin:0 auto 24px;display:flex;gap:10px;align-items:flex-start;text-align:left;color:rgba(255,255,255,.60);font-size:10.5px;line-height:1.55;padding:14px 16px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.025)}.consent input{width:14px;height:14px;margin-top:2px;accent-color:var(--gold);flex:0 0 auto}
+button{display:block;width:min(100%,360px);margin:0 auto;border:1px solid #c39a4d;background:linear-gradient(135deg,#d0aa56,#a77d31);color:var(--navy);padding:17px 24px;text-transform:uppercase;letter-spacing:.17em;font:600 10.5px Inter,Arial,sans-serif;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.16)}button:hover{filter:brightness(1.04);transform:translateY(-1px)}.privacy{margin:13px 0 0;text-align:center;color:rgba(255,255,255,.34);font-size:9px;letter-spacing:.02em}
 .footer{padding:18px 28px;background:#050b14;color:rgba(255,255,255,.42);display:flex;justify-content:space-between;gap:20px;font-size:8.5px;letter-spacing:.05em}.footer strong{color:#d4bc8b;font-weight:500}
 @media(max-width:700px){.shell{padding:0}.surface{border:0}.topbar{padding:14px 18px}.brand img{width:76px;height:46px}.session-meta{display:none}.hero{padding:44px 22px 38px}.progress-wrap,.section,.submit{padding-left:22px;padding-right:22px}.success{margin-left:22px;margin-right:22px}.grid2,.choice-grid,.rating{grid-template-columns:1fr}.submit-copy{display:block}.submit-copy p{text-align:left;margin-top:8px}.footer{display:block;padding:18px 22px}.footer div:last-child{margin-top:4px}}
 </style>
@@ -151,10 +151,11 @@ button{width:100%;border:1px solid #c39a4d;background:linear-gradient(135deg,#ca
 </section>
 
 <div class="submit">
-  <div class="submit-copy"><h3>Submit for executive review.</h3><p>Your response helps The Buckler Group determine the most appropriate next step, if any.</p></div>
+  <div class="submit-kicker">Final Step</div>
+  <div class="submit-copy"><h3>Submit for Review</h3><p>Your response will enter The Buckler Group's private executive review process to determine strategic fit and the appropriate next step, if any.</p></div>
   <label class="consent"><input type="checkbox" name="permission_follow_up" value="yes" required><span>I confirm that the information provided may be used by The Buckler Group to assess suitability for follow-on executive engagement.</span></label>
-  <button type="submit">Submit Survey</button>
-  <p class="privacy">Responses are reviewed privately by The Buckler Group and used only to determine strategic fit and appropriate follow-up.</p>
+  <button type="submit">Submit for Review</button>
+  <p class="privacy">Private review · Selective follow-up · Grenada Strategic Session II</p>
 </div>
 </form>
 
@@ -163,8 +164,6 @@ button{width:100%;border:1px solid #c39a4d;background:linear-gradient(135deg,#ca
 <script>
 document.addEventListener("DOMContentLoaded",function(){
   const start=document.getElementById("form_started_at"); if(start) start.value=String(Date.now());
-  const q=new URLSearchParams(location.search);
-  if(q.get("submitted")==="1"){const s=document.getElementById("successBlock");if(s){s.hidden=false;s.scrollIntoView({behavior:"smooth",block:"center"});}}
 });
 </script>
 </body>
