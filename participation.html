@@ -337,6 +337,9 @@
       transition:background .16s,border-color .16s;
     }
     .submit:hover{filter:brightness(1.06);border-color:var(--gold)}
+    .post-session-tab{display:none;margin-top:12px;width:100%;padding:14px 18px;border:1px solid rgba(183,144,75,.7);background:#fffaf0;color:#6f531f;text-decoration:none;text-align:center;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;transition:.2s ease}
+    .post-session-tab:hover{background:#f6eedc;border-color:var(--gold);color:#07111f}
+    .post-session-tab.is-visible{display:block}
     .submit:focus-visible{outline:3px solid rgba(201,155,66,.42);outline-offset:3px}
     .privacy{
       margin:12px 0 0;
@@ -612,6 +615,7 @@
 
         <div class="submit-row">
           <button class="submit" type="submit">Submit application</button>
+          <a class="post-session-tab" id="grenadaSurveyTab" href="/grenada-post-session-survey.html">Post-Session Survey · Closed Executive Session™ Consideration</a>
           <p class="privacy">Information is reviewed privately and is not shared.</p>
           <p class="success" id="success" role="status" hidden></p>
         </div>
@@ -631,6 +635,7 @@
       const formStartedAt=document.querySelector("#form_started_at");
       const error=document.querySelector("#terms-error");
       const success=document.querySelector("#success");
+      const grenadaSurveyTab=document.querySelector("#grenadaSurveyTab");
       const sessions={
         guyana:["Guyana","July 24, 2026"],
         grenada:["Grenada","September 25, 2026"],
@@ -664,6 +669,7 @@
       meta[0].textContent=session ? session[0] : "Not selected";
       meta[1].textContent=session ? session[1] : "To be confirmed";
       form.elements.session_jurisdiction.value=session ? session[0] : "";
+      if(grenadaSurveyTab) grenadaSurveyTab.classList.toggle("is-visible",Boolean(session && session[0]==="Grenada"));
       form.elements.referral_partner.value=referral ? referral[0] : "";
       form.elements.referral_code.value=referral ? referralCode : "";
       form.elements.referral_category.value=referral ? referral[1] : "";
