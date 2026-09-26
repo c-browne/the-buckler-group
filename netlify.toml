@@ -11,3 +11,11 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Public email-brand asset: allow external mail image proxies to retrieve the existing TBG crest.
+[[headers]]
+  for = "/assets-images/tbg-logo-new.png"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, immutable"
+    Access-Control-Allow-Origin = "*"
+    X-Content-Type-Options = "nosniff"
