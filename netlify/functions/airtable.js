@@ -10,14 +10,16 @@ function verifyToken(token,secret){const [body,sig,...rest]=String(token||'').sp
 const getCookie=(headers,name)=>{const str=String(headers.cookie||headers.Cookie||'');const item=str.split(';').map(x=>x.trim()).find(x=>x.startsWith(name+'='));return item?item.slice(name.length+1):''};
 function tciCookie(value,maxAge){return 'tbg_tci_access='+value+'; Path=/; Secure; HttpOnly; SameSite=Lax; Max-Age='+maxAge}
 async function findReturningApplicant(config,email){
- const formula="AND(LOWER({Email Address})='"+escapeFormula(email.toLowerCase())+"', {Application Confirmed}=TRUE())";
+ const formula="LOWER({Email Address})='"+escapeFormula(email.toLowerCase())+"'";
  const rows=await listAirtableRecords({...config,formula,maxRecords:20});
  return rows.some(row=>{
    const f=row.fields||{};
    const review=String(f['Review Status']?.name||f['Review Status']||'').toLowerCase();
    const quality=String(f['Data Quality Status']?.name||f['Data Quality Status']||'').toLowerCase();
    const risk=String(f['Submission Risk Signals']||'').toLowerCase();
-   return !['rejected','declined','blocked'].includes(review)&&quality!=='needs review'&&!/all_participation_options|high_option_count/.test(risk);
+   const registered=f['Registered']===true;
+   const expresslyApproved=['approved','accepted','invited'].includes(review);
+   return (registered||expresslyApproved)&&!['rejected','declined','blocked'].includes(review)&&quality!=='needs review'&&!/all_participation_options|high_option_count/.test(risk);
  });
 }
 async function sendTciVerification(email,link){
