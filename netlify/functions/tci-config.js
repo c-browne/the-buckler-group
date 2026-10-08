@@ -1,0 +1,1 @@
+exports.handler=async event=>({statusCode:200,headers:{'Content-Type':'application/json','Cache-Control':'no-store'},body:JSON.stringify({siteKey:process.env.TURNSTILE_SITE_KEY||null})});
