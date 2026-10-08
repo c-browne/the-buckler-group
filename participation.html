@@ -501,7 +501,7 @@
 
       <!-- Production form: submits to the existing Netlify function. -->
       <form action="/.netlify/functions/airtable" method="POST" name="participation">
-        <input type="hidden" name="form-name" value="participation">
+        <input type="hidden" name="form-name" value="participation"><div id="tci-turnstile" style="display:none;margin:16px 0"></div>
         <input type="hidden" name="campaign" value="strategic-sessions-2026">
         <input type="hidden" name="session_jurisdiction" value="">
         <input type="hidden" name="referral_partner"><input type="hidden" name="referral_code">
@@ -676,6 +676,18 @@
       form.elements.referral_category.value=referral ? referral[1] : "";
       form.elements.referral_entry_url.value=location.href.slice(0,500);
       formStartedAt.value=String(Date.now());
+      if(session&&session[0]==='Turks and Caicos Islands'){
+        const widget=document.getElementById('tci-turnstile');
+        widget.style.display='block';
+        fetch('/.netlify/functions/tci-config',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(config=>{
+          if(!config.siteKey)throw Error('Missing verification configuration');
+          const script=document.createElement('script');
+          script.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+          script.async=true;script.defer=true;
+          script.onload=()=>window.turnstile.render(widget,{sitekey:config.siteKey,theme:'dark'});
+          document.head.appendChild(script);
+        }).catch(()=>{widget.textContent='Anti-bot verification is temporarily unavailable. Registration cannot be submitted at this time.';form.querySelector('button[type="submit"]').disabled=true;});
+      }
 
       function sync(showError){
         if(consent.checked){
