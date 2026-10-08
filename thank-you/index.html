@@ -491,7 +491,7 @@
  if(!main)return;
  const title=q.get('status')==='confirmed'?'Registration Confirmed':q.get('status')==='verify-email'?'Verify Your Email':q.get('status')==='verification-unavailable'?'Email Verification Unavailable':'Application Received';
  if(h)h.textContent=title;
- document.querySelectorAll('.lead,.admin-note').forEach(el=>{el.style.display='none'});
+ document.querySelectorAll('.lead,.admin-note,.step,.steps,.process,.process-grid').forEach(el=>{el.style.display='none'});
  const block=document.createElement('section');block.style.cssText='margin:28px auto;padding:28px;max-width:720px;border:1px solid #b79a60;background:#10293d;color:#fff;text-align:center';
  const message=document.createElement('p');message.textContent=q.get('status')==='confirmed'?'Your place for the Turks & Caicos Islands Strategic Session is confirmed.':q.get('status')==='verify-email'?'We have emailed a secure verification link to the address submitted. Open that link to confirm your place and access your calendar invitation.':q.get('status')==='verification-unavailable'?'Your application was received. Email verification is temporarily unavailable; contact info@thebucklergroup.com for assistance.':'Your application was received. New participants will receive joining details after executive approval.';
  block.appendChild(message);main.prepend(block);
