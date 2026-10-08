@@ -48,9 +48,11 @@ test('creates a v4.5 application with normalized migration fields', async () => 
   assert.match(created['Submission Request ID'],/^[0-9a-f-]{36}$/);
 });
 
-test('accepts a Turks and Caicos Strategic Session application', async () => {
+test('accepts a first-time TCI application but withholds meeting access until approval', async () => {
+  process.env.TURNSTILE_SECRET_KEY='test-turnstile-key';
   let created;
   global.fetch = async (url,options={}) => {
+    if(String(url).includes('challenges.cloudflare.com'))return jsonResponse({success:true});
     if (options.method === 'POST') {
       created = JSON.parse(options.body).records[0].fields;
       return jsonResponse({records:[{id:'recTurksCaicos'}]});
@@ -59,12 +61,13 @@ test('accepts a Turks and Caicos Strategic Session application', async () => {
   };
   const result = await handler(form({
     country_jurisdiction:'Turks and Caicos Islands',
-    session_jurisdiction:'Turks and Caicos Islands'
+    session_jurisdiction:'Turks and Caicos Islands','cf-turnstile-response':'test-valid-challenge'
   }));
   assert.equal(result.statusCode,302);
   assert.deepEqual(created['Country / Jurisdiction'],['recrp3wFxbbDu2Xdd']);
   assert.equal(created['Session Jurisdiction'],'Turks and Caicos Islands');
   assert.equal(created['Submission Source'],'participation');
+  assert.match(result.headers.Location,/status=pending/);
 });
 
 test('blocks a recent duplicate email before creating a record', async () => {
@@ -139,4 +142,17 @@ test('does not block a legitimate applicant who selects every participation opti
   }));
   assert.equal(result.statusCode,302);
   assert.equal(posts,1);
+});
+
+test('TCI blocks missing Turnstile response before Airtable',async()=>{
+ process.env.TURNSTILE_SECRET_KEY='test-turnstile-key';
+ global.fetch=async()=>{throw Error('should not fetch')};
+ const r=await handler(form({session_jurisdiction:'Turks and Caicos Islands'}));
+ assert.equal(r.statusCode,400);
+});
+test('TCI blocks missing bot protection configuration closed',async()=>{
+ delete process.env.TURNSTILE_SECRET_KEY;
+ global.fetch=async()=>{throw Error('should not fetch')};
+ const r=await handler(form({session_jurisdiction:'Turks and Caicos Islands'}));
+ assert.equal(r.statusCode,503);
 });
