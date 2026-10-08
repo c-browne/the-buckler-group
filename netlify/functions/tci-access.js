@@ -1,6 +1,6 @@
 const {createHmac,timingSafeEqual}=require('node:crypto');
-const ZOOM='https://us06web.zoom.us/j/82263244669?pwd=2pY9usPggEJjwCUVNqXNFSraniSUaD.1';
-exports.handler=async event=>{const secret=process.env.TBG_REGISTRATION_SIGNING_SECRET;
+const ZOOM=process.env.TCI_ZOOM_JOIN_URL;
+exports.handler=async event=>{const secret=process.env.TBG_REGISTRATION_SIGNING_SECRET;if(!ZOOM)return {statusCode:503,body:'Meeting access unavailable'};
 const cookie=String(event.headers?.cookie||event.headers?.Cookie||'').split(';').map(s=>s.trim()).find(s=>s.startsWith('tbg_tci_access='));
 const [body,sig]=cookie?cookie.slice(15).split('.'):[];
 if(event.httpMethod!=='GET'||!secret||!body||!sig)return {statusCode:403,headers:{'Cache-Control':'no-store'},body:'Forbidden'};
