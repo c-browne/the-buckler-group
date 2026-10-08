@@ -499,10 +499,11 @@
  fetch('/.netlify/functions/tci-access',{credentials:'same-origin',cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(data=>{
  if(!data.authorized)return;
  const a=document.createElement('a');a.href=data.zoom;a.textContent='Join Zoom Meeting';a.rel='noopener noreferrer';a.style.cssText='display:block;color:#e7c675;margin:16px 0';
+ const p=document.createElement('p');p.textContent='Meeting ID: '+data.meetingId+' | Passcode: '+data.passcode;p.style.cssText='color:#e7c675;margin:12px 0';
  const c=document.createElement('a');const start='20261029T163000Z',end='20261029T173000Z';
- const params=new URLSearchParams({action:'TEMPLATE',text:'TBG | Turks & Caicos Islands Strategic Session',dates:start+'/'+end,details:'Zoom joining link: '+data.zoom,ctz:'America/New_York'});
+ const params=new URLSearchParams({action:'TEMPLATE',text:'TBG | Turks & Caicos Islands Strategic Session',dates:start+'/'+end,details:'Zoom joining link: '+data.zoom+'\nMeeting ID: '+data.meetingId+'\nPasscode: '+data.passcode,ctz:'America/New_York'});
  c.href='https://calendar.google.com/calendar/render?'+params.toString();c.textContent='Add to Calendar';c.target='_blank';c.rel='noopener noreferrer';c.style.cssText='display:inline-block;padding:12px 22px;background:#d6b56d;color:#061526;text-decoration:none;font-weight:bold';
- block.append(a,c);
+ block.append(a,p,c);
  }).catch(()=>{message.textContent='Confirmation could not be loaded. Please reopen your verification link or contact TBG.'});
 })();
 </script></body>
