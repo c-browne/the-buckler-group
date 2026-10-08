@@ -14,7 +14,7 @@ exports.handler=async(event)=>{
  if(baseId!==BASE||!airtable||!secret||!resend||!from)return {statusCode:503,body:'Approval dispatch not configured'};
  // Background invocations only. Explicit manual requests are not authorized.
  if(event.httpMethod && event.httpMethod!=='GET')return {statusCode:405,body:'Method not allowed'};
- const query=new URLSearchParams({filterByFormula:tciFilter,pageSize:'20',sort:'[{"field":"Created Time","direction":"asc"}]'});
+ const query=new URLSearchParams({filterByFormula:tciFilter,pageSize:'4',sort:'[{"field":"Created Time","direction":"asc"}]'});
  // Airtable sort keys must be expressed as array indices in URLSearchParams.
  query.delete('sort');query.set('sort[0][field]','Created Time');query.set('sort[0][direction]','asc');
  const rows=(await json(await fetch('https://api.airtable.com/v0/'+BASE+'/'+encodeURIComponent(TABLE)+'?'+query,{headers:{Authorization:'Bearer '+airtable},signal:AbortSignal.timeout(10000)}))).records||[];
