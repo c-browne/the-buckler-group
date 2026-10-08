@@ -1,7 +1,6 @@
 // The Buckler Group — v4.5. Additive data migration and submission hardening.
 const { randomUUID } = require('node:crypto');
 const TCI_SESSION = 'Turks and Caicos Islands';
-const TCI_ZOOM = 'https://us06web.zoom.us/j/82263244669?pwd=2pY9usPggEJjwCUVNqXNFSraniSUaD.1';
 const {createHmac,timingSafeEqual,randomBytes} = require('node:crypto');
 const safeEqual=(a,b)=>{const x=Buffer.from(String(a)),y=Buffer.from(String(b));return x.length===y.length&&timingSafeEqual(x,y)};
 const b64=v=>Buffer.from(JSON.stringify(v)).toString('base64url');
