@@ -5,13 +5,13 @@ const VERSION = '2026-09-16.1';
 const FORM_VERSION = 'v4.5';
 const ACCEPTED_CONDUCT_VERSIONS = new Set([VERSION,'2026-09-08.1']);
 const JURISDICTIONS_BASE = 'appLvJsO1Q8w5lLnP';
-const JURISDICTION_IDS = Object.freeze({"antigua & barbuda":"rechV8oz7jl8L1VvP","antigua and barbuda":"rechV8oz7jl8L1VvP","bahamas":"recczzVQLd2XkFRDI","barbados":"reccHf525q9E47YEc","canada":"recVD7yMAap2T3Cu7","dominican republic":"recWXhpQWhD7e4lvy","grenada":"recEGhw3KcGYMH9BT","guyana":"recmE3RDbMV84nS3Z","jamaica":"recyFPXHCSic5iVz7","other":"rec36O5zGtgIAH1ta","the bahamas":"recczzVQLd2XkFRDI","tobago":"rec38yRR8u016vNoJ","trinidad & tobago":"rec5y3fEZrCKYnYod","trinidad and tobago":"rec5y3fEZrCKYnYod","united kingdom":"rec1T8AkIrA5TKkr6","united states":"recKckUdA5YAe2Rf2"});
+const JURISDICTION_IDS = Object.freeze({"antigua & barbuda":"rechV8oz7jl8L1VvP","antigua and barbuda":"rechV8oz7jl8L1VvP","bahamas":"recczzVQLd2XkFRDI","barbados":"reccHf525q9E47YEc","canada":"recVD7yMAap2T3Cu7","dominican republic":"recWXhpQWhD7e4lvy","grenada":"recEGhw3KcGYMH9BT","guyana":"recmE3RDbMV84nS3Z","jamaica":"recyFPXHCSic5iVz7","other":"rec36O5zGtgIAH1ta","the bahamas":"recczzVQLd2XkFRDI","tobago":"rec38yRR8u016vNoJ","trinidad & tobago":"rec5y3fEZrCKYnYod","trinidad and tobago":"rec5y3fEZrCKYnYod","turks & caicos":"recrp3wFxbbDu2Xdd","turks and caicos":"recrp3wFxbbDu2Xdd","turks and caicos islands":"recrp3wFxbbDu2Xdd","united kingdom":"rec1T8AkIrA5TKkr6","united states":"recKckUdA5YAe2Rf2"});
 const STAKEHOLDERS = new Set(['Government / Public Sector','Investment Promotion Agency','Institutional Investor','Family Office / UHNW Principal','Developer / Project Sponsor','Hospitality Executive','Finance / Lending Institution','Architecture / Planning / Engineering','Academic Institution','Professional Services','Diaspora Business Leader','Regional / Multilateral Institution']);
 const AREAS = new Set(['Hospitality & Tourism','Real Estate Development','Infrastructure & PPP','Investment & Capital Markets','Sustainable Development','Cultural & Economic Transformation']);
 const INTERESTS = new Set(['Strategic Sessions','Partnerships / Collaborations','Advisory Opportunities','EXODUS Membership','Investment Opportunities','Other']);
 const PERSONAS = new Set(['Government / Policy Leader','Institutional Investor','Family Office / UHNW Principal','Developer / Sponsor','Advisor / Consultant','Academic / Institutional Partner','Service Provider']);
 const CAPITAL_RANGES = new Set(['<$1M','$1M-$5M','$5M-$25M','$25M-$100M','$100M+','Not Applicable','Not Disclosed']);
-const SESSIONS = new Set(['Guyana','Grenada','Trinidad & Tobago','Barbados','The Bahamas','Dominican Republic']);
+const SESSIONS = new Set(['Guyana','Grenada','Turks and Caicos Islands','Curaçao','Dominican Republic']);
 const PERSONA_NORMALIZATION = Object.freeze({'Academic / Institutional Partner':'Other / Unclassified'});
 const clean = value => value == null ? '' : Array.isArray(value) ? value.map(item => String(item).trim()).filter(Boolean).join(', ') : String(value).trim();
 const multi = value => !value ? [] : (Array.isArray(value) ? value : String(value).split(',')).map(clean).filter(Boolean);
@@ -67,7 +67,7 @@ function scoreApplication(data) {
   const stakeholder = clean(data.stakeholder_category).toLowerCase(); const persona = clean(data.applicant_persona || data.investment_capacity).toLowerCase(); const country = clean(data.country_jurisdiction).toLowerCase(); const area = clean(data.primary_area_of_interest).toLowerCase();
   for (const [term,points] of [['institutional investor',20],['family office',20],['government',18],['investment promotion',16],['developer',16],['hospitality',14],['regional',14],['finance',12],['academic',8]]) if (stakeholder.includes(term)) score += points;
   for (const [term,points] of [['institutional investor',18],['family office',18],['developer',15],['government',14],['advisor',8],['academic',6]]) if (persona.includes(term)) score += points;
-  if (['guyana','barbados','bahamas','grenada','antigua','trinidad','tobago'].some(term => country.includes(term))) score += 12;
+  if (['guyana','grenada','turks','caicos','curaçao','curacao','dominican republic'].some(term => country.includes(term))) score += 12;
   for (const [term,points] of [['hospitality',10],['real estate',10],['infrastructure',10],['capital',10],['sustainable',8],['cultural',6]]) if (area.includes(term)) score += points;
   if (clean(data.organization_company)) score += 5; if (clean(data.linkedin_profile)) score += 5; if (clean(data.interest_note).length >= 120) score += 7; return Math.min(score,100);
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Grenada Strategic Session executive participation application.">
+  <meta name="description" content="Caribbean Strategic Session executive participation application.">
   <title>Executive Participation | The Buckler Group</title>
   <style>
     :root {
@@ -478,8 +478,8 @@
         </div>
       </a>
       <div class="session">
-        <strong>Grenada Strategic Session™</strong>
-        <span>September 25, 2026</span>
+        <strong>Strategic Session™</strong>
+        <span>Executive Participation</span>
       </div>
     </div>
     <div class="gold-rule"></div>
@@ -494,8 +494,8 @@
 
     <article class="application">
       <div class="application-meta" aria-label="Session information">
-        <div class="meta"><span class="meta-label">Jurisdiction</span><span class="meta-value">Grenada</span></div>
-        <div class="meta"><span class="meta-label">Date</span><span class="meta-value">September 25, 2026</span></div>
+        <div class="meta"><span class="meta-label">Jurisdiction</span><span class="meta-value">Not selected</span></div>
+        <div class="meta"><span class="meta-label">Date</span><span class="meta-value">To be confirmed</span></div>
         <div class="meta"><span class="meta-label">Format</span><span class="meta-value">Private Executive Session</span></div>
       </div>
 
@@ -503,7 +503,7 @@
       <form action="/.netlify/functions/airtable" method="POST" name="participation">
         <input type="hidden" name="form-name" value="participation">
         <input type="hidden" name="campaign" value="strategic-sessions-2026">
-        <input type="hidden" name="session_jurisdiction" value="Grenada">
+        <input type="hidden" name="session_jurisdiction" value="">
         <input type="hidden" name="referral_partner"><input type="hidden" name="referral_code">
         <input type="hidden" name="referral_category"><input type="hidden" name="referral_entry_url">
         <input type="hidden" name="code_of_conduct_version" value="2026-09-16.1">
@@ -663,6 +663,9 @@
       const referral=Object.prototype.hasOwnProperty.call(referrals,referralCode) ? referrals[referralCode] : null;
       document.querySelector('.session strong').textContent=session ? session[0]+" Strategic Session™" : "Strategic Session™";
       document.querySelector('.session span').textContent=session ? session[1] : "Executive Participation";
+      document.title=session ? session[0]+" Executive Participation | The Buckler Group" : "Executive Participation | The Buckler Group";
+      const metaDescription=document.querySelector('meta[name="description"]');
+      if(metaDescription) metaDescription.content=session ? session[0]+" Strategic Session executive participation application." : "Caribbean Strategic Session executive participation application.";
       const meta=document.querySelectorAll('.meta-value');
       meta[0].textContent=session ? session[0] : "Not selected";
       meta[1].textContent=session ? session[1] : "To be confirmed";

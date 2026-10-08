@@ -48,6 +48,25 @@ test('creates a v4.5 application with normalized migration fields', async () => 
   assert.match(created['Submission Request ID'],/^[0-9a-f-]{36}$/);
 });
 
+test('accepts a Turks and Caicos Strategic Session application', async () => {
+  let created;
+  global.fetch = async (url,options={}) => {
+    if (options.method === 'POST') {
+      created = JSON.parse(options.body).records[0].fields;
+      return jsonResponse({records:[{id:'recTurksCaicos'}]});
+    }
+    return jsonResponse({records:[]});
+  };
+  const result = await handler(form({
+    country_jurisdiction:'Turks and Caicos Islands',
+    session_jurisdiction:'Turks and Caicos Islands'
+  }));
+  assert.equal(result.statusCode,302);
+  assert.deepEqual(created['Country / Jurisdiction'],['recrp3wFxbbDu2Xdd']);
+  assert.equal(created['Session Jurisdiction'],'Turks and Caicos Islands');
+  assert.equal(created['Submission Source'],'participation');
+});
+
 test('blocks a recent duplicate email before creating a record', async () => {
   let posts = 0;
   global.fetch = async (url,options={}) => {
