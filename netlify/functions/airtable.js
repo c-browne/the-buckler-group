@@ -128,9 +128,25 @@ exports.handler = async function handler(event) {
   if (event.httpMethod !== 'POST') return response(405,{error:'Method not allowed. Submit the participation form.'});
   let data; try { data=parse(event); } catch (error) { return response(error.statusCode || 400,{error:error.statusCode===413?'Form submission is too large.':'Invalid form body.'}); }
   if (clean(data['bot-field']) || clean(data.company_fax)) return redirect();
+  if(clean(data.session_jurisdiction)===TCI_SESSION && !clean(data.form_started_at))return response(400,{error:'Missing form timing verification.'});
   if (data.code_of_conduct_accepted !== 'yes' || !ACCEPTED_CONDUCT_VERSIONS.has(clean(data.code_of_conduct_version))) return response(400,{error:'Accept the current Strategic Session Code of Conduct before submitting.',field:'code_of_conduct_accepted'});
   if (data.confirmation !== 'yes') return response(400,{error:'Confirm the application is accurate before submitting.',field:'confirmation'});
   const validationError=validate(data); if (validationError) return response(validationError.statusCode,validationError.body);
+  if(clean(data.session_jurisdiction)===TCI_SESSION){
+    const secret=process.env.TURNSTILE_SECRET_KEY;
+    if(!secret)return response(503,{error:'Registration verification is being configured. Please try again later.'});
+    const token=clean(data['cf-turnstile-response']);
+    if(!token)return response(400,{error:'Complete the anti-bot verification.'});
+    try{
+      const result=await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify',{
+        method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:new URLSearchParams({secret,response:token,remoteip:String(event.headers?.['x-nf-client-connection-ip']||'')}),
+        signal:AbortSignal.timeout(6000)
+      });
+      const check=await result.json();
+      if(!check.success)return response(403,{error:'Anti-bot verification failed. Please retry.'});
+    }catch{return response(503,{error:'Anti-bot verification is temporarily unavailable. Please retry.'})}
+  }
   // Silently discard high-confidence automated submissions before any Airtable lookup/write.
   // This deliberately requires multiple independent signals to avoid blocking legitimate applicants.
   if (isHighConfidenceBot(data)) return redirect();
@@ -155,7 +171,7 @@ exports.handler = async function handler(event) {
       const secret=process.env.TBG_REGISTRATION_SIGNING_SECRET;
       if(!secret||!process.env.RESEND_API_KEY||!process.env.TBG_VERIFICATION_FROM)return {statusCode:302,headers:{Location:'/thank-you/?session=tci&status=verification-unavailable','Cache-Control':'no-store'},body:''};
       const token=signToken({session:TCI_SESSION,email:clean(data.email_address).toLowerCase(),exp:Date.now()+30*60*1000,nonce:randomBytes(12).toString('hex')},secret);
-      const origin=(process.env.URL||'https://thebucklergroup.com').replace(/\\/$/,'');
+      const origin=(process.env.URL||'https://thebucklergroup.com').replace(/\/$/,'');
       const link=origin+'/.netlify/functions/tci-verify?token='+encodeURIComponent(token);
       try{if(await sendTciVerification(clean(data.email_address).toLowerCase(),link))return {statusCode:302,headers:{Location:'/thank-you/?session=tci&status=verify-email','Cache-Control':'no-store'},body:''};}
       catch(err){console.error('Verification email failure',err.message)}
