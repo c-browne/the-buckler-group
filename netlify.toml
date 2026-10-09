@@ -5,6 +5,9 @@
 [functions]
   directory = "netlify/functions"
 
+[functions."tci-approval-dispatch"]
+  schedule = "*/15 * * * *"
+
 [[headers]]
   for = "/*"
   [headers.values]
