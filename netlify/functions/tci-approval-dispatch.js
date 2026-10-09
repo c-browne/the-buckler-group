@@ -11,9 +11,14 @@ async function patch(id,fields,key){
 exports.handler=async(event)=>{
  const baseId=process.env.AIRTABLE_BASE_ID, airtable=process.env.AIRTABLE_TOKEN, secret=process.env.TBG_REGISTRATION_SIGNING_SECRET;
  const resend=process.env.RESEND_API_KEY, from=process.env.TBG_VERIFICATION_FROM;
- if(baseId!==BASE||!airtable||!secret||!resend||!from)return {statusCode:503,body:'Approval dispatch not configured'};
- // Background invocations only. Explicit manual requests are not authorized.
- if(event.httpMethod && event.httpMethod!=='GET')return {statusCode:405,body:'Method not allowed'};
+ const missing=['AIRTABLE_TOKEN','TBG_REGISTRATION_SIGNING_SECRET','RESEND_API_KEY','TBG_VERIFICATION_FROM'].filter(name=>!process.env[name]);
+ if(!baseId)missing.push('AIRTABLE_BASE_ID');
+ if(missing.length||baseId!==BASE){
+  console.error('TCI approval dispatch not configured',JSON.stringify({missing,baseMismatch:!!baseId&&baseId!==BASE}));
+  return {statusCode:503,body:'Approval dispatch not configured'};
+ }
+ // Netlify restricts this scheduled function to platform invocations, including Run now.
+ // Do not apply an HTTP method restriction to scheduler-generated events.
  const query=new URLSearchParams({filterByFormula:tciFilter,pageSize:'4',sort:'[{"field":"Created Time","direction":"asc"}]'});
  // Airtable sort keys must be expressed as array indices in URLSearchParams.
  query.delete('sort');query.set('sort[0][field]','Created Time');query.set('sort[0][direction]','asc');
@@ -36,6 +41,7 @@ exports.handler=async(event)=>{
    await patch(row.id,{'TCI Access Delivery State':'Sent','TCI Access Delivery Timestamp':new Date().toISOString()},airtable);sent++;
   }catch(err){await patch(row.id,{'TCI Access Delivery State':'Failed'},airtable);console.error('TCI approval delivery failed',row.id,err.message);failed++;}
  }
+ console.log('TCI approval dispatch result',JSON.stringify({processed:rows.length,sent,failed}));
  return {statusCode:200,body:JSON.stringify({processed:rows.length,sent,failed})};
 };
 exports.config={schedule:'*/15 * * * *'};
