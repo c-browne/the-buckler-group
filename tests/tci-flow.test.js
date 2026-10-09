@@ -24,7 +24,8 @@ test('verified link grants protected access and expired links are rejected',asyn
  assert.equal((await verify({httpMethod:'GET',rawQuery:'token='+token({session:SESSION,exp:Date.now()-1})})).statusCode,403);
 });
 test('first-time approval dispatch sends preview verification once and records delivery',async()=>{
- Object.assign(process.env,{AIRTABLE_BASE_ID:'appLvJsO1Q8w5lLnP',AIRTABLE_TOKEN:'test',RESEND_API_KEY:'test',TBG_VERIFICATION_FROM:'Test <test@example.com>',CONTEXT:'deploy-preview',DEPLOY_PRIME_URL:'https://preview.example.com',URL:'https://production.example.com'});
+ Object.assign(process.env,{AIRTABLE_BASE_ID:'appLvJsO1Q8w5lLnP',AIRTABLE_TOKEN:'test',RESEND_API_KEY:'test',TBG_VERIFICATION_FROM:'Test <test@example.com>',TBG_REGISTRATION_ORIGIN:'https://preview.example.com',URL:'https://production.example.com'});
+ delete process.env.CONTEXT;delete process.env.DEPLOY_PRIME_URL;
  const patches=[];let mail;let filter;
  global.fetch=async(url,options={})=>{
   if(String(url).includes('api.resend.com')){mail=JSON.parse(options.body);assert.equal(options.headers['Idempotency-Key'],'tci-approval-recControlled');return ok({id:'test'});}
@@ -38,7 +39,7 @@ test('first-time approval dispatch sends preview verification once and records d
  assert.match(mail.html,/https:\/\/preview\.example\.com\/\.netlify\/functions\/tci-verify/);
  assert.doesNotMatch(mail.html,/test-only|12345678901/);
  assert.deepEqual(patches.map(p=>p['TCI Access Delivery State']),['Sending','Sent']);
- delete process.env.CONTEXT;delete process.env.DEPLOY_PRIME_URL;delete process.env.URL;
+ delete process.env.TBG_REGISTRATION_ORIGIN;delete process.env.URL;
 });
 test('unapproved and already-sent records never send approval mail',async()=>{
  let sends=0;
