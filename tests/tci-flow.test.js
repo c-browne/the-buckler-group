@@ -32,7 +32,7 @@ test('first-time approval dispatch sends preview verification once and records d
   filter=new URL(String(url)).searchParams.get('filterByFormula');
   return ok({records:[{id:'recControlled',fields:{'Email Address':'test@example.com','Review Status':'Approved','TCI Access Delivery State':'Pending'}}]});
  };
- const result=await dispatch({});
+ const result=await dispatch({httpMethod:'POST',body:JSON.stringify({next_run:new Date().toISOString()})});
  assert.equal(JSON.parse(result.body).sent,1);
  assert.match(filter,/{Review Status}='Approved'/);
  assert.match(mail.html,/https:\/\/preview\.example\.com\/\.netlify\/functions\/tci-verify/);
