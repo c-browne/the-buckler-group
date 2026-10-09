@@ -482,5 +482,29 @@
       </footer>
     </section>
   </main>
-</body>
+<script>
+(function(){
+ const q=new URLSearchParams(location.search);
+ if(q.get('session')!=='tci')return;
+ const h=document.querySelector('h1');
+ const main=document.querySelector('main');
+ if(!main)return;
+ const title=q.get('status')==='confirmed'?'Registration Confirmed':q.get('status')==='verify-email'?'Verify Your Email':q.get('status')==='verification-unavailable'?'Email Verification Unavailable':'Application Received';
+ if(h)h.textContent=title;
+ document.querySelectorAll('.lead,.admin-note,.step,.steps,.process,.process-grid').forEach(el=>{el.style.display='none'});
+ const block=document.createElement('section');block.style.cssText='margin:28px auto;padding:28px;max-width:720px;border:1px solid #b79a60;background:#10293d;color:#fff;text-align:center';
+ const message=document.createElement('p');message.textContent=q.get('status')==='confirmed'?'Your place for the Turks & Caicos Islands Strategic Session is confirmed.':q.get('status')==='verify-email'?'We have emailed a secure verification link to the address submitted. Open that link to confirm your place and access your calendar invitation.':q.get('status')==='verification-unavailable'?'Your application was received. Email verification is temporarily unavailable; contact info@thebucklergroup.com for assistance.':'Your application was received. New participants will receive joining details after executive approval.';
+ block.appendChild(message);main.prepend(block);
+ if(q.get('status')!=='confirmed')return;
+ fetch('/.netlify/functions/tci-access',{credentials:'same-origin',cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(data=>{
+ if(!data.authorized)return;
+ const a=document.createElement('a');a.href=data.zoom;a.textContent='Join Zoom Meeting';a.rel='noopener noreferrer';a.style.cssText='display:block;color:#e7c675;margin:16px 0';
+ const p=document.createElement('p');p.textContent='Meeting ID: '+data.meetingId+' | Passcode: '+data.passcode;p.style.cssText='color:#e7c675;margin:12px 0';
+ const c=document.createElement('a');const start='20261029T163000Z',end='20261029T173000Z';
+ const params=new URLSearchParams({action:'TEMPLATE',text:'TBG | Turks & Caicos Islands Strategic Session',dates:start+'/'+end,details:'Zoom joining link: '+data.zoom+'\nMeeting ID: '+data.meetingId+'\nPasscode: '+data.passcode,ctz:'America/New_York'});
+ c.href='https://calendar.google.com/calendar/render?'+params.toString();c.textContent='Add to Calendar';c.target='_blank';c.rel='noopener noreferrer';c.style.cssText='display:inline-block;padding:12px 22px;background:#d6b56d;color:#061526;text-decoration:none;font-weight:bold';
+ block.append(a,p,c);
+ }).catch(()=>{message.textContent='Confirmation could not be loaded. Please reopen your verification link or contact TBG.'});
+})();
+</script></body>
 </html>

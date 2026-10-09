@@ -1,9 +1,14 @@
+# TBG_REGISTRATION_ORIGIN must be configured in the Netlify dashboard with Functions scope.
+# Use the production origin for Production and the preview origin for Deploy Previews.
 [build]
   publish = "."
   command = ""
 
 [functions]
   directory = "netlify/functions"
+
+[functions."tci-approval-dispatch"]
+  schedule = "*/15 * * * *"
 
 [[headers]]
   for = "/*"

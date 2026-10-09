@@ -1,5 +1,34 @@
 // The Buckler Group — v4.5. Additive data migration and submission hardening.
 const { randomUUID } = require('node:crypto');
+const TCI_SESSION = 'Turks and Caicos Islands';
+const {createHmac,timingSafeEqual,randomBytes} = require('node:crypto');
+const safeEqual=(a,b)=>{const x=Buffer.from(String(a)),y=Buffer.from(String(b));return x.length===y.length&&timingSafeEqual(x,y)};
+const b64=v=>Buffer.from(JSON.stringify(v)).toString('base64url');
+function signToken(payload,secret){const body=b64(payload);const sig=createHmac('sha256',secret).update('tbg-tci-v1.'+body).digest('base64url');return body+'.'+sig}
+function verifyToken(token,secret){const [body,sig,...rest]=String(token||'').split('.');if(!body||!sig||rest.length)return null;const expected=createHmac('sha256',secret).update('tbg-tci-v1.'+body).digest('base64url');if(!safeEqual(sig,expected))return null;try{const p=JSON.parse(Buffer.from(body,'base64url').toString());return p.exp>Date.now()&&p.session===TCI_SESSION?p:null}catch{return null}}
+const getCookie=(headers,name)=>{const str=String(headers.cookie||headers.Cookie||'');const item=str.split(';').map(x=>x.trim()).find(x=>x.startsWith(name+'='));return item?item.slice(name.length+1):''};
+function tciCookie(value,maxAge){return 'tbg_tci_access='+value+'; Path=/; Secure; HttpOnly; SameSite=Lax; Max-Age='+maxAge}
+async function findReturningApplicant(config,email){
+ const formula="LOWER({Email Address})='"+escapeFormula(email.toLowerCase())+"'";
+ const rows=await listAirtableRecords({...config,formula,maxRecords:20});
+ return rows.some(row=>{
+   const f=row.fields||{};
+   const review=String(f['Review Status']?.name||f['Review Status']||'').toLowerCase();
+   const quality=String(f['Data Quality Status']?.name||f['Data Quality Status']||'').toLowerCase();
+   const risk=String(f['Submission Risk Signals']||'').toLowerCase();
+   const registered=f['Registered']===true;
+   const expresslyApproved=['approved','accepted','invited'].includes(review);
+   return (registered||expresslyApproved)&&!['rejected','declined','blocked'].includes(review)&&quality!=='needs review'&&!/all_participation_options|high_option_count/.test(risk);
+ });
+}
+async function sendTciVerification(email,link){
+ const key=process.env.RESEND_API_KEY,from=process.env.TBG_VERIFICATION_FROM;
+ if(!key||!from)return false;
+ const body={from,to:[email],subject:'TBG | Verify your Turks & Caicos registration',html:'<p>Confirm your registration for The Buckler Group Turks & Caicos Islands Strategic Session.</p><p><a href="'+link.replace(/&/g,'&amp;')+'">Verify my email and confirm participation</a></p><p>This link expires in 30 minutes. If you did not submit this request, ignore it.</p>'};
+ const res=await fetch('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(8000)});
+ return res.ok;
+}
+
 
 const VERSION = '2026-09-16.1';
 const FORM_VERSION = 'v4.5';
@@ -100,9 +129,25 @@ exports.handler = async function handler(event) {
   if (event.httpMethod !== 'POST') return response(405,{error:'Method not allowed. Submit the participation form.'});
   let data; try { data=parse(event); } catch (error) { return response(error.statusCode || 400,{error:error.statusCode===413?'Form submission is too large.':'Invalid form body.'}); }
   if (clean(data['bot-field']) || clean(data.company_fax)) return redirect();
+  if(clean(data.session_jurisdiction)===TCI_SESSION && !clean(data.form_started_at))return response(400,{error:'Missing form timing verification.'});
   if (data.code_of_conduct_accepted !== 'yes' || !ACCEPTED_CONDUCT_VERSIONS.has(clean(data.code_of_conduct_version))) return response(400,{error:'Accept the current Strategic Session Code of Conduct before submitting.',field:'code_of_conduct_accepted'});
   if (data.confirmation !== 'yes') return response(400,{error:'Confirm the application is accurate before submitting.',field:'confirmation'});
   const validationError=validate(data); if (validationError) return response(validationError.statusCode,validationError.body);
+  if(clean(data.session_jurisdiction)===TCI_SESSION){
+    const secret=process.env.TURNSTILE_SECRET_KEY;
+    if(!secret)return response(503,{error:'Registration verification is being configured. Please try again later.'});
+    const token=clean(data['cf-turnstile-response']);
+    if(!token)return response(400,{error:'Complete the anti-bot verification.'});
+    try{
+      const result=await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify',{
+        method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:new URLSearchParams({secret,response:token,remoteip:String(event.headers?.['x-nf-client-connection-ip']||'')}),
+        signal:AbortSignal.timeout(6000)
+      });
+      const check=await result.json();
+      if(!check.success)return response(403,{error:'Anti-bot verification failed. Please retry.'});
+    }catch{return response(503,{error:'Anti-bot verification is temporarily unavailable. Please retry.'})}
+  }
   // Silently discard high-confidence automated submissions before any Airtable lookup/write.
   // This deliberately requires multiple independent signals to avoid blocking legitimate applicants.
   if (isHighConfidenceBot(data)) return redirect();
@@ -115,9 +160,24 @@ exports.handler = async function handler(event) {
   if (lookups[1].status==='fulfilled') organizationRecordId=lookups[1].value; else console.error('Organization enrichment lookup failed',{message:lookups[1].reason?.message});
   if (duplicate) return response(429,{error:'An application using this email was recently received. Please wait before resubmitting.'});
   const requestId=randomUUID(); const signals=riskSignals(data);
+  const isTci=clean(data.session_jurisdiction)===TCI_SESSION;
+  let returning=false;
+  if(isTci){try{returning=await findReturningApplicant(config,clean(data.email_address));}catch(error){console.error('Returning lookup unavailable',error.message);return response(503,{error:'We could not verify prior participation. Please try again later.'});}}
+
   try {
     const result=await fetch(`https://api.airtable.com/v0/${encodeURIComponent(baseId)}/${encodeURIComponent(tableName)}`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify({records:[{fields:buildApplicationFields(data,{organizationRecordId,requestId,signals})}],typecast:true}),signal:AbortSignal.timeout(10000)});
     if (!result.ok) { const detail=await result.json().catch(()=>({})); const errorType=typeof detail.error?.type==='string' && /^[A-Z0-9_]+$/.test(detail.error.type)?detail.error.type:'UNKNOWN'; console.error('Airtable write failed',{status:result.status,errorType,requestId}); return response(502,{error:'We could not save your application. Please contact TBG before resubmitting.',requestId}); }
+    if(isTci){
+      if(!returning)return {statusCode:302,headers:{Location:'/thank-you/?session=tci&status=pending','Cache-Control':'no-store'},body:''};
+      const secret=process.env.TBG_REGISTRATION_SIGNING_SECRET;
+      if(!secret||!process.env.RESEND_API_KEY||!process.env.TBG_VERIFICATION_FROM)return {statusCode:302,headers:{Location:'/thank-you/?session=tci&status=verification-unavailable','Cache-Control':'no-store'},body:''};
+      const token=signToken({session:TCI_SESSION,email:clean(data.email_address).toLowerCase(),exp:Date.now()+30*60*1000,nonce:randomBytes(12).toString('hex')},secret);
+      const origin=(process.env.TBG_REGISTRATION_ORIGIN||((process.env.CONTEXT==='deploy-preview'||process.env.CONTEXT==='branch-deploy')?process.env.DEPLOY_PRIME_URL:(process.env.URL||'https://thebucklergroup.com'))).replace(/\/$/,'');
+      const link=origin+'/.netlify/functions/tci-verify?token='+encodeURIComponent(token);
+      try{if(await sendTciVerification(clean(data.email_address).toLowerCase(),link))return {statusCode:302,headers:{Location:'/thank-you/?session=tci&status=verify-email','Cache-Control':'no-store'},body:''};}
+      catch(err){console.error('Verification email failure',err.message)}
+      return {statusCode:302,headers:{Location:'/thank-you/?session=tci&status=verification-unavailable','Cache-Control':'no-store'},body:''};
+    }
     return redirect();
   } catch { console.error('Airtable request failed or timed out',{requestId}); return response(502,{error:'Your submission could not be confirmed. Please contact TBG before resubmitting.',requestId}); }
 };
