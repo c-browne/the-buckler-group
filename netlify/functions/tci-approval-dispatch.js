@@ -37,7 +37,12 @@ exports.handler=async(event)=>{
    const html='<p>Your participation in The Buckler Group Turks & Caicos Islands Strategic Session has been approved.</p><p><a href="'+link.replace(/&/g,'&amp;')+'">Verify email &amp; confirm attendance</a></p><p>Thursday, October 29, 2026 | 12:30–1:30 p.m. Eastern.</p><p>After verification, the event page provides Zoom joining details and Add to Calendar.</p>';
    const idempotency='tci-approval-'+row.id;
    const result=await fetch('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+resend,'Content-Type':'application/json','Idempotency-Key':idempotency},body:JSON.stringify({from,to:[email],subject:'Approved | Turks & Caicos Islands Strategic Session',html}),signal:AbortSignal.timeout(10000)});
-   if(!result.ok)throw Error('Email provider '+result.status);
+   if(!result.ok){
+    let detail={};try{detail=await result.json()}catch{}
+    const safe=value=>String(value||'').replace(/https?:\/\/[^\s"'<>]+/g,'[url]').replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi,'[email]').replace(/re_[A-Za-z0-9_-]+/g,'[key]').slice(0,400);
+    console.error('TCI email provider rejection',JSON.stringify({status:result.status,name:safe(detail.name),message:safe(detail.message)}));
+    throw Error('Email provider '+result.status);
+   }
    await patch(row.id,{'TCI Access Delivery State':'Sent','TCI Access Delivery Timestamp':new Date().toISOString()},airtable);sent++;
   }catch(err){await patch(row.id,{'TCI Access Delivery State':'Failed'},airtable);console.error('TCI approval delivery failed',row.id,err.message);failed++;}
  }
