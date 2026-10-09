@@ -33,7 +33,7 @@ exports.handler=async(event)=>{
   await patch(row.id,{'TCI Access Delivery State':'Sending'},airtable);
   try{
    const payload={session:'Turks and Caicos Islands',email,exp:Date.now()+48*3600*1000,nonce:randomBytes(18).toString('hex'),recordId:row.id};
-   const link=((process.env.CONTEXT==='deploy-preview'||process.env.CONTEXT==='branch-deploy')?process.env.DEPLOY_PRIME_URL:(process.env.URL||'https://thebucklergroup.com')).replace(/\/$/,'')+'/.netlify/functions/tci-verify?token='+encodeURIComponent(token(payload,secret));
+   const link=(process.env.TBG_REGISTRATION_ORIGIN||((process.env.CONTEXT==='deploy-preview'||process.env.CONTEXT==='branch-deploy')?process.env.DEPLOY_PRIME_URL:(process.env.URL||'https://thebucklergroup.com'))).replace(/\/$/,'')+'/.netlify/functions/tci-verify?token='+encodeURIComponent(token(payload,secret));
    const html='<p>Your participation in The Buckler Group Turks & Caicos Islands Strategic Session has been approved.</p><p><a href="'+link.replace(/&/g,'&amp;')+'">Verify email &amp; confirm attendance</a></p><p>Thursday, October 29, 2026 | 12:30–1:30 p.m. Eastern.</p><p>After verification, the event page provides Zoom joining details and Add to Calendar.</p>';
    const idempotency='tci-approval-'+row.id;
    const result=await fetch('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+resend,'Content-Type':'application/json','Idempotency-Key':idempotency},body:JSON.stringify({from,to:[email],subject:'Approved | Turks & Caicos Islands Strategic Session',html}),signal:AbortSignal.timeout(10000)});
