@@ -156,3 +156,28 @@ test('TCI blocks missing bot protection configuration closed',async()=>{
  const r=await handler(form({session_jurisdiction:'Turks and Caicos Islands'}));
  assert.equal(r.statusCode,503);
 });
+
+test('returning TCI verification links stay on the preview deployment',async()=>{
+ process.env.TURNSTILE_SECRET_KEY='test-turnstile';
+ process.env.TBG_REGISTRATION_SIGNING_SECRET='test-signing-secret';
+ process.env.RESEND_API_KEY='test-email-key';
+ process.env.TBG_VERIFICATION_FROM='Test <test@example.com>';
+ process.env.CONTEXT='deploy-preview';
+ process.env.URL='https://production.example.com';
+ process.env.DEPLOY_PRIME_URL='https://preview.example.com';
+ let email;
+ global.fetch=async(url,options={})=>{
+   const u=String(url);
+   if(u.includes('challenges.cloudflare.com'))return jsonResponse({success:true});
+   if(u.includes('api.resend.com')){email=JSON.parse(options.body);return jsonResponse({id:'test-send'});}
+   if(options.method==='POST')return jsonResponse({records:[{id:'recTest'}]});
+   if(u.includes('Executive%20Applications')&&!decodeURIComponent(u).includes('DATETIME_DIFF'))return jsonResponse({records:[{fields:{Registered:true}}]});
+   return jsonResponse({records:[]});
+ };
+ try{
+  const r=await handler(form({session_jurisdiction:'Turks and Caicos Islands','cf-turnstile-response':'test-token'}));
+  assert.match(r.headers.Location,/status=verify-email/);
+  assert.match(email.html,/https:\/\/preview\.example\.com\/\.netlify\/functions\/tci-verify/);
+  assert.doesNotMatch(email.html,/production\.example\.com/);
+ }finally{delete process.env.CONTEXT;delete process.env.DEPLOY_PRIME_URL;delete process.env.URL;}
+});
