@@ -172,7 +172,7 @@ exports.handler = async function handler(event) {
       const secret=process.env.TBG_REGISTRATION_SIGNING_SECRET;
       if(!secret||!process.env.RESEND_API_KEY||!process.env.TBG_VERIFICATION_FROM)return {statusCode:302,headers:{Location:'/thank-you/?session=tci&status=verification-unavailable','Cache-Control':'no-store'},body:''};
       const token=signToken({session:TCI_SESSION,email:clean(data.email_address).toLowerCase(),exp:Date.now()+30*60*1000,nonce:randomBytes(12).toString('hex')},secret);
-      const origin=(process.env.URL||'https://thebucklergroup.com').replace(/\/$/,'');
+      const origin=((process.env.CONTEXT==='deploy-preview'||process.env.CONTEXT==='branch-deploy')?process.env.DEPLOY_PRIME_URL:(process.env.URL||'https://thebucklergroup.com')).replace(/\/$/,'');
       const link=origin+'/.netlify/functions/tci-verify?token='+encodeURIComponent(token);
       try{if(await sendTciVerification(clean(data.email_address).toLowerCase(),link))return {statusCode:302,headers:{Location:'/thank-you/?session=tci&status=verify-email','Cache-Control':'no-store'},body:''};}
       catch(err){console.error('Verification email failure',err.message)}
