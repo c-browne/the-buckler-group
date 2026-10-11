@@ -464,6 +464,12 @@
       .section-title{font-size:18px}
       .footer-inner{width:min(100% - 20px,1160px)}
     }
+/* Proposed CAIPA partner placement */
+.strategic-partner{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0 0 32px;padding:22px 28px;background:#f7f8f6;border-top:2px solid var(--gold);color:var(--navy)}
+.strategic-partner-label{margin:0;font:700 11px/1.5 var(--sans);letter-spacing:.17em;text-transform:uppercase;color:#59646b}
+.strategic-partner-logo{display:block;width:260px;max-width:100%;height:auto;object-fit:contain}
+@media(max-width:680px){.strategic-partner{padding:22px 24px;gap:18px;flex-direction:column;align-items:flex-start}.strategic-partner-logo{width:240px}}
+@media(max-width:470px){.strategic-partner{margin-bottom:24px;padding:20px}.strategic-partner-logo{width:230px}}
   </style>
 </head>
 <body>
@@ -491,6 +497,8 @@
       <h1>Participation Application</h1>
       <p class="lede">For senior leaders, investors, developers, and institutional partners. Participation is by invitation following review.</p>
     </header>
+
+    <aside class="strategic-partner" aria-label="Strategic partner"><p class="strategic-partner-label">Strategic Partner</p><img class="strategic-partner-logo" src="/assets-images/caipa-logo.svg" alt="CAIPA — Caribbean Association of Investment Promotion Agencies" width="260" height="74"></aside>
 
     <article class="application">
       <div class="application-meta" aria-label="Session information">
