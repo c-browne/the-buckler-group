@@ -646,7 +646,8 @@
       const sessions={
         guyana:["Guyana","July 24, 2026"],
         grenada:["Grenada","September 25, 2026"],
-        "turks-caicos":["Turks and Caicos Islands","October 29, 2026"],
+        "turks-caicos":["Turks & Caicos Islands","October 29, 2026"],
+        "turks-and-caicos":["Turks & Caicos Islands","October 29, 2026"],
         curacao:["Curaçao","November 19, 2026"],
         "dominican-republic":["Dominican Republic","January 15, 2027"]
       };
@@ -684,7 +685,7 @@
       form.elements.referral_category.value=referral ? referral[1] : "";
       form.elements.referral_entry_url.value=location.href.slice(0,500);
       formStartedAt.value=String(Date.now());
-      if(session&&session[0]==='Turks and Caicos Islands'){
+      if(session&&(session[0]==='Turks & Caicos Islands' || session[0]==='Turks and Caicos Islands')){
         const widget=document.getElementById('tci-turnstile');
         widget.style.display='block';
         fetch('/.netlify/functions/tci-config',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(config=>{
