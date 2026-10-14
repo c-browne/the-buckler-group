@@ -678,7 +678,7 @@
       const meta=document.querySelectorAll('.meta-value');
       meta[0].textContent=session ? session[0] : "Not selected";
       meta[1].textContent=session ? session[1] : "To be confirmed";
-      form.elements.session_jurisdiction.value=session ? session[0] : "";
+      form.elements.session_jurisdiction.value=session ? (session[0]==="Turks & Caicos Islands" ? "Turks and Caicos Islands" : session[0]) : "";
       if(grenadaSurveyTab) grenadaSurveyTab.classList.toggle("is-visible",Boolean(session && session[0]==="Grenada"));
       form.elements.referral_partner.value=referral ? referral[0] : "";
       form.elements.referral_code.value=referral ? referralCode : "";
