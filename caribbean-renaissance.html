@@ -645,12 +645,22 @@ section{padding:clamp(72px,8vw,112px) 5vw}
 @media(max-width:700px){.topbar{position:relative;display:block;padding:17px 20px}.brand .wordmark{font-size:24px}nav{display:flex;overflow-x:auto;white-space:nowrap;flex-wrap:nowrap;gap:20px;padding-top:15px;font-size:10px}.hero{min-height:auto;padding:95px 20px 95px}.hero h1{font-size:clamp(55px,12vw,77px)!important}.hero-subtitle{font-size:16px!important}.section-head h2{font-size:clamp(44px,10vw,60px)!important}section{padding:65px 20px}.pillar-row{grid-template-columns:1fr;gap:9px;padding:25px 0}.pillar-row h3{font-size:34px!important}.index-grid,.jurisdiction-grid,.crf-enhanced-grid{grid-template-columns:1fr}.diaspora-grid{grid-template-columns:1fr;gap:25px}.diaspora-line{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mandate-statement{font-size:39px!important}.cta-inner{display:block}.cta-band{padding:68px 20px}.hero-actions{gap:12px}.crf-enhanced{padding:72px 20px}.crf-enhanced h2{font-size:53px!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
-</head>
+<style id="tbg-framework-banner-branding">
+/* Consistent original TBG crest and editorial hero photography */
+.topbar .brand{display:inline-flex;align-items:center;gap:12px;min-width:0}
+.topbar .tbg-framework-crest{display:block;width:54px;height:54px;object-fit:contain;flex:none}
+.topbar .wordmark{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:25px!important;font-weight:600!important;letter-spacing:.005em!important}
+.hero{background:linear-gradient(90deg,rgba(7,17,31,.96) 0%,rgba(7,17,31,.86) 43%,rgba(7,17,31,.48) 100%),url("https://thebucklergroup.com/assets-images/Guyana%20Executive%20Intelligence%20photo.webp") center 48%/cover no-repeat!important}
+.hero::before{border-color:rgba(183,144,75,.22)}
+.hero-inner{max-width:1180px}
+.hero h1{text-shadow:0 3px 22px rgba(0,0,0,.18)}
+@media(max-width:700px){.topbar .tbg-framework-crest{width:44px;height:44px}.topbar .wordmark{font-size:22px!important}.hero{background:linear-gradient(90deg,rgba(7,17,31,.94),rgba(7,17,31,.76)),url("https://thebucklergroup.com/assets-images/Guyana%20Executive%20Intelligence%20photo.webp") center/cover no-repeat!important}}
+</style></head>
 
 <body>
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="The Buckler Group home">
-      <span class="wordmark">The Buckler Group</span>
+      <img class="tbg-framework-crest" src="https://thebucklergroup.com/assets-images/tbg-logo-new.png" alt="The Buckler Group original crest" width="54" height="54" decoding="async" /><span class="wordmark">The Buckler Group</span>
     </a>
     <nav>
       <a href="index.html">Main Site</a>
