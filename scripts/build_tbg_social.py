@@ -39,3 +39,5 @@ centered("Building Order. Advancing Opportunity.",413,font(30,True),cream)
 centered("CARIBBEAN INSTITUTIONAL ADVISORY & DEVELOPMENT",492,font(19),secondary,1)
 im.save(OUTPUT,"JPEG",quality=94,optimize=True,subsampling=0)
 print(OUTPUT)
+
+# Rebuild on source updates.
