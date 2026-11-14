@@ -970,6 +970,7 @@ footer {
         netlify-honeypot="bot-field">
 
     <input type="hidden" name="form-name" value="executive-engagement-assessment">
+    <input type="hidden" name="research-attribution" id="research-attribution" value="">
     <p class="hp"><label>Do not fill this out: <input name="bot-field"></label></p>
 
     <div class="form-header">
@@ -1103,5 +1104,5 @@ footer {
   </div>
 </footer>
 
-</body>
+<script>(function(){var p=new URLSearchParams(window.location.search),v=["utm_source","utm_medium","utm_campaign","utm_content"].map(function(k){var x=p.get(k);return x?k+"="+x.slice(0,100):""}).filter(Boolean).join("; ");if(v){try{sessionStorage.setItem("tbg_research_attribution",v)}catch(e){}}else{try{v=sessionStorage.getItem("tbg_research_attribution")||""}catch(e){}}var f=document.getElementById("research-attribution");if(f)f.value=v.slice(0,400)})();</script></body>
 </html>
