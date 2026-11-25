@@ -649,7 +649,14 @@
         "turks-caicos":["Turks & Caicos Islands","October 29, 2026"],
         "turks-and-caicos":["Turks & Caicos Islands","October 29, 2026"],
 
-        "dominican-republic":["Dominican Republic","January 15, 2027"]
+        "dominican-republic":["Dominican Republic","January 22, 2027"],
+        "bahamas":["The Bahamas","February 19, 2027"],
+        "jamaica":["Jamaica","March 12, 2027"],
+        "barbados":["Barbados","April 16, 2027"],
+        "puerto-rico":["Puerto Rico","May 21, 2027"],
+        "cayman-islands":["Cayman Islands","June 25, 2027"],
+        "saint-lucia":["Saint Lucia","September 17, 2027"],
+        "suriname":["Suriname","October 15, 2027"]
       };
       const query=new URLSearchParams(location.search);
       const jurisdiction=query.get("jurisdiction") || "";
@@ -672,13 +679,13 @@
       const referralCode=(query.get("ref") || "").trim().toUpperCase();
       const referral=Object.prototype.hasOwnProperty.call(referrals,referralCode) ? referrals[referralCode] : null;
       document.querySelector('.session strong').textContent=session ? (session[0]+" Strategic Session™") : "Strategic Session™";
-      document.querySelector('.session span').textContent=session ? session[1] : "Executive Participation";
+      document.querySelector('.session span').textContent=session ? session[1]+(jurisdiction==="dominican-republic"?" · Tentative":"") : "Executive Participation";
       document.title=session ? (session[0]+" Executive Participation | The Buckler Group") : "Executive Participation | The Buckler Group";
       const metaDescription=document.querySelector('meta[name="description"]');
       if(metaDescription) metaDescription.content=session ? session[0]+" Strategic Session executive participation application." : "Caribbean Strategic Session executive participation application.";
       const meta=document.querySelectorAll('.meta-value');
       meta[0].textContent=session ? (session[0]) : "Not selected";
-      meta[1].textContent=session ? session[1] : "To be confirmed";
+      meta[1].textContent=session ? session[1]+(jurisdiction==="dominican-republic"?" (Tentative)":"") : "To be confirmed";
       form.elements.session_jurisdiction.value=session ? (session[0]==="Turks & Caicos Islands" ? "Turks and Caicos Islands" : session[0]) : "";
       if(grenadaSurveyTab) grenadaSurveyTab.classList.toggle("is-visible",Boolean(session && session[0]==="Grenada"));
       form.elements.referral_partner.value=referral ? referral[0] : "";
